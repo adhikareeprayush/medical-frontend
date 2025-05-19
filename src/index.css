@@ -1,0 +1,83 @@
+/* Tailwind CSS v4 Configuration */
+/* Import Tailwind CSS */
+@import 'tailwindcss';
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yeseva+One&display=swap');
+
+/* Define Custom Theme */
+@theme {
+  /* Colors */
+  --color-primary: #1F2B6C; /* Primary brand color for headers, buttons, etc. */
+  --color-secondary: #159EEC; /* Secondary color for accents and highlights */
+  --color-tertiary: #BFD2F8; /* Tertiary color for backgrounds or subtle elements */
+  --color-black: #212124; /* Base black for text and borders */
+
+  /* Spacing */
+  --spacing-1: 8px; /* Smallest spacing unit for tight layouts */
+  --spacing-2: 16px; /* Standard spacing for margins/paddings */
+  --spacing-3: 24px; /* Medium spacing for sections */
+  --spacing-4: 32px; /* Larger spacing for containers */
+  --spacing-5: 48px; /* Extra spacing for major sections */
+  --spacing-6: 64px; /* Large gaps for layout separation */
+  --spacing-7: 92px; /* XL spacing for hero sections */
+  --spacing-8: 124px; /* XXL spacing for full-page layouts */
+
+  /* Fonts */
+  --font-display: 'Yeseva One', cursive; /* Decorative font for headings */
+  --font-body: 'Work Sans', sans-serif; /* Clean font for body text */
+
+  /* Font Styles */
+  --font-display1: normal normal 400 48px/normal var(--font-display); /* Large display for hero titles */
+  --font-display2: normal normal 400 32px/normal var(--font-display); /* Secondary display for section headers */
+  --font-title: normal normal 500 26px/normal var(--font-body); /* Primary heading style */
+  --font-caption: normal normal 700 18px/normal var(--font-display); /* Secondary heading style */
+  --font-body1: normal normal 16px/22.4px var(--font-body); /* Standard body text */
+  --font-body2: normal normal 18px/25.2px var(--font-body); /* Larger body text */
+  --font-button: normal normal 500 14px/normal var(--font-body); /* Button text style */
+  --font-small: normal normal 400 14px/normal var(--font-body); /* Small text style */
+}
+
+@layer utilities{
+  /* Typography */
+  .font-display1{
+    font: var(--font-display1);
+  }
+  .font-display2{
+    font: var(--font-display2);
+  }
+  .font-title{
+    font: var(--font-title);
+  }
+  .font-caption{
+    font: var(--font-caption);
+    @apply tracking-[2.88px] uppercase;
+  }
+  .font-body1{
+    font: var(--font-body1);
+  }
+  .font-body2{
+    font: var(--font-body2);
+  }
+  .font-button{
+    font: var(--font-button);
+  }
+  .font-small{
+    font: var(--font-small);
+  }
+}
+
+@layer components {
+  body{
+    @apply bg-[#FCFEFE];
+  }
+  h1,h2,h3,h4,h5,h6{
+    @apply font-display;
+  }
+  p{
+    @apply font-body;
+  }
+  section{
+    @apply xl:px-[187px] xl:gap-[10px] lg:px-[80px] lg:gap-[5px] md:px-[40px] md:gap-[3px] sm:px-[20px] sm:gap-[2px] px-[10px] gap-[1px];
+  }
+}
