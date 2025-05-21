@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/landing/Header";
 import Nav from "../components/landing/Nav";
-import Hero from "../components/landing/Hero";
+import HeroSec from "../components/landing/Hero Section/HeroSec";
 
 
 const LandingLayout = () => {
@@ -9,6 +9,7 @@ const LandingLayout = () => {
     <div>
       <Header />
       <Nav />
+      <HeroSec />
       <main className="p-6">
         <Outlet />
       </main>
