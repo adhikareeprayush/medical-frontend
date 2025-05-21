@@ -1,8 +1,11 @@
 import React from 'react'
+import Hero from '../../components/landing/Hero'
 
 const index = () => {
   return (
-    <section className=''>index landing</section>
+    <section className=''>
+      <Hero />
+    </section>
   )
 }
 
