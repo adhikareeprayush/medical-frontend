@@ -10,8 +10,9 @@
   /* Colors */
   --color-primary: #1f2b6c;
   --color-secondary: #159eec;
-  --color-tertiary: #bfd2f8;
+  --color-accent: #bfd2f8;
   --color-black: #212124;
+  --color-white: #fcfefe;
 
   /* Spacing */
   --spacing-1: 8px;
@@ -121,5 +122,11 @@
            md:px-[40px] md:gap-[3px]
            sm:px-[20px] sm:gap-[2px]
            px-[10px] gap-[1px];
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input::placeholder {
+    @apply bg-accent text-primary text-[16px] font-body outline-none focus:ring-0;
   }
 }
