@@ -7,7 +7,7 @@ import Doc2 from "../../../assets/Doc2.png";
 import Doc3 from "../../../assets/Doc3.png";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import RoundButton from "../../RoundButton";
-import NextArrowBtn from "../../NextArrowBtn";  
+import NextArrowBtn from "../../NextArrowBtn";
 import PrevArrowBtn from "../../PrevArrowBtn";
 
 const Cards = [
@@ -59,8 +59,6 @@ const OurDocSec = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    nextArrow: <NextArrowBtn />,
-    prevArrow: <PrevArrowBtn />,
     responsive: [
       {
         breakpoint: 1024,
@@ -69,10 +67,12 @@ const OurDocSec = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: true,
+          nextArrow: <NextArrowBtn />,
+          prevArrow: <PrevArrowBtn />,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 700,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -98,7 +98,7 @@ const OurDocSec = () => {
       </div>
 
       <div className="slider-container flex justify-center w-full">
-        <Slider {...settings} className="max-w-[1050px] my-2 w-full px-2">
+        <Slider {...settings} className="max-w-[1080px] my-2 w-full px-2">
           {Cards.map((card) => (
             <div
               key={card.id}
@@ -110,10 +110,12 @@ const OurDocSec = () => {
                 className="w-full h-fit object-cover"
               />
               <div className="bg-secondary/25 gap-0.5 flex flex-col items-center justify-center p-2">
-                <h3 className="text-primary font-semibold text-xl tracking-wider">
+                <h3 className="text-primary font-semibold text-lg lg:text-xl tracking-wider truncate">
                   {card.name}
                 </h3>
-                <p className="text-secondary text-lg tracking-wide">{card.specialization}</p>
+                <p className="text-secondary text-md lg:text-lg tracking-wide truncate">
+                  {card.specialization}
+                </p>
                 <div className="flex gap-3 my-2">
                   <RoundButton
                     divStyles="bg-primary text-gray-400"
@@ -128,8 +130,8 @@ const OurDocSec = () => {
                   <RoundButton
                     divStyles="bg-primary text-gray-400"
                     spanStyles="bg-black"
-                    text={<FaInstagram size={20} />}  
-                    />
+                    text={<FaInstagram size={20} />}
+                  />
                 </div>
               </div>
             </div>
