@@ -4,6 +4,8 @@ import Nav from "../components/landing/Nav";
 import HeroSec from "../components/landing/Hero Section/HeroSec";
 import WelcomeSec from "../components/WelcomeSec";
 import DoctorSec from "../components/landing/DoctorSec";
+import OurDocSec from "../components/landing/Hero Section/OurDocSec";
+import Home from "../Pages/Home";
 
 
 const LandingLayout = () => {
@@ -11,9 +13,7 @@ const LandingLayout = () => {
     <div>
       <Header />
       <Nav />
-      <HeroSec />
-      <WelcomeSec />
-      <DoctorSec />
+      <Home />
       <main className="p-6">
         <Outlet />
       </main>

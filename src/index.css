@@ -123,3 +123,7 @@
            px-[10px] gap-[1px];
   }
 }
+
+.slick-slide:focus {
+  outline: none !important;
+}
