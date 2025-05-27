@@ -8,6 +8,7 @@ import AdminLayout from './layouts/AdminLayout';
 const Home = lazy(() => import('./routes/landing/index'));
 const About = lazy(() => import('./routes/landing/about'));
 const Pricing = lazy(() => import('./routes/landing/pricing'));
+const Services = lazy(() => import('./routes/landing/services'));
 
 const AdminHome = lazy(() => import('./routes/admin/index'));
 const Dashboard = lazy(() => import('./routes/admin/dashboard'));
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'about', element: <About /> },
       { path: 'pricing', element: <Pricing /> },
+      { path: 'services', element: <Services /> },
     ],
   },
   {
