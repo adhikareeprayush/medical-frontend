@@ -25,7 +25,7 @@ const Header = () => {
     <section className="w-full flex items-center lg:justify-between justify-center lg:h-[80px] py-2">
       <h1 className="uppercase font-display2 text-4xl lg:inline-block hidden ">
         <span className="text-primary">med</span>
-        <span className="text-secondary">ddical</span>
+        <span className="text-secondary">dical</span>
       </h1>
       <div className="flex items-center lg:justify-between gap-2 flex-wrap lg:flex-nowrap justify-around">
         {contacts.map((contact, index) => {
