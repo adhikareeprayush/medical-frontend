@@ -8,7 +8,6 @@ const LandingLayout = () => {
     <div>
       <Header />
       <Nav />
-      <Home />
       <main className="p-6">
         <Outlet />
       </main>
