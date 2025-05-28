@@ -1,9 +1,13 @@
-import React from 'react'
+import Section from "../../components/landing/Section";
+import Hero from "../../components/landing/Hero";
 
 const index = () => {
   return (
-    <section className=''></section>
-  )
-}
+    <>
+      <Hero />
+      <Section />
+    </>
+  );
+};
 
-export default index
+export default index;
