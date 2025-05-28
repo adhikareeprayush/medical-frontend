@@ -59,6 +59,8 @@ const OurDocSec = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
+    nextArrow: <NextArrowBtn />,
+    prevArrow: <PrevArrowBtn />,
     responsive: [
       {
         breakpoint: 1024,
@@ -67,8 +69,6 @@ const OurDocSec = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: true,
-          nextArrow: <NextArrowBtn />,
-          prevArrow: <PrevArrowBtn />,
         },
       },
       {
