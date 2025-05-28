@@ -1,6 +1,6 @@
 import React from "react";
-import DoctorBg from "../../assets/docbg.png";
-import DoctorImg from "../../assets/doctors.png";
+import DoctorBg from "../../assets/images/docbg.png";
+import DoctorImg from "../../assets/images/doctors.png";
 
 const DoctorSec = () => {
   return (

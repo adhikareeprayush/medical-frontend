@@ -1,6 +1,6 @@
 import React from "react";
-import HeroImg1 from "../../../assets/icons/hero.png";
-import HeroImg2 from "../../../assets/icons/hero2.png";
+import HeroImg1 from "../../assets/images/hero.png";
+import HeroImg2 from "../../assets/images/hero2.png";
 import HeroBanner from "./HeroBanner";  
 import AppointmentSec from "./AppointmentSec";
 

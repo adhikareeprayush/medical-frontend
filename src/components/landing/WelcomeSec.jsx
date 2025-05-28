@@ -1,5 +1,5 @@
 import React from "react";
-import LearnMoreBtn from "./landing/LearnMoreBtn";
+import LearnMoreBtn from "../common/LearnMoreBtn";
 
 const WelcomeSec = () => {
   return (

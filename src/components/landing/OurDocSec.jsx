@@ -2,13 +2,13 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Doc1 from "../../../assets/Doc1.png";
-import Doc2 from "../../../assets/Doc2.png";
-import Doc3 from "../../../assets/Doc3.png";
+import Doc1 from "../../assets/images/Doc1.png";
+import Doc2 from "../../assets/images/Doc2.png";
+import Doc3 from "../../assets/images/Doc3.png";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
-import RoundButton from "../../RoundButton";
-import NextArrowBtn from "../../NextArrowBtn";
-import PrevArrowBtn from "../../PrevArrowBtn";
+import RoundButton from "../common/RoundButton";
+import NextArrowBtn from "../common/NextArrowBtn";
+import PrevArrowBtn from "../common/PrevArrowBtn";
 
 const Cards = [
   {
@@ -89,12 +89,14 @@ const OurDocSec = () => {
     ],
   };
   return (
-    <section className="my-25 w-full h-[530px]">
+    <section className="my-25 w-full mb-4">
       <div className="w-full flex flex-col items-center justify-center gap-2 my-4">
         <h1 className="text-secondary font-bold text-xl tracking-widest uppercase text-center">
           Trusted Care
         </h1>
-        <p className="text-primary font-display1 text-center">Our Doctors</p>
+        <p className="text-primary font-display1 text-center">
+          Our Doctors
+        </p>
       </div>
 
       <div className="slider-container flex justify-center w-full">

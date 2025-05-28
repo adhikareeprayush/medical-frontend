@@ -1,5 +1,5 @@
 import React from 'react'
-import calender from '../../../assets/icons/calender.png'
+import calender from '../../assets/icons/calender.png'
 
 const images = {
   calender: calender,
