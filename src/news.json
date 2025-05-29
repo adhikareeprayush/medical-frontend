@@ -1,37 +1,42 @@
 [
-    {
-        "id": 1,
-        "date": "Monday, October 23, 2023",
-        "author": "John Doe",
-        "image": "../src/assets/images/News1.png",
-        "title": "Breaking News: Major Earthquake Hits City",
-        "likes": 150,
-        "views": 120
-    },
-    {
-        "id": 2,
-        "date": "Monday, October 23, 2023",
-        "author": "John Doe",
-        "image": "../src/assets/images/News1.png",
-        "title": "Breaking News: Major Earthquake Hits City",
-        "likes": 150,
-        "views": 120
-    },{
-        "id": 3,
-        "date": "Monday, October 23, 2023",
-        "author": "John Doe",
-        "image": "../src/assets/images/News1.png",
-        "title": "Breaking News: Major Earthquake Hits City",
-        "likes": 150,
-        "views": 120
-    },
-    {
-        "id": 4,
-        "date": "Monday, October 23, 2023",
-        "author": "John Doe",
-        "image": "../src/assets/images/News1.png",
-        "title": "Breaking News: Major Earthquake Hits City",
-        "likes": 150,
-        "views": 120
-    }
+  {
+    "id": 1,
+    "date": "Monday, October 23, 2023",
+    "author": "John Doe",
+    "image": "../src/assets/images/News1.png",
+    "title": "Breaking News: Major Earthquake Hits City",
+    "description": "A major earthquake has struck the city, causing widespread damage and panic among residents. Emergency services are on high alert as they respond to numerous calls for help.A major earthquake has struck the city, causing widespread damage and panic among residents. Emergency services are on high alert as they respond to numerous calls for help.A major earthquake has struck the city, causing widespread damage and panic among residents. Emergency services are on high alert as they respond to numerous calls for help.",
+    "likes": 150,
+    "views": 120
+  },
+  {
+    "id": 2,
+    "date": "Monday, October 23, 2023",
+    "author": "John Doe",
+    "image": "../src/assets/images/News1.png",
+    "title": "Breaking News: Major Earthquake Hits City",
+    "description": "A major earthquake has struck the city, causing widespread damage and panic among residents. Emergency services are on high alert as they respond to numerous calls for help.",
+    "likes": 150,
+    "views": 120
+  },
+  {
+    "id": 3,
+    "date": "Monday, October 23, 2023",
+    "author": "John Doe",
+    "image": "../src/assets/images/News1.png",
+    "title": "Breaking News: Major Earthquake Hits City",
+    "description": "A major earthquake has struck the city, causing widespread damage and panic among residents. Emergency services are on high alert as they respond to numerous calls for help.",
+    "likes": 150,
+    "views": 120
+  },
+  {
+    "id": 4,
+    "date": "Monday, October 23, 2023",
+    "author": "John Doe",
+    "image": "../src/assets/images/News1.png",
+    "title": "Breaking News: Major Earthquake Hits City",
+    "description": "A major earthquake has struck the city, causing widespread damage and panic among residents. Emergency services are on high alert as they respond to numerous calls for help.",
+    "likes": 150,
+    "views": 120
+  }
 ]
