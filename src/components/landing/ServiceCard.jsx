@@ -1,9 +1,10 @@
 import { ArrowRight } from 'lucide-react';
-import bandageIcon from '../../assets/icons/bandage.svg';
+import iconMap from '../common/iconMap';
 
 const ServiceCard = ({ service }) => {
+  const IconComponent = iconMap[service.icon];
   return (
-    <div className="group relative h-[552px] w-full cursor-pointer lg:w-[300px]">
+    <a href={`/services/${service.slug}`} className="group relative h-[552px] w-full cursor-pointer lg:w-[300px]">
       <div className="relative h-[300px]">
         <div className="bg-primary/80 absolute h-full w-full rounded-tl-md rounded-tr-md opacity-0 duration-300 group-hover:opacity-100" />
         <img
@@ -12,7 +13,13 @@ const ServiceCard = ({ service }) => {
           className={`h-full w-full rounded-tl-md rounded-tr-md object-cover transition-all duration-300`}
         />
         <div className="bg-primary absolute right-[24px] -bottom-[32px] flex h-[80px] w-[80px] flex-col items-center justify-center rounded-full duration-300 group-hover:right-[50%] group-hover:bottom-[50%] group-hover:translate-x-1/2 group-hover:translate-y-1/2">
-          <img src={bandageIcon} alt="icon" width={26} height={26} />
+          {/* <img src={bandageIcon} alt="icon" width={26} height={26} /> */}
+           {IconComponent ? (
+            <IconComponent size={26} color="white" />
+          ) : (
+            // fallback icon or nothing
+            <span className="text-white text-xl">?</span>
+          )}
         </div>
       </div>
 
@@ -22,13 +29,13 @@ const ServiceCard = ({ service }) => {
           {service.description}
         </p>
         <a
-          href={service.link}
+          href={`/services/${service.slug}`}
           className="font-body inline-flex items-center text-blue-600 hover:underline"
         >
           Learn More <ArrowRight color="black" size={20} className="ml-[4px]" />
         </a>
       </div>
-    </div>
+    </a>
   );
 };
 
