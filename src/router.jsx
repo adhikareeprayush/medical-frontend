@@ -11,6 +11,7 @@ const Pricing = lazy(() => import('./routes/landing/pricing'));
 const News = lazy(() => import('./routes/landing/news'));
 const NewsDetails = lazy(() => import("../src/components/common/NewsDetails"));
 const Services = lazy(() => import('./routes/landing/services'));
+const ServicePage = lazy(() => import('./routes/landing/services/page'));
 
 const AdminHome = lazy(() => import('./routes/admin/index'));
 const Dashboard = lazy(() => import('./routes/admin/dashboard'));
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: 'about', element: <About /> },
       { path: 'pricing', element: <Pricing /> },
       { path: 'services', element: <Services /> },
+      { path: 'services/:slug', element: <ServicePage /> },
     ],
   },
   {
