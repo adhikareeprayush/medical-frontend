@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import NewsData from "../../news.json";
 import EyeIcon from "../../assets/icons/eye.svg";
 import HeartIcon from "../../assets/icons/heart.svg";
+import LearnMoreBtn from "../common/LearnMoreBtn";
 
 const NewsSection = () => {
   return (
@@ -20,10 +21,14 @@ const NewsSection = () => {
               to={`/news/${news.id}`}
               className="flex items-center justify-center gap-4"
             >
-              <div>
-                <img src={news.image} alt="" />
+              <div className="">
+                <img
+                  src={news.image}
+                  alt={news.title}
+                  className=""
+                />
               </div>
-              <div className="flex flex-col gap-1 px-2">
+              <div className="flex flex-col gap-1 p-2">
                 <h2 className="text-secondary ">{news.date}</h2>
                 <h2 className="text-secondary ">By {news.author}</h2>
                 <h3 className="text-lg font-semibold  my-1.5">{news.title}</h3>
@@ -42,6 +47,14 @@ const NewsSection = () => {
           </div>
         ))}
       </div>
+      <div>
+        <Link
+          to="/news"
+          className=""
+        >
+          <LearnMoreBtn text="View All News" styles="mt-4"/>
+        </Link>
+      </div> 
     </section>
   );
 };
