@@ -1,4 +1,4 @@
-import ServiceCard from "../../components/landing/serviceCard";
+import ServiceCard from "../../components/landing/ServiceCard";
 
 const mockServices = [
   {
