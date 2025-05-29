@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import serviceBanner from '../../assets/images/banner/serviceBanner.png';
 import aboutBanner from '../../assets/images/banner/aboutBanner.png';
-import blogBanner from '../../assets/images/banner/blogBanner.png';
+import blogBanner from '../../assets/images/banner/newsBanner.png';
 import doctorBanner from '../../assets/images/banner/doctorBanner.png';
 import contactBanner from '../../assets/images/banner/contactBanner.png';
 import appointmentBanner from '../../assets/images/banner/appointmentBanner.png';
