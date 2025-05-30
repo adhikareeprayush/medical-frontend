@@ -10,6 +10,8 @@ const About = lazy(() => import('./routes/landing/about'));
 const Pricing = lazy(() => import('./routes/landing/pricing'));
 const News = lazy(() => import('./routes/landing/news'));
 const NewsDetails = lazy(() => import("../src/components/common/NewsDetails"));
+const Services = lazy(() => import('./routes/landing/services'));
+const ServicePage = lazy(() => import('./routes/landing/services/page'));
 
 const AdminHome = lazy(() => import('./routes/admin/index'));
 const Dashboard = lazy(() => import('./routes/admin/dashboard'));
@@ -26,6 +28,10 @@ const router = createBrowserRouter([
       { path: "pricing", element: <Pricing /> },
       { path: "news", element: <News /> },
       { path: "news/:newsId", element: <NewsDetails /> },
+      { path: 'about', element: <About /> },
+      { path: 'pricing', element: <Pricing /> },
+      { path: 'services', element: <Services /> },
+      { path: 'services/:slug', element: <ServicePage /> },
     ],
   },
   {
