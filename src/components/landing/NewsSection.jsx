@@ -1,39 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import NewsData from "../../news.json";
-import EyeIcon from "../../assets/icons/eye.svg";
-import HeartIcon from "../../assets/icons/heart.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import NewsData from '../../news.json';
+import EyeIcon from '../../assets/icons/eye.svg';
+import HeartIcon from '../../assets/icons/heart.svg';
 
 const NewsSection = () => {
   return (
-    <section className="w-full my-10 flex flex-col items-center justify-center">
+    <section className="my-10 flex w-full flex-col items-center justify-center">
       <div className="my-4">
-        <h1 className="text-secondary font-bold text-xl tracking-widest uppercase text-center">
+        <h1 className="text-secondary text-center text-xl font-bold tracking-widest uppercase">
           Better Information, Better Health
         </h1>
         <p className="text-primary font-display1 text-center">News</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-6xl mt-4">
+      <div className="mt-4 grid w-full max-w-6xl grid-cols-1 gap-4 md:grid-cols-2">
         {NewsData.map((news) => (
-          <div key={news.id} className="shadow-md">
-            <Link
-              to={`/news/${news.id}`}
-              className="flex items-center justify-center gap-4"
-            >
+          <div key={news.id} className="overflow-hidden rounded-lg shadow-md">
+            <Link to={`/news/${news.id}`} className="flex justify-center">
               <div>
-                <img src={news.image} alt="" />
+                <img src={news.image} className="h-full object-cover" alt="" />
               </div>
-              <div className="flex flex-col gap-1 px-2">
-                <h2 className="text-secondary ">{news.date}</h2>
-                <h2 className="text-secondary ">By {news.author}</h2>
-                <h3 className="text-lg font-semibold  my-1.5">{news.title}</h3>
-                <div className="flex gap-4 items-center">
-                  <div className="flex gap-1 items-center">
-                    <img src={EyeIcon} alt="" className="h-2 w-2" />
+              <div className="flex flex-col gap-1 px-2 py-2">
+                <div className="font-small">
+                  <h2 className="text-secondary">
+                    {news.date} By {news.author}
+                  </h2>
+                  <h3 className="my-1.5 text-lg">{news.title}</h3>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-1">
+                    <img src={EyeIcon} alt="" className="size-2" />
                     <span>{news.views}</span>
                   </div>
-                  <div className="flex gap-1 items-center">
-                    <img src={HeartIcon} alt="" className="h-2 w-2" />
+                  <div className="flex items-center gap-1">
+                    <img src={HeartIcon} alt="" className="size-2" />
                     <span>{news.likes}</span>
                   </div>
                 </div>
