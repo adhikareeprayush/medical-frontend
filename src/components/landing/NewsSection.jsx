@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NewsData from '../../news.json';
-import { IoEyeOutline } from 'react-icons/io5';
-import { FaRegHeart } from 'react-icons/fa';
+import EyeIcon from '../../assets/icons/eye.svg';
+import HeartIcon from '../../assets/icons/heart.svg';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 
 const NewsSection = () => {
@@ -14,38 +14,24 @@ const NewsSection = () => {
         </h1>
         <p className="text-primary font-display1 text-center">News</p>
       </div>
-      <div className="mt-4 grid w-full grid-cols-1 gap-2 md:grid-cols-2 xl:gap-4">
+      <div className="mt-4 grid w-full max-w-6xl grid-cols-1 gap-4 md:grid-cols-2">
         {NewsData.map((news) => (
-          <div
-            key={news.id}
-            className="h-[160px] overflow-hidden rounded-[5px] shadow-[0_0_20px_rgba(0,0,0,0.05)] md:h-[160px]"
-          >
-            <Link to={`/news/${news.id}`} className="flex h-full items-center">
-              <div className="h-full">
-                <img
-                  src={news.image} 
-                  alt=""
-                  className="h-full object-contain"
-                />
+          <div key={news.id} className="overflow-hidden rounded-lg shadow-md">
+            <Link to={`/news/${news.id}`} className="flex justify-center">
+              <div>
+                <img src={news.image} className="h-full object-cover" alt="" />
               </div>
-              <div className="flex h-full flex-col gap-1 p-2">
-                <h2 className="text-secondary font-small">
-                  {news.date} | {news.author}
-                </h2>
-                <h3 className="font-body1 lg:font-body2 my-1.5 line-clamp-3 flex-grow font-semibold">
-                  {news.title}
-                </h3>
+              <div className="flex flex-col gap-1 px-2">
+                <h2 className="text-secondary">{news.date}</h2>
+                <h2 className="text-secondary">By {news.author}</h2>
+                <h3 className="my-1.5 text-lg font-semibold">{news.title}</h3>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-1">
-                    <IoEyeOutline
-                      size={16}
-                      strokeWidth={3}
-                      className="text-[#526AE9]"
-                    />
+                    <img src={EyeIcon} alt="" className="h-2 w-2" />
                     <span>{news.views}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <FaRegHeart size={16} className="text-[#E2315C]" />
+                    <img src={HeartIcon} alt="" className="h-2 w-2" />
                     <span>{news.likes}</span>
                   </div>
                 </div>
