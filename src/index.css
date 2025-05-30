@@ -45,6 +45,13 @@
     font-style: normal;
   }
 
+  .font-display3 {
+    font-family: var(--font-display);
+    font-size: 25px;
+    line-height: normal;
+    font-style: normal;
+  }
+
   .font-title {
     font-family: var(--font-body);
     font-size: 26px;
