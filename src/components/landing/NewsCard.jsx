@@ -1,51 +1,65 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-import NewsData from "../../news.json";
-import CalenderIcon from "../../assets/icons/calender.svg";
-import UserIcon from "../../assets/icons/user.svg";
-import EyeIcon from "../../assets/icons/eye.svg";
-import HeartIcon from "../../assets/icons/heart.svg";
-import LearnMoreBtn from "../common/LearnMoreBtn";
-
-const NewsCard = () => {
-    // const { news } = props;
+import { CiCalendar } from 'react-icons/ci';
+import { GoPerson } from 'react-icons/go';
+import { IoEyeOutline } from 'react-icons/io5';
+import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+const NewsCard = ({ news }) => {
+  console.log(news);
   return (
-    <div className='w-[60%] mx-auto my-6 flex flex-col items-center justify-center gap-6'>
-        {NewsData.map((news) => (
-            <div key={news.id} className="">
-                <Link
-                    to={`/news/${news.id}`}
-                    className="flex flex-col gap-[20px]"
-                >
-                    <div>
-                        <img src={news.image} alt="" />
-                    </div>
-                    <div className='flex gap-3'>
-                        <div className='flex gap-1.5'>
-                            <img src={CalenderIcon} alt="" />
-                            <span>{news.date}</span>
-                        </div>
-                        <div className='flex gap-1.5'>
-                            <img src={UserIcon} alt="" />
-                            <span>By {news.author}</span>
-                        </div>
-                        <div className='flex gap-1.5'>
-                            <img src={EyeIcon} alt="" />
-                            <span>{news.views}</span>
-                        </div>
-                        <div className='flex gap-1.5'>
-                            <img src={HeartIcon} alt="" />
-                            <span>{news.likes}</span>
-                        </div>
-                    </div>
-                    <h2 className='font-display3 lg:font-display2 text-primary tracking-wide'>{news.title}</h2>
-                    <p className=''>{news.content}</p>
-                    <LearnMoreBtn text="Read More" textStyles="text-primary font-semibold text-sm" styles="px-2 py-1 bg-accent rounded-full w-fit" />
-                </Link>
+    <Link
+      to={`/news/${news.id}`}
+      className="flex flex-col gap-1 overflow-hidden"
+    >
+      {/* News Image */}
+      <div className="h-[400px] w-full overflow-hidden bg-gray-200">
+        <img
+          src={news.image}
+          alt={news.title}
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <div className="flex flex-col gap-2 py-2">
+        <div className="flex flex-grow flex-col gap-1">
+          <div className="flex items-center gap-3 bg-gray-50">
+            <div className="flex items-center gap-1 text-base">
+              <CiCalendar strokeWidth={1} />
+              <p className="font-body1">{news.date}</p>
             </div>
-        ))}
-    </div>
-  )
-}
 
-export default NewsCard
+            <div className="flex items-center gap-1 text-base">
+              <GoPerson strokeWidth={1} className="text-secondary" />
+              <p className="font-body1">By {news.author}</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <IoEyeOutline
+                size={16}
+                strokeWidth={3}
+                className="text-[#526AE9]"
+              />
+
+              <div className="font-semibold">{news.views}</div>
+            </div>
+            <div className="flex items-center gap-1">
+              <FaRegHeart size={16} className="text-[#E2315C]" />
+
+              <div className="font-semibold">{news.likes}</div>
+            </div>
+          </div>
+          <h3 className="text-lg font-bold">{news.title}</h3>
+          <p className="font-body1 line-clamp-4 text-[#212124]">
+            {news.description}
+          </p>
+        </div>
+        <Link
+          to={`/news/${news.id}`}
+          className="group text-primary bg-accent flex w-fit items-center gap-1 rounded-full px-3 py-2 text-sm font-medium"
+        >
+          Read More{' '}
+          <FaArrowRight className="duration-300 group-hover:translate-x-[4px]" />
+        </Link>
+      </div>
+    </Link>
+  );
+};
+
+export default NewsCard;
