@@ -3,35 +3,39 @@
         "id": 1,
         "date": "Monday, October 23, 2023",
         "author": "John Doe",
-        "image": "../src/assets/images/News1.png",
+        "image": "../src/assets/images/news/News1.png",
         "title": "Breaking News: Major Earthquake Hits City",
         "likes": 150,
-        "views": 120
+        "views": 120,
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare. Quisque placerat scelerisque tortor ornare ornare Convallis felis vitae tortor augue. Velit nascetur proin massa in. Consequat faucibus porttitor enim et...."
     },
     {
         "id": 2,
         "date": "Monday, October 23, 2023",
         "author": "John Doe",
-        "image": "../src/assets/images/News1.png",
+        "image": "../src/assets/images/news/News2.png",
         "title": "Breaking News: Major Earthquake Hits City",
         "likes": 150,
-        "views": 120
+        "views": 120,
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare. Quisque placerat scelerisque tortor ornare ornare Convallis felis vitae tortor augue. Velit nascetur proin massa in. Consequat faucibus porttitor enim et...."
     },{
         "id": 3,
         "date": "Monday, October 23, 2023",
         "author": "John Doe",
-        "image": "../src/assets/images/News1.png",
+        "image": "../src/assets/images/news/News3.png",
         "title": "Breaking News: Major Earthquake Hits City",
         "likes": 150,
-        "views": 120
+        "views": 120,
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare. Quisque placerat scelerisque tortor ornare ornare Convallis felis vitae tortor augue. Velit nascetur proin massa in. Consequat faucibus porttitor enim et...."
     },
     {
         "id": 4,
         "date": "Monday, October 23, 2023",
         "author": "John Doe",
-        "image": "../src/assets/images/News1.png",
+        "image": "../src/assets/images/news/News4.png",
         "title": "Breaking News: Major Earthquake Hits City",
         "likes": 150,
-        "views": 120
+        "views": 120,
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare. Quisque placerat scelerisque tortor ornare ornare Convallis felis vitae tortor augue. Velit nascetur proin massa in. Consequat faucibus porttitor enim et...."
     }
 ]

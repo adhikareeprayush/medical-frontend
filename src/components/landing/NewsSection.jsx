@@ -21,11 +21,11 @@ const NewsSection = () => {
               to={`/news/${news.id}`}
               className="flex items-center justify-center gap-4"
             >
-              <div className="">
+              <div className="w-[300px] h-[200px]">
                 <img
                   src={news.image}
                   alt={news.title}
-                  className=""
+                  className="w-full h-full object-cover rounded-sm"
                 />
               </div>
               <div className="flex flex-col gap-1 p-2">

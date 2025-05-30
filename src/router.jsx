@@ -9,7 +9,7 @@ const Home = lazy(() => import('./routes/landing/index'));
 const About = lazy(() => import('./routes/landing/about'));
 const Pricing = lazy(() => import('./routes/landing/pricing'));
 const News = lazy(() => import('./routes/landing/news'));
-const NewsDetails = lazy(() => import("../src/components/common/NewsDetails"));
+const NewsDetails = lazy(() => import("../src/components/landing/NewsDetails"));
 const Services = lazy(() => import('./routes/landing/services'));
 const ServicePage = lazy(() => import('./routes/landing/services/page'));
 
