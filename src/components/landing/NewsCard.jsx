@@ -38,7 +38,7 @@ const NewsCard = () => {
                             <span>{news.likes}</span>
                         </div>
                     </div>
-                    <h2 className='font-display2 text-primary tracking-wide'>{news.title}</h2>
+                    <h2 className='font-display3 lg:font-display2 text-primary tracking-wide'>{news.title}</h2>
                     <p className=''>{news.content}</p>
                     <LearnMoreBtn text="Read More" textStyles="text-primary font-semibold text-sm" styles="px-2 py-1 bg-accent rounded-full w-fit" />
                 </Link>
