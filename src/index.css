@@ -1,9 +1,9 @@
 /* Tailwind CSS v4 Configuration */
 /* Import Tailwind CSS */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Import Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yeseva+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yeseva+One&display=swap');
 
 /* Define Custom Theme */
 @theme {
@@ -25,8 +25,8 @@
   --spacing-8: 124px;
 
   /* Fonts */
-  --font-display: "Yeseva One", Georgia, serif;
-  --font-body: "Work Sans", sans-serif;
+  --font-display: 'Yeseva One', Georgia, serif;
+  --font-body: 'Work Sans', sans-serif;
 }
 
 @layer utilities {
@@ -116,17 +116,13 @@
   }
 
   section {
-    @apply xl:px-[187px] xl:gap-[10px]
-           lg:px-[80px] lg:gap-[5px]
-           md:px-[40px] md:gap-[3px]
-           sm:px-[20px] sm:gap-[2px]
-           px-[10px] gap-[1px];
+    @apply gap-[1px] px-[10px] sm:gap-[2px] sm:px-[20px] md:gap-[3px] md:px-[40px] lg:gap-[5px] lg:px-[80px] xl:gap-[10px] xl:px-[187px];
   }
 
-  input[type="text"],
-  input[type="email"],
+  input[type='text'],
+  input[type='email'],
   input::placeholder {
-    @apply bg-accent text-primary text-[16px] font-body outline-none focus:ring-0;
+    @apply font-body text-[16px] outline-none focus:ring-0;
   }
 }
 

@@ -1,37 +1,37 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import send from "../../assets/icons/send.svg";
-import facebookIcon from "../../assets/icons/facebook.svg";
-import instagramIcon from "../../assets/icons/instagram.svg";
-import linkedinIcon from "../../assets/icons/linkedin.svg";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import send from '../../assets/icons/send.svg';
+import facebookIcon from '../../assets/icons/facebook.svg';
+import instagramIcon from '../../assets/icons/instagram.svg';
+import linkedinIcon from '../../assets/icons/linkedin.svg';
 
 const footerMenus = [
   {
-    title: "Important Links",
+    title: 'Important Links',
     subMenus: [
-      { title: "Appointment", link: "/appointment" },
-      { title: "Doctors", link: "/doctors" },
-      { title: "Services", link: "/services" },
-      { title: "About Us", link: "/about" },
+      { title: 'Appointment', link: '/appointment' },
+      { title: 'Doctors', link: '/doctors' },
+      { title: 'Services', link: '/services' },
+      { title: 'About Us', link: '/about' },
     ],
   },
   {
-    title: "Contact Us",
+    title: 'Contact Us',
     subMenus: [
-      { title: "Call: (+251) 911 11 11 11", link: "tel:+251911111111" },
+      { title: 'Call: (+251) 911 11 11 11', link: 'tel:+251911111111' },
       {
-        title: "Email: fildineesoe@gmail.com",
-        link: "mailto:fildineesoe@gmail.com",
+        title: 'Email: fildineesoe@gmail.com',
+        link: 'mailto:fildineesoe@gmail.com',
       },
-      { title: "Address: Addis Ababa, Ethiopia", link: "#" },
+      { title: 'Address: Addis Ababa, Ethiopia', link: '#' },
     ],
   },
 ];
 
 const socialLinks = [
-  { icon: facebookIcon, link: "https://www.facebook.com" },
-  { icon: instagramIcon, link: "https://www.instagram.com" },
-  { icon: linkedinIcon, link: "https://www.linkedin.com" },
+  { icon: facebookIcon, link: 'https://www.facebook.com' },
+  { icon: instagramIcon, link: 'https://www.instagram.com' },
+  { icon: linkedinIcon, link: 'https://www.linkedin.com' },
 ];
 
 const Footer = () => {
@@ -45,14 +45,14 @@ const Footer = () => {
   };
 
   return (
-    <section className="bg-primary py-4 w-full flex flex-col items-center gap-3 text-white">
-      <div className="flex flex-col lg:flex-row lg:justify-between lg:flex-wrap w-full gap-4">
+    <section className="bg-primary flex w-full flex-col items-center gap-3 py-4 text-white">
+      <div className="flex w-full flex-col gap-4 lg:flex-row lg:flex-wrap lg:justify-between">
         {/* Logo and slogan */}
         <div className="flex flex-col gap-2">
-          <h1 className="uppercase font-display2 text-4xl">
+          <h1 className="font-display2 text-4xl uppercase">
             <span className="text-accent">meddical</span>
           </h1>
-          <p className="text-white font-body1 max-w-[300px]">
+          <p className="font-body1 max-w-[300px] text-white">
             Leading the Way in Medical Excellence, Trusted Care.
           </p>
         </div>
@@ -62,25 +62,25 @@ const Footer = () => {
           <div key={index} className="w-full lg:w-auto">
             {/* Mobile Accordion Header */}
             <button
-              className="lg:hidden w-full flex justify-between items-center font-body2 font-medium py-2"
+              className="font-body2 flex w-full items-center justify-between py-2 font-medium lg:hidden"
               onClick={() => toggleMenu(index)}
             >
               {menu.title}
               <span className="text-accent text-xl">
-                {openIndexes[index] ? "−" : "+"}
+                {openIndexes[index] ? '−' : '+'}
               </span>
             </button>
 
             {/* Mobile: Conditional rendering */}
             <div
-              className={`${openIndexes[index] ? "block" : "hidden"} lg:block`}
+              className={`${openIndexes[index] ? 'block' : 'hidden'} lg:block`}
             >
               <div className="flex flex-col gap-1 pl-2">
                 {menu.subMenus.map((subMenu, subIndex) => (
                   <Link
                     key={subIndex}
                     to={subMenu.link}
-                    className="text-white font-body1 py-0.5"
+                    className="font-body1 py-0.5 text-white"
                   >
                     {subMenu.title}
                   </Link>
@@ -91,29 +91,29 @@ const Footer = () => {
         ))}
 
         {/* Newsletter */}
-        <div className="flex flex-col gap-2 w-full lg:w-auto">
-          <div className="text-white font-body2">Newsletter</div>
-          <div className="flex gap-2 relative w-full max-w-[272px]">
+        <div className="flex w-full flex-col gap-2 lg:w-auto">
+          <div className="font-body2 text-white">Newsletter</div>
+          <div className="relative flex w-full max-w-[272px] gap-2">
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full px-2 py-2.5 rounded-md border border-gray-300 text-black"
+              className="focus:border-accent bg-accent placeholder:text-primary w-full rounded-md border border-gray-300 px-2 py-2.5 text-black focus:outline-none"
             />
-            <button className="absolute right-1 top-1/2 transform -translate-y-1/2">
+            <button className="absolute top-1/2 right-1 -translate-y-1/2 transform">
               <img src={send} alt="Send" />
             </button>
           </div>
         </div>
       </div>
 
-      <hr className="h-[1px] w-full border-accent my-4" />
+      <hr className="border-accent my-4 h-[1px] w-full" />
 
       {/* Footer Bottom */}
-      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-3">
+      <div className="flex w-full flex-col items-center justify-between gap-3 lg:flex-row">
         <p className="font-body1 text-center lg:text-left">
           © 2021 Hospital’s name. All Rights Reserved by PNTEC-LTD
         </p>
-        <div className="flex items-center gap-3 justify-center">
+        <div className="flex items-center justify-center gap-3">
           {socialLinks.map((social, index) => (
             <a
               key={index}
