@@ -40,7 +40,14 @@
 
   .font-display2 {
     font-family: var(--font-display);
-    font-size: 32px;
+    font-size: 36px;
+    line-height: normal;
+    font-style: normal;
+  }
+
+  .font-display3 {
+    font-family: var(--font-display);
+    font-size: 25px;
     line-height: normal;
     font-style: normal;
   }
