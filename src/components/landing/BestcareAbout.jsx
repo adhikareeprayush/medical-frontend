@@ -17,10 +17,10 @@ const BestcareAbout = () => {
         </div>
 
         <div className="flex flex-col justify-center">
-          <h4 className="text-secondary text-lg font-bold md:text-xl">
+          <h4 className="text-secondary text-lg font-bold md:text-2xl">
             Welcome to Hospital name
           </h4>
-          <h1 className="text-primary mt-2 text-2xl font-bold md:text-3xl lg:text-4xl">
+          <h1 className="text-primary mt-2 text-2xl font-bold md:text-3xl lg:text-5xl">
             Best Care for Your Good Health
           </h1>
 
