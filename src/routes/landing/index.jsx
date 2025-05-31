@@ -5,6 +5,7 @@ import WelcomeSec from "../../components/landing/WelcomeSec";
 import DoctorSec from "../../components/landing/DoctorSec";
 import OurDocSec from "../../components/landing/OurDocSec";
 import NewsSection from "../../components/landing/NewsSection";
+import ContactSection from "../../components/landing/ContactSection";
 
 const index = () => {
   return (
@@ -15,6 +16,7 @@ const index = () => {
       <DoctorSec />
       <OurDocSec />
       <NewsSection />
+      <ContactSection />
       {/* <Section /> */}
     </>
   );

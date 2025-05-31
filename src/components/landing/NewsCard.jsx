@@ -4,12 +4,8 @@ import { IoEyeOutline } from 'react-icons/io5';
 import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const NewsCard = ({ news }) => {
-  console.log(news);
   return (
-    <Link
-      to={`/news/${news.id}`}
-      className="flex flex-col gap-1 overflow-hidden"
-    >
+    <div className="flex flex-col gap-1 overflow-hidden">
       {/* News Image */}
       <div className="h-[400px] w-full overflow-hidden bg-gray-200">
         <img
@@ -47,7 +43,7 @@ const NewsCard = ({ news }) => {
           </div>
           <h3 className="text-lg font-bold">{news.title}</h3>
           <p className="font-body1 line-clamp-4 text-[#212124]">
-            {news.description}
+            {news.content}
           </p>
         </div>
         <Link
@@ -58,7 +54,7 @@ const NewsCard = ({ news }) => {
           <FaArrowRight className="duration-300 group-hover:translate-x-[4px]" />
         </Link>
       </div>
-    </Link>
+    </div>
   );
 };
 
