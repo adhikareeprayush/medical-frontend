@@ -14,7 +14,9 @@ const services = () => {
       <section className="relative flex h-full w-full flex-col items-center justify-center gap-10 py-5">
         <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {mockServices.map((service) => (
-            <ServiceCard key={service.id} service={service} />
+            <div>
+              <ServiceCard key={service.id} service={service} />
+            </div>
           ))}
         </div>
       </section>
