@@ -1,4 +1,9 @@
-const PageBanner = ({ title, subtitle = 'Home', subSubtitle, backgroundImage }) => {
+const PageBanner = ({
+  title,
+  subtitle = 'Home',
+  subSubtitle,
+  backgroundImage,
+}) => {
   if (!title || !backgroundImage) return null;
 
   return (
@@ -12,8 +17,10 @@ const PageBanner = ({ title, subtitle = 'Home', subSubtitle, backgroundImage }) 
         <div className="bg-secondary/30 absolute -top-[139px] -left-[139px] z-10 h-[239px] w-[239px] rounded-full" />
         <div className="bg-accent/30 absolute right-[-139px] bottom-[-139px] z-10 h-[239px] w-[239px] rounded-full" />
         <section className="relative z-10 flex w-full flex-col items-start gap-0">
-          <p className="font-body2 text-primary">Home / {subtitle} / {subSubtitle}</p>
-          <h1 className="font-display1 text-primary">{title}</h1>
+          <p className="font-body2 text-primary">
+            Home / {subtitle} / {subSubtitle}
+          </p>
+          <h1 className="font-display1 text-primary text-left">{title}</h1>
         </section>
         <div className="absolute inset-0 z-0 bg-white/50" />
       </div>

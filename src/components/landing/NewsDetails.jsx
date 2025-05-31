@@ -1,12 +1,13 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import NewsData from "../../news.json";
-import { CiCalendar } from "react-icons/ci";
-import { FaRegHeart } from "react-icons/fa";
-import { GoPerson } from "react-icons/go";
-import { IoEyeOutline } from "react-icons/io5";
-import PageBanner from "./PageBanner";
-import SingleNewsBanner from "../../assets/images/banner/singleNewsBanner.png";
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import NewsData from '../../news.json';
+import { CiCalendar } from 'react-icons/ci';
+import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
+import { GoPerson } from 'react-icons/go';
+import { IoEyeOutline } from 'react-icons/io5';
+import PageBanner from './PageBanner';
+import SingleNewsBanner from '../../assets/images/banner/singleNewsBanner.png';
+import RecentPosts from './RecentPosts';
 
 const NewsDetails = () => {
   const { newsId } = useParams();
@@ -18,48 +19,71 @@ const NewsDetails = () => {
 
   return (
     <>
-    <PageBanner subtitle="News" subSubtitle={newsId} title={news.title} backgroundImage={SingleNewsBanner} />
-    <div className="w-full max-w-5xl px-4 sm:px-6 lg:px-0 mx-auto my-6">
-      <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[560px] overflow-hidden bg-gray-200 rounded-sm">
-        <img
-          src={news.image}
-          alt={news.title}
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      <div className="flex flex-col gap-4 py-4">
-        {/* Meta info section */}
-        <div className="flex flex-wrap gap-4 text-sm sm:text-base bg-gray-50">
-          <div className="flex items-center gap-1 text-gray-700">
-            <CiCalendar />
-            <p>{news.date}</p>
+      <PageBanner
+        subtitle="News"
+        subSubtitle={newsId}
+        title={news.title}
+        backgroundImage={SingleNewsBanner}
+      />
+      <section className="flex w-full gap-2 py-5">
+        <div className="flex flex-col gap-2 lg:flex-3 xl:flex-2">
+          <div className="h-[300px] w-full overflow-hidden rounded-sm bg-gray-200 sm:h-[400px] md:h-[500px] lg:h-[560px]">
+            <img
+              src={news.image}
+              alt={news.title}
+              className="h-full w-full object-cover"
+            />
           </div>
 
-          <div className="flex items-center gap-1 text-gray-700">
-            <GoPerson className="text-secondary" />
-            <p>By {news.author}</p>
+          <div className="flex flex-col gap-1">
+            {/* Meta info section */}
+            <div className="flex flex-wrap gap-4 bg-gray-50 text-sm sm:text-base">
+              <div className="flex items-center gap-1 text-gray-700">
+                <CiCalendar />
+                <p>{news.date}</p>
+              </div>
+
+              <div className="flex items-center gap-1 text-gray-700">
+                <GoPerson className="text-secondary" />
+                <p>By {news.author}</p>
+              </div>
+
+              <div className="flex items-center gap-1 text-gray-700">
+                <IoEyeOutline className="text-blue-600" />
+                <span>{news.views}</span>
+              </div>
+
+              <div className="flex items-center gap-1 text-gray-700">
+                <FaRegHeart className="text-[#E2315C]" />
+                <span>{news.likes}</span>
+              </div>
+            </div>
+
+            <h3 className="text-xl leading-snug font-bold sm:text-2xl">
+              {news.title}
+            </h3>
+
+            <p className="text-sm leading-relaxed tracking-wide text-[#212124] sm:text-base">
+              {news.content}
+            </p>
           </div>
 
-          <div className="flex items-center gap-1 text-gray-700">
-            <IoEyeOutline className="text-blue-600" />
-            <span>{news.views}</span>
-          </div>
-
-          <div className="flex items-center gap-1 text-gray-700">
-            <FaRegHeart className="text-[#E2315C]" />
-            <span>{news.likes}</span>
+          <div className="flex w-full justify-between">
+            <button className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium">
+              <FaArrowRight className="rotate-180 duration-300 group-hover:-translate-x-[4px]" />
+              Previous Article
+            </button>
+            <button className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium">
+              Next Article
+              <FaArrowRight className="duration-300 group-hover:translate-x-[4px]" />
+            </button>
           </div>
         </div>
-
-        <h3 className="text-xl sm:text-2xl font-bold leading-snug">{news.title}</h3>
-
-        <p className="text-sm sm:text-base leading-relaxed tracking-wide text-[#212124]">
-          {news.content}
-        </p>
-      </div>
-    </div>
-    </>    
+        <div className="hidden flex-1 lg:flex">
+          <RecentPosts />
+        </div>
+      </section>
+    </>
   );
 };
 
