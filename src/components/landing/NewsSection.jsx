@@ -7,9 +7,9 @@ import LearnMoreBtn from '../common/LearnMoreBtn';
 
 const NewsSection = () => {
   return (
-    <section className="my-10 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="my-4 text-center">
-        <h1 className="text-secondary text-xl sm:text-2xl font-bold tracking-widest uppercase">
+    <section className="my-24 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="my-4 text-center"> 
+        <h1 className="text-secondary text-xl sm:text-2xl font-bold tracking-widest uppercase mb-[20px]">
           Better Information, Better Health
         </h1>
         <p className="text-primary text-2xl sm:text-3xl font-display1">News</p>
@@ -53,7 +53,7 @@ const NewsSection = () => {
         ))}
       </div>
 
-      <div className="mt-8">
+      <div className="mt-4">
         <Link to="/news">
           <LearnMoreBtn text="View All News" styles="mt-4" />
         </Link>
