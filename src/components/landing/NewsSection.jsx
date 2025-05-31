@@ -7,44 +7,50 @@ import LearnMoreBtn from '../common/LearnMoreBtn';
 
 const NewsSection = () => {
   return (
-    <section className="my-24 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="my-4 text-center"> 
-        <h1 className="text-secondary text-xl sm:text-2xl font-bold tracking-widest uppercase mb-[20px]">
+    <section className="my-24 w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+      {/* Heading */}
+      <div className="mb-10 text-center">
+        <h1 className="text-secondary text-sm sm:text-base md:text-lg font-bold tracking-widest uppercase mb-3">
           Better Information, Better Health
         </h1>
         <p className="text-primary text-2xl sm:text-3xl font-display1">News</p>
       </div>
 
-      <div className="mt-6 grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2">
+      {/* Grid of news */}
+      <div className="grid w-full max-w-5xl grid-cols-1 sm:grid-cols-2 gap-4">
         {NewsData.map((news) => (
           <div
             key={news.id}
-            className="overflow-hidden rounded-sm shadow-md bg-white hover:shadow-lg transition-shadow duration-300"
+            className="bg-white rounded-md shadow-sm hover:shadow-md transition-shadow duration-300"
           >
-            <Link
-              to={`/news/${news.id}`}
-              className="flex flex-col md:flex-row"
-            >
-              <div className="w-full md:w-1/2 h-52 md:h-auto">
+            <Link to={`/news/${news.id}`} className="flex flex-col lg:flex-row">
+              {/* Image */}
+              <div className="w-full lg:w-2/5 h-52 lg:h-auto">
                 <img
                   src={news.image}
                   alt={news.title}
-                  className="h-full w-full object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
-              <div className="w-full md:w-1/2 flex flex-col gap-2 p-4">
-                <h2 className="text-sm text-secondary">{news.date}</h2>
-                <h2 className="text-sm text-secondary">By {news.author}</h2>
-                <h3 className="text-lg font-semibold">{news.title}</h3>
-                <div className="mt-auto flex items-center gap-4">
-                  <div className="flex items-center gap-1 text-sm text-gray-600">
+              {/* Content */}
+              <div className="w-full lg:w-3/5 p-2 lg:p-3 flex flex-col justify-between">
+                <div>
+                  <p className="text-sm text-secondary tracking-wider font-medium mb-1">
+                    {news.date} | By {news.author}
+                  </p>
+                  <h3 className="text-lg font-semibold text-black leading-snug mb-3">
+                    {news.title}
+                  </h3>
+                </div>
+                <div className="flex gap-4 items-center text-sm text-gray-600">
+                  <div className="flex items-center gap-1">
                     <img src={EyeIcon} alt="Views" className="h-3 w-3" />
-                    <span>{news.views}</span>
+                    <span className='text-black font-medium'>{news.views}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-sm text-gray-600">
-                    <img src={HeartIcon} alt="Likes" className="h-3 w-3" />
-                    <span>{news.likes}</span>
+                  <div className="flex items-center gap-1">
+                    <img src={HeartIcon} alt="Likes" className="h-[21px] w-[21px]" />
+                    <span className='text-black font-medium'>{news.likes}</span>
                   </div>
                 </div>
               </div>
@@ -53,9 +59,10 @@ const NewsSection = () => {
         ))}
       </div>
 
-      <div className="mt-4">
+      {/* Button */}
+      <div className="mt-10">
         <Link to="/news">
-          <LearnMoreBtn text="View All News" styles="mt-4" />
+          <LearnMoreBtn text="View All News" />
         </Link>
       </div>
     </section>
