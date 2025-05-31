@@ -4,6 +4,7 @@ import aboutBanner from '../../assets/images/banner/hospital_banner.jpg';
 import Testimonials from '../../components/landing/Testimonials';
 import OurDocSec from '../../components/landing/OurDocSec';
 import NewsSection from '../../components/landing/NewsSection';
+import MessageFromHead from '../../components/landing/MessageFromHead';
 
 const about = () => {
   return (
@@ -14,6 +15,7 @@ const about = () => {
         backgroundImage={aboutBanner}
       />
       <BestcareAbout />
+      <MessageFromHead />
       <Testimonials />
       <OurDocSec />
       <NewsSection />
