@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 const NewsCard = ({ news }) => {
   console.log(news);
   return (
-    <Link
-      to={`/news/${news.id}`}
+    <div
       className="flex flex-col gap-1 overflow-hidden"
     >
       {/* News Image */}
@@ -58,7 +57,7 @@ const NewsCard = ({ news }) => {
           <FaArrowRight className="duration-300 group-hover:translate-x-[4px]" />
         </Link>
       </div>
-    </Link>
+    </div>
   );
 };
 
