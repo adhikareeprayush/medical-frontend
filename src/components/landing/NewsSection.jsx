@@ -15,7 +15,7 @@ const NewsSection = () => {
         <p className="text-primary text-2xl sm:text-3xl font-display1">News</p>
       </div>
 
-      <div className="mt-6 grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2">
+      <div className="mt-6 grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2">
         {NewsData.map((news) => (
           <div
             key={news.id}
