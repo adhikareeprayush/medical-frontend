@@ -1,6 +1,6 @@
 import React from 'react';
-import Img from '../../assets/images/Doc2.png';
-import dotIcon from '../../assets/icons/dot.svg';
+import Img from '../../assets/images/general photos/5.jpg';
+import { GoDotFill } from 'react-icons/go';
 
 const BestcareAbout = () => {
   return (
@@ -18,10 +18,11 @@ const BestcareAbout = () => {
 
         <div className="flex flex-col justify-center">
           <h4 className="text-secondary text-lg font-bold md:text-2xl">
-            Welcome to Hospital name
+            Welcome to Nisarga Hospital
           </h4>
           <h1 className="text-primary mt-2 text-2xl font-bold md:text-3xl lg:text-5xl">
-            Best Care for Your Good Health
+            Best Care for Your <br />
+            Good Health
           </h1>
 
           {/* Lists Section */}
@@ -30,11 +31,7 @@ const BestcareAbout = () => {
               {['A Passion for Healing', '5-Star Care', 'All our best'].map(
                 (item) => (
                   <li key={item} className="flex items-start">
-                    <img
-                      src={dotIcon}
-                      alt="bullet"
-                      className="mt-1.5 mr-3 h-3 w-3"
-                    />
+                    <GoDotFill className="text-secondary mt-1.5 mr-3" />
                     <span className="text-gray-600">{item}</span>
                   </li>
                 ),
@@ -44,12 +41,8 @@ const BestcareAbout = () => {
               {['Believe in Us', 'Always Caring', 'A Legacy of Excellence'].map(
                 (item) => (
                   <li key={item} className="flex items-start">
-                    <img
-                      src={dotIcon}
-                      alt="dot"
-                      className="mt-1.5 mr-3 h-3 w-3"
-                    />
-                    <span>{item}</span>
+                    <GoDotFill className="text-secondary mt-1.5 mr-3" />
+                    <span className="text-gray-600">{item}</span>
                   </li>
                 ),
               )}
