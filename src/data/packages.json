@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": "Full Body CheckUp",
+    "tests": ["CBC", "WBC", "LFT", "RFT", "B12"]
+  },
+  {
+    "id": "2",
+    "title": "Full Body CheckUp",
+    "tests": ["CBC", "WBC", "LFT", "RFT", "B12"]
+  },
+  {
+    "id": "3",
+    "title": "Full Body CheckUp",
+    "tests": ["CBC", "WBC", "LFT", "RFT", "B12"]
+  },
+  {
+    "id": "4",
+    "title": "Full Body CheckUp",
+    "tests": ["CBC", "WBC", "LFT", "RFT", "B12"]
+  }
+]
