@@ -9,6 +9,7 @@ const navMenus = [
   { name: 'Services', path: '/services' },
   { name: 'Departments', path: '/departments' },
   { name: 'News', path: '/news' },
+  { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
 ];
 
