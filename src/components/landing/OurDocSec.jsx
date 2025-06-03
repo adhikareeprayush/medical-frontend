@@ -113,23 +113,6 @@ const OurDocSec = () => {
                   <p className="text-secondary truncate text-sm md:text-base">
                     {card.specialization}
                   </p>
-                  <div className="mt-3 flex justify-center gap-3">
-                    <RoundButton
-                      divStyles="bg-primary text-gray-400"
-                      spanStyles="bg-blue-700"
-                      text={<FaFacebookF size={18} />}
-                    />
-                    <RoundButton
-                      divStyles="bg-primary text-gray-400"
-                      spanStyles="bg-blue-700"
-                      text={<FaLinkedin size={18} />}
-                    />
-                    <RoundButton
-                      divStyles="bg-primary text-gray-400"
-                      spanStyles="bg-black"
-                      text={<FaInstagram size={18} />}
-                    />
-                  </div>
                 </div>
               </div>
             </div>
