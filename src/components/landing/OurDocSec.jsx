@@ -9,6 +9,8 @@ import { FaFacebookF, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import RoundButton from '../common/RoundButton';
 import NextArrowBtn from '../common/NextArrowBtn';
 import PrevArrowBtn from '../common/PrevArrowBtn';
+import LearnMoreBtn from '../common/LearnMoreBtn';
+import { Link } from 'react-router-dom';
 
 const Cards = [
   { id: 1, name: 'Dr. John Doe', specialization: 'Cardiologist', image: Doc1 },
@@ -134,6 +136,13 @@ const OurDocSec = () => {
           ))}
         </Slider>
       </div>
+      <Link className="mt-6 text-center" to="/team">
+        <LearnMoreBtn
+          text="View All Teams"
+          styles="mt-8 mx-auto w-fit"
+          textStyles="text-primary"
+        />
+      </Link>
     </section>
   );
 };
