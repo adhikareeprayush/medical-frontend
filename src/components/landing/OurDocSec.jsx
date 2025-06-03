@@ -136,11 +136,10 @@ const OurDocSec = () => {
           ))}
         </Slider>
       </div>
-      <Link className="mt-6 text-center" to="/team">
+      <Link to={'/team'}>
         <LearnMoreBtn
-          text="View All Teams"
-          styles="mt-8 mx-auto w-fit"
-          textStyles="text-primary"
+          text="View All Doctors"
+          styles="mt-6 mx-auto w-fit"
         />
       </Link>
     </section>
