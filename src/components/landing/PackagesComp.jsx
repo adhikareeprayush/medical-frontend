@@ -3,7 +3,7 @@ import { GiCheckMark } from 'react-icons/gi';
 const PackagesComp = ({ testData }) => {
   return (
     <div className="relative my-4 flex h-[500px] w-[350px] flex-col rounded-2xl shadow-2xl hover:cursor-pointer hover:shadow-black sm:w-[280px] md:w-[300px] lg:w-[320px]">
-      <div className="w-full border-b-1 pb-5">
+      <div className="w-full border-b border-gray-300 pb-5">
         <div>
           <h1 className="from-primary rounded-t-lg bg-gradient-to-r to-blue-800 p-4 text-center text-2xl font-bold text-white">
             {testData.title}
