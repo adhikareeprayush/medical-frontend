@@ -4,6 +4,8 @@ import send from '../../assets/icons/send.svg';
 import facebookIcon from '../../assets/icons/facebook.svg';
 import instagramIcon from '../../assets/icons/instagram.svg';
 import linkedinIcon from '../../assets/icons/linkedin.svg';
+import { FaFacebookF, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import RoundButton from '../common/RoundButton';
 
 const footerMenus = [
   {
@@ -29,9 +31,9 @@ const footerMenus = [
 ];
 
 const socialLinks = [
-  { icon: facebookIcon, link: 'https://www.facebook.com' },
-  { icon: instagramIcon, link: 'https://www.instagram.com' },
-  { icon: linkedinIcon, link: 'https://www.linkedin.com' },
+  { icon: <FaFacebookF size={25} />, link: 'https://www.facebook.com' },
+  { icon: <FaInstagram size={25} />, link: 'https://www.instagram.com' },
+  { icon: <FaLinkedin size={25} />, link: 'https://www.linkedin.com' },
 ];
 
 const Footer = () => {
@@ -121,7 +123,12 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={social.icon} alt="social icon" className="size-4" />
+              {/* <img src={social.icon} alt="social icon" className="size-4" /> */}
+              <RoundButton
+                divStyles="bg-primary text-gray-400"
+                spanStyles="bg-blue-700"
+                text={social.icon}
+              />
             </a>
           ))}
         </div>
