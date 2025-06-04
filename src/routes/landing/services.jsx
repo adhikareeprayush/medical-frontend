@@ -2,6 +2,7 @@ import PageBanner from '../../components/landing/PageBanner';
 import ServiceCard from '../../components/landing/ServiceCard';
 import mockServices from '../../data/service.json';
 import serviceBanner from '../../assets/images/banner/serviceBanner.png';
+import ContactSection from '../../components/landing/ContactSection';
 
 const services = () => {
   return (
@@ -19,6 +20,7 @@ const services = () => {
             </div>
           ))}
         </div>
+        <ContactSection />
       </section>
     </>
   );

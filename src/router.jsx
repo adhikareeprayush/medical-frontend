@@ -8,8 +8,9 @@ import AdminLayout from './layouts/AdminLayout';
 const Home = lazy(() => import('./routes/landing/index'));
 const About = lazy(() => import('./routes/landing/about'));
 const Pricing = lazy(() => import('./routes/landing/pricing'));
+const Packages = lazy(() => import('./routes/landing/Packages'));
 const News = lazy(() => import('./routes/landing/news'));
-const NewsDetails = lazy(() => import("../src/components/landing/NewsDetails"));
+const NewsDetails = lazy(() => import('../src/components/landing/NewsDetails'));
 const Services = lazy(() => import('./routes/landing/services'));
 const ServicePage = lazy(() => import('./routes/landing/services/page'));
 const Contact = lazy(() => import('./routes/landing/contact'));
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'about', element: <About /> },
       { path: 'pricing', element: <Pricing /> },
+      { path: 'packages', element: <Packages /> },
       { path: 'news', element: <News /> },
       { path: 'news/:newsId', element: <NewsDetails /> },
       { path: 'about', element: <About /> },
