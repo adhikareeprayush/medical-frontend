@@ -1,13 +1,15 @@
 // src/utils/axios.js
-import axios from "axios";
-import { setupInterceptors } from "./interceptors";
+import axios from 'axios';
+import { setupInterceptors } from './interceptor';
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://api.example.com";
+const BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  'http://hospitalserver.otaku-festival.com/';
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
   withCredentials: true,
 });
