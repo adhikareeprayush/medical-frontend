@@ -3,8 +3,8 @@ import ServicesBtn from './ServicesBtn'
 
 const HeroBanner = () => {
   return (
-    <div className="flex flex-col gap-1.5 justify-center h-[300px]">
-      <p className="text-secondary font-bold text-xl tracking-widest uppercase">
+    <div className="flex flex-col gap-2 justify-center h-[300px]">
+      <p className="text-secondary font-display font-bold text-xl tracking-widest uppercase">
         Caring for Life
       </p>
       <p className="text-primary font-display1">
