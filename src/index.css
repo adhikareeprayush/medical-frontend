@@ -82,6 +82,13 @@
     font-style: normal;
   }
 
+  .font-body3 {
+    font-family: var(--font-body);
+    font-size: 24px;
+    line-height: 28px;
+    font-style: normal;
+  }
+
   .font-button {
     font-family: var(--font-body);
     font-size: 14px;
@@ -124,6 +131,10 @@
   input::placeholder {
     @apply font-body text-[16px] outline-none focus:ring-0;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .slick-slide:focus {
