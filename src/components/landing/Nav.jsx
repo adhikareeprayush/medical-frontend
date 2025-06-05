@@ -7,8 +7,11 @@ const navMenus = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
   { name: 'Services', path: '/services' },
+  { name: 'Packages', path: '/packages' },
   { name: 'Departments', path: '/departments' },
+  { name: 'Our Team', path: '/team' },
   { name: 'News', path: '/news' },
+  { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
 ];
 

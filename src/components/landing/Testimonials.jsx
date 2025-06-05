@@ -10,13 +10,13 @@ const Testimonials = () => {
       id: 1,
       quote:
         'Lorem ipsum lorem dolor sit amet,Lorem ipsum lorem dolor sit amet,  consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare. Quisque placerat scelerisque felis vitae tortor augue. Velit nascetur consequat faucibus porttitor enim et.',
-      name: 'John Doe',
+      name: 'Mr.John Doe',
     },
     {
       id: 2,
       quote:
         'The medical team provided exceptional care during my Lorem ipsum lorem dolor sit amet, treatment. Their expertise and compassion made a difficult time much easier. I would recommend this hospital to anyone seeking quality healthcare.',
-      name: 'Sarah Johnson',
+      name: 'Mr.Sarah Johnson',
     },
     {
       id: 3,
@@ -66,7 +66,7 @@ const Testimonials = () => {
               <p className="relative inline-block text-center text-gray-300 after:mx-auto after:mt-1 after:block after:h-[2px] after:w-[40%] after:bg-gray-400">
                 {testimonial.quote}
               </p>
-              <p className="name py-1 text-center text-gray-400">
+              <p className="name py-1 text-center font-bold text-gray-600">
                 {testimonial.name}
               </p>
             </div>
