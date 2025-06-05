@@ -9,11 +9,9 @@ const team = () => {
   return (
     <>
       <PageBanner subtitle="Our Team" title="Our Team" backgroundImage={newsBanner} />
-      <section className=''>
-        <div className="mx-auto max-w-6xl p-6">
-          <AdmistrativeTeam />
+      <section className='w-full'>
           <MedicalTeam />
-        </div>
+          <AdmistrativeTeam />
       </section>
     </>
   );
