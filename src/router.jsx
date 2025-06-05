@@ -9,7 +9,7 @@ const Home = lazy(() => import('./routes/landing/index'));
 const About = lazy(() => import('./routes/landing/about'));
 const Pricing = lazy(() => import('./routes/landing/pricing'));
 const News = lazy(() => import('./routes/landing/news'));
-const NewsDetails = lazy(() => import("../src/components/landing/NewsDetails"));
+const NewsDetails = lazy(() => import('../src/components/landing/NewsDetails'));
 const Services = lazy(() => import('./routes/landing/services'));
 const ServicePage = lazy(() => import('./routes/landing/services/page'));
 const Contact = lazy(() => import('./routes/landing/contact'));
@@ -18,8 +18,7 @@ const DepartmentPage = lazy(() => import('./routes/landing/departments/page'));
 
 const AdminHome = lazy(() => import('./routes/admin/index'));
 const Dashboard = lazy(() => import('./routes/admin/dashboard'));
-const Users = lazy(() => import('./routes/admin/users'));
-
+const Login = lazy(() => import('./routes/admin/Login'));
 const router = createBrowserRouter([
   {
     path: '/',
@@ -41,11 +40,16 @@ const router = createBrowserRouter([
   },
   {
     path: '/admin',
-    element: <AdminLayout />,
     children: [
-      { index: true, element: <AdminHome /> },
-      { path: 'dashboard', element: <Dashboard /> },
-      { path: 'users', element: <Users /> },
+      { index: true, element: <Login /> },
+      {
+        path: '',
+        element: <AdminLayout />,
+        children: [
+          { index: true, element: <AdminHome /> },
+          { path: 'dashboard', element: <Dashboard /> },
+        ],
+      },
     ],
   },
 ]);
