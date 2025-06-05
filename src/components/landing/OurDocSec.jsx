@@ -56,13 +56,17 @@ const OurDocSec = () => {
   }, []);
 
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     centerMode: true,
     centerPadding: '0px',
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 3000,
+    cssEase: "linear",
+    pauseOnHover: true,
     nextArrow: showArrows ? <NextArrowBtn /> : null,
     prevArrow: showArrows ? <PrevArrowBtn /> : null,
     responsive: [
@@ -96,7 +100,7 @@ const OurDocSec = () => {
       </div>
 
       {/* Slider */}
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="mx-auto w-full max-w-6xl">
         <Slider {...settings}>
           {Cards.map((card) => (
             <div key={card.id} className="px-3">
