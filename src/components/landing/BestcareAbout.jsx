@@ -1,4 +1,3 @@
-import React from 'react';
 import Img from '../../assets/images/general photos/5.jpg';
 import { GoDotFill } from 'react-icons/go';
 
