@@ -11,6 +11,7 @@ const navMenus = [
   { name: 'Departments', path: '/departments' },
   { name: 'Our Team', path: '/team' },
   { name: 'News', path: '/news' },
+  { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
 ];
 

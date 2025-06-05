@@ -133,6 +133,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .slick-slide:focus {
   outline: none !important;
 }
