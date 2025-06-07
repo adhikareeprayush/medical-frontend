@@ -30,8 +30,9 @@ const department = () => {
           </div>
         </div>
 
-        <section className="relative flex h-full w-full flex-col items-center justify-center gap-10 py-5">
-          <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <section className="relative flex h-full w-full flex-col items-center justify-center gap-12 py-5">
+          <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3">
+
             {departmentData.map((dept) => (
               <DepartmentCard key={dept.id} dept={dept} />
             ))}
