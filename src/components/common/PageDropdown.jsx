@@ -1,60 +1,70 @@
-import { useState, useRef } from 'react';
-import DropBtn from '../DropBtn';
+import { useState, useRef, useEffect } from 'react';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
-const DropdownNavItem = ({ label, items, onClick }) => {
-  const [isPageOpen, setIsPageOpen] = useState(false);
-  const pagesDropdownRef = useRef();
-  const [hoverTimeout, setHoverTimeout] = useState(null);
+const DropdownNavItem = ({ label, items, className = '' }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  let hoverTimeout;
 
   const handleMouseEnter = () => {
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout);
-      setHoverTimeout(null);
-    }
-    setIsPageOpen(true);
+    clearTimeout(hoverTimeout);
+    setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      setIsPageOpen(false);
+    hoverTimeout = setTimeout(() => {
+      setIsOpen(false);
     }, 200);
-    setHoverTimeout(timeout);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      clearTimeout(hoverTimeout);
+    };
+  }, []);
+
   return (
-    <li
-      ref={pagesDropdownRef}
+    <div
+      className={`group relative mx-2 ${className}`}
+      ref={dropdownRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="hover:text-primary ease relative cursor-pointer duration-200"
     >
-      <div className="flex cursor-pointer items-center gap-1">
+      {/* Top label */}
+      <div className="flex cursor-pointer items-center text-white">
         <span>{label}</span>
         <RiArrowDropDownLine
-          size={24}
-          styles={`w-3 h-3 transition-transform ${
-            isPageOpen ? 'rotate-180' : ''
-          }`}
+          className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
         />
       </div>
 
-      {isPageOpen && (
-        <div className="border-opacity-25 absolute top-20 left-0 z-[1000] mt-4 min-w-[600px] rounded-md border border-black bg-white p-4 shadow-lg">
-          <div className="grid grid-cols-3 gap-2">
+      {/* Dropdown Menu */}
+      {isOpen && (
+        <div className="absolute top-full left-0 z-50 mt-2 min-w-[550px] overflow-hidden rounded-sm border border-gray-100 bg-white shadow-xl">
+          <div className="grid grid-cols-3 gap-3 px-1 py-3">
             {items.map((item, index) => (
-              <div
+              <Link
                 key={index}
-                className="hover:text-primary cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-gray-700"
-                onClick={() => onClick(item)}
+                to={`/departments/${item.toLowerCase()}`}
+                className="hover:bg-primary cursor-pointer rounded-sm p-1 text-base text-gray-700 hover:text-white"
+                onClick={() => setIsOpen(false)}
               >
                 {item}
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       )}
-    </li>
+    </div>
   );
 };
 
