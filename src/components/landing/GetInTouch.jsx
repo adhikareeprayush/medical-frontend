@@ -9,30 +9,27 @@ const cards = [
     title: 'Emergency',
     icon: phone,
     details: [
-      { type: 'phone', value: '+1 234 567 890' },
-      { type: 'phone', value: '+1 234 567 891' },
+      { type: 'phone', value: '+977 9865680100' },
+      { type: 'phone', value: '+977 9865680100' },
     ],
   },
   {
     title: 'Location',
     icon: location,
-    details: [{ type: 'address', value: '123 Main St, City, Country' }],
+    details: [{ type: 'address', value: 'Near Nepal Rastra Bank, Dhangadhi' }],
   },
   {
     title: 'Email',
     icon: email,
     details: [
-      { type: 'email', value: 'info@example.com' },
-      { type: 'email', value: 'text@example.com' },
+      { type: 'email', value: 'nisargahospitalnepal@gmail.com' },
+      { type: 'email', value: 'nisargahospitalnepal@gmail.com' },
     ],
   },
   {
     title: 'Working Hours',
     icon: clock,
-    details: [
-      { type: 'text', value: 'Mon - Fri: 9 AM - 5 PM' },
-      { type: 'text', value: 'Sat - Sun: Closed' },
-    ],
+    details: [{ type: 'text', value: 'Everyday: 9 AM - 5 PM' }],
   },
 ];
 
