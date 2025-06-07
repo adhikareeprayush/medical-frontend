@@ -16,7 +16,7 @@ const photos = [
 const AdmistrativeTeam = () => {
   return (
     <div className="mx-auto w-full max-w-5xl py-6 px-6 md:px-4 lg:px-2">
-      <h2 className="mb-6 text-2xl text-primary font-bold">Meet Our Admistrative Team</h2>
+      <h2 className="mb-6 text-2xl text-center text-primary font-bold">Meet Our Admistrative Team</h2>
       <PhotoGrid photos={photos} />
     </div>
   );
