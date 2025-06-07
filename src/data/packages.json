@@ -1,24 +1,25 @@
 [
   {
     "id": "1",
-    "title": "Full Body CheckUp",
+    "title": "Basic Health Package - Man & Woman",
     "tests": [
-      "CBC",
-      "WBC",
-      "LFT",
-      "RFT",
-      "B12",
-      "URINE ROUTINE",
-      " URINE ROUTINE",
-      "CHEST X-RAY",
-      "CHEST X-RAY",
-      "CHEST X-RAY",
-      "CHEST X-RAY"
+      "ABO Grouping",
+      "CBC + ESR",
+      "Random Blood Sugar",
+      "Urea",
+      "Liver (SGPT)",
+      "Lipid Profile",
+      "Urine Routine and Microscopy",
+      "Chest X-Ray (Digital)",
+      "ECG",
+      "HbA1C",
+      "USG (Whole Adbomen)",
+      "Consultation (Internal Medicine)"
     ]
   },
   {
     "id": "2",
-    "title": "Full Body CheckUp",
+    "title": "Basic Women’s Health Package with Offer",
     "tests": [
       "CBC",
       "WBC",
@@ -33,7 +34,7 @@
   },
   {
     "id": "3",
-    "title": "Full Body CheckUp",
+    "title": "Women’s Health Package (Below 40 Years)",
     "tests": [
       "CBC",
       "WBC",
@@ -48,7 +49,7 @@
   },
   {
     "id": "4",
-    "title": "Full Body CheckUp",
+    "title": "Women’s Health Package (Above 40 Years)",
     "tests": [
       "CBC",
       "WBC",
@@ -60,8 +61,8 @@
     ]
   },
   {
-    "id": "4",
-    "title": "Full Body CheckUp",
+    "id": "5",
+    "title": "Gold Health Package (Female Below 40 Years)",
     "tests": [
       "CBC",
       "WBC",
@@ -73,8 +74,21 @@
     ]
   },
   {
-    "id": "4",
-    "title": "Full Body CheckUp",
+    "id": "6",
+    "title": "Gold Health Package (Female Above 40 Years)",
+    "tests": [
+      "CBC",
+      "WBC",
+      "LFT",
+      "RFT",
+      "B12",
+      "URINE ROUTINE",
+      " URINE ROUTINE"
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Gold Health Package - Male",
     "tests": [
       "CBC",
       "WBC",
