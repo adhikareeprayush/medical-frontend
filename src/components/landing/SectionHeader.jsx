@@ -1,8 +1,8 @@
-const SectionHeader = () => {
+const SectionHeader = ({ title, subtitle }) => {
   return (
-    <div className="flex items-center justity-center flex-col gap-0">
-      <h2 className="text-2xl font-caption text-secondary">Trusted Care</h2>
-      <p className="text-primary font-display2">Our Doctors</p>
+    <div className="justity-center flex flex-col items-center gap-0">
+      <h2 className="font-caption text-secondary text-2xl">{title}</h2>
+      <p className="text-primary font-display2">{subtitle}</p>
     </div>
   );
 };
