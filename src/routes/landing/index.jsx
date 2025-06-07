@@ -6,10 +6,13 @@ import DoctorSec from "../../components/landing/DoctorSec";
 import OurDocSec from "../../components/landing/OurDocSec";
 import NewsSection from "../../components/landing/NewsSection";
 import ContactSection from "../../components/landing/ContactSection";
+import { Sticker } from "lucide-react";
+import StickySidebar from "../../components/common/StickySidebar";
 
 const index = () => {
   return (
     <>
+      {/* <StickySidebar /> */}
       <Hero />
       <HeroSec />
       <WelcomeSec />
