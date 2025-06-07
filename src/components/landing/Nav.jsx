@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import hamburger from '../../assets/icons/hamburger.svg';
 import close from '../../assets/icons/close.svg';
+import { RiArrowDropDownLine } from "react-icons/ri";
+import DropdownNavItem from '../common/PageDropdown';
+
 
 const navMenus = [
   { name: 'Home', path: '/' },
@@ -15,6 +18,19 @@ const navMenus = [
   { name: 'Contact', path: '/contact' },
 ];
 
+const departments = [
+  'Cardiology',
+  'Neurology',
+  'Orthopedics',
+  'Pediatrics',
+  'Oncology',
+  'Gynecology',
+  'Dermatology',
+  'Radiology',
+];
+
+const services = ['Consultation', 'Emergency Care', 'Surgery', 'Diagnostics', 'Rehabilitation', 'Pharmacy', 'Laboratory', 'Radiology'];
+
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,11 +42,34 @@ const Nav = () => {
       <div className="flex w-full justify-between">
         {/* Desktop Menu */}
         <div className="hidden items-center lg:flex">
-          {navMenus.map(({ name, path }, index) => (
-            <Link key={index} to={path} className="mx-2 text-white">
-              {name}
-            </Link>
-          ))}
+          {navMenus.map(({ name, path }, index) => {
+            if (name === 'Departments') {
+              return (
+                <DropdownNavItem
+                  key={index}
+                  label="Departments"
+                  items={departments}
+                  className="text-white"
+                />
+              );
+            }
+            else if (name === 'Services') {
+              return (
+                <DropdownNavItem
+                  key={index}
+                  label="Services"
+                  items={services}
+                  className="text-white"
+                />
+              );
+            }
+
+            return (
+              <Link key={index} to={path} className="mx-2 text-white">
+                {name}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Logo for Mobile */}
@@ -43,9 +82,6 @@ const Nav = () => {
 
         {/* Right-side Buttons */}
         <div className="flex items-center gap-2 lg:gap-4">
-          <button className="bg-accent font-body hidden rounded-full lg:px-3 xl:px-4 py-2.5 lg:text-[14px] font-bold lg:flex">
-            Appointment
-          </button>
           <button className="cursor-pointer lg:hidden" onClick={toggleMenu}>
             <img src={isOpen ? close : hamburger} alt="Menu toggle" />
           </button>
