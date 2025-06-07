@@ -38,7 +38,7 @@ const Testimonials = () => {
     arrows: false,
     appendDots: (dots) => (
       <div className="slick-dots-container">
-        <ul className="mt-2 flex justify-center space-x-1">{dots}</ul>
+        <ul className="mt-2 flex justify-center space-x-1 text-2xl">{dots}</ul>
       </div>
     ),
     customPading: (i) => (
@@ -46,7 +46,7 @@ const Testimonials = () => {
     ),
   };
   return (
-    <section className="relative mx-2 mb-5 h-[250px] py-10 md:py-16">
+    <section className="relative mb-5 h-[250px] py-10 md:py-16">
       <div className="absolute inset-0">
         <img
           src={TestiImg}
@@ -60,13 +60,13 @@ const Testimonials = () => {
         <Slider {...settings}>
           {testimonials.map((testimonial) => (
             <div key={testimonial.id}>
-              <span className="block text-center text-2xl text-gray-300">
+              <span className="block text-center text-3xl text-gray-300">
                 "
               </span>
-              <p className="relative inline-block text-center text-gray-300 after:mx-auto after:mt-1 after:block after:h-[2px] after:w-[40%] after:bg-gray-400">
+              <p className="relative inline-block text-center text-base text-gray-100 after:mx-auto after:mt-1 after:block after:h-[2px] after:w-[40%] after:bg-gray-400 lg:text-lg">
                 {testimonial.quote}
               </p>
-              <p className="name py-1 text-center font-bold text-gray-600">
+              <p className="name py-1 text-center font-bold text-gray-800">
                 {testimonial.name}
               </p>
             </div>

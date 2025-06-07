@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "title": "General Checkup",
-    "slug": "general-checkup",
+    "title": "Energency and trauma care",
+    "slug": "emergency-trauma",
     "summary": "Routine medical examinations for overall health evaluation.",
-    "description": "Our general checkup service provides a complete medical examination to assess your overall health. It includes blood pressure monitoring, cholesterol screening, BMI calculation, and basic blood work.",
+    "description": "Energency and trauma care service provides a complete medical examination to assess your overall health. It includes blood pressure monitoring, cholesterol screening, BMI calculation, and basic blood work.",
     "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/free_checkup.png?updatedAt=1748351881854",
     "icon": "stethoscope",
     "points": [

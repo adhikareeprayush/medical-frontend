@@ -21,6 +21,7 @@ const Gallery = lazy(() => import('./routes/landing/gallery'));
 const AdminHome = lazy(() => import('./routes/admin/index'));
 const Dashboard = lazy(() => import('./routes/admin/dashboard'));
 const Login = lazy(() => import('./routes/admin/Login'));
+const Settings = lazy(() => import('./routes/admin/settings'));
 const router = createBrowserRouter([
   {
     path: '/',
@@ -53,6 +54,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <AdminHome /> },
           { path: 'dashboard', element: <Dashboard /> },
+          { path: 'settings', element: <Settings /> },
         ],
       },
     ],

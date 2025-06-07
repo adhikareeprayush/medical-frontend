@@ -7,9 +7,9 @@ const PhotoGrid = ({ photos }) => {
   const otherPhotos = photos.slice(1);
 
   return (
-    <div className="flex flex-col w-full items-center gap-4">
+    <div className="flex w-full flex-col items-center gap-4">
       {/* Centered Top Photo */}
-      <div className="flex md:max-w-[40%] justify-center">
+      <div className="flex justify-center md:max-w-[40%]">
         <div className="flex flex-col items-center">
           <img
             src={mainPhoto.src}
@@ -28,9 +28,12 @@ const PhotoGrid = ({ photos }) => {
       </div>
 
       {/* Responsive Grid for Other Photos */}
-      <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full grid-cols-1 justify-center gap-4 md:grid-cols-2 lg:grid-cols-3">
         {otherPhotos.map((photo, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <div
+            key={index}
+            className="flex w-full max-w-[300px] flex-col items-center"
+          >
             <img
               src={photo.src}
               alt={photo.name}
