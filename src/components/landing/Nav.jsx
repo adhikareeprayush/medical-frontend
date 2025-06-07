@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import hamburger from '../../assets/icons/hamburger.svg';
 import close from '../../assets/icons/close.svg';
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { RiArrowDropDownLine } from 'react-icons/ri';
 import DropdownNavItem from '../common/PageDropdown';
-
 
 const navMenus = [
   { name: 'Home', path: '/' },
@@ -19,17 +18,49 @@ const navMenus = [
 ];
 
 const departments = [
-  'Cardiology',
-  'Neurology',
-  'Orthopedics',
-  'Pediatrics',
-  'Oncology',
-  'Gynecology',
+  'Orthopedic Surgery',
+  'General Medicine',
+  'Paediatrics',
+  'ENT',
+  'Ophthalmology',
+  'General Surgery',
   'Dermatology',
-  'Radiology',
+  'Gynaecology',
+  'Cardiology',
+  'Nephrology',
+  'Anesthesiology',
+  'Neuroscience',
 ];
 
-const services = ['Consultation', 'Emergency Care', 'Surgery', 'Diagnostics', 'Rehabilitation', 'Pharmacy', 'Laboratory', 'Radiology'];
+
+const services = [
+  'Emergency and Trauma Care',
+  'Critical Care',
+  'Skin and Aesthetics Clinic',
+  'Pharmacy',
+  'Physiotherapy',
+  'Pain Management Services',
+  '24/7 Emergency Medical Service',
+  'Cath-lab Services',
+  'Acute Stroke Unit',
+  'Neonatal Intensive Care Unit (NIC)',
+  'OPD',
+  'OT and Surgical Services',
+  'Radiology and Imaging Services',
+  'Saturday OPD Clinic',
+  'Ventilator Services',
+  '24-hour Digital X-ray Services',
+  'Anesthesiology & Critical Care',
+  'Neurosurgery',
+  'Urology Treatment and Surgical',
+  '24-hour Surgical Services',
+  '24-hour Emergency and Trauma Treatment Services',
+  'Modern Physiotherapy',
+  'Hepatology',
+  'Gastroenterology Treatment Services',
+  'Air-conditioned Cabin Services',
+];
+
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,16 +80,17 @@ const Nav = () => {
                   key={index}
                   label="Departments"
                   items={departments}
+                  path="/departments"
                   className="text-white"
                 />
               );
-            }
-            else if (name === 'Services') {
+            } else if (name === 'Services') {
               return (
                 <DropdownNavItem
                   key={index}
                   label="Services"
                   items={services}
+                  path="/services"
                   className="text-white"
                 />
               );
