@@ -59,6 +59,15 @@
     font-style: normal;
   }
 
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
   .font-caption {
     font-family: var(--font-display);
     font-size: 18px;

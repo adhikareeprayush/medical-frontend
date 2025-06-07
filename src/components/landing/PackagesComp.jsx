@@ -1,15 +1,15 @@
 import { GiCheckMark } from 'react-icons/gi';
 const PackagesComp = ({ testData }) => {
   return (
-    <div className="relative my-4 flex h-[500px] w-[300px] flex-col rounded-2xl shadow-2xl transition-shadow duration-300 hover:cursor-pointer hover:shadow-black sm:w-[280px] md:w-[300px] lg:w-[350px]">
+    <div className="relative my-4 flex h-[500px] w-[300px] flex-col rounded-2xl shadow-2xl transition-shadow duration-300 hover:cursor-pointer sm:w-[280px] md:w-[300px] lg:w-[350px]">
       <div className="w-full border-b border-gray-300 pb-5">
         <div>
-          <h1 className="from-primary rounded-t-lg bg-gradient-to-r to-blue-800 p-4 text-center text-2xl font-bold text-white">
+          <h1 className="bg-primary rounded-t-lg p-4 text-center text-2xl font-bold text-white">
             {testData.title}
           </h1>
         </div>
 
-        <div className="flex max-h-64 flex-col justify-between overflow-y-auto">
+        <div className="scrollbar-none hide-scrollbar flex max-h-64 flex-col justify-between overflow-y-auto">
           <ul>
             {testData.tests.map((testItem, idx) => (
               <li className="flex" key={idx}>

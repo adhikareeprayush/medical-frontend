@@ -5,11 +5,11 @@ import close from '../../assets/icons/close.svg';
 
 const navMenus = [
   { name: 'Home', path: '/' },
-  { name: 'About Us', path: '/about' },
+  { name: 'About', path: '/about' },
   { name: 'Services', path: '/services' },
   { name: 'Packages', path: '/packages' },
   { name: 'Departments', path: '/departments' },
-  { name: 'Our Team', path: '/team' },
+  { name: 'Teams', path: '/team' },
   { name: 'News', path: '/news' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
@@ -43,7 +43,7 @@ const Nav = () => {
 
         {/* Right-side Buttons */}
         <div className="flex items-center gap-2 lg:gap-4">
-          <button className="bg-accent font-body hidden rounded-full px-4 py-2.5 text-[16px] font-bold lg:flex">
+          <button className="bg-accent font-body hidden rounded-full lg:px-3 xl:px-4 py-2.5 lg:text-[14px] font-bold lg:flex">
             Appointment
           </button>
           <button className="cursor-pointer lg:hidden" onClick={toggleMenu}>
