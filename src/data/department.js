@@ -7,7 +7,7 @@ import Ophthalmology from '../assets/images/clinicalDepartment/opthalmology.png'
 import ENT from '../assets/images/clinicalDepartment/ENT.png';
 import Dermatology from '../assets/images/clinicalDepartment/Dermatology.png';
 import Psychiatry from '../assets/images/clinicalDepartment/pshyciatry.png';
-import Urology from '../assets/images/clinicalDepartment/Urology.png';
+import Urology from '../assets/images/clinicalDepartment/urology.png';
 import Oncology from '../assets/images/clinicalDepartment/Oncology.png';
 import Nephrology from '../assets/images/clinicalDepartment/Nephrology.png';
 import Rheumatology from '../assets/images/clinicalDepartment/Rheumatology.png';
