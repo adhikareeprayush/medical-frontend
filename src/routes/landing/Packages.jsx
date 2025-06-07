@@ -1,4 +1,3 @@
-import React from 'react';
 import PackagesComp from '../../components/landing/PackagesComp';
 import Data from '../../data/packages.json';
 import PageBanner from '../../components/landing/PageBanner';

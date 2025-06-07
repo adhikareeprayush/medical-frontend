@@ -12,14 +12,14 @@ const contactCards = [
   {
     icon: FiPhoneCall,
     title: 'Emergency',
-    content1: '(237) 681-812-255',
-    content2: '(237) 666-331-894',
+    content1: '986-5680100',
+    content2: '986-5680100',
   },
   {
     icon: GrLocation,
     title: 'Location',
-    content1: '0123 Some place',
-    content2: '9876 Some country',
+    content1: 'Near Nepal Rastra Bank, Dhangadhi',
+    content2: 'Kailali, Nepal',
   },
   {
     icon: FiMail,
@@ -30,8 +30,8 @@ const contactCards = [
   {
     icon: FiClock,
     title: 'Working Hours',
-    content1: 'Mon-Sat 09:00-20:00',
-    content2: 'Sunday Emergency only',
+    content1: 'Everyday 09:00-05:00',
+    content2: 'Emergency 24 hours',
   },
 ];
 
@@ -50,7 +50,7 @@ const ContactSection = () => {
         {contactCards.map((card, index) => (
           <div
             key={index}
-            className="group bg-accent hover:bg-primary flex flex-col justify-center gap-2 rounded-md py-[38px] px-3 transition-colors duration-300"
+            className="group bg-accent hover:bg-primary flex flex-col justify-center gap-2 rounded-md px-3 py-[38px] transition-colors duration-300"
           >
             <div className="text-primary group-hover:text-accent flex h-9 w-9 items-center justify-center transition-colors duration-300">
               <card.icon size={28} className="h-full w-full" />
