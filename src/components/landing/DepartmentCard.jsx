@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const DepartmentCard = ({ dept }) => {
   return (
-    <Link key={dept.id} className="bg-accent text-primary shadow-md">
+    <Link key={dept.id} className="text-primary bg-white shadow-sm">
       <img
         src={dept.image}
         alt={dept.name}
