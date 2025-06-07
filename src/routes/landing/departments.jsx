@@ -1,5 +1,6 @@
 import PageBanner from '../../components/landing/PageBanner';
 import { Link } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
 import serviceBanner from '../../assets/images/banner/serviceBanner.png';
 import cardiology from '../../assets/images/departmentsphoto/cardiology.jpg';
 import nephrology from '../../assets/images/departmentsphoto/nephrology.jpg';
@@ -15,6 +16,7 @@ import Dermatology from '../../assets/images/departmentsphoto/dermatology.jpg';
 import Cardiology from '../../assets/images/departmentsphoto/cardiology.jpg';
 import Nephrology from '../../assets/images/departmentsphoto/nephrology.jpg';
 import Anesthesiology from '../../assets/images/departmentsphoto/anesthesiology.png';
+import RecentPosts from '../../components/landing/RecentPosts';
 
 const departmentData = [
   {
@@ -145,6 +147,16 @@ const department = () => {
             Comprehensive Care Across Specialties
           </h1>
           <p className="text-primary font-display1 text-center">Departments</p>
+          <div className="shadow-slate-700black my-2 ml-28 flex w-[300px] items-center justify-between rounded-full px-2 py-1 shadow-2xs md:ml-36 lg:ml-36">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Search"
+              className="border-none bg-transparent outline-none focus:border-none focus:outline-none"
+            />
+            <FaSearch className="cursor-pointer text-gray-400" />
+          </div>
         </div>
         <section className="relative flex h-full w-full flex-col items-center justify-center gap-10 py-5">
           <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
