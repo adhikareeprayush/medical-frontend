@@ -1,45 +1,24 @@
-import phone from '../../assets/icons/contact/phone.svg';
-import email from '../../assets/icons/contact/mail.svg';
-import location from '../../assets/icons/contact/location.svg';
-import clock from '../../assets/icons/contact/clock.svg';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const cards = [
-  {
-    title: 'Emergency',
-    icon: phone,
-    details: [
-      { type: 'phone', value: '+1 234 567 890' },
-      { type: 'phone', value: '+1 234 567 891' },
-    ],
-  },
-  {
-    title: 'Location',
-    icon: location,
-    details: [{ type: 'address', value: '123 Main St, City, Country' }],
-  },
-  {
-    title: 'Email',
-    icon: email,
-    details: [
-      { type: 'email', value: 'info@example.com' },
-      { type: 'email', value: 'text@example.com' },
-    ],
-  },
-  {
-    title: 'Working Hours',
-    icon: clock,
-    details: [
-      { type: 'text', value: 'Mon - Fri: 9 AM - 5 PM' },
-      { type: 'text', value: 'Sat - Sun: Closed' },
-    ],
-  },
-];
+import { getContactCards } from '../../utils/contact';
 
 const GetInTouch = () => {
+  const [cards, setCards] = useState([]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Add form submission logic here if needed
   };
+
+  useEffect(() => {
+    const fetchCards = async () => {
+      const data = await getContactCards();
+      setCards(data);
+    };
+    fetchCards();
+  }, []);
+
   return (
     <section className="my-3">
       <div className="flex w-full flex-col gap-4 lg:flex-row">
@@ -53,7 +32,7 @@ const GetInTouch = () => {
           <div className="flex w-full flex-col">
             <form
               className="bg-primary flex w-full flex-1 flex-col overflow-hidden rounded-[5px]"
-              onClick={handleSubmit}
+              onSubmit={handleSubmit}
             >
               <div className="flex w-full items-center justify-between gap-0">
                 <input
@@ -93,11 +72,12 @@ const GetInTouch = () => {
             </form>
           </div>
         </div>
+
         <div className="grid grid-cols-2 grid-rows-1 gap-3 md:grid-cols-4 lg:w-1/2 lg:grid-cols-2 lg:grid-rows-2">
           {cards.map((card, index) => (
             <div
               key={index}
-              className={`${card.title == 'Location' ? 'bg-primary text-accent' : 'bg-accent text-primary'} flex flex-col items-start justify-center rounded-[5px] px-3 py-2`}
+              className={`${card.title === 'Location' ? 'bg-primary text-accent' : 'bg-accent text-primary'} flex flex-col items-start justify-center rounded-[5px] px-3 py-2`}
             >
               <img src={card.icon} className="mb-2 size-5" alt="" />
               <h2 className="font-body text-[18px] font-bold uppercase">

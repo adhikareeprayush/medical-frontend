@@ -1,16 +1,18 @@
-import Section from "../../components/landing/Section";
-import Hero from "../../components/landing/Hero";
-import HeroSec from "../../components/landing/HeroSec";
-import WelcomeSec from "../../components/landing/WelcomeSec";
-import DoctorSec from "../../components/landing/DoctorSec";
-import OurDocSec from "../../components/landing/OurDocSec";
-import NewsSection from "../../components/landing/NewsSection";
-import ContactSection from "../../components/landing/ContactSection";
+import Section from '../../components/landing/Section';
+import Hero from '../../components/landing/Hero';
+import HeroSec from '../../components/landing/HeroSec';
+import WelcomeSec from '../../components/landing/WelcomeSec';
+import DoctorSec from '../../components/landing/DoctorSec';
+import OurDocSec from '../../components/landing/OurDocSec';
+import NewsSection from '../../components/landing/NewsSection';
+import ContactSection from '../../components/landing/ContactSection';
+import OurDepartments from '../../components/landing/OurDepartments';
 
 const index = () => {
   return (
     <>
       <Hero />
+      <OurDepartments />
       <HeroSec />
       <WelcomeSec />
       <DoctorSec />
