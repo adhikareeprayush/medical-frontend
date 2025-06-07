@@ -1,9 +1,5 @@
-import React from 'react'
-
 const dashboard = () => {
-  return (
-    <div>admin dashboard</div>
-  )
-}
+  return <div>admin dashboard</div>;
+};
 
-export default dashboard
+export default dashboard;

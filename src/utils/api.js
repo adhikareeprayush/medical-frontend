@@ -7,3 +7,6 @@ export const registerAdmin = (data) => axios.post('/admin/register', data);
 
 // Doctors
 export const getDoctors = () => axios.get('/doctors');
+
+// Contact
+export const getContactDetails = () => axios.get('/contact');
