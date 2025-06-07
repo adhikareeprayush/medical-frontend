@@ -8,6 +8,7 @@ import NewsSection from "../../components/landing/NewsSection";
 import ContactSection from "../../components/landing/ContactSection";
 import { Sticker } from "lucide-react";
 import StickySidebar from "../../components/common/StickySidebar";
+import ClinicalDepartment from "../../components/landing/ClinicalDepartment";
 
 const index = () => {
   return (
@@ -17,6 +18,7 @@ const index = () => {
       <HeroSec />
       <WelcomeSec />
       <DoctorSec />
+      <ClinicalDepartment />
       <OurDocSec />
       <NewsSection />
       <ContactSection />
