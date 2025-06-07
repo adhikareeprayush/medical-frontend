@@ -20,12 +20,15 @@ const footerMenus = [
   {
     title: 'Contact Us',
     subMenus: [
-      { title: 'Call: (+251) 911 11 11 11', link: 'tel:+251911111111' },
+      { title: 'Call: 9865680100', link: 'tel:+251911111111' },
       {
-        title: 'Email: fildineesoe@gmail.com',
-        link: 'mailto:fildineesoe@gmail.com',
+        title: 'Email: nisargahospitalnepal@gmail.com',
+        link: 'mailto:nisargahospitalnepal@gmail.com',
       },
-      { title: 'Address: Addis Ababa, Ethiopia', link: '#' },
+      {
+        title: 'Address: Near Nepal Rastra Bank Dhangadhi, Nepal',
+        link: 'https://maps.app.goo.gl/LHB7up7JELBmZzJg8',
+      },
     ],
   },
 ];
@@ -52,7 +55,7 @@ const Footer = () => {
         {/* Logo and slogan */}
         <div className="flex flex-col gap-2">
           <h1 className="font-display2 text-4xl uppercase">
-            <span className="text-accent">meddical</span>
+            <span className="text-accent">Nisarga Hospital</span>
           </h1>
           <p className="font-body1 max-w-[300px] text-white">
             Leading the Way in Medical Excellence, Trusted Care.
@@ -113,7 +116,7 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="flex w-full flex-col items-center justify-between gap-3 lg:flex-row">
         <p className="font-body1 text-center lg:text-left">
-          © 2021 Hospital’s name. All Rights Reserved by PNTEC-LTD
+          © 2021 Nisarga hospital's. All Rights Reserved by PNTEC-LTD
         </p>
         <div className="flex items-center justify-center gap-3">
           {socialLinks.map((social, index) => (
