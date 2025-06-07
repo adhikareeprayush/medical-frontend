@@ -1,15 +1,36 @@
+// src/pages/Login.jsx
 import { loginAdmin } from '../../utils/api';
+import { saveAuthToken } from '../../utils/auth';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+
     try {
       const response = await loginAdmin(data);
-      console.log(response);
+      console.log(response.data);
+
+      if (response.data.status === 'success') {
+        const token = response.data.token;
+
+        if (response.data.token) {
+          saveAuthToken(token); // ✅ Store token
+          toast.success('Login Successful!');
+
+          // Redirect to admin dashboard or home page
+          window.location.href = '/admin/dashboard';
+        } else {
+          toast.error('No token received.');
+        }
+      } else {
+        toast.error(response.data.message || 'Login Failed!');
+      }
     } catch (error) {
-      console.error(error);
+      console.error('Login error:', error);
+      toast.error('An error occurred during login.');
     }
   };
 
