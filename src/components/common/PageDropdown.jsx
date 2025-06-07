@@ -41,9 +41,9 @@ const DropdownNavItem = ({ label, items, className = '' }) => {
     >
       {/* Top label */}
       <div className="flex cursor-pointer items-center text-white">
-        <span>{label}</span>
-        <RiArrowDropDownLine
-          className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+        <span className="leading-none">{label}</span>
+        <RiArrowDropDownLine size={30}
+          className={`align-middle transition-transform ${isOpen ? 'rotate-180' : ''}`}
         />
       </div>
 
@@ -55,7 +55,7 @@ const DropdownNavItem = ({ label, items, className = '' }) => {
               <Link
                 key={index}
                 to={`/departments/${item.toLowerCase()}`}
-                className="hover:bg-primary cursor-pointer rounded-sm p-1 text-base text-gray-700 hover:text-white"
+                className="hover:bg-primary cursor-pointer rounded-sm p-1 text-base text-gray-700 truncate hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 {item}
