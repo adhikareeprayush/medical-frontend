@@ -1,30 +1,31 @@
 import { GiCheckMark } from 'react-icons/gi';
+
 const PackagesComp = ({ testData }) => {
   return (
-    <div className="relative my-4 flex h-[500px] w-[300px] flex-col rounded-2xl shadow-2xl transition-shadow duration-300 hover:cursor-pointer sm:w-[280px] md:w-[300px] lg:w-[350px]">
-      <div className="w-full border-b border-gray-300 pb-5">
-        <div>
-          <h1 className="bg-primary rounded-t-lg p-4 text-center text-2xl font-bold text-white">
-            {testData.title}
-          </h1>
-        </div>
+    <div className="flex h-full flex-col rounded-2xl shadow-2xl transition-shadow duration-300 hover:cursor-pointer">
+      <div className="bg-primary rounded-t-2xl px-3 py-5 text-center">
+        <h1 className="text-lg font-bold text-white sm:text-lg md:text-xl">
+          {testData.title}
+        </h1>
+      </div>
 
-        <div className="scrollbar-none hide-scrollbar flex max-h-64 flex-col justify-between overflow-y-auto">
-          <ul>
+      <div className="flex flex-grow flex-col border-b border-gray-300">
+        <div className="scrollbar-none hide-scrollbar max-h-[300px] overflow-y-auto p-4 sm:max-h-[280px]">
+          <ul className="space-y-2">
             {testData.tests.map((testItem, idx) => (
-              <li className="flex" key={idx}>
-                <GiCheckMark className="text-secondary mx-2 mt-2 text-xl font-bold" />
-                <span className="mt-1 text-center text-xl"> {testItem} </span>
+              <li className="flex items-start" key={idx}>
+                <GiCheckMark className="text-secondary mt-1 mr-2 flex-shrink-0 text-lg sm:text-xl" />
+                <span className="text-base sm:text-lg">{testItem}</span>
               </li>
             ))}
           </ul>
         </div>
-      </div>
 
-      <div className="absolute top-[82%] left-4 sm:top-[85%] sm:left-4 md:top-[82%] md:left-5 lg:top-[82%] lg:left-6">
-        <button className="bg-primary from-primary mx-1 my-2 cursor-pointer rounded-2xl to-blue-600 px-3 py-1 text-lg font-bold text-white transition-all duration-200 hover:bg-gradient-to-r sm:px-2 lg:px-3">
-          Book this Package
-        </button>
+        <div className="p-4">
+          <button className="bg-primary w-full rounded-2xl py-2 text-base font-bold text-white transition-all duration-200 hover:bg-blue-800 sm:py-2 sm:text-lg">
+            Book this Package
+          </button>
+        </div>
       </div>
     </div>
   );
