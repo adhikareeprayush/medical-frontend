@@ -3,6 +3,7 @@ import { useState } from 'react';
 import hamburger from '../../assets/icons/hamburger.svg';
 import close from '../../assets/icons/close.svg';
 import { RiArrowDropDownLine } from "react-icons/ri";
+import DropdownNavItem from '../common/PageDropdown';
 
 
 const navMenus = [
@@ -16,6 +17,19 @@ const navMenus = [
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
 ];
+
+const departments = [
+  'Cardiology',
+  'Neurology',
+  'Orthopedics',
+  'Pediatrics',
+  'Oncology',
+  'Gynecology',
+  'Dermatology',
+  'Radiology',
+];
+
+const services = ['Consultation', 'Emergency Care', 'Surgery', 'Diagnostics', 'Rehabilitation', 'Pharmacy', 'Laboratory', 'Radiology'];
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,35 +45,22 @@ const Nav = () => {
           {navMenus.map(({ name, path }, index) => {
             if (name === 'Departments') {
               return (
-                <div key={index} className="group relative mx-2">
-                  <div className="flex cursor-pointer items-center gap-1 text-white">
-                    <span>{name}</span>
-                    <RiArrowDropDownLine styles="w-3 h-3 transition-transform group-hover:rotate-180" />
-                  </div>
-
-                  {/* Dropdown */}
-                  <div className="absolute top-full left-0 z-50 hidden min-w-[600px] grid-cols-3 gap-4 rounded-lg bg-white p-4 text-black shadow-lg group-hover:grid">
-                    {[
-                      'Cardiology',
-                      'Neurology',
-                      'Pediatrics',
-                      'Oncology',
-                      'Orthopedics',
-                      'Dermatology',
-                      'ENT',
-                      'Radiology',
-                      'Psychiatry',
-                    ].map((dept, i) => (
-                      <Link
-                        key={i}
-                        to={`/departments/${dept.toLowerCase()}`}
-                        className="hover:bg-primary rounded-md px-4 py-2 text-sm font-medium hover:text-white"
-                      >
-                        {dept}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                <DropdownNavItem
+                  key={index}
+                  label="Departments"
+                  items={departments}
+                  className="text-white"
+                />
+              );
+            }
+            else if (name === 'Services') {
+              return (
+                <DropdownNavItem
+                  key={index}
+                  label="Services"
+                  items={services}
+                  className="text-white"
+                />
               );
             }
 
