@@ -3,8 +3,12 @@ import contactBanner from '../../assets/images/banner/hospital_banner.jpg';
 import GetInTouch from '../../components/landing/GetInTouch';
 import NewsSection from '../../components/landing/NewsSection';
 import Iframe from 'react-iframe';
+import { getContactDetails } from '../../utils/api';
+import { useEffect } from 'react';
 
 const contact = () => {
+  // Fetch contact details if needed
+
   return (
     <>
       <PageBanner
