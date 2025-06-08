@@ -1,5 +1,5 @@
-import GeneralMedicine from '../assets/images/clinicalDepartment/General Medicine.png';
-import Cardiology from '../assets/images/clinicalDepartment/Cardiology.png';
+import GeneralMedicine from '../assets/images/clinicalDepartment/General_Medicine.png';
+import Cardiology from '../assets/images/clinicalDepartment/cardiology.png';
 import Neuroscience from '../assets/images/clinicalDepartment/Neuroscience.png';
 import Pediatrics from '../assets/images/clinicalDepartment/Paediatrics.png';
 import Orthopedic from '../assets/images/clinicalDepartment/Orthopedic.png';
@@ -7,16 +7,16 @@ import Ophthalmology from '../assets/images/clinicalDepartment/opthalmology.png'
 import ENT from '../assets/images/clinicalDepartment/ENT.png';
 import Dermatology from '../assets/images/clinicalDepartment/Dermatology.png';
 import Psychiatry from '../assets/images/clinicalDepartment/pshyciatry.png';
-import Urology from '../assets/images/clinicalDepartment/Urology.png';
-import Oncology from '../assets/images/clinicalDepartment/Oncology.png';
+import Urology from '../assets/images/clinicalDepartment/urology.png';
+import Oncology from '../assets/images/clinicalDepartment/oncology.png';
 import Nephrology from '../assets/images/clinicalDepartment/Nephrology.png';
 import Rheumatology from '../assets/images/clinicalDepartment/Rheumatology.png';
-import Anesthesiology from '../assets/images/clinicalDepartment/Anesthesiology.png';
+import Anesthesiology from '../assets/images/clinicalDepartment/anesthesiology.png';
 import Gyna from '../assets/images/clinicalDepartment/Gyna.png';
-import GeneralSurgery from '../assets/images/clinicalDepartment/General Surgery.png';
+import GeneralSurgery from '../assets/images/clinicalDepartment/General_Surgery.png';
 import Nutrition from '../assets/images/clinicalDepartment/Nutrition.png';
-import VascularSurgery from '../assets/images/clinicalDepartment/vascular surgery.png';
-import TeethSurgery from '../assets/images/clinicalDepartment/teeth surgery.png';
+import VascularSurgery from '../assets/images/clinicalDepartment/vascular_surgery.png';
+import TeethSurgery from '../assets/images/clinicalDepartment/teeth_surgery.png';
 
 const clinicalDepartments = [
   {

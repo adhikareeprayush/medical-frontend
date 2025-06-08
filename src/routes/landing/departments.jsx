@@ -18,7 +18,7 @@ const department = () => {
             Comprehensive Care Across Specialties
           </h1>
           <p className="text-primary font-display1 text-center">Departments</p>
-          <div className="shadow-slate-700black my-2 ml-28 flex w-[300px] items-center justify-between rounded-full px-2 py-1 shadow-2xs md:ml-36 lg:ml-36">
+          <div className="my-2 ml-10 flex w-[300px] items-center justify-between rounded-full px-2 py-1 shadow-2xs md:ml-36 lg:ml-36">
             <input
               type="search"
               name="search"
