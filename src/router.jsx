@@ -16,7 +16,7 @@ const ServicePage = lazy(() => import('./routes/landing/services/page'));
 const Contact = lazy(() => import('./routes/landing/contact'));
 const Departments = lazy(() => import('./routes/landing/departments'));
 const DepartmentPage = lazy(() => import('./routes/landing/departments/page'));
-const Teams = lazy(() => import('./routes/landing/team'));
+const Doctors = lazy(() => import('./routes/landing/doctors'));
 const Gallery = lazy(() => import('./routes/landing/gallery'));
 const AdminHome = lazy(() => import('./routes/admin/index'));
 const Dashboard = lazy(() => import('./routes/admin/dashboard'));
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       { path: 'services/:slug', element: <ServicePage /> },
       { path: 'departments', element: <Departments /> },
       { path: 'departments/:slug', element: <DepartmentPage /> },
-      { path: 'team', element: <Teams /> },
+      { path: 'doctors', element: <Doctors /> },
       { path: 'gallery', element: <Gallery /> },
     ],
   },

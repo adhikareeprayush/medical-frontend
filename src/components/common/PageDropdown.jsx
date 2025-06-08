@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const DropdownNavItem = ({ label, items, path, className = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState(null);
   const dropdownRef = useRef(null);
   let hoverTimeout;
 
@@ -16,7 +15,6 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
   const handleMouseLeave = () => {
     hoverTimeout = setTimeout(() => {
       setIsOpen(false);
-      setHoveredItem(null);
     }, 200);
   };
 
@@ -71,13 +69,6 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
                 >
                   {item}
                 </Link>
-                {/* Tooltip-like element */}
-                {hoveredItem === item && (
-                  <div className="absolute top-full left-0 z-50 w-full rounded-sm bg-gray-50 p-1 text-[12px] text-gray-800 shadow-sm">
-                    {/* You can customize this content based on your needs */}
-                    <p>{item}</p>
-                  </div>
-                )}
               </div>
             ))}
           </div>
