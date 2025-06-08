@@ -15,7 +15,7 @@ const HeroSec = () => {
       ></div>
 
       {/* Gradient overlay (e.g., from blue to transparent black) */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-800/80  via-black/60 to-transparent" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-800/80 via-black/60 to-transparent" />
 
       {/* Foreground content */}
       <div className="relative z-10 flex w-full flex-col items-center justify-center">
