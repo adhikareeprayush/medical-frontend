@@ -38,11 +38,11 @@ const Testimonials = () => {
     arrows: false,
     appendDots: (dots) => (
       <div className="slick-dots-container">
-        <ul className="mt-2 flex justify-center space-x-1 text-2xl">{dots}</ul>
+        <ul className="mt-2 flex justify-center space-x-1">{dots}</ul>
       </div>
     ),
     customPading: (i) => (
-      <div className="bg-opacity-50 h-1.5 w-1.5 rounded-full bg-white transition-all duration-300"></div>
+      <div className="bg-opacity-50 h-1 w-1 rounded-full bg-white transition-all duration-300"></div>
     ),
   };
   return (
@@ -63,7 +63,7 @@ const Testimonials = () => {
               <span className="block text-center text-3xl text-gray-300">
                 "
               </span>
-              <p className="relative inline-block text-center text-base text-gray-100 after:mx-auto after:mt-1 after:block after:h-[2px] after:w-[40%] after:bg-gray-400 lg:text-lg">
+              <p className="relative inline-block text-center text-sm text-gray-100 after:mx-auto after:block after:h-[2px] after:w-[40%] after:bg-gray-400 lg:text-lg">
                 {testimonial.quote}
               </p>
               <p className="name py-1 text-center font-bold text-gray-800">
