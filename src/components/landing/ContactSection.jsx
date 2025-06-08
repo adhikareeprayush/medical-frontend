@@ -32,9 +32,9 @@ const ContactSection = () => {
         {contactCards.map((card, index) => (
           <div
             key={index}
-            className="group bg-accent hover:bg-primary flex flex-col justify-center gap-2 rounded-md px-3 py-[38px] transition-colors duration-300"
+            className={`group ${card.title == 'Location' ? 'bg-primary text-accent' : 'bg-accent text-primary'} flex flex-col justify-center gap-2 rounded-md px-3 py-[38px] transition-colors duration-300`}
           >
-            <div className="text-primary group-hover:text-accent flex h-9 w-9 items-center justify-center transition-colors duration-300">
+            <div className="flex h-9 w-9 items-center justify-center transition-colors duration-300">
               <img
                 src={card.icon}
                 alt={`${card.title} icon`}
@@ -42,7 +42,7 @@ const ContactSection = () => {
               />
             </div>
 
-            <h3 className="text-primary font-body2 group-hover:text-accent text-xl font-semibold tracking-wide transition-colors duration-300">
+            <h3 className="font-body2 text-xl font-semibold tracking-wide transition-colors duration-300">
               {card.title}
             </h3>
 
@@ -50,7 +50,7 @@ const ContactSection = () => {
               {card.details.map((detail, idx) => (
                 <p
                   key={idx}
-                  className="text-primary group-hover:text-accent text-base tracking-wider break-words whitespace-pre-wrap transition-colors duration-300"
+                  className="text-base tracking-wider break-words whitespace-pre-wrap transition-colors duration-300"
                 >
                   {detail.type === 'phone' ? (
                     <Link to={`tel:${detail.value}`}>{detail.value}</Link>

@@ -4,6 +4,7 @@ import hamburger from '../../assets/icons/hamburger.svg';
 import close from '../../assets/icons/close.svg';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import DropdownNavItem from '../common/PageDropdown';
+import logo from '../../assets/logo.png';
 
 const navMenus = [
   { name: 'Home', path: '/' },
@@ -31,7 +32,6 @@ const departments = [
   'Anesthesiology',
   'Neuroscience',
 ];
-
 
 const services = [
   'Emergency and Trauma Care',
@@ -61,14 +61,13 @@ const services = [
   'Air-conditioned Cabin Services',
 ];
 
-
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <section className="bg-primary relative flex w-full flex-col items-center justify-between py-[18px] lg:flex-row">
+    <section className="bg-accent lg:bg-primary relative flex w-full flex-col items-center justify-between py-[18px] lg:flex-row">
       {/* Top Navigation Row */}
       <div className="flex w-full justify-between">
         {/* Desktop Menu */}
@@ -106,10 +105,11 @@ const Nav = () => {
 
         {/* Logo for Mobile */}
         <Link to={'/'}>
-          <h1 className="font-display2 text-4xl uppercase lg:hidden">
-            <span className="text-secondary">med</span>
-            <span className="text-white">dical</span>
-          </h1>
+          <img
+            src={logo}
+            alt="Logo"
+            className="size-7 object-contain lg:hidden"
+          />
         </Link>
 
         {/* Right-side Buttons */}
@@ -126,7 +126,7 @@ const Nav = () => {
           isOpen
             ? 'pointer-events-auto translate-y-0 opacity-100'
             : 'pointer-events-none -translate-y-2 opacity-0'
-        } bg-accent absolute top-[72px] left-0 z-50 flex w-full flex-col items-center justify-center gap-2 rounded-lg py-4 lg:hidden`}
+        } bg-accent absolute top-[95px] left-0 z-50 flex w-full flex-col items-center justify-center gap-2 rounded-lg py-4 lg:hidden`}
       >
         {navMenus.map(({ name, path }, index) => (
           <Link key={index} to={path} className="text-xl" onClick={toggleMenu}>
