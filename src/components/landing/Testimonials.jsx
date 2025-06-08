@@ -63,10 +63,10 @@ const Testimonials = () => {
               <span className="block text-center text-3xl text-gray-300">
                 "
               </span>
-              <p className="relative inline-block text-center text-sm text-gray-100 after:mx-auto after:block after:h-[2px] after:w-[40%] after:bg-gray-400 lg:text-lg">
+              <p className="relative inline-block pb-2 text-center text-sm text-gray-100 after:mx-auto after:block after:h-[2px] after:w-[40%] after:bg-gray-400 lg:text-lg">
                 {testimonial.quote}
               </p>
-              <p className="name py-1 text-center font-bold text-gray-800">
+              <p className="name pb-1 text-center font-bold text-gray-800">
                 {testimonial.name}
               </p>
             </div>
