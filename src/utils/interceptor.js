@@ -3,13 +3,13 @@ export const setupInterceptors = (axiosInstance) => {
   // Request Interceptor
   axiosInstance.interceptors.request.use(
     (config) => {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('authToken');
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
       return config;
     },
-    (error) => Promise.reject(error)
+    (error) => Promise.reject(error),
   );
 
   // Response Interceptor
@@ -18,10 +18,10 @@ export const setupInterceptors = (axiosInstance) => {
     (error) => {
       if (error.response && error.response.status === 401) {
         // Redirect to login or show error
-        console.warn("Unauthorized. Redirecting...");
+        console.warn('Unauthorized. Redirecting...');
         // window.location.href = "/login";
       }
       return Promise.reject(error);
-    }
+    },
   );
 };
