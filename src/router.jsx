@@ -9,6 +9,7 @@ const Home = lazy(() => import('./routes/landing/index'));
 const About = lazy(() => import('./routes/landing/about'));
 const Pricing = lazy(() => import('./routes/landing/pricing'));
 const Packages = lazy(() => import('./routes/landing/Packages'));
+const PackagePage = lazy(() => import('./components/landing/PackagePage'));
 const News = lazy(() => import('./routes/landing/news'));
 const NewsDetails = lazy(() => import('../src/components/landing/NewsDetails'));
 const Services = lazy(() => import('./routes/landing/services'));
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: 'about', element: <About /> },
       { path: 'pricing', element: <Pricing /> },
       { path: 'packages', element: <Packages /> },
+      { path: 'packages/:slug', element: <PackagePage /> },
       { path: 'news', element: <News /> },
       { path: 'news/:newsId', element: <NewsDetails /> },
       { path: 'about', element: <About /> },
