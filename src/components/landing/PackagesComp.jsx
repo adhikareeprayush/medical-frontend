@@ -1,4 +1,5 @@
 import { GiCheckMark } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
 
 const PackagesComp = ({ testData }) => {
   return (
@@ -15,16 +16,18 @@ const PackagesComp = ({ testData }) => {
             {testData.tests.map((testItem, idx) => (
               <li className="flex items-start" key={idx}>
                 <GiCheckMark className="text-secondary mt-1 mr-2 flex-shrink-0 text-lg sm:text-xl" />
-                <span className="text-base sm:text-lg">{testItem}</span>
+                <span className="text-base sm:text-lg">{testItem.name}</span>
               </li>
             ))}
           </ul>
         </div>
 
         <div className="p-4">
-          <button className="bg-primary w-full rounded-2xl py-2 text-base font-bold text-white transition-all duration-200 hover:bg-blue-800 sm:py-2 sm:text-lg">
-            Book this Package
-          </button>
+          <Link to={`/packages/${testData.slug}`}>
+            <button className="bg-primary hover:bg-secondary w-full rounded-lg px-2 py-4 text-base font-semibold text-white transition-all duration-200 sm:py-2 sm:text-lg">
+              See in Detail
+            </button>
+          </Link>
         </div>
       </div>
     </div>
