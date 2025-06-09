@@ -1,6 +1,7 @@
 import phone from '../../assets/icons/call.svg';
 import clock from '../../assets/icons/clock.svg';
 import location from '../../assets/icons/location.svg';
+import logo from '../../assets/logo.png';
 
 const contacts = [
   {
@@ -23,10 +24,11 @@ const contacts = [
 const Header = () => {
   return (
     <section className="flex w-full items-center justify-center py-2 lg:h-[80px] lg:justify-between">
-      <h1 className="font-display2 hidden text-4xl uppercase lg:inline-block">
-        <span className="text-primary">med</span>
-        <span className="text-secondary">dical</span>
-      </h1>
+      <img
+        className="hidden size-7 object-contain lg:inline-block"
+        src={logo}
+        alt="Logo"
+      />
       <div className="flex flex-wrap items-center justify-around gap-2 lg:flex-nowrap lg:justify-between">
         {contacts.map((contact, index) => {
           return (
