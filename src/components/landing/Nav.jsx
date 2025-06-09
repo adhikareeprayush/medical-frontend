@@ -12,7 +12,7 @@ const navMenus = [
   { name: 'Services', path: '/services' },
   { name: 'Packages', path: '/packages' },
   { name: 'Departments', path: '/departments' },
-  { name: 'Teams', path: '/team' },
+  { name: 'Doctors', path: '/doctors' },
   { name: 'News', path: '/news' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
