@@ -3,8 +3,7 @@ import axios from 'axios';
 import { setupInterceptors } from './interceptor';
 
 const BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
-  'http://hospitalserver.otaku-festival.com/api';
+  import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
