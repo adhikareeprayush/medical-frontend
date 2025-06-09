@@ -1,4 +1,4 @@
-import { getContactDetails } from './api';
+import { getContactDetails, updateContactDetails } from './api';
 import phone from '../assets/icons/contact/phone.svg';
 import email from '../assets/icons/contact/mail.svg';
 import location from '../assets/icons/contact/location.svg';
@@ -55,5 +55,24 @@ export const getContactCards = async () => {
   } catch (error) {
     console.error('Failed to fetch contact cards:', error);
     return [];
+  }
+};
+
+/**
+ * Edit contact details
+ * @param {Object} contactData - {
+ *   phone_number: string,
+ *   email: string,
+ *   location: string,
+ *   work_hour: string
+ * }
+ * @returns {Promise<void>}
+ */
+export const editContactDetails = async (contactData) => {
+  try {
+    await updateContactDetails(contactData); // assumed API function
+  } catch (error) {
+    console.error('Failed to edit contact details:', error);
+    throw error;
   }
 };

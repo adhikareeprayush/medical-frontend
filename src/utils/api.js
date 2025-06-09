@@ -10,3 +10,4 @@ export const getDoctors = () => axios.get('/doctors');
 
 // Contact
 export const getContactDetails = () => axios.get('/contact');
+export const updateContactDetails = (data) => axios.put('/contact/1', data);
