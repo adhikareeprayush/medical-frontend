@@ -149,3 +149,12 @@ html {
 .slick-slide:focus {
   outline: none !important;
 }
+
+@layer base {
+  .btn-primary {
+    @apply bg-primary hover:bg-secondary rounded px-4 py-1 font-semibold text-white transition-colors duration-300;
+  }
+  .btn-secondary {
+    @apply bg-secondary hover:bg-primary rounded px-4 py-1 font-semibold text-white transition-colors duration-300;
+  }
+}
