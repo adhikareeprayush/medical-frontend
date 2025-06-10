@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 import PageBanner from '../../components/landing/PageBanner';
 import PackageBanner from '../../assets/images/hospital_banner/hospital_banner.jpg';
 import Data from '../../data/packages.json';
 import { useParams } from 'react-router-dom';
 
 const PackagePage = () => {
-    const { slug } = useParams();
-    const data = Data.find((item) => item.slug === slug);
+  const { slug } = useParams();
+  const data = Data.find((item) => item.slug === slug);
 
-    if (!data) {
-      return <div className="text-center text-red-500">News not found</div>;
-    }
+  if (!data) {
+    return <div className="text-center text-red-500">News not found</div>;
+  }
   return (
     <>
       <PageBanner
@@ -19,9 +19,11 @@ const PackagePage = () => {
         title={data.title}
         backgroundImage={PackageBanner}
       />
-      <section className="container mx-auto px-1 md:px-4 py-8 md:py-12 xl:px-[140px]">
+      <section className="container mx-auto px-1 py-8 md:px-4 md:py-12 xl:px-[140px]">
         <section className="container mx-auto px-4 py-8 md:py-12 xl:px-[140px]">
-          <h2 className="mb-5 text-primary text-3xl font-semibold">Tests Included:</h2>
+          <h2 className="text-primary mb-5 text-3xl font-semibold">
+            Tests Included:
+          </h2>
 
           <ul className="divide-y divide-gray-200 rounded-lg border shadow-md">
             {data.tests.map((test, idx) => (
@@ -51,6 +53,6 @@ const PackagePage = () => {
       </section>
     </>
   );
-}
+};
 
-export default PackagePage
+export default PackagePage;

@@ -21,3 +21,20 @@ export const getContactDetails = () => axios.get('/contact');
 export const updateContactDetails = (data) => axios.put('/contact/1', data);
 export const getSocialLinks = () => axios.get('sociallink');
 export const updateSocialLinks = (data) => axios.put('/sociallink/1', data);
+
+// Packages
+export const getAllPackages = () => axios.get('/package');
+export const createPackage = (data) => axios.post('/package', data);
+export const getPackageById = (id) => axios.get(`/package/${id}`);
+export const updatePackage = (id, data) => axios.put(`/package/${id}`, data);
+export const deletePackage = (id) => axios.delete(`/package/${id}`);
+
+// Department
+export const getAllDepartments = () => axios.get('/department');
+export const createDepartment = (data) => axios.post('/department', data);
+export const getDepartmentById = (id) => axios.get(`/department/${id}`);
+export const updateDepartment = (id, data) =>
+  axios.put(`/department/${id}`, data);
+export const deleteDepartment = (id) => axios.delete(`/department/${id}`);
+export const getDepartmentBySlug = (slug) =>
+  axios.get(`/department/slug/${slug}`);

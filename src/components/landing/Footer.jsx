@@ -42,7 +42,7 @@ const Footer = () => {
                 return { icon: <FaFacebookF size={25} />, link };
               case 'instagram':
                 return { icon: <FaInstagram size={25} />, link };
-              case 'linkedin':
+              case 'linkedIn':
                 return { icon: <FaLinkedin size={25} />, link };
               default:
                 return null;
