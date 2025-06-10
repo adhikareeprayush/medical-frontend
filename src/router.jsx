@@ -24,6 +24,7 @@ const Dashboard = lazy(() => import('./routes/admin/dashboard'));
 const Login = lazy(() => import('./routes/admin/Login'));
 const Settings = lazy(() => import('./routes/admin/settings'));
 const DoctorsAdmin = lazy(() => import('./routes/admin/doctorsAdmin'));
+const DepartmentAdmin = lazy(() => import('./routes/admin/department'));
 const PackageAdmin = lazy(() => import('./routes/admin/packagesAdmin'));
 const router = createBrowserRouter([
   {
@@ -61,6 +62,7 @@ const router = createBrowserRouter([
           { path: 'settings', element: <Settings /> },
           { path: 'packages', element: <PackageAdmin /> },
           { path: 'doctors', element: <DoctorsAdmin /> },
+          { path: 'departments', element: <DepartmentAdmin /> },
         ],
       },
     ],

@@ -10,7 +10,7 @@ import {
   Settings,
   Package,
 } from 'lucide-react';
-import { useState } from 'react';
+import { BiCategory } from 'react-icons/bi';
 
 const menuItems = [
   {
@@ -30,6 +30,12 @@ const menuItems = [
     path: '/admin/appointments',
     icon: <CalendarCheck size={18} />,
   },
+  {
+    title: 'Departments',
+    path: '/admin/departments',
+    icon: <BiCategory size={18} />,
+  },
+
   { title: 'Settings', path: '/admin/settings', icon: <Settings size={18} /> },
 ];
 

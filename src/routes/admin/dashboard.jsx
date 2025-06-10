@@ -1,5 +1,14 @@
+import AdminHeader from '../../components/admin/AdminHeader';
+
 const dashboard = () => {
-  return <div>admin dashboard</div>;
+  return (
+    <>
+      <AdminHeader
+        title={'Dashboard'}
+        subtitle={'Overview of all departments'}
+      />
+    </>
+  );
 };
 
 export default dashboard;
