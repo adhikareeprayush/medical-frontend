@@ -31,9 +31,9 @@ export const deletePackage = (id) => axios.delete(`/package/${id}`);
 
 // Department
 export const getAllDepartments = () => axios.get('/department');
-export const createDepartment = (data) => axios.post('/department', data);
+export const addDepartment = (data) => axios.post('/department', data);
 export const getDepartmentById = (id) => axios.get(`/department/${id}`);
-export const updateDepartment = (id, data) =>
+export const updateDepartmentById = (id, data) =>
   axios.put(`/department/${id}`, data);
 export const deleteDepartment = (id) => axios.delete(`/department/${id}`);
 export const getDepartmentBySlug = (slug) =>
