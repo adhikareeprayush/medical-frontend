@@ -13,7 +13,7 @@ const index = () => {
     <>
       {/* <StickySidebar /> */}
       <Hero />
-      <HeroSec />
+      {/* <HeroSec /> */}
       <WelcomeSec />
       <DoctorSec />
       <ClinicalDepartment />

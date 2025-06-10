@@ -19,13 +19,11 @@ const ContactSection = () => {
 
   return (
     <section className="my-24 flex w-full flex-col items-center justify-center px-5 sm:px-6 lg:px-8">
-      <div className="my-6 text-center">
-        <h1 className="text-secondary mb-[20px] text-xl font-bold tracking-widest uppercase sm:text-2xl">
+      <div className="my-6 flex flex-col gap-3 text-center">
+        <h1 className="text-secondary text-base font-bold tracking-widest uppercase sm:text-lg md:text-xl">
           Get in Touch
         </h1>
-        <p className="text-primary font-display1 text-2xl sm:text-3xl">
-          Contact
-        </p>
+        <p className="text-primary font-display2 lg:font-display1">Contact</p>
       </div>
 
       <div className="grid w-full max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">

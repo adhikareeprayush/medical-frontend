@@ -90,11 +90,11 @@ const OurDocSec = () => {
   return (
     <section className="w-full bg-white px-4 py-10 md:px-8 lg:px-12">
       {/* Header */}
-      <div className="mb-8 text-center">
-        <h1 className="text-secondary text-xl font-bold tracking-widest uppercase">
+      <div className="mb-7 flex flex-col gap-3 text-center">
+        <h1 className="text-secondary text-base font-bold tracking-widest uppercase sm:text-lg md:text-xl">
           Trusted Care
         </h1>
-        <p className="text-primary font-display1 text-2xl md:text-3xl">
+        <p className="text-primary font-display2 lg:font-display1">
           Our Doctors
         </p>
       </div>
@@ -124,10 +124,7 @@ const OurDocSec = () => {
         </Slider>
       </div>
       <Link to={'/team'}>
-        <LearnMoreBtn
-          text="View All Doctors"
-          styles="mt-6 mx-auto w-fit"
-        />
+        <LearnMoreBtn text="View All Doctors" styles="mt-6 mx-auto w-fit" />
       </Link>
     </section>
   );
