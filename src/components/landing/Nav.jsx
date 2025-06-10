@@ -80,7 +80,7 @@ const Nav = () => {
                   label="Departments"
                   items={departments}
                   path="/departments"
-                  className="text-white"
+                  className="text-white grid-cols-3 xl:grid-cols-4"
                 />
               );
             } else if (name === 'Services') {

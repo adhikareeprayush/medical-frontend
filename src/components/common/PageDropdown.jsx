@@ -35,7 +35,7 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
 
   return (
     <div
-      className={`group relative mx-2 ${className}`}
+      className="group relative mx-2"
       ref={dropdownRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -54,7 +54,7 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
       {/* Dropdown Menu */}
       {isOpen && (
         <div className="absolute top-full left-0 z-50 mt-2 min-w-[650px] overflow-hidden rounded-sm border border-gray-100 bg-white shadow-xl">
-          <div className="grid grid-cols-4 gap-3 px-1 py-3">
+          <div className={`grid grid-cols-4 gap-3 px-1 py-3 ${className}`}>
             {items.map((item, index) => (
               <div
                 key={index}
@@ -64,7 +64,7 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
               >
                 <Link
                   to={`/departments/${item.toLowerCase()}`}
-                  className="hover:bg-primary block relative cursor-pointer truncate rounded-sm p-1 text-base text-gray-700 hover:text-white"
+                  className="hover:bg-primary relative block cursor-pointer truncate rounded-sm p-1 text-base text-gray-700 hover:text-white"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
