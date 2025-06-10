@@ -1,28 +1,71 @@
-import { getAllDoctors } from './api';
+import * as api from './api';
 
-/**
- * Fetch all doctors and transform into UI-ready card array
- * @returns {Promise<Array>} Array of doctor objects with id, name, and image
- */
-
-export const getDoctorsCards = async () => {
+export const getAllDoctors = async () => {
   try {
-    const response = await getAllDoctors();
-    if (
-      !response.data ||
-      !response.data.data ||
-      response.data.data.length === 0
-    ) {
-      console.warn('No doctors found');
-      return [];
-    }
-    return response.data.data.map((doctor) => ({
-      id: doctor.id,
-      name: doctor.name,
-      image: doctor.image,
-    }));
+    const response = await api.getAllDoctors();
+    return response.data;
   } catch (error) {
-    console.error('Failed to fetch doctors:', error);
-    return [];
+    console.error('Error fetching doctors:', error);
+    throw error;
+  }
+};
+
+export const createDoctor = async (doctorData) => {
+  try {
+    const response = await api.createDoctor(doctorData);
+    return response.data;
+  } catch (error) {
+    console.error('Error creating doctor:', error);
+    throw error;
+  }
+};
+
+export const getDoctorById = async (id) => {
+  try {
+    const response = await api.getDoctorById(id);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching doctor by ID:', error);
+    throw error;
+  }
+};
+
+export const updateDoctorById = async (id, doctorData) => {
+  try {
+    const response = await api.updateDoctor(id, doctorData);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating doctor:', error);
+    throw error;
+  }
+};
+
+export const deleteDoctorById = async (id) => {
+  try {
+    const response = await api.deleteDoctor(id);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting doctor:', error);
+    throw error;
+  }
+};
+
+export const getDoctorsByDepartment = async (departmentName) => {
+  try {
+    const response = await api.getDoctorsByDepartment(departmentName);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching doctors by department:', error);
+    throw error;
+  }
+};
+
+export const getDoctorsBySpeciality = async (specialty) => {
+  try {
+    const response = await api.getDoctorsBySpeciality(specialty);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching doctors by speciality:', error);
+    throw error;
   }
 };
