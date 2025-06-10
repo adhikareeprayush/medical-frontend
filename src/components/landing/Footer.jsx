@@ -1,45 +1,93 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import send from '../../assets/icons/send.svg';
-import facebookIcon from '../../assets/icons/facebook.svg';
-import instagramIcon from '../../assets/icons/instagram.svg';
-import linkedinIcon from '../../assets/icons/linkedin.svg';
 import { FaFacebookF, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import RoundButton from '../common/RoundButton';
-
-const footerMenus = [
-  {
-    title: 'Important Links',
-    subMenus: [
-      { title: 'Appointment', link: '/appointment' },
-      { title: 'Doctors', link: '/doctors' },
-      { title: 'Services', link: '/services' },
-      { title: 'About Us', link: '/about' },
-    ],
-  },
-  {
-    title: 'Contact Us',
-    subMenus: [
-      { title: 'Call: 9865680100', link: 'tel:+251911111111' },
-      {
-        title: 'Email: nisargahospitalnepal@gmail.com',
-        link: 'mailto:nisargahospitalnepal@gmail.com',
-      },
-      {
-        title: 'Address: Near Nepal Rastra Bank Dhangadhi, Nepal',
-        link: 'https://maps.app.goo.gl/LHB7up7JELBmZzJg8',
-      },
-    ],
-  },
-];
-
-const socialLinks = [
-  { icon: <FaFacebookF size={25} />, link: 'https://www.facebook.com' },
-  { icon: <FaInstagram size={25} />, link: 'https://www.instagram.com' },
-  { icon: <FaLinkedin size={25} />, link: 'https://www.linkedin.com' },
-];
+import { getContactDetails } from '../../utils/api';
+import { getSocial } from '../../utils/social';
 
 const Footer = () => {
+  const [contactInfo, setContactInfo] = useState({
+    phone: '',
+    email: '',
+    address: '',
+  });
+  const [socialLinks, setSocialLinks] = useState([]);
+
+  useEffect(() => {
+    const fetchFooterData = async () => {
+      try {
+        // Get contact details
+        const contactRes = await getContactDetails();
+        const data = contactRes?.data?.data?.[0];
+
+        if (data) {
+          setContactInfo({
+            phone: data.phone_number?.split(',')[0]?.trim() || '',
+            email: data.email?.split(',')[0]?.trim() || '',
+            address: data.location || '',
+          });
+        }
+
+        // Get social links
+        const socialRes = await getSocial();
+        console.log('Social Links:', socialRes);
+        const formattedLinks = socialRes
+          .map((item) => {
+            const site = item.site.toLowerCase();
+            const link = item.link;
+
+            switch (site) {
+              case 'facebook':
+                return { icon: <FaFacebookF size={25} />, link };
+              case 'instagram':
+                return { icon: <FaInstagram size={25} />, link };
+              case 'linkedin':
+                return { icon: <FaLinkedin size={25} />, link };
+              default:
+                return null;
+            }
+          })
+          .filter(Boolean);
+
+        setSocialLinks(formattedLinks);
+      } catch (err) {
+        console.error('Error loading footer data:', err);
+      }
+    };
+
+    fetchFooterData();
+  }, []);
+
+  const footerMenus = [
+    {
+      title: 'Important Links',
+      subMenus: [
+        { title: 'Appointment', link: '/appointment' },
+        { title: 'Doctors', link: '/doctors' },
+        { title: 'Services', link: '/services' },
+        { title: 'About Us', link: '/about' },
+      ],
+    },
+    {
+      title: 'Contact Us',
+      subMenus: [
+        {
+          title: `Call: ${contactInfo.phone}`,
+          link: `tel:${contactInfo.phone}`,
+        },
+        {
+          title: `Email: ${contactInfo.email}`,
+          link: `mailto:${contactInfo.email}`,
+        },
+        {
+          title: `Address: ${contactInfo.address}`,
+          link: 'https://maps.app.goo.gl/LHB7up7JELBmZzJg8',
+        },
+      ],
+    },
+  ];
+
   const [openIndexes, setOpenIndexes] = useState({});
 
   const toggleMenu = (index) => {
@@ -65,7 +113,6 @@ const Footer = () => {
         {/* Menus */}
         {footerMenus.map((menu, index) => (
           <div key={index} className="w-full lg:w-auto">
-            {/* Mobile Accordion Header */}
             <button
               className="font-body2 flex w-full items-center justify-between py-2 font-medium lg:hidden"
               onClick={() => toggleMenu(index)}
@@ -76,7 +123,6 @@ const Footer = () => {
               </span>
             </button>
 
-            {/* Mobile: Conditional rendering */}
             <div
               className={`${openIndexes[index] ? 'block' : 'hidden'} lg:block`}
             >
@@ -126,7 +172,6 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {/* <img src={social.icon} alt="social icon" className="size-4" /> */}
               <RoundButton
                 divStyles="bg-primary text-gray-400"
                 spanStyles="bg-blue-700"
