@@ -1,4 +1,5 @@
 import AdminHeader from '../../components/admin/AdminHeader';
+import Departments from '../../components/admin/Departments';
 
 const dashboard = () => {
   return (
@@ -7,6 +8,7 @@ const dashboard = () => {
         title={'Dashboard'}
         subtitle={'Overview of all departments'}
       />
+      <Departments />
     </>
   );
 };
