@@ -6,16 +6,36 @@
     "tests": [
       { "name": "ABO Grouping", "actualPrice": 200, "discountedPrice": 150 },
       { "name": "CBC + ESR", "actualPrice": 250, "discountedPrice": 200 },
-      { "name": "Random Blood Sugar", "actualPrice": 150, "discountedPrice": 120 },
+      {
+        "name": "Random Blood Sugar",
+        "actualPrice": 150,
+        "discountedPrice": 120
+      },
       { "name": "Urea", "actualPrice": 130, "discountedPrice": 100 },
       { "name": "Liver (SGPT)", "actualPrice": 180, "discountedPrice": 130 },
       { "name": "Lipid Profile", "actualPrice": 300, "discountedPrice": 250 },
-      { "name": "Urine Routine and Microscopy", "actualPrice": 200, "discountedPrice": 150 },
-      { "name": "Chest X-Ray (Digital)", "actualPrice": 400, "discountedPrice": 350 },
+      {
+        "name": "Urine Routine and Microscopy",
+        "actualPrice": 200,
+        "discountedPrice": 150
+      },
+      {
+        "name": "Chest X-Ray (Digital)",
+        "actualPrice": 400,
+        "discountedPrice": 350
+      },
       { "name": "ECG", "actualPrice": 220, "discountedPrice": 180 },
       { "name": "HbA1C", "actualPrice": 270, "discountedPrice": 220 },
-      { "name": "USG (Whole Abdomen)", "actualPrice": 450, "discountedPrice": 400 },
-      { "name": "Consultation (Internal Medicine)", "actualPrice": 600, "discountedPrice": 500 }
+      {
+        "name": "USG (Whole Abdomen)",
+        "actualPrice": 450,
+        "discountedPrice": 400
+      },
+      {
+        "name": "Consultation (Internal Medicine)",
+        "actualPrice": 600,
+        "discountedPrice": 500
+      }
     ]
   },
   {
@@ -74,7 +94,7 @@
       { "name": "CHEST X-RAY", "actualPrice": 400, "discountedPrice": 350 }
     ]
   },
-  
+
   {
     "id": "6",
     "title": "Basic Health Package for Children",
@@ -89,7 +109,7 @@
       { "name": "CHEST X-RAY", "actualPrice": 400, "discountedPrice": 350 }
     ]
   },
-  
+
   {
     "id": "7",
     "title": "Basic Health Package for Children",
