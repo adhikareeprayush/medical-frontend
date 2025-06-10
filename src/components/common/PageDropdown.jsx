@@ -53,8 +53,8 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 z-50 mt-2 min-w-[650px] overflow-hidden rounded-sm border border-gray-100 bg-white shadow-xl">
-          <div className={`grid grid-cols-4 gap-3 px-1 py-3 ${className}`}>
+        <div className="absolute top-full left-0 z-50 mt-2 min-w-[550px] xl:min-w-[650px] overflow-hidden rounded-sm border border-gray-100 bg-white shadow-xl">
+          <div className={`grid gap-3 px-1 py-3 ${className}`}>
             {items.map((item, index) => (
               <div
                 key={index}

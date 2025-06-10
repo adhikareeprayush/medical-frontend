@@ -90,7 +90,7 @@ const Nav = () => {
                   label="Services"
                   items={services}
                   path="/services"
-                  className="text-white"
+                  className="text-white grid-cols-4"
                 />
               );
             }
