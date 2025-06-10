@@ -1,20 +1,17 @@
 [
   {
     "id": "1",
-    "title": "Basic Health Package - Man & Woman",
+    "title": "Basic Health Package-All(men and women)",
+    "price": 3750,
+    "discounted_price": 2800,
     "tests": [
-      "ABO Grouping",
-      "CBC + ESR",
-      "Random Blood Sugar",
-      "Urea",
-      "Liver (SGPT)",
-      "Lipid Profile",
-      "Urine Routine and Microscopy",
-      "Chest X-Ray (Digital)",
+      "CBC",
       "ECG",
-      "HbA1C",
-      "USG (Whole Adbomen)",
-      "Consultation (Internal Medicine)"
+      "LIPI PROFILE",
+      "SUGAR RANDOM",
+      "URINE R/E",
+      "USG ABDOMEN/PELVIS",
+      "Physician Dr.Consultation"
     ]
   },
   {
