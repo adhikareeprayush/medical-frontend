@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const PackagesComp = ({ testData }) => {
   return (
     <div className="flex h-full flex-col rounded-2xl shadow-2xl transition-shadow duration-300 hover:cursor-pointer">
-      <div className="bg-primary rounded-t-2xl px-3 py-5 text-center">
+      <div className="bg-primary rounded-t-2xl px-3 py-3 text-center">
         <h1 className="text-lg font-bold text-white sm:text-lg md:text-xl">
           {testData.title}
         </h1>
