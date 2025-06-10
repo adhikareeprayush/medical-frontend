@@ -9,10 +9,7 @@ const Hero = () => {
         playsInline
         className="absolute min-h-full w-auto max-w-none min-w-full object-cover"
       >
-        <source
-          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          type="video/mp4"
-        />
+        <source src="http://localhost:8000/nisarga12.mp4" type="video/mp4" />
       </video>
 
       {/* Black Overlay */}
