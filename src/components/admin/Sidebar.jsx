@@ -9,6 +9,8 @@ import {
   CalendarCheck,
   Settings,
   Package,
+  Newspaper,
+  BriefcaseBusiness,
 } from 'lucide-react';
 import { BiCategory } from 'react-icons/bi';
 
@@ -24,6 +26,16 @@ const menuItems = [
     title: 'Packages',
     path: '/admin/packages',
     icon: <Package size={18} />,
+  },
+  {
+    title: 'News',
+    path: '/admin/news',
+    icon: <Newspaper size={18} />,
+  },
+  {
+    title: 'Services',
+    path: '/admin/services',
+    icon: <BriefcaseBusiness size={18} />,
   },
   {
     title: 'Appointments',
