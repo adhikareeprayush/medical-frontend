@@ -38,3 +38,20 @@ export const updateDepartmentById = (id, data) =>
 export const deleteDepartment = (id) => axios.delete(`/department/${id}`);
 export const getDepartmentBySlug = (slug) =>
   axios.get(`/department/slug/${slug}`);
+
+// News
+export const getAllNews = () => axios.get('/news');
+export const addNews = (data) => axios.post('/news', data);
+export const getNewsById = (id) => axios.get(`/news/${id}`);
+export const updateNewsById = (id, data) => axios.put(`/news/${id}`, data);
+export const deleteNews = (id) => axios.delete(`/news/${id}`);
+export const getNewsBySlug = (slug) => axios.get(`/news/slug/${slug}`);
+
+// Services
+export const getAllServices = () => axios.get('/services');
+export const addService = (data) => axios.post('/services', data);
+export const getServiceById = (id) => axios.get(`/services/${id}`);
+export const updateServiceById = (id, data) =>
+  axios.put(`/services/${id}`, data);
+export const deleteService = (id) => axios.delete(`/services/${id}`);
+export const getServiceBySlug = (slug) => axios.get(`/services/slug/${slug}`);
