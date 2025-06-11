@@ -38,6 +38,16 @@ const menuItems = [
     icon: <BriefcaseBusiness size={18} />,
   },
   {
+    title: 'Inquiries',
+    path: '/admin/inquiries',
+    icon: <BriefcaseBusiness size={18} />,
+  },
+  {
+    title: 'Testimonial',
+    path: '/admin/testimonial',
+    icon: <BriefcaseBusiness size={18} />,
+  },
+  {
     title: 'Appointments',
     path: '/admin/appointments',
     icon: <CalendarCheck size={18} />,
