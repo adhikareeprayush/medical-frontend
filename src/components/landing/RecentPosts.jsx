@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
 import { getAllNews } from '../../utils/api';
+import { Link } from 'react-router-dom';
 
 const RecentPosts = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -54,7 +55,8 @@ const RecentPosts = () => {
         <h2 className="font-display2 text-primary font-bold">Recent Posts</h2>
         <div className="flex h-fit flex-col gap-1">
           {recentNews.map((post) => (
-            <div
+            <Link
+              to={`/news/${post.id}`}
               key={post.id}
               className="flex min-h-16 cursor-pointer gap-1 rounded-lg"
             >
@@ -71,7 +73,7 @@ const RecentPosts = () => {
                   {post.title}
                 </h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
