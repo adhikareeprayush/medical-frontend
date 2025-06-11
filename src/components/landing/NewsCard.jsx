@@ -3,6 +3,7 @@ import { GoPerson } from 'react-icons/go';
 import { IoEyeOutline } from 'react-icons/io5';
 import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import LearnMoreBtn from '../common/LearnMoreBtn';
 const NewsCard = ({ news }) => {
   return (
     <div className="flex flex-col gap-1 overflow-hidden">
@@ -14,8 +15,8 @@ const NewsCard = ({ news }) => {
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="flex flex-col gap-2 py-2">
-        <div className="flex flex-grow flex-col gap-1">
+      <div className="flex flex-col gap-3 py-2">
+        <div className="flex flex-grow flex-col gap-2">
           <div className="flex items-center gap-3 bg-gray-50">
             <div className="flex items-center gap-1 text-base">
               <CiCalendar strokeWidth={1} />
@@ -48,10 +49,9 @@ const NewsCard = ({ news }) => {
         </div>
         <Link
           to={`/news/${news.id}`}
-          className="group text-primary bg-accent flex w-fit items-center gap-1 rounded-full px-3 py-2 text-sm font-medium"
+          className=""
         >
-          Read More{' '}
-          <FaArrowRight className="duration-300 group-hover:translate-x-[4px]" />
+          <LearnMoreBtn text='Read More' styles='hover:px-2'/>
         </Link>
       </div>
     </div>

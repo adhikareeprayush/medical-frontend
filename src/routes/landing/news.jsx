@@ -7,8 +7,8 @@ const news = () => {
   return (
     <>
       <PageBanner subtitle="News" title="News" backgroundImage={newsBanner} />
-      <section className="flex w-full justify-center gap-2 py-5">
-        <div className="flex flex-col gap-2 lg:flex-3 xl:flex-2">
+      <section className="flex w-full justify-center gap-3 py-5">
+        <div className="flex flex-col gap-6 lg:flex-3 xl:flex-2">
           {mockNews.map((news) => (
             <NewsCard key={news.id} news={news} />
           ))}

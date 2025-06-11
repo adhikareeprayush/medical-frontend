@@ -14,7 +14,11 @@ const NewsDetails = () => {
   const news = NewsData.find((item) => item.id === parseInt(newsId));
 
   if (!news) {
-    return <div className="text-center text-red-500">News not found</div>;
+    return (
+      <div className="container mx-auto px-4 py-10 text-center text-red-500">
+        News not found
+      </div>
+    );
   }
 
   return (
@@ -25,64 +29,78 @@ const NewsDetails = () => {
         title={news.title}
         backgroundImage={SingleNewsBanner}
       />
-      <section className="flex w-full gap-2 py-5">
-        <div className="flex flex-col gap-2 lg:flex-3 xl:flex-2">
-          <div className="h-[300px] w-full overflow-hidden rounded-sm bg-gray-200 sm:h-[400px] md:h-[500px] lg:h-[560px]">
-            <img
-              src={news.image}
-              alt={news.title}
-              className="h-full w-full object-cover"
-            />
-          </div>
 
-          <div className="flex flex-col gap-1">
-            {/* Meta info section */}
-            <div className="flex flex-wrap gap-4 bg-gray-50 text-sm sm:text-base">
-              <div className="flex items-center gap-1 text-gray-700">
-                <CiCalendar />
-                <p>{news.date}</p>
+      <div className="container mx-auto px-4">
+        <section className="flex flex-col items-center gap-4 py-6 lg:flex-row">
+          {/* Main Content */}
+          <div className="w-full lg:w-3/4">
+            {/* News Image */}
+            <div className="relative h-64 w-full overflow-hidden rounded-md sm:h-80 md:h-96 lg:h-[500px]">
+              <img
+                src={news.image}
+                alt={news.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            {/* News Meta */}
+            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600 sm:text-base">
+              <div className="flex items-center gap-2">
+                <CiCalendar className="text-lg" />
+                <span>{news.date}</span>
               </div>
 
-              <div className="flex items-center gap-1 text-gray-700">
-                <GoPerson className="text-secondary" />
-                <p>By {news.author}</p>
+              <div className="flex items-center gap-2">
+                <GoPerson className="text-secondary text-lg" />
+                <span>By {news.author}</span>
               </div>
 
-              <div className="flex items-center gap-1 text-gray-700">
-                <IoEyeOutline className="text-blue-600" />
-                <span>{news.views}</span>
+              <div className="flex items-center gap-2">
+                <IoEyeOutline className="text-lg text-blue-600" />
+                <span>{news.views} views</span>
               </div>
 
-              <div className="flex items-center gap-1 text-gray-700">
-                <FaRegHeart className="text-[#E2315C]" />
-                <span>{news.likes}</span>
+              <div className="flex items-center gap-2">
+                <FaRegHeart className="text-lg text-[#E2315C]" />
+                <span>{news.likes} likes</span>
               </div>
             </div>
 
-            <h3 className="text-xl leading-snug font-bold sm:text-2xl">
-              {news.title}
-            </h3>
+            {/* News Content */}
+            <div className="mt-6 space-y-4">
+              <h1 className="text-2xl leading-tight font-bold sm:text-3xl md:text-4xl">
+                {news.title}
+              </h1>
 
-            <p className="text-sm leading-relaxed tracking-wide text-[#212124] sm:text-base">
-              {news.content}
-            </p>
+              <div className="prose max-w-none text-gray-700">
+                {news.content.split('\n').map((paragraph, index) => (
+                  <p key={index} className="mb-4 text-base leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="mt-6 flex flex-row justify-between gap-4">
+              <button className="group hover:bg-primary flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition hover:text-white sm:text-base">
+                <FaArrowRight className="rotate-180 transition-transform duration-300 group-hover:-translate-x-1" />
+                Previous Article
+              </button>
+              <button className="group hover:bg-primary flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition hover:text-white sm:text-base">
+                Next Article
+                <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
           </div>
 
-          <div className="flex w-full justify-between">
-            <button className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium">
-              <FaArrowRight className="rotate-180 duration-300 group-hover:-translate-x-[4px]" />
-              Previous Article
-            </button>
-            <button className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium">
-              Next Article
-              <FaArrowRight className="duration-300 group-hover:translate-x-[4px]" />
-            </button>
+          {/* Sidebar */}
+          <div className="hidden w-full lg:block lg:w-1/3">
+            <RecentPosts />
           </div>
-        </div>
-        <div className="hidden flex-1 lg:flex">
-          <RecentPosts />
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 };

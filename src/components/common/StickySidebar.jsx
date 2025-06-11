@@ -4,7 +4,7 @@ import { FaRegCalendarCheck } from 'react-icons/fa6';
 
 const StickySidebar = () => {
   return (
-    <div className="bg-primary fixed top-[33%] right-0 hidden cursor-pointer flex-col items-center justify-center rounded-l-md lg:flex">
+    <div className="bg-primary fixed top-[33%] right-0 hidden cursor-pointer flex-col items-center justify-center rounded-l-md lg:flex z-50">
       <div className="hover:bg-secondary flex flex-col items-center justify-center gap-1 px-[12px] pt-4 pb-3 transition-all duration-200">
         <FaFirstAid className="text-2xl text-white" />
         <h3 className="text-[14px] text-white">Find a Doctor</h3>

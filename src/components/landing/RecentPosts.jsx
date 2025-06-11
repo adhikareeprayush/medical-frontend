@@ -38,7 +38,7 @@ const RecentPosts = () => {
       {/* Recent Posts Section */}
       <div className="flex flex-col gap-3 rounded-md border-2 border-gray-200 p-2">
         <h2 className="font-display2 text-primary font-bold">Recent Posts</h2>
-        <div className="flex h-fit flex-col gap-1">
+        <div className="flex h-fit flex-col gap-2">
           {recentPosts.map((post) => (
             <div
               key={post.id}
@@ -48,7 +48,7 @@ const RecentPosts = () => {
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="h-full rounded-lg object-cover lg:w-16 xl:w-20"
+                  className="h-full rounded-md object-cover lg:w-18 xl:w-22"
                 />
               </div>
               <div className="">

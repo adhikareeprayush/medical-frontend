@@ -5,7 +5,7 @@ const LearnMoreBtn = ({ text, styles = '', textStyles = '' }) => {
   return (
     <button
       type="button"
-      className={`group text-primary hover:bg-primary focus:ring-primary flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-all duration-100 ease-in-out hover:text-white focus:ring-2 focus:ring-offset-2 focus:outline-none ${styles}`}
+      className={`group text-primary hover:bg-primary focus:ring-primary flex items-center gap-2 rounded-md py-2 text-sm font-semibold transition-all duration-100 ease-in-out hover:text-white focus:ring-2 focus:ring-offset-2 focus:outline-none ${styles}`}
     >
       <span
         className={`tracking-wide transition-colors duration-300 ${textStyles}`}

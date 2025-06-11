@@ -66,7 +66,7 @@ const NewsSection = () => {
       {/* Button */}
       <div className="mt-10">
         <Link to="/news">
-          <LearnMoreBtn text="View All News" />
+          <LearnMoreBtn text="View All News" styles='hover:px-2' />
         </Link>
       </div>
     </section>

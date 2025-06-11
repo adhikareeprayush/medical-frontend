@@ -16,7 +16,7 @@ const ClinicalDepartment = () => {
   }, [expanded]);
 
   return (
-    <section className="px-2 mx-auto shadow mt-40 mb-20">
+    <section className=" mx-auto shadow mt-40 mb-20">
         <h1 className='text-primary font-display1 text-center tracking-wide mb-14'>Clinical Department in Nisarga</h1>
       <div
         ref={containerRef}
