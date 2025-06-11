@@ -55,3 +55,19 @@ export const updateServiceById = (id, data) =>
   axios.put(`/services/${id}`, data);
 export const deleteService = (id) => axios.delete(`/services/${id}`);
 export const getServiceBySlug = (slug) => axios.get(`/services/slug/${slug}`);
+
+// Inquiries
+export const getAllInquiries = () => axios.get('/inquiries');
+export const addInquiry = (data) => axios.post('/inquiries', data);
+export const getInquiryById = (id) => axios.get(`/inquiries/${id}`);
+export const updateInquiryById = (id, data) =>
+  axios.put(`/inquiries/${id}`, data);
+export const deleteInquiry = (id) => axios.delete(`/inquiries/${id}`);
+
+// Testimonials
+export const getAllTestimonials = () => axios.get('/testimonial');
+export const addTestimonial = (data) => axios.post('/testimonial', data);
+export const getTestimonialById = (id) => axios.get(`/testimonial/${id}`);
+export const updateTestimonialById = (id, data) =>
+  axios.put(`/testimonial/${id}`, data);
+export const deleteTestimonial = (id) => axios.delete(`/testimonial/${id}`);

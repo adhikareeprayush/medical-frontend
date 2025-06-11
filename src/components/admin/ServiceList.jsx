@@ -198,11 +198,12 @@ const ServiceList = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="bg-opacity-40 fixed inset-0 z-50 flex items-center justify-center bg-black">
-          <div className="relative w-full max-w-3xl rounded-xl bg-white p-6 shadow-lg">
+        <div className="bg-opacity-40 fixed inset-0 z-50 flex items-center justify-center bg-black p-4">
+          <div className="relative max-h-screen w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-6 shadow-lg">
             <h3 className="mb-4 text-xl font-semibold">
               {editId ? 'Edit Service' : 'Add Service'}
             </h3>
+
             <div>
               <label className="mb-1 block font-medium">Title</label>
               <input
@@ -214,6 +215,7 @@ const ServiceList = () => {
                 className="mb-3 w-full rounded border p-2"
               />
             </div>
+
             <div>
               <label className="mb-1 block font-medium">Summary</label>
               <input
@@ -225,6 +227,7 @@ const ServiceList = () => {
                 className="mb-3 w-full rounded border p-2"
               />
             </div>
+
             <div>
               <label className="mb-1 block font-medium">Description</label>
               <textarea
@@ -236,6 +239,7 @@ const ServiceList = () => {
                 className="mb-3 w-full rounded border p-2"
               />
             </div>
+
             <div>
               <label className="mb-1 block font-medium">Image</label>
               <input
@@ -245,6 +249,7 @@ const ServiceList = () => {
                 className="mb-3 w-full rounded border p-2"
               />
             </div>
+
             <div className="mb-3 w-fit">
               <label className="mb-1 block font-medium">Icon</label>
               <IconDropdown
@@ -252,6 +257,7 @@ const ServiceList = () => {
                 onChange={(icon) => setForm({ ...form, icon })}
               />
             </div>
+
             <div>
               <label className="mb-1 block font-medium">Points</label>
               <textarea
