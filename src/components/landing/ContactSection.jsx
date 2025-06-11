@@ -18,8 +18,8 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section className="my-24 flex w-full flex-col items-center justify-center px-5 sm:px-6 lg:px-8">
-      <div className="my-6 text-center">
+    <section className="flex w-full flex-col items-center justify-center gap-6 p-5 sm:px-6 lg:px-8">
+      <div className="text-center">
         <h1 className="text-secondary mb-[20px] text-xl font-bold tracking-widest uppercase sm:text-2xl">
           Get in Touch
         </h1>

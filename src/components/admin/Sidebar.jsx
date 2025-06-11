@@ -10,7 +10,10 @@ import {
   Settings,
   Package,
   Newspaper,
-  BriefcaseBusiness,
+  GalleryHorizontal,
+  Quote,
+  MessageCircle,
+  Briefcase,
 } from 'lucide-react';
 import { BiCategory } from 'react-icons/bi';
 
@@ -35,17 +38,22 @@ const menuItems = [
   {
     title: 'Services',
     path: '/admin/services',
-    icon: <BriefcaseBusiness size={18} />,
+    icon: <Briefcase size={18} />,
   },
   {
     title: 'Inquiries',
     path: '/admin/inquiries',
-    icon: <BriefcaseBusiness size={18} />,
+    icon: <MessageCircle size={18} />,
   },
   {
     title: 'Testimonial',
     path: '/admin/testimonial',
-    icon: <BriefcaseBusiness size={18} />,
+    icon: <Quote size={18} />,
+  },
+  {
+    title: 'Gallery',
+    path: '/admin/gallery',
+    icon: <GalleryHorizontal size={18} />,
   },
   {
     title: 'Appointments',
