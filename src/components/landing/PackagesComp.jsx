@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const PackagesComp = ({ testData }) => {
   return (
-    <div className="flex h-full flex-col rounded-2xl shadow-2xl transition-shadow duration-300 hover:cursor-pointer">
+    <div className="flex min-h-[400px] min-w-[300px] flex-col rounded-2xl shadow-2xl transition-shadow duration-300 hover:cursor-pointer">
       <div className="bg-primary rounded-t-2xl px-3 py-3 text-center">
         <h1 className="text-lg font-bold text-white sm:text-lg md:text-xl">
           {testData.title}
@@ -24,7 +24,7 @@ const PackagesComp = ({ testData }) => {
 
         <div className="p-4">
           <Link to={`/packages/${testData.slug}`}>
-            <button className="bg-primary hover:bg-secondary w-full rounded-lg px-2 py-4 text-base font-semibold text-white transition-all duration-200 sm:py-2 sm:text-lg">
+            <button className="bg-primary hover:bg-secondary w-full rounded-lg px-2 py-2 text-base font-semibold text-white transition-all duration-200 sm:py-2 sm:text-lg">
               See in Detail
             </button>
           </Link>
