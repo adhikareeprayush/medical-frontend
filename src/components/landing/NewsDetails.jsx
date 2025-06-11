@@ -14,7 +14,6 @@ const NewsDetails = () => {
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(false);
   const [liked, setLiked] = useState(false);
-  const [flag, setFlag] = useState(1);
 
   useEffect(() => {
     const likedNews = JSON.parse(localStorage.getItem('likedNews') || '[]');
@@ -31,7 +30,7 @@ const NewsDetails = () => {
       likedNews.push(Number(newsId));
       localStorage.setItem('likedNews', JSON.stringify(likedNews));
       setLiked(true);
-      setFlag((prev) => prev + 1);
+      if (news) setNews((prev) => ({ ...prev, like: prev.like + 1 }));
     } catch (err) {
       console.error('Failed to like:', err);
     }
@@ -52,16 +51,15 @@ const NewsDetails = () => {
     };
 
     fetchNews();
-  }, [newsId, flag]);
+  }, [newsId]);
 
   useEffect(() => {
     const updateViews = async () => {
       try {
         await updateNewsViews(newsId);
+        if (news) setNews((prev) => ({ ...prev, views: prev.views + 1 }));
       } catch (error) {
         console.error('Failed to update views:', error);
-      } finally {
-        setFlag((prev) => prev + 1);
       }
     };
 
