@@ -2,23 +2,26 @@ import { Link } from 'react-router-dom';
 
 const DepartmentCard = ({ dept }) => {
   return (
+    <Link
+      key={dept.id}
+      to={`/departments/${dept.id}`}
+      className="group block overflow-hidden rounded-lg bg-white shadow-sm transition hover:shadow-md"
+    >
+      <article className="flex flex-col">
+        <img
+          src={dept.image || '/placeholder.jpg'}
+          alt={dept.name || 'Department Image'}
+          className="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
 
-    <Link key={dept.id} className="text-primary bg-white shadow-sm">
-
-      <img
-        src={dept.image}
-        alt={dept.name}
-        className="h-[320px] w-full object-cover"
-      />
-      <div className="flex flex-col items-center justify-center px-2 pb-2">
-        <h3 className="mt-2 text-center text-lg font-semibold md:text-left">
-          {dept.name}
-        </h3>
-        <h3 className="bg-primary my-1 px-1 py-0.5 text-center text-sm font-semibold text-white md:text-left">
-          {dept.nepali}
-        </h3>
-        <p className="text-center text-sm">{dept.description}</p>
-      </div>
+        <div className="flex flex-col justify-center gap-2 px-4 py-3">
+          <h3 className="text-lg font-semibold text-primary">{dept.name}</h3>
+          <span className="bg-primary inline-block w-fit rounded px-2 py-0.5 text-sm font-medium text-white">
+            {dept.nepali}
+          </span>
+          <p className="text-sm text-gray-600">{dept.description}</p>
+        </div>
+      </article>
     </Link>
   );
 };

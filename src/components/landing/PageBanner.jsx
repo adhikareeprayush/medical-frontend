@@ -8,7 +8,7 @@ const PageBanner = ({
   if (!title) return null;
 
   return (
-    <div className="flex h-[250px] w-full flex-col">
+    <div className="flex h-[150px] lg:h-[235px] w-full flex-col">
       <div className="relative flex h-full w-full items-center overflow-hidden text-center text-white">
         <img
           src={backgroundImage || Banner}
@@ -24,7 +24,7 @@ const PageBanner = ({
           </p>
           <h1 className="font-display1 text-primary text-left">{title}</h1>
         </section>
-        <div className="absolute inset-0 z-0 bg-white/50" />
+        <div className="absolute inset-0 z-0 bg-white/55" />
       </div>
       <div className="z-10 flex h-[8px] w-full">
         <div className="bg-accent h-full flex-1" />
