@@ -13,16 +13,19 @@ const ServiceDetail = ({ service }) => {
       <h1 className="font-display2 text-primary font-normal">
         {service.summary}
       </h1>
-      {service.points?.length > 0 && (
+      {Array.isArray(service.points) || typeof service.points === 'string' ? (
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
-          {service.points.map((point, index) => (
+          {(typeof service.points === 'string'
+            ? JSON.parse(service.points.replace(/''/g, '"').replace(/'/g, '"')) // convert to proper JSON
+            : service.points
+          ).map((point, index) => (
             <div key={index} className="flex items-center gap-1">
               <span className="bg-secondary h-2 w-2 rounded-full"></span>
               <span className="text-base text-gray-800">{point}</span>
             </div>
           ))}
         </div>
-      )}
+      ) : null}
       <p className="font-body">{service.description}</p>
     </div>
   );

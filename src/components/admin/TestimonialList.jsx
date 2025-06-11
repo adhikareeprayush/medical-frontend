@@ -85,7 +85,7 @@ const TestimonialList = () => {
         <h2 className="text-2xl font-semibold">Testimonials</h2>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+          className="bg-primary hover:bg-primary/90 cursor-pointer rounded px-4 py-2 text-white"
         >
           Add Testimonial
         </button>
@@ -116,7 +116,7 @@ const TestimonialList = () => {
               <button
                 onClick={() => handleDelete(id)}
                 disabled={isDeleting}
-                className="mx-auto rounded bg-red-600 px-3 py-1 text-white hover:bg-red-700 disabled:bg-red-400"
+                className="mx-auto cursor-pointer rounded bg-red-600 px-3 py-1 text-white hover:bg-red-700 disabled:bg-red-400"
               >
                 Delete
               </button>
@@ -169,8 +169,8 @@ const TestimonialList = () => {
               <button
                 onClick={handleSubmit}
                 disabled={isUploading}
-                className={`rounded px-4 py-2 text-white ${
-                  isUploading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'
+                className={`cursor-pointer rounded px-4 py-2 text-white ${
+                  isUploading ? 'bg-gray-400' : 'bg-primary hover:bg-primary/90'
                 }`}
               >
                 Add
@@ -180,7 +180,7 @@ const TestimonialList = () => {
             {/* Close button */}
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="absolute top-2 right-2 cursor-pointer text-gray-500 hover:text-gray-700"
             >
               ✕
             </button>
