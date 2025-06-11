@@ -1,15 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
-import news from '../../news.json';
+import { getAllNews } from '../../utils/api';
+import { Link } from 'react-router-dom';
 
 const RecentPosts = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const recentPosts = news.slice(0, 5).map((post) => ({
-    id: post.id,
-    title: post.title,
-    date: post.date,
-    image: post.image,
-  }));
+  // const recentPosts = news.slice(0, 5).map((post) => ({
+  //   id: post.id,
+  //   title: post.title,
+  //   date: post.date,
+  //   image: post.image,
+  // }));
+  const [recentNews, setRecentNews] = useState([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const res = await getAllNews(4);
+        setRecentNews(res.data.data || []);
+      } catch (err) {
+        console.error('Failed to fetch news:', err);
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   const categories = [
     { name: 'Surgery', count: 3 },
@@ -39,16 +54,17 @@ const RecentPosts = () => {
       <div className="flex flex-col gap-3 rounded-md border-2 border-gray-200 p-2">
         <h2 className="font-display2 text-primary font-bold">Recent Posts</h2>
         <div className="flex h-fit flex-col gap-1">
-          {recentPosts.map((post) => (
-            <div
+          {recentNews.map((post) => (
+            <Link
+              to={`/news/${post.id}`}
               key={post.id}
               className="flex min-h-16 cursor-pointer gap-1 rounded-lg"
             >
               <div className="flex h-full items-center justify-center rounded-lg">
                 <img
-                  src={post.image}
+                  src={post.image_url}
                   alt={post.title}
-                  className="h-full rounded-lg object-cover lg:w-16 xl:w-20"
+                  className="h-full w-16 rounded-lg object-cover"
                 />
               </div>
               <div className="">
@@ -57,7 +73,7 @@ const RecentPosts = () => {
                   {post.title}
                 </h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
