@@ -71,3 +71,23 @@ export const getTestimonialById = (id) => axios.get(`/testimonial/${id}`);
 export const updateTestimonialById = (id, data) =>
   axios.put(`/testimonial/${id}`, data);
 export const deleteTestimonial = (id) => axios.delete(`/testimonial/${id}`);
+
+// --- Gallery APIs ---
+export const getAllGalleries = () => axios.get('/gallery');
+export const createGallery = (data) => axios.post('/gallery', data);
+export const getGalleryById = (id) => axios.get(`/gallery/${id}`);
+export const updateGalleryById = (id, data) =>
+  axios.put(`/gallery/${id}`, data);
+export const deleteGalleryById = (id) => axios.delete(`/gallery/${id}`);
+
+// --- Gallery Media (Image/Video) APIs ---
+export const getGalleryMediaByGallery = (params) =>
+  axios.get('/gallery/images', { params });
+// params can be { gallery_id } or { gallery_name }
+
+export const createGalleryMedia = (data) => axios.post('/gallery/image', data);
+export const getGalleryMediaById = (id) => axios.get(`/gallery/image/${id}`);
+export const updateGalleryMediaById = (id, data) =>
+  axios.put(`/gallery/image/${id}`, data);
+export const deleteGalleryMediaById = (id) =>
+  axios.delete(`/gallery/image/${id}`);

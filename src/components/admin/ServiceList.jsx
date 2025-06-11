@@ -125,7 +125,7 @@ const ServiceList = () => {
   // Helper to render icon by name
   const renderIcon = (iconName) => {
     const IconComponent = iconMap[iconName.toLowerCase()] || FaQuestion;
-    return <IconComponent size={24} className="text-blue-600" />;
+    return <IconComponent size={24} className="text-primary" />;
   };
 
   return (
@@ -134,7 +134,7 @@ const ServiceList = () => {
         <h2 className="text-2xl font-semibold">Service Details</h2>
         <button
           onClick={openModalForAdd}
-          className="btn btn-primary rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+          className="btn btn-primary bg-primary hover:bg-primary/90 cursor-pointer rounded px-4 py-2 text-white"
         >
           Add Service
         </button>
@@ -181,13 +181,13 @@ const ServiceList = () => {
             <div className="mt-auto flex gap-4">
               <button
                 onClick={() => openModalForEdit(item)}
-                className="text-sm text-blue-600 hover:underline"
+                className="text-primary cursor-pointer text-sm hover:underline"
               >
                 Edit
               </button>
               <button
                 onClick={() => handleDelete(item.id)}
-                className="text-sm text-red-600 hover:underline"
+                className="cursor-pointer text-sm text-red-600 hover:underline"
               >
                 Delete
               </button>
@@ -273,7 +273,7 @@ const ServiceList = () => {
             <div className="flex justify-end gap-2">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300"
+                className="cursor-pointer rounded bg-gray-200 px-4 py-2 hover:bg-gray-300"
               >
                 Cancel
               </button>
@@ -281,7 +281,9 @@ const ServiceList = () => {
                 onClick={handleSubmit}
                 disabled={isUploading}
                 className={`rounded px-4 py-2 text-white ${
-                  isUploading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'
+                  isUploading
+                    ? 'bg-gray-400'
+                    : 'bg-primary hover:bg-primary/90 cursor-pointer'
                 }`}
               >
                 {editId ? 'Update' : 'Create'}
@@ -291,7 +293,7 @@ const ServiceList = () => {
             {/* Close button top-right */}
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="absolute top-2 right-2 cursor-pointer text-gray-500 hover:text-gray-700"
             >
               ✕
             </button>
