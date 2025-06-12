@@ -2,13 +2,41 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { getContactCards } from '../../utils/contact';
+import { addInquiry } from '../../utils/api';
+import { toast } from 'react-toastify';
 
 const GetInTouch = () => {
   const [cards, setCards] = useState([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add form submission logic here if needed
+    setLoading(true);
+
+    try {
+      await addInquiry(formData);
+      toast.success('Your inquiry has been submitted successfully!');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      console.error(err);
+      toast.error('Failed to send inquiry. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -40,6 +68,8 @@ const GetInTouch = () => {
                   name="name"
                   id="name"
                   placeholder="Name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="focus:border-b-accent w-1/2 border-r border-b border-b-[#fff] bg-transparent px-2 py-[14px] font-normal text-[#fff] placeholder:text-[16px] placeholder:font-normal placeholder:text-[#fff] focus:border-b focus:outline-none"
                 />
                 <input
@@ -47,6 +77,8 @@ const GetInTouch = () => {
                   name="email"
                   id="email"
                   placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="focus:border-b-accent w-1/2 border-b border-b-[#fff] bg-transparent px-2 py-[14px] font-normal text-[#fff] placeholder:text-[16px] placeholder:font-normal placeholder:text-[#fff] focus:border-b focus:outline-none"
                 />
               </div>
@@ -55,19 +87,24 @@ const GetInTouch = () => {
                 name="subject"
                 id="subject"
                 placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
                 className="focus:border-b-accent w-full border-b border-b-[#fff] bg-transparent px-2 py-[14px] font-normal text-[#fff] placeholder:text-[16px] placeholder:font-normal placeholder:text-[#fff] focus:border-b focus:outline-none"
               />
               <textarea
                 name="message"
                 id="message"
                 placeholder="Message"
+                value={formData.message}
+                onChange={handleChange}
                 className="h-[232px] w-full resize-none bg-transparent px-2 py-2 text-white placeholder:text-[#fff] focus:outline-0"
               ></textarea>
               <button
                 type="submit"
+                disabled={loading}
                 className="bg-accent text-primary cursor-pointer resize-none px-4 py-2 text-[16px] font-semibold focus:outline-0 focus:outline-none"
               >
-                Submit
+                {loading ? 'Submitting...' : 'Submit'}
               </button>
             </form>
           </div>
