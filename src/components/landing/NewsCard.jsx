@@ -31,7 +31,11 @@ const NewsCard = ({ news }) => {
 
             <div className="flex items-center gap-1 text-base">
               <GoPerson strokeWidth={1} className="text-secondary" />
-              <p className="font-body1">By {news.source}</p>
+              <Link to={news.source} className="font-body1">
+                <b>source</b>{' '}
+                {news.source?.match(/https?:\/\/(?:www\.)?([^./]+)/)?.[1] ??
+                  'Unknown'}
+              </Link>
             </div>
             <div className="flex items-center gap-1">
               <IoEyeOutline
