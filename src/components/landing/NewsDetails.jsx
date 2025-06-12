@@ -112,8 +112,10 @@ const NewsDetails = () => {
                 <GoPerson className="text-secondary" />
                 <Link to={news.source} className="font-body1">
                   <b>source</b>{' '}
-                  {news.source?.match(/https?:\/\/(?:www\.)?([^./]+)/)?.[1] ??
-                    'Unknown'}
+                  <span className="text-secondary">
+                    {news.source?.match(/https?:\/\/(?:www\.)?([^./]+)/)?.[1] ??
+                      'Unknown'}
+                  </span>
                 </Link>
               </div>
               <div className="flex items-center gap-1 text-gray-700">

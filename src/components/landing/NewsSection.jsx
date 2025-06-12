@@ -1,56 +1,81 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import NewsData from '../../news.json';
 import EyeIcon from '../../assets/icons/eye.svg';
 import HeartIcon from '../../assets/icons/heart.svg';
 import LearnMoreBtn from '../common/LearnMoreBtn';
+import { getAllNews } from '../../utils/api';
 
 const NewsSection = () => {
+  const [recentNews, setRecentNews] = useState([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const res = await getAllNews(4);
+        setRecentNews(res.data.data || []);
+      } catch (err) {
+        console.error('Failed to fetch news:', err);
+      }
+    };
+
+    fetchNews();
+  }, []);
   return (
-    <section className="my-24 w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+    <section className="my-24 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
       {/* Heading */}
       <div className="mb-10 text-center">
-        <h1 className="text-secondary text-sm sm:text-base md:text-lg font-bold tracking-widest uppercase mb-3">
+        <h1 className="text-secondary mb-3 text-sm font-bold tracking-widest uppercase sm:text-base md:text-lg">
           Better Information, Better Health
         </h1>
-        <p className="text-primary text-2xl sm:text-3xl font-display1">News</p>
+        <p className="text-primary font-display1 text-2xl sm:text-3xl">News</p>
       </div>
 
       {/* Grid of news */}
-      <div className="grid w-full max-w-6xl grid-cols-1 sm:grid-cols-2 gap-4">
-        {NewsData.map((news) => (
+      <div className="grid w-full max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2">
+        {recentNews.map((news) => (
           <div
             key={news.id}
-            className="bg-white rounded-md shadow-sm hover:shadow-md transition-shadow duration-300"
+            className="rounded-md bg-white shadow-sm transition-shadow duration-300 hover:shadow-md"
           >
             <Link to={`/news/${news.id}`} className="flex flex-col lg:flex-row">
               {/* Image */}
-              <div className="w-full lg:w-2/5 h-52 lg:h-auto">
+              <div className="h-52 w-full lg:h-auto lg:w-2/5">
                 <img
-                  src={news.image}
+                  src={news.image_url}
                   alt={news.title}
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
 
               {/* Content */}
-              <div className="w-full lg:w-3/5 p-2 lg:p-3 flex flex-col justify-between">
+              <div className="flex w-full flex-col justify-between p-2 lg:w-3/5 lg:p-3">
                 <div>
-                  <p className="text-sm text-secondary tracking-wider font-medium mb-1">
-                    {news.date} | By {news.author}
+                  <p className="text-secondary mb-1 text-sm font-medium tracking-wider">
+                    {new Date(news.createdAt).toLocaleDateString('en-US', {
+                      day: '2-digit',
+                      month: 'long',
+                      year: 'numeric',
+                    })}{' '}
+                    |{' '}
+                    {news.source?.match(/https?:\/\/(?:www\.)?([^./]+)/)?.[1] ??
+                      'Unknown'}
                   </p>
-                  <h3 className="text-lg font-semibold text-black leading-snug mb-3">
+                  <h3 className="mb-3 text-lg leading-snug font-semibold text-black">
                     {news.title}
                   </h3>
                 </div>
-                <div className="flex gap-4 items-center text-sm text-gray-600">
+                <div className="flex items-center gap-4 text-sm text-gray-600">
                   <div className="flex items-center gap-1">
                     <img src={EyeIcon} alt="Views" className="h-3 w-3" />
-                    <span className='text-black font-medium'>{news.views}</span>
+                    <span className="font-medium text-black">{news.views}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <img src={HeartIcon} alt="Likes" className="h-[21px] w-[21px]" />
-                    <span className='text-black font-medium'>{news.likes}</span>
+                    <img
+                      src={HeartIcon}
+                      alt="Likes"
+                      className="h-[21px] w-[21px]"
+                    />
+                    <span className="font-medium text-black">{news.likes}</span>
                   </div>
                 </div>
               </div>
