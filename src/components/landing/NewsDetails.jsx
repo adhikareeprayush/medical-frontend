@@ -110,7 +110,11 @@ const NewsDetails = () => {
               </div>
               <div className="flex items-center gap-1 text-gray-700">
                 <GoPerson className="text-secondary" />
-                <p>By {news.author || 'Admin'}</p>
+                <Link to={news.source} className="font-body1">
+                  <b>source</b>{' '}
+                  {news.source?.match(/https?:\/\/(?:www\.)?([^./]+)/)?.[1] ??
+                    'Unknown'}
+                </Link>
               </div>
               <div className="flex items-center gap-1 text-gray-700">
                 <IoEyeOutline className="text-blue-600" />
