@@ -64,7 +64,7 @@ const ServicesPage = () => {
     <>
       <PageBanner
         subtitle="Services"
-        title={'Services'}
+        title={selectedService?.title}
         backgroundImage={selectedService?.image || ''}
       />
       <section className="flex gap-4 py-5">
