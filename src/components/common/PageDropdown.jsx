@@ -6,6 +6,7 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   let hoverTimeout;
+  console.log(items);
 
   const handleMouseEnter = () => {
     clearTimeout(hoverTimeout);
@@ -22,7 +23,6 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
-        setHoveredItem(null);
       }
     };
 
@@ -56,18 +56,13 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
         <div className="absolute top-full left-0 z-50 mt-2 min-w-[650px] overflow-hidden rounded-sm border border-gray-100 bg-white shadow-xl">
           <div className="grid grid-cols-4 gap-3 px-1 py-3">
             {items.map((item, index) => (
-              <div
-                key={index}
-                className="relative"
-                onMouseEnter={() => setHoveredItem(item)}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
+              <div key={index} className="relative">
                 <Link
-                  to={`/departments/${item.toLowerCase()}`}
-                  className="hover:bg-primary block relative cursor-pointer truncate rounded-sm p-1 text-base text-gray-700 hover:text-white"
+                  to={`/${path}/${item.slug}`}
+                  className="hover:bg-primary relative block cursor-pointer truncate rounded-sm p-1 text-base text-gray-700 hover:text-white"
                   onClick={() => setIsOpen(false)}
                 >
-                  {item}
+                  {item.title || item.name}
                 </Link>
               </div>
             ))}
