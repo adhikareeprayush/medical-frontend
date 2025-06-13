@@ -41,7 +41,7 @@ const PageBanner = ({
               )}
               {subSubtitle && (
                 <>
-                  <span className="mx-1">/</span>
+                  <span className="mx-1 text-primary">/</span>
                   <span className="text-primary">{subSubtitle}</span>
                 </>
               )}
