@@ -4,12 +4,13 @@ import { IoEyeOutline } from 'react-icons/io5';
 import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const NewsCard = ({ news }) => {
+  console.log(news);
   return (
     <div className="flex flex-col gap-1 overflow-hidden">
       {/* News Image */}
       <div className="h-[400px] w-full overflow-hidden bg-gray-200">
         <img
-          src={news.image}
+          src={news.image_url}
           alt={news.title}
           className="h-full w-full object-cover"
         />
@@ -19,12 +20,22 @@ const NewsCard = ({ news }) => {
           <div className="flex items-center gap-3 bg-gray-50">
             <div className="flex items-center gap-1 text-base">
               <CiCalendar strokeWidth={1} />
-              <p className="font-body1">{news.date}</p>
+              <p className="font-body1">
+                {new Date(news.createdAt).toLocaleDateString('en-US', {
+                  day: '2-digit',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </p>
             </div>
 
             <div className="flex items-center gap-1 text-base">
               <GoPerson strokeWidth={1} className="text-secondary" />
-              <p className="font-body1">By {news.author}</p>
+              <Link to={news.source} className="font-body1">
+                <b>source</b>{' '}
+                {news.source?.match(/https?:\/\/(?:www\.)?([^./]+)/)?.[1] ??
+                  'Unknown'}
+              </Link>
             </div>
             <div className="flex items-center gap-1">
               <IoEyeOutline
@@ -38,7 +49,7 @@ const NewsCard = ({ news }) => {
             <div className="flex items-center gap-1">
               <FaRegHeart size={16} className="text-[#E2315C]" />
 
-              <div className="font-semibold">{news.likes}</div>
+              <div className="font-semibold">{news.like}</div>
             </div>
           </div>
           <h3 className="text-lg font-bold">{news.title}</h3>

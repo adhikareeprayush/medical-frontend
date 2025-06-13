@@ -26,6 +26,11 @@ const Settings = lazy(() => import('./routes/admin/settings'));
 const DoctorsAdmin = lazy(() => import('./routes/admin/doctorsAdmin'));
 const DepartmentAdmin = lazy(() => import('./routes/admin/department'));
 const PackageAdmin = lazy(() => import('./routes/admin/packagesAdmin'));
+const NewsAdmin = lazy(() => import('./routes/admin/newsAdmin'));
+const ServicesAdmin = lazy(() => import('./routes/admin/servicesAdmin'));
+const InquiriesAdmin = lazy(() => import('./routes/admin/inquiriesAdmin'));
+const TestimonialAdmin = lazy(() => import('./routes/admin/testimonialAdmin'));
+const GalleryAdmin = lazy(() => import('./routes/admin/galleryAdmin'));
 const router = createBrowserRouter([
   {
     path: '/',
@@ -61,7 +66,12 @@ const router = createBrowserRouter([
           { path: 'dashboard', element: <Dashboard /> },
           { path: 'settings', element: <Settings /> },
           { path: 'packages', element: <PackageAdmin /> },
+          { path: 'news', element: <NewsAdmin /> },
+          { path: 'services', element: <ServicesAdmin /> },
           { path: 'doctors', element: <DoctorsAdmin /> },
+          { path: 'inquiries', element: <InquiriesAdmin /> },
+          { path: 'testimonial', element: <TestimonialAdmin /> },
+          { path: 'gallery', element: <GalleryAdmin /> },
           { path: 'departments', element: <DepartmentAdmin /> },
         ],
       },
