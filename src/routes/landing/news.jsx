@@ -25,13 +25,6 @@ const News = () => {
   return (
     <>
       <PageBanner subtitle="News" title="News" backgroundImage={newsBanner} />
-<<<<<<< HEAD
-      <section className="flex w-full justify-center gap-3 py-5">
-        <div className="flex flex-col gap-6 lg:flex-3 xl:flex-2">
-          {mockNews.map((news) => (
-            <NewsCard key={news.id} news={news} />
-          ))}
-=======
       <section className="flex w-full justify-center gap-2 py-5">
         <div className="flex flex-col gap-2 lg:flex-3 xl:flex-2">
           {loading ? (
@@ -43,7 +36,6 @@ const News = () => {
           ) : (
             <p className="text-center text-gray-500">No news available.</p>
           )}
->>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
         </div>
         <div className="hidden flex-1 lg:flex">
           <RecentPosts />

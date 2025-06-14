@@ -53,16 +53,10 @@ const RecentPosts = () => {
       {/* Recent Posts Section */}
       <div className="flex flex-col gap-3 rounded-md border-2 border-gray-200 p-2">
         <h2 className="font-display2 text-primary font-bold">Recent Posts</h2>
-<<<<<<< HEAD
-        <div className="flex h-fit flex-col gap-2">
-          {recentPosts.map((post) => (
-            <div
-=======
         <div className="flex h-fit flex-col gap-1">
           {recentNews.map((post) => (
             <Link
               to={`/news/${post.id}`}
->>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
               key={post.id}
               className="flex min-h-16 cursor-pointer gap-1 rounded-lg"
             >
@@ -70,11 +64,7 @@ const RecentPosts = () => {
                 <img
                   src={post.image_url}
                   alt={post.title}
-<<<<<<< HEAD
-                  className="h-full rounded-md object-cover lg:w-18 xl:w-22"
-=======
                   className="h-full w-16 rounded-lg object-cover"
->>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
                 />
               </div>
               <div className="">

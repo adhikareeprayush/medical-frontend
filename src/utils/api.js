@@ -40,24 +40,16 @@ export const getDepartmentBySlug = (slug) =>
   axios.get(`/department/slug/${slug}`);
 
 // News
-<<<<<<< HEAD
-export const getAllNews = () => axios.get('/news');
-=======
 export const getAllNews = (limit) => {
   if (limit !== undefined) return axios.get(`/news?limit=${limit}`);
   else return axios.get('/news');
 };
->>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
 export const addNews = (data) => axios.post('/news', data);
 export const getNewsById = (id) => axios.get(`/news/${id}`);
 export const updateNewsById = (id, data) => axios.put(`/news/${id}`, data);
 export const deleteNews = (id) => axios.delete(`/news/${id}`);
-<<<<<<< HEAD
-export const getNewsBySlug = (slug) => axios.get(`/news/slug/${slug}`);
-=======
 export const updateNewsLikes = (id) => axios.patch(`/news/${id}/likes`);
 export const updateNewsViews = (id) => axios.patch(`/news/${id}/views`);
->>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
 
 // Services
 export const getAllServices = () => axios.get('/services');
@@ -83,8 +75,6 @@ export const getTestimonialById = (id) => axios.get(`/testimonial/${id}`);
 export const updateTestimonialById = (id, data) =>
   axios.put(`/testimonial/${id}`, data);
 export const deleteTestimonial = (id) => axios.delete(`/testimonial/${id}`);
-<<<<<<< HEAD
-=======
 
 // Gallery
 export const getAllGalleries = () => axios.get('/gallery');
@@ -110,4 +100,3 @@ export const getSpecialityById = (id) => axios.get(`/speciality/${id}`);
 export const updateSpecialityById = (id, data) =>
   axios.put(`/speciality/${id}`, data);
 export const deleteSpecialityById = (id) => axios.delete(`/speciality/${id}`);
->>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
