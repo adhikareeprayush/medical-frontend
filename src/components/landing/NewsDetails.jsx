@@ -75,11 +75,7 @@ const NewsDetails = () => {
   }
 
   if (!news) {
-    return (
-      <div className="container mx-auto px-4 py-10 text-center text-red-500">
-        News not found
-      </div>
-    );
+    return <div className="text-center text-red-500">News not found</div>;
   }
 
   return (
@@ -135,11 +131,9 @@ const NewsDetails = () => {
               </button>
             </div>
 
-            {/* News Content */}
-            <div className="mt-6 space-y-4">
-              <h1 className="text-2xl leading-tight font-bold sm:text-3xl md:text-4xl">
-                {news.title}
-              </h1>
+            <h3 className="text-xl leading-snug font-bold sm:text-2xl">
+              {news.title}
+            </h3>
 
             <p className="text-sm leading-relaxed tracking-wide text-[#212124] sm:text-base">
               {news.content || news.description}
@@ -172,7 +166,10 @@ const NewsDetails = () => {
             )}
           </div>
         </div>
-        </section>
+        <div className="hidden flex-1 lg:flex">
+          <RecentPosts />
+        </div>
+      </section>
     </>
   );
 };
