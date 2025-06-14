@@ -6,12 +6,31 @@ import NextArrowBtn from '../common/NextArrowBtn';
 import PrevArrowBtn from '../common/PrevArrowBtn';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { Link } from 'react-router-dom';
+import { getAllDoctors } from '../../utils/api';
 
 const OurDocSec = () => {
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showArrows, setShowArrows] = useState(true);
+
+  const fetchDoctors = async () => {
+    try {
+      const response = await getAllDoctors();
+      console.log('Fetched doctors:', response.data.data);
+      setDoctors(response.data.data);
+      console.log('Fetched doctors:', response.data.data);
+    } catch (err) {
+      console.error('Error fetching doctors:', err);
+      setError('Failed to load doctors');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchDoctors();
+  }, []);
 
   useEffect(() => {
     // Show arrows only for screens wider than 1024px
@@ -21,31 +40,6 @@ const OurDocSec = () => {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    async function fetchDoctors() {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const response = await fetch('/api/doctors'); // Replace with your actual API endpoint
-        if (!response.ok) {
-          throw new Error('Failed to fetch doctors');
-        }
-        const data = await response.json();
-
-        // Assuming data is an array of doctors like:
-        // [{ id, name, specialization, imageUrl }, ...]
-        setDoctors(data);
-      } catch (err) {
-        setError(err.message || 'Something went wrong');
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchDoctors();
   }, []);
 
   const settings = {
@@ -106,16 +100,16 @@ const OurDocSec = () => {
             <div key={doc.id} className="px-3">
               <div className="flex flex-col items-center overflow-hidden rounded-xl bg-white shadow-lg">
                 <img
-                  src={doc.imageUrl} // assuming the API provides the full image URL or relative path
+                  src={doc.image_url} // assuming the API provides the full image URL or relative path
                   alt={doc.name}
-                  className="h-fit w-fit object-cover"
+                  className="h-[300px] w-full object-cover"
                 />
                 <div className="bg-secondary/20 flex w-full flex-col items-center p-4 text-center">
                   <h3 className="text-primary truncate text-lg font-semibold md:text-xl">
-                    {doc.name}
+                    {doc.fullName}
                   </h3>
                   <p className="text-secondary truncate text-sm md:text-base">
-                    {doc.specialization}
+                    {doc.specialityName}
                   </p>
                 </div>
               </div>
