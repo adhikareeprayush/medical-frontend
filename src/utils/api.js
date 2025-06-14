@@ -92,3 +92,11 @@ export const updateGalleryMediaById = (id, data) =>
   axios.put(`/gallery/image/${id}`, data);
 export const deleteGalleryMediaById = (id) =>
   axios.delete(`/gallery/image/${id}`);
+
+// Specialities
+export const getAllSpecialities = () => axios.get('/speciality');
+export const addSpeciality = (data) => axios.post('/speciality', data);
+export const getSpecialityById = (id) => axios.get(`/speciality/${id}`);
+export const updateSpecialityById = (id, data) =>
+  axios.put(`/speciality/${id}`, data);
+export const deleteSpecialityById = (id) => axios.delete(`/speciality/${id}`);

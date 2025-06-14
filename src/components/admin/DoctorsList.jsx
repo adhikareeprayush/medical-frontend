@@ -13,11 +13,10 @@ const DoctorsList = ({ doctors }) => {
                 alt={doctor.fullName}
                 className="mb-3 h-24 w-24 rounded-full object-cover"
               />
-              <h3 className="text-center text-lg font-semibold">
-                {doctor.fullName}
-              </h3>
-              {/* Optional: Add more details here like department/specialty */}
-              {/* <p className="text-sm text-gray-500">{doctor.speciality}</p> */}
+              <h3 className="text-lg font-semibold">{doctor.fullName}</h3>
+              <p className="text-sm text-gray-500">{doctor.qualification}</p>
+              <p className="text-sm text-gray-500">{doctor.specialityName}</p>
+              <p className="text-sm text-gray-500">{doctor.departmentName}</p>
             </div>
           ))}
         </div>

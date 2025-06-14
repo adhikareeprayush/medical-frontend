@@ -11,6 +11,7 @@ const Doctors = () => {
     try {
       const doctorsData = await getAllDoctors();
       setDoctors(doctorsData.data);
+      console.log('Fetched doctors:', doctorsData.data);
     } catch (err) {
       console.error(err);
     }

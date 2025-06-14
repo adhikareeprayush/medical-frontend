@@ -15,7 +15,7 @@ const PhotoGrid = ({ photos }) => {
           <img
             src={mainPhoto.image_url}
             alt={mainPhoto.fullName}
-            className="w-full object-cover shadow"
+            className="h-[300px] w-full object-cover shadow"
           />
           <div className="bg-secondary/20 flex w-full flex-col items-center p-4 text-center">
             <h3 className="text-primary truncate text-lg font-semibold md:text-xl">
@@ -38,7 +38,7 @@ const PhotoGrid = ({ photos }) => {
             <img
               src={photo.image_url}
               alt={photo.fullName}
-              className="w-full object-cover shadow"
+              className="h-[300px] w-full object-cover shadow"
             />
             <div className="bg-secondary/20 flex w-full flex-col items-center p-4 text-center">
               <h3 className="text-primary truncate text-lg font-semibold md:text-xl">
