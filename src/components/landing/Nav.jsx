@@ -145,7 +145,7 @@ const Nav = () => {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`transition-all duration-400 ease-in-out ${
+        className={`transition-all duration-200 ease-in-out ${
           isOpen
             ? 'pointer-events-auto translate-x-0 opacity-100'
             : 'pointer-events-none -translate-x-100 opacity-0'

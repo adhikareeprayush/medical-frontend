@@ -4,7 +4,6 @@ const fallBackImage =
 
 const DepartmentCard = ({ dept }) => {
   return (
-<<<<<<< HEAD
     <Link
       key={dept.id}
       to={`/departments/${dept.id}`}
@@ -25,7 +24,6 @@ const DepartmentCard = ({ dept }) => {
           <p className="text-sm text-gray-600">{dept.description}</p>
         </div>
       </article>
-=======
     <Link to={`${dept.slug}`} className="text-primary bg-white shadow-sm">
       <img
         src={dept.image || fallBackImage}
@@ -45,7 +43,7 @@ const DepartmentCard = ({ dept }) => {
           dangerouslySetInnerHTML={{ __html: dept.description }}
         />
       </div>
->>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
+    </Link>
     </Link>
   );
 };

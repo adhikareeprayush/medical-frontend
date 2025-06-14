@@ -49,29 +49,15 @@ const department = () => {
               type="search"
               name="search"
               id="search"
-<<<<<<< HEAD
-              placeholder="Search..."
-              className="w-full bg-transparent text-sm text-gray-700 placeholder-gray-400 outline-none"
-=======
               placeholder="Search"
               className="border-none bg-transparent outline-none focus:border-none focus:outline-none"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
->>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
             />
             <FaSearch className="ml-2 cursor-pointer text-gray-500 transition-colors hover:text-gray-700" />
           </div>
         </div>
 
-<<<<<<< HEAD
-        <section className="relative flex h-full w-full flex-col items-center justify-center gap-12 py-3">
-          <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3">
-            {departmentData.map((dept) => (
-              <DepartmentCard key={dept.id} dept={dept} />
-            ))}
-          </div>
-        </section>
-=======
         {loading && <p className="py-10 text-center">Loading departments...</p>}
         {error && <p className="py-10 text-center text-red-500">{error}</p>}
 
@@ -90,7 +76,6 @@ const department = () => {
             </div>
           </section>
         )}
->>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
       </div>
     </>
   );

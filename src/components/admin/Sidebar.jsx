@@ -8,6 +8,11 @@ import {
   CalendarCheck,
   Settings,
   Package,
+  Newspaper,
+  GalleryHorizontal,
+  Quote,
+  MessageCircle,
+  Briefcase,
 } from 'lucide-react';
 import { BiCategory } from 'react-icons/bi';
 
@@ -22,6 +27,31 @@ const menuItems = [
     title: 'Packages',
     path: '/admin/packages',
     icon: <Package size={18} />,
+  },
+  {
+    title: 'News',
+    path: '/admin/news',
+    icon: <Newspaper size={18} />,
+  },
+  {
+    title: 'Services',
+    path: '/admin/services',
+    icon: <Briefcase size={18} />,
+  },
+  {
+    title: 'Inquiries',
+    path: '/admin/inquiries',
+    icon: <MessageCircle size={18} />,
+  },
+  {
+    title: 'Testimonial',
+    path: '/admin/testimonial',
+    icon: <Quote size={18} />,
+  },
+  {
+    title: 'Gallery',
+    path: '/admin/gallery',
+    icon: <GalleryHorizontal size={18} />,
   },
   {
     title: 'Appointments',

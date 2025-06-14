@@ -19,7 +19,7 @@ const WelcomeSec = () => {
           magnam itaque?
         </p>
         <Link to="/about" className="mt-2">
-          <LearnMoreBtn text="Learn More" styles='hover:px-2' />
+          <LearnMoreBtn text="Learn More" styles="hover:px-2" />
         </Link>
       </div>
     </section>
