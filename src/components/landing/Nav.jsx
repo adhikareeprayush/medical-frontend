@@ -18,10 +18,58 @@ const navMenus = [
   { name: 'Contact', path: '/contact' },
 ];
 
+// const services = [
+//   'Emergency and Trauma Care',
+//   'Critical Care',
+//   'Skin and Aesthetics Clinic',
+//   'Pharmacy',
+//   'Physiotherapy',
+//   'Pain Management Services',
+//   '24/7 Emergency Medical Service',
+//   'Cath-lab Services',
+//   'Acute Stroke Unit',
+//   'Neonatal Intensive Care Unit (NIC)',
+//   'OPD',
+//   'OT and Surgical Services',
+//   'Radiology and Imaging Services',
+//   'Saturday OPD Clinic',
+//   'Ventilator Services',
+//   '24-hour Digital X-ray Services',
+//   'Anesthesiology & Critical Care',
+//   'Neurosurgery',
+//   'Urology Treatment and Surgical',
+//   '24-hour Surgical Services',
+//   '24-hour Emergency and Trauma Treatment Services',
+//   'Modern Physiotherapy',
+//   'Hepatology',
+//   'Gastroenterology Treatment Services',
+//   'Air-conditioned Cabin Services',
+// ];
+
 const Nav = () => {
   const [services, setServices] = useState([]);
   const [departments, setDepartments] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await getAllServices();
+        setServices(response.data.data);
+      } catch (error) {
+        console.error('Error fetching services:', error);
+      }
+    };
+    const fetchDepartments = async () => {
+      try {
+        const response = await getAllDepartments();
+        setDepartments(response.data.data);
+      } catch (error) {
+        console.error('Error fetching services:', error);
+      }
+    };
+    fetchServices();
+    fetchDepartments();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
