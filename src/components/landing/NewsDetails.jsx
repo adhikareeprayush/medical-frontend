@@ -5,7 +5,7 @@ import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
 import { GoPerson } from 'react-icons/go';
 import { IoEyeOutline } from 'react-icons/io5';
 import PageBanner from './PageBanner';
-import SingleNewsBanner from '../../assets/images/banner/singleNewsBanner.png';
+import banner from '../../assets/images/banner/hospital_banner.jpg';
 import RecentPosts from './RecentPosts';
 import { getNewsById, updateNewsLikes, updateNewsViews } from '../../utils/api';
 
@@ -84,7 +84,7 @@ const NewsDetails = () => {
         subtitle="News"
         subSubtitle={newsId}
         title={news.title}
-        backgroundImage={SingleNewsBanner}
+        backgroundImage={banner}
       />
       <section className="flex w-full gap-2 py-5">
         <div className="flex w-full flex-col gap-2 lg:flex-3 xl:flex-2">
