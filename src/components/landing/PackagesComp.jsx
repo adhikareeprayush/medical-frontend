@@ -23,7 +23,7 @@ const PackagesComp = ({ testData }) => {
         </div>
 
         <div className="">
-          <Link to={`/packages/${testData.slug}`}>
+          <Link to={`/packages/${testData.id}`}>
             <button className="bg-primary hover:bg-secondary w-full rounded-lg px-2 py-4 text-base font-semibold text-white transition-all duration-200 sm:py-2 sm:text-lg">
               See in Detail
             </button>
