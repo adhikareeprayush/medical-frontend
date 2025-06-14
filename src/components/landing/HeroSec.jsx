@@ -1,8 +1,4 @@
-import React from 'react';
-import HeroImg1 from '../../assets/images/hero.png';
-import HeroImg2 from '../../assets/images/hero2.png';
 import HeroBanner from './HeroBanner';
-import AppointmentSec from './AppointmentSec';
 import HospitalBanner from '../../assets/images/banner/hospital_banner.jpg';
 
 const HeroSec = () => {

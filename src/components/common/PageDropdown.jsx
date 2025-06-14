@@ -58,7 +58,7 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
             {items.map((item, index) => (
               <div key={index} className="relative">
                 <Link
-                  to={`/${path}/${item.slug}`}
+                  to={`/${path.replace(/^\//, '')}/${item.slug}`}
                   className="hover:bg-primary relative block cursor-pointer truncate rounded-sm p-1 text-base text-gray-700 hover:text-white"
                   onClick={() => setIsOpen(false)}
                 >

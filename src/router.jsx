@@ -31,6 +31,7 @@ const ServicesAdmin = lazy(() => import('./routes/admin/servicesAdmin'));
 const InquiriesAdmin = lazy(() => import('./routes/admin/inquiriesAdmin'));
 const TestimonialAdmin = lazy(() => import('./routes/admin/testimonialAdmin'));
 const GalleryAdmin = lazy(() => import('./routes/admin/galleryAdmin'));
+
 const router = createBrowserRouter([
   {
     path: '/',
