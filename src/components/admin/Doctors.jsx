@@ -1,41 +1,50 @@
-import { useState } from 'react';
-import { getDoctorsCards } from '../../utils/doctors';
-import DoctorsList from './DoctorsList'; // Assuming you have a DoctorsList component to display the doctors
+import { useState, useEffect } from 'react';
+import { getAllDoctors } from '../../utils/doctors';
+import DoctorsList from './DoctorsList';
+import DoctorFormModal from './DoctorsFormModal';
 
 const Doctors = () => {
-  const [isEditingDoctors, setIsEditingDoctors] = useState(false);
   const [doctors, setDoctors] = useState([]);
-  const [errors, setErrors] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const fetchDoctors = async () => {
-    const doctorsData = await getDoctorsCards();
-    setDoctors(doctorsData);
-    console.log('Doctors fetched:', doctorsData);
+    try {
+      const doctorsData = await getAllDoctors();
+      setDoctors(doctorsData.data);
+      console.log('Fetched doctors:', doctorsData.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
-  useState(() => {
+
+  useEffect(() => {
     fetchDoctors();
   }, []);
 
   return (
-    <div>
-      <div className="mt-6 flex flex-col">
-        <div className="flex w-full items-center justify-between">
-          <h2 className="text-2xl font-semibold">Your Doctors</h2>
-          <button
-            className="btn btn-secondary"
-            onClick={() => setIsEditingDoctors(!isEditingDoctors)}
-          >
-            {isEditingDoctors ? 'Cancel' : 'Edit'}
-          </button>
-        </div>
-        <div className="mt-4">
-          {isEditingDoctors ? (
-            <>Edit your doctors here</>
-          ) : (
-            <DoctorsList doctors={doctors} />
-          )}
-        </div>
+    <div className="p-4">
+      <div className="mb-4 flex items-center justify-between">
+        <h2 className="text-2xl font-bold">Doctors</h2>
+        <button
+          className="btn btn-primary"
+          onClick={() => setIsModalOpen(true)}
+        >
+          Add Doctor
+        </button>
       </div>
+
+      <DoctorsList doctors={doctors} />
+
+      {isModalOpen && (
+        <div className="modal-backdrop">
+          <div className="modal-content">
+            <DoctorFormModal
+              onSuccess={fetchDoctors}
+              onClose={() => setIsModalOpen(false)}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

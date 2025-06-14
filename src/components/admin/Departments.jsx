@@ -20,6 +20,7 @@ const Departments = () => {
     try {
       const response = await getAllDepartments();
       setDepartments(response.data.data);
+      console.log('Fetched departments:', response.data.data);
     } catch (error) {
       console.error('Error fetching departments:', error);
     }

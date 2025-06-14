@@ -40,12 +40,24 @@ export const getDepartmentBySlug = (slug) =>
   axios.get(`/department/slug/${slug}`);
 
 // News
+<<<<<<< HEAD
 export const getAllNews = () => axios.get('/news');
+=======
+export const getAllNews = (limit) => {
+  if (limit !== undefined) return axios.get(`/news?limit=${limit}`);
+  else return axios.get('/news');
+};
+>>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
 export const addNews = (data) => axios.post('/news', data);
 export const getNewsById = (id) => axios.get(`/news/${id}`);
 export const updateNewsById = (id, data) => axios.put(`/news/${id}`, data);
 export const deleteNews = (id) => axios.delete(`/news/${id}`);
+<<<<<<< HEAD
 export const getNewsBySlug = (slug) => axios.get(`/news/slug/${slug}`);
+=======
+export const updateNewsLikes = (id) => axios.patch(`/news/${id}/likes`);
+export const updateNewsViews = (id) => axios.patch(`/news/${id}/views`);
+>>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548
 
 // Services
 export const getAllServices = () => axios.get('/services');
@@ -71,3 +83,31 @@ export const getTestimonialById = (id) => axios.get(`/testimonial/${id}`);
 export const updateTestimonialById = (id, data) =>
   axios.put(`/testimonial/${id}`, data);
 export const deleteTestimonial = (id) => axios.delete(`/testimonial/${id}`);
+<<<<<<< HEAD
+=======
+
+// Gallery
+export const getAllGalleries = () => axios.get('/gallery');
+export const createGallery = (data) => axios.post('/gallery', data);
+export const getGalleryById = (id) => axios.get(`/gallery/${id}`);
+export const updateGalleryById = (id, data) =>
+  axios.put(`/gallery/${id}`, data);
+export const deleteGalleryById = (id) => axios.delete(`/gallery/${id}`);
+export const getGalleryMediaByGallery = (params) =>
+  axios.get('/gallery/images', { params });
+
+export const createGalleryMedia = (data) => axios.post('/gallery/image', data);
+export const getGalleryMediaById = (id) => axios.get(`/gallery/image/${id}`);
+export const updateGalleryMediaById = (id, data) =>
+  axios.put(`/gallery/image/${id}`, data);
+export const deleteGalleryMediaById = (id) =>
+  axios.delete(`/gallery/image/${id}`);
+
+// Specialities
+export const getAllSpecialities = () => axios.get('/speciality');
+export const addSpeciality = (data) => axios.post('/speciality', data);
+export const getSpecialityById = (id) => axios.get(`/speciality/${id}`);
+export const updateSpecialityById = (id, data) =>
+  axios.put(`/speciality/${id}`, data);
+export const deleteSpecialityById = (id) => axios.delete(`/speciality/${id}`);
+>>>>>>> 693f4030d23270b99c1f88900b7dd46f4013d548

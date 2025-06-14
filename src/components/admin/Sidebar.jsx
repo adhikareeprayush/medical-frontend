@@ -4,13 +4,10 @@ import {
   Menu,
   X,
   LayoutDashboard,
-  Users,
   Stethoscope,
   CalendarCheck,
   Settings,
   Package,
-  Newspaper,
-  BriefcaseBusiness,
 } from 'lucide-react';
 import { BiCategory } from 'react-icons/bi';
 
@@ -20,32 +17,11 @@ const menuItems = [
     path: '/admin/dashboard',
     icon: <LayoutDashboard size={18} />,
   },
-  { title: 'Users', path: '/admin/users', icon: <Users size={18} /> },
   { title: 'Doctors', path: '/admin/doctors', icon: <Stethoscope size={18} /> },
   {
     title: 'Packages',
     path: '/admin/packages',
     icon: <Package size={18} />,
-  },
-  {
-    title: 'News',
-    path: '/admin/news',
-    icon: <Newspaper size={18} />,
-  },
-  {
-    title: 'Services',
-    path: '/admin/services',
-    icon: <BriefcaseBusiness size={18} />,
-  },
-  {
-    title: 'Inquiries',
-    path: '/admin/inquiries',
-    icon: <BriefcaseBusiness size={18} />,
-  },
-  {
-    title: 'Testimonial',
-    path: '/admin/testimonial',
-    icon: <BriefcaseBusiness size={18} />,
   },
   {
     title: 'Appointments',

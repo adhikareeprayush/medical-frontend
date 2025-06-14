@@ -2,6 +2,7 @@ import React from 'react';
 
 const PhotoGrid = ({ photos }) => {
   if (!photos || photos.length === 0) return <p>No photos</p>;
+  console.log(photos);
 
   const mainPhoto = photos[0];
   const otherPhotos = photos.slice(1);
@@ -12,16 +13,16 @@ const PhotoGrid = ({ photos }) => {
       <div className="flex justify-center transition hover:scale-[1.02] md:max-w-[35%]">
         <div className="flex flex-col items-center">
           <img
-            src={mainPhoto.src}
-            alt={mainPhoto.name}
-            className="w-full object-cover shadow"
+            src={mainPhoto.image_url}
+            alt={mainPhoto.fullName}
+            className="h-[300px] w-full object-cover shadow"
           />
           <div className="bg-secondary/20 flex w-full flex-col items-center p-4 text-center">
             <h3 className="text-primary truncate text-lg font-semibold md:text-xl">
-              {mainPhoto.name}
+              {mainPhoto.fullName}
             </h3>
             <p className="text-secondary truncate text-sm md:text-base">
-              {mainPhoto.title}
+              {mainPhoto.specialityName}
             </p>
           </div>
         </div>
@@ -35,16 +36,16 @@ const PhotoGrid = ({ photos }) => {
             className="flex w-full max-w-[300px] flex-col items-center transition hover:scale-[1.02]"
           >
             <img
-              src={photo.src}
-              alt={photo.name}
-              className="w-full object-cover shadow"
+              src={photo.image_url}
+              alt={photo.fullName}
+              className="h-[300px] w-full object-cover shadow"
             />
             <div className="bg-secondary/20 flex w-full flex-col items-center p-4 text-center">
               <h3 className="text-primary truncate text-lg font-semibold md:text-xl">
-                {photo.name}
+                {photo.fullName}
               </h3>
               <p className="text-secondary truncate text-sm md:text-base">
-                {photo.title}
+                {photo.specialityName}
               </p>
             </div>
           </div>

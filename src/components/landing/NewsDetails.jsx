@@ -1,17 +1,78 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import NewsData from '../../news.json';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { CiCalendar } from 'react-icons/ci';
 import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
 import { GoPerson } from 'react-icons/go';
 import { IoEyeOutline } from 'react-icons/io5';
 import PageBanner from './PageBanner';
-import SingleNewsBanner from '../../assets/images/banner/singleNewsBanner.png';
+import banner from '../../assets/images/banner/hospital_banner.jpg';
 import RecentPosts from './RecentPosts';
+import { getNewsById, updateNewsLikes, updateNewsViews } from '../../utils/api';
 
 const NewsDetails = () => {
   const { newsId } = useParams();
-  const news = NewsData.find((item) => item.id === parseInt(newsId));
+  const [news, setNews] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [liked, setLiked] = useState(false);
+
+  useEffect(() => {
+    const likedNews = JSON.parse(localStorage.getItem('likedNews') || '[]');
+    setLiked(likedNews.includes(Number(newsId)));
+  }, [newsId]);
+
+  const handleLike = async () => {
+    if (liked) return;
+
+    try {
+      await updateNewsLikes(newsId);
+
+      const likedNews = JSON.parse(localStorage.getItem('likedNews') || '[]');
+      likedNews.push(Number(newsId));
+      localStorage.setItem('likedNews', JSON.stringify(likedNews));
+      setLiked(true);
+      if (news) setNews((prev) => ({ ...prev, like: prev.like + 1 }));
+    } catch (err) {
+      console.error('Failed to like:', err);
+    }
+  };
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      setLoading(true);
+      try {
+        const res = await getNewsById(newsId);
+        setNews(res.data.data);
+      } catch (err) {
+        console.error('Failed to fetch news:', err);
+        setNews(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, [newsId]);
+
+  useEffect(() => {
+    const updateViews = async () => {
+      try {
+        await updateNewsViews(newsId);
+        if (news) setNews((prev) => ({ ...prev, views: prev.views + 1 }));
+      } catch (error) {
+        console.error('Failed to update views:', error);
+      }
+    };
+
+    updateViews();
+  }, [newsId]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-10">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
+      </div>
+    );
+  }
 
   if (!news) {
     return (
@@ -27,44 +88,51 @@ const NewsDetails = () => {
         subtitle="News"
         subSubtitle={newsId}
         title={news.title}
-        backgroundImage={SingleNewsBanner}
+        backgroundImage={banner}
       />
+      <section className="flex w-full gap-2 py-5">
+        <div className="flex w-full flex-col gap-2 lg:flex-3 xl:flex-2">
+          <div className="h-[300px] w-full overflow-hidden rounded-sm bg-gray-200 sm:h-[400px] md:h-[500px] lg:h-[560px]">
+            <img
+              src={news.image_url}
+              alt={news.title}
+              className="h-full w-full object-cover"
+            />
+          </div>
 
-      <div className="container mx-auto px-4">
-        <section className="flex flex-col items-center gap-4 py-6 lg:flex-row">
-          {/* Main Content */}
-          <div className="w-full lg:w-3/4">
-            {/* News Image */}
-            <div className="relative h-64 w-full overflow-hidden rounded-md sm:h-80 md:h-96 lg:h-[500px]">
-              <img
-                src={news.image}
-                alt={news.title}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-
-            {/* News Meta */}
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600 sm:text-base">
-              <div className="flex items-center gap-2">
-                <CiCalendar className="text-lg" />
-                <span>{news.date}</span>
+          <div className="flex flex-col gap-1">
+            <div className="flex flex-wrap gap-4 bg-gray-50 text-sm sm:text-base">
+              <div className="flex items-center gap-1 text-gray-700">
+                <CiCalendar />
+                <p>
+                  {new Date(news.createdAt).toLocaleDateString('en-US', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric',
+                  })}
+                </p>
               </div>
-
-              <div className="flex items-center gap-2">
-                <GoPerson className="text-secondary text-lg" />
-                <span>By {news.author}</span>
+              <div className="flex items-center gap-1 text-gray-700">
+                <GoPerson className="text-secondary" />
+                <Link to={news.source} className="font-body1">
+                  <b>source</b>{' '}
+                  <span className="text-secondary">
+                    {news.source?.match(/https?:\/\/(?:www\.)?([^./]+)/)?.[1] ??
+                      'Unknown'}
+                  </span>
+                </Link>
               </div>
-
-              <div className="flex items-center gap-2">
-                <IoEyeOutline className="text-lg text-blue-600" />
-                <span>{news.views} views</span>
+              <div className="flex items-center gap-1 text-gray-700">
+                <IoEyeOutline className="text-blue-600" />
+                <span>{news.views}</span>
               </div>
-
-              <div className="flex items-center gap-2">
-                <FaRegHeart className="text-lg text-[#E2315C]" />
-                <span>{news.likes} likes</span>
-              </div>
+              <button
+                onClick={handleLike}
+                className={`flex items-center gap-1 ${liked ? 'opacity-50' : ''}`}
+              >
+                <FaRegHeart className="text-[#E2315C]" />
+                <span>{news.like}</span>
+              </button>
             </div>
 
             {/* News Content */}
@@ -73,34 +141,38 @@ const NewsDetails = () => {
                 {news.title}
               </h1>
 
-              <div className="prose max-w-none text-gray-700">
-                {news.content.split('\n').map((paragraph, index) => (
-                  <p key={index} className="mb-4 text-base leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
+            <p className="text-sm leading-relaxed tracking-wide text-[#212124] sm:text-base">
+              {news.content || news.description}
+            </p>
+          </div>
 
-            {/* Navigation Buttons */}
-            <div className="mt-6 flex flex-row justify-between gap-4">
-              <button className="group hover:bg-primary flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition hover:text-white sm:text-base">
-                <FaArrowRight className="rotate-180 transition-transform duration-300 group-hover:-translate-x-1" />
+          <div className="flex w-full justify-between">
+            {news.previous ? (
+              <Link
+                to={`/news/${news.previous.id}`}
+                className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium"
+              >
+                <FaArrowRight className="rotate-180 duration-300 group-hover:-translate-x-[4px]" />
                 Previous Article
-              </button>
-              <button className="group hover:bg-primary flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition hover:text-white sm:text-base">
-                Next Article
-                <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
-            </div>
-          </div>
+              </Link>
+            ) : (
+              <div />
+            )}
 
-          {/* Sidebar */}
-          <div className="hidden w-full lg:block lg:w-1/3">
-            <RecentPosts />
+            {news.next ? (
+              <Link
+                to={`/news/${news.next.id}`}
+                className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium"
+              >
+                Next Article
+                <FaArrowRight className="duration-300 group-hover:translate-x-[4px]" />
+              </Link>
+            ) : (
+              <div />
+            )}
           </div>
+        </div>
         </section>
-      </div>
     </>
   );
 };
