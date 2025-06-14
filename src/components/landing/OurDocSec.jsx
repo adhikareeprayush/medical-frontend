@@ -118,7 +118,7 @@ const OurDocSec = () => {
         </Slider>
       </div>
       <Link to={'/team'}>
-        <LearnMoreBtn text="View All Doctors" styles="mt-6 mx-auto w-fit" />
+        <LearnMoreBtn text="View All Doctors" styles="hover:px-2" />
       </Link>
     </section>
   );
