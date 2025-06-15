@@ -29,11 +29,14 @@ const ServiceCard = ({ service }) => {
       </div>
 
       <div className="flex flex-col gap-2 rounded-br-md rounded-bl-md border-[1.5px] border-t-0 border-gray-200 bg-white px-3 pt-5 pb-4">
-        <h3 className="font-title text-primary text-lg">{service.title}</h3>
+        <h3 className="font-title text-primary line-clamp-2 h-[55px]">
+          {service.title}
+        </h3>
+
         <p className="font-body line-clamp-4 text-gray-600">
           {service.description}
         </p>
-        <LearnMoreBtn text='Learn More' styles='mx-auto'/>
+        <LearnMoreBtn text="Learn More" styles="mx-auto px-2" />
       </div>
     </a>
   );
