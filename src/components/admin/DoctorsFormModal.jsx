@@ -85,13 +85,32 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
         specialityId = res.data.id;
       }
 
+      // Safely convert IDs to integers only if valid
+      const parsedDeptId = parseInt(formData.department_id);
+      const parsedSpecId = parseInt(specialityId);
+
+      // Validate fields before submission
+      if (
+        !formData.fullName.trim() ||
+        !formData.qualification.trim() ||
+        isNaN(parsedDeptId) ||
+        isNaN(parsedSpecId) ||
+        !imageUrl
+      ) {
+        setErrors({ submit: 'Please fill all required fields correctly.' });
+        setLoading(false);
+        return;
+      }
+
       const doctorPayload = {
-        fullName: formData.fullName,
+        fullName: formData.fullName.trim(),
         image_url: imageUrl,
-        qualification: formData.qualification,
-        department_id: parseInt(formData.department_id),
-        speciality_id: parseInt(specialityId),
+        qualification: formData.qualification.trim(),
+        department_id: parsedDeptId,
+        speciality_id: parsedSpecId,
       };
+
+      console.log('Submitting doctorPayload:', doctorPayload); // Debug
 
       if (isEdit) {
         await updateDoctorById(doctor.id, doctorPayload);
