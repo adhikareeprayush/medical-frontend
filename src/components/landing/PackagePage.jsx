@@ -60,7 +60,8 @@ const PackagePage = () => {
 
         <div className="mt-6 flex items-center justify-between">
           <span className="text-lg font-semibold">
-            Price: <span className="line-through">Rs. {data.price}</span>{' '}
+            Price:{' '}
+            <span className="text-gray-500 line-through">Rs. {data.price}</span>{' '}
             <span className="text-secondary">Rs. {data.discounted_price}</span>
           </span>
           <span className="text-sm text-gray-500">Status: {data.status}</span>

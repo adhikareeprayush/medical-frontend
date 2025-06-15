@@ -36,7 +36,7 @@ const RecentPosts = () => {
   return (
     <div className="flex w-full flex-col gap-3">
       {/* Search Section */}
-      <div className="bg-primary font-body relative h-[50px] rounded-md px-2 text-[#FCFEFE]">
+      <div className="bg-primary font-body relative h-[50px] rounded-full px-2 text-[#FCFEFE]">
         <input
           type="text"
           placeholder="Search"
@@ -46,7 +46,7 @@ const RecentPosts = () => {
         />
         <Search
           size={24}
-          className="text-accent absolute top-1/2 right-2 -translate-y-1/2"
+          className="cursor-pointer text-accent absolute top-1/2 right-2 -translate-y-1/2"
         />
       </div>
 

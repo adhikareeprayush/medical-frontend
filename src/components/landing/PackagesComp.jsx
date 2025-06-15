@@ -10,8 +10,8 @@ const PackagesComp = ({ testData }) => {
         </h1>
       </div>
 
-      <div className="flex flex-1 flex-grow flex-col justify-between border-b border-gray-300">
-        <div className="scrollbar-none hide-scrollbar overflow-y-auto p-4">
+      <div className="flex flex-1 flex-col justify-between border-b border-gray-300">
+        <div className="flex flex-1 flex-col overflow-y-auto p-4">
           <ul className="space-y-2">
             {testData.checks.split(',').map((check, idx) => (
               <li className="flex items-start" key={idx}>
@@ -20,9 +20,16 @@ const PackagesComp = ({ testData }) => {
               </li>
             ))}
           </ul>
-          <div className="mt-4 flex items-center justify-between">
+
+          {/* Spacer to push price to the bottom */}
+          <div className="flex-1" />
+
+          <div className="flex flex-col gap-2 pt-4">
             <span className="text-lg font-semibold">
-              Price: <span className="line-through">Rs. {testData.price}</span>{' '}
+              Price:{' '}
+              <span className="text-gray-400 line-through">
+                Rs. {testData.price}
+              </span>{' '}
               <span className="text-secondary">
                 Rs. {testData.discounted_price}
               </span>
@@ -33,13 +40,11 @@ const PackagesComp = ({ testData }) => {
           </div>
         </div>
 
-        <div className="">
-          <Link to={`/packages/${testData.id}`}>
-            <button className="bg-primary hover:bg-secondary w-full rounded-lg px-2 py-4 text-base font-semibold text-white transition-all duration-200 sm:py-2 sm:text-lg">
-              See in Detail
-            </button>
-          </Link>
-        </div>
+        <Link to={`/packages/${testData.id}`}>
+          <button className="bg-primary hover:bg-secondary w-full rounded-lg px-2 py-4 text-base font-semibold text-white transition-all duration-200 sm:py-2 sm:text-lg">
+            See in Detail
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import Banner from '../../assets/images/hospital_banner/hospital_banner.jpg';
+
 const PageBanner = ({
   title,
   subtitle = '',
@@ -8,25 +9,54 @@ const PageBanner = ({
   if (!title) return null;
 
   return (
-    <div className="flex h-[250px] w-full flex-col">
-      <div className="relative flex h-full w-full items-center overflow-hidden text-center text-white">
+    <div className="w-full">
+      {/* Banner Container */}
+      <div className="relative flex h-[180px] w-full items-center overflow-hidden md:h-[220px] lg:h-[280px] xl:h-[320px]">
+        {/* Background Image */}
         <img
           src={backgroundImage || Banner}
           alt="Banner Background"
-          className="absolute inset-0 z-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
         />
-        <div className="bg-secondary/30 absolute -top-[139px] -left-[139px] z-10 h-[239px] w-[239px] rounded-full" />
-        <div className="bg-accent/30 absolute right-[-139px] bottom-[-139px] z-10 h-[239px] w-[239px] rounded-full" />
-        <section className="relative z-10 flex w-full flex-col items-start gap-0">
-          <p className="font-body2 text-primary">
-            Home {subtitle ? `/ ${subtitle}` : ''}{' '}
-            {subSubtitle ? `/ ${subSubtitle}` : ''}
-          </p>
-          <h1 className="font-display1 text-primary text-left">{title}</h1>
-        </section>
-        <div className="absolute inset-0 z-0 bg-white/50" />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-white/55" />
+
+        {/* Decorative Circles */}
+        <div className="bg-secondary/30 absolute -top-[100px] -left-[100px] z-10 h-[200px] w-[200px] rounded-full md:-top-[120px] md:-left-[120px] md:h-[240px] md:w-[240px]" />
+        <div className="bg-accent/30 absolute -right-[100px] -bottom-[100px] z-10 h-[200px] w-[200px] rounded-full md:-right-[120px] md:-bottom-[120px] md:h-[240px] md:w-[240px]" />
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4">
+          <section className="flex w-full flex-col items-start gap-1 text-white md:gap-2">
+            {/* Breadcrumb */}
+            <p className="text-sm font-semibold md:text-base">
+              <span className="text-primary">Home</span>
+              {subtitle && (
+                <>
+                  <span className="mx-1 text-primary">/</span>
+                  <span className="text-primary">{subtitle}</span>
+                </>
+              )}
+              {subSubtitle && (
+                <>
+                  <span className="mx-1 text-primary">/</span>
+                  <span className="text-primary">{subSubtitle}</span>
+                </>
+              )}
+            </p>
+
+            {/* Title */}
+            <h1 className="text-primary text-2xl leading-tight font-semibold sm:text-3xl md:text-4xl">
+              {title}
+            </h1>
+          </section>
+        </div>
       </div>
-      <div className="z-10 flex h-[8px] w-full">
+
+      {/* Color Strip */}
+      <div className="flex h-[10px] w-full md:h-[12px]">
         <div className="bg-accent h-full flex-1" />
         <div className="bg-primary h-full flex-3" />
         <div className="bg-secondary h-full flex-1" />
