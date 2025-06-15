@@ -6,11 +6,11 @@ const DepartmentCard = ({ dept }) => {
   return (
     <Link
       key={dept.id}
-      to={`/departments/${dept.id}`}
+      to={`/departments/${dept.slug}`}
       className="group block overflow-hidden rounded-lg bg-white shadow-sm transition hover:shadow-md"
     >
       <img
-        src={dept.image || fallBackImage}
+        src={dept.image_url || fallBackImage}
         alt={dept.name}
         className="h-[320px] w-full object-cover"
       />
