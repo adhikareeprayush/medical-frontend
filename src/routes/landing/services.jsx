@@ -28,7 +28,7 @@ const Services = () => {
         title={'Services'}
         backgroundImage={serviceBanner}
       />
-      <section className="relative flex w-full flex-col items-center justify-center gap-10 py-5">
+      <section className="relative flex w-full flex-col items-center justify-center gap-10 py-5 px-5 lg:px-8">
         {loading ? (
           <div className="flex items-center justify-center py-20">
             <div className="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
