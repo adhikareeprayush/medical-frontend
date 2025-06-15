@@ -6,10 +6,10 @@ const DepartmentCard = ({ dept }) => {
   return (
     <Link
       key={dept.id}
-      to={`/departments/${dept.id}`}
+      to={`/departments/${dept.slug}`}
       className="group block overflow-hidden rounded-lg bg-white shadow-sm transition hover:shadow-md"
     >
-      <article className="flex flex-col">
+      {/* <article className="flex flex-col">
         <img
           src={dept.image || '/placeholder.jpg'}
           alt={dept.name || 'Department Image'}
@@ -23,8 +23,8 @@ const DepartmentCard = ({ dept }) => {
           </span>
           <p className="text-sm text-gray-600">{dept.description}</p>
         </div>
-      </article>
-    <Link to={`${dept.slug}`} className="text-primary bg-white shadow-sm">
+      </article> */}
+
       <img
         src={dept.image || fallBackImage}
         alt={dept.name}
@@ -43,7 +43,6 @@ const DepartmentCard = ({ dept }) => {
           dangerouslySetInnerHTML={{ __html: dept.description }}
         />
       </div>
-    </Link>
     </Link>
   );
 };
