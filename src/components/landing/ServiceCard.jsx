@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import iconMap from '../common/iconMap';
+import LearnMoreBtn from '../common/LearnMoreBtn';
 
 const ServiceCard = ({ service }) => {
   console.log(service);
@@ -32,12 +33,7 @@ const ServiceCard = ({ service }) => {
         <p className="font-body line-clamp-4 text-gray-600">
           {service.description}
         </p>
-        <a
-          href={`/services/${service.slug}`}
-          className="font-body inline-flex items-center text-blue-600 hover:underline"
-        >
-          Learn More <ArrowRight color="black" size={20} className="ml-[4px]" />
-        </a>
+        <LearnMoreBtn text='Learn More' styles='mx-auto'/>
       </div>
     </a>
   );

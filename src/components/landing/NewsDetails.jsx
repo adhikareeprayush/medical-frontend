@@ -140,11 +140,11 @@ const NewsDetails = () => {
             </p>
           </div>
 
-          <div className="flex w-full justify-between">
+          <div className="flex my-3 w-full justify-between">
             {news.previous ? (
               <Link
                 to={`/news/${news.previous.id}`}
-                className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium"
+                className="group text-primary bg-accent hover:bg-primary tansition flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium duration-100 ease-in-out hover:text-white"
               >
                 <FaArrowRight className="rotate-180 duration-300 group-hover:-translate-x-[4px]" />
                 Previous Article
@@ -156,7 +156,7 @@ const NewsDetails = () => {
             {news.next ? (
               <Link
                 to={`/news/${news.next.id}`}
-                className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium"
+                className="group text-primary bg-accent hover:bg-primary flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium transition duration-100 ease-in-out hover:text-white"
               >
                 Next Article
                 <FaArrowRight className="duration-300 group-hover:translate-x-[4px]" />

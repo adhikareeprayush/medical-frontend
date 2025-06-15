@@ -90,7 +90,7 @@ const Nav = () => {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <section className="bg-accent lg:bg-primary relative flex w-full flex-col items-center justify-between py-[18px] lg:flex-row">
+    <section className="bg-primary relative flex w-full flex-col items-center justify-between lg:py-[18px] lg:flex-row">
       {/* Top Navigation Row */}
       <div className="flex w-full justify-between">
         {/* Desktop Menu */}
@@ -103,7 +103,7 @@ const Nav = () => {
                   label="Departments"
                   items={departments}
                   path="/departments"
-                  className="text-white"
+                  className="text-white grid-cols-3 xl:grid-cols-4"
                 />
               );
             } else if (name === 'Services') {
@@ -113,7 +113,7 @@ const Nav = () => {
                   label="Services"
                   items={services}
                   path="/services"
-                  className="text-white"
+                  className="text-white grid-cols-4"
                 />
               );
             }
@@ -131,12 +131,12 @@ const Nav = () => {
           <img
             src={logo}
             alt="Logo"
-            className="size-7 object-contain lg:hidden"
+            className="size-[105px] object-contain lg:hidden"
           />
         </Link>
 
         {/* Right-side Buttons */}
-        <div className="flex items-center gap-2 lg:gap-4">
+        <div className="flex items-center gap-2 mr-2 lg:gap-4">
           <button className="cursor-pointer lg:hidden" onClick={toggleMenu}>
             <img src={isOpen ? close : hamburger} alt="Menu toggle" />
           </button>
@@ -147,9 +147,9 @@ const Nav = () => {
       <div
         className={`transition-all duration-200 ease-in-out ${
           isOpen
-            ? 'pointer-events-auto translate-y-0 opacity-100'
-            : 'pointer-events-none -translate-y-2 opacity-0'
-        } bg-accent absolute top-[95px] left-0 z-50 flex w-full flex-col items-center justify-center gap-2 rounded-lg py-4 lg:hidden`}
+            ? 'pointer-events-auto translate-x-0 opacity-100'
+            : 'pointer-events-none -translate-x-100 opacity-0'
+        } bg-accent absolute top-[105px] left-0 z-50 flex w-full flex-col items-center justify-center gap-3 py-4 lg:hidden`}
       >
         {navMenus.map(({ name, path }, index) => {
           return (
