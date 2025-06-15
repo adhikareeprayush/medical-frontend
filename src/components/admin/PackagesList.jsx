@@ -174,7 +174,7 @@ const PackagesList = () => {
                 <p className="text-sm text-gray-500">Status: {pkg.status}</p>
               </div>
               <button
-                className="btn btn-error btn-sm"
+                className="btn btn-danger btn-sm"
                 onClick={() => handleDelete(pkg.id)}
               >
                 Delete
@@ -184,7 +184,7 @@ const PackagesList = () => {
               href={pkg.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 block text-blue-500 underline"
+              className="mt-2 block w-fit rounded bg-green-500 px-2 py-1 text-white"
             >
               WhatsApp Link
             </a>

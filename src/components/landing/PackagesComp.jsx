@@ -20,6 +20,17 @@ const PackagesComp = ({ testData }) => {
               </li>
             ))}
           </ul>
+          <div className="mt-4 flex items-center justify-between">
+            <span className="text-lg font-semibold">
+              Price: <span className="line-through">Rs. {testData.price}</span>{' '}
+              <span className="text-secondary">
+                Rs. {testData.discounted_price}
+              </span>
+            </span>
+            <span className="text-sm text-gray-500">
+              Status: {testData.status}
+            </span>
+          </div>
         </div>
 
         <div className="">

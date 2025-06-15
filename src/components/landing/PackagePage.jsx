@@ -35,7 +35,7 @@ const PackagePage = () => {
     <>
       <PageBanner
         subtitle="Package"
-        subSubtitle={`ID: ${data.id}`}
+        subSubtitle={`${data.title}`}
         title={data.title}
         backgroundImage={PackageBanner}
       />
@@ -57,6 +57,14 @@ const PackagePage = () => {
             </li>
           ))}
         </ul>
+
+        <div className="mt-6 flex items-center justify-between">
+          <span className="text-lg font-semibold">
+            Price: <span className="line-through">Rs. {data.price}</span>{' '}
+            <span className="text-secondary">Rs. {data.discounted_price}</span>
+          </span>
+          <span className="text-sm text-gray-500">Status: {data.status}</span>
+        </div>
 
         <div className="mt-8 text-center">
           <a

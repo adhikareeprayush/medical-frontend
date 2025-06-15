@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
 import { uploadToCloudinary } from '../../utils/cloudinary';
-import { createDoctor } from '../../utils/doctors';
+import { createDoctor, updateDoctorById } from '../../utils/doctors';
 import {
   getAllDepartments,
   getAllSpecialities,
   addSpeciality,
 } from '../../utils/api';
 
-const DoctorFormModal = ({ onSuccess, onClose }) => {
+const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
+  const isEdit = !!doctor;
+
   const [creatingSpeciality, setCreatingSpeciality] = useState(false);
   const [newSpeciality, setNewSpeciality] = useState('');
-
   const [specialities, setSpecialities] = useState([]);
   const [departments, setDepartments] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -21,6 +22,7 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
     qualification: '',
     department_id: '',
     speciality_id: '',
+    image_url: '', // Used in edit mode
   });
 
   useEffect(() => {
@@ -40,6 +42,20 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
     fetchData();
   }, []);
 
+  // Pre-fill form if editing
+  useEffect(() => {
+    if (isEdit && doctor) {
+      setFormData({
+        fullName: doctor.fullName || '',
+        qualification: doctor.qualification || '',
+        department_id: doctor.department_id || '',
+        speciality_id: doctor.speciality_id || '',
+        imageFile: null,
+        image_url: doctor.image_url || '',
+      });
+    }
+  }, [doctor]);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData((prev) => ({
@@ -51,9 +67,12 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrors({});
 
     try {
-      let imageUrl = '';
+      let imageUrl = formData.image_url;
+
+      // Upload new image only if provided
       if (formData.imageFile) {
         imageUrl = await uploadToCloudinary(formData.imageFile);
       }
@@ -66,7 +85,7 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
         specialityId = res.data.id;
       }
 
-      const newDoctor = {
+      const doctorPayload = {
         fullName: formData.fullName,
         image_url: imageUrl,
         qualification: formData.qualification,
@@ -74,7 +93,12 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
         speciality_id: parseInt(specialityId),
       };
 
-      await createDoctor(newDoctor);
+      if (isEdit) {
+        await updateDoctorById(doctor.id, doctorPayload);
+      } else {
+        await createDoctor(doctorPayload);
+      }
+
       onSuccess();
       onClose();
     } catch (error) {
@@ -95,7 +119,9 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
           ✕
         </button>
 
-        <h2 className="mb-4 text-xl font-bold">Add New Doctor</h2>
+        <h2 className="mb-4 text-xl font-bold">
+          {isEdit ? 'Edit Doctor' : 'Add New Doctor'}
+        </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -202,6 +228,13 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
               onChange={handleChange}
               accept="image/*"
             />
+            {isEdit && formData.image_url && (
+              <img
+                src={formData.image_url}
+                alt="Current"
+                className="mt-2 h-24 w-24 rounded object-cover"
+              />
+            )}
           </div>
 
           {errors.submit && (
@@ -214,7 +247,7 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
               className="btn btn-primary"
               disabled={loading}
             >
-              {loading ? 'Saving...' : 'Add Doctor'}
+              {loading ? 'Saving...' : isEdit ? 'Update Doctor' : 'Add Doctor'}
             </button>
           </div>
         </form>
