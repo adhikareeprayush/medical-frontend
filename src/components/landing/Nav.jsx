@@ -152,29 +152,6 @@ const Nav = () => {
         } bg-accent absolute top-[105px] left-0 z-50 flex w-full flex-col items-center justify-center gap-3 py-4 lg:hidden`}
       >
         {navMenus.map(({ name, path }, index) => {
-          if (name === 'Departments') {
-            return (
-              <DropdownNavItem
-                key={index}
-                label="Departments"
-                items={departments}
-                path="/departments"
-                className="text-primary"
-                isMobile
-              />
-            );
-          } else if (name === 'Services') {
-            return (
-              <DropdownNavItem
-                key={index}
-                label="Services"
-                items={services}
-                path="/services"
-                className="text-primary"
-                isMobile
-              />
-            );
-          }
           return (
             <Link
               key={index}

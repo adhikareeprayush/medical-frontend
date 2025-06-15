@@ -39,7 +39,7 @@ const DepartmentCard = ({ dept }) => {
         </h3>
         {/* Render HTML description safely */}
         <div
-          className="text-center text-sm"
+          className="line-clamp-4 text-center text-sm"
           dangerouslySetInnerHTML={{ __html: dept.description }}
         />
       </div>

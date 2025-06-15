@@ -20,10 +20,21 @@ const PackagesComp = ({ testData }) => {
               </li>
             ))}
           </ul>
+          <div className="mt-4 flex items-center justify-between">
+            <span className="text-lg font-semibold">
+              Price: <span className="line-through">Rs. {testData.price}</span>{' '}
+              <span className="text-secondary">
+                Rs. {testData.discounted_price}
+              </span>
+            </span>
+            <span className="text-sm text-gray-500">
+              Status: {testData.status}
+            </span>
+          </div>
         </div>
 
         <div className="">
-          <Link to={`/packages/${testData.slug}`}>
+          <Link to={`/packages/${testData.id}`}>
             <button className="bg-primary hover:bg-secondary w-full rounded-lg px-2 py-4 text-base font-semibold text-white transition-all duration-200 sm:py-2 sm:text-lg">
               See in Detail
             </button>

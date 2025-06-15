@@ -7,7 +7,7 @@ import LearnMoreBtn from '../common/LearnMoreBtn';
 const NewsCard = ({ news }) => {
   console.log(news);
   return (
-    <div className="flex flex-col gap-1 overflow-hidden">
+    <div className="flex flex-col gap-1 overflow-hidden my-4">
       {/* News Image */}
       <div className="h-[400px] w-full overflow-hidden bg-gray-200">
         <img
@@ -16,7 +16,7 @@ const NewsCard = ({ news }) => {
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="flex flex-col gap-3 py-2">
+      <div className="flex flex-col gap-1 py-2">
         <div className="flex flex-grow flex-col gap-2">
           <div className="flex items-center gap-3 bg-gray-50">
             <div className="flex items-center gap-1 text-base">
@@ -62,7 +62,7 @@ const NewsCard = ({ news }) => {
           to={`/news/${news.id}`}
           className=""
         >
-          <LearnMoreBtn text='Read More' styles='hover:px-2'/>
+          <LearnMoreBtn text='Read More' styles='hover:px-2 hover:rounded-md'/>
         </Link>
       </div>
     </div>

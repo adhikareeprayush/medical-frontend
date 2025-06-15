@@ -1,29 +1,48 @@
-const DoctorsList = ({ doctors }) => {
+const DoctorsList = ({ doctors, onEdit, onDelete }) => {
   return (
-    <div>
-      {doctors.length > 0 ? (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {doctors.map((doctor) => (
-            <div
-              key={doctor.id}
-              className="flex flex-col items-center rounded-xl bg-white p-4 shadow-md transition-shadow hover:shadow-lg"
-            >
+    <table className="w-full table-auto border border-gray-200">
+      <thead className="bg-gray-100">
+        <tr>
+          <th className="px-4 py-2">Image</th>
+          <th className="px-4 py-2">Name</th>
+          <th className="px-4 py-2">Qualification</th>
+          <th className="px-4 py-2">Specialty</th>
+          <th className="px-4 py-2">Department</th>
+          <th className="px-4 py-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {doctors.map((doctor) => (
+          <tr key={doctor.id} className="border-t border-gray-200 text-center">
+            <td className="px-4 py-2">
               <img
-                src={doctor.image_url || '/placeholder-doctor.jpg'}
+                src={doctor.image_url}
                 alt={doctor.fullName}
-                className="mb-3 h-24 w-24 rounded-full object-cover"
+                className="mx-auto h-12 w-12 rounded-full object-cover"
               />
-              <h3 className="text-lg font-semibold">{doctor.fullName}</h3>
-              <p className="text-sm text-gray-500">{doctor.qualification}</p>
-              <p className="text-sm text-gray-500">{doctor.specialityName}</p>
-              <p className="text-sm text-gray-500">{doctor.departmentName}</p>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className="mt-4 text-center text-gray-500">No doctors found</p>
-      )}
-    </div>
+            </td>
+            <td className="px-4 py-2 font-medium">{doctor.fullName}</td>
+            <td className="px-4 py-2">{doctor.qualification}</td>
+            <td className="px-4 py-2">{doctor.specialityName}</td>
+            <td className="px-4 py-2">{doctor.departmentName}</td>
+            <td className="space-x-2 px-4 py-2">
+              <button
+                className="btn btn-sm btn-secondary"
+                onClick={() => onEdit(doctor)}
+              >
+                Edit
+              </button>
+              <button
+                className="btn btn-sm btn-danger"
+                onClick={() => onDelete(doctor.id)}
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
