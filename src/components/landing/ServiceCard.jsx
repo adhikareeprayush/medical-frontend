@@ -28,7 +28,7 @@ const ServiceCard = ({ service }) => {
         </div>
       </div>
 
-      <div className="flex flex-grow flex-col justify-between gap-2 rounded-br-md rounded-bl-md border-[1.5px] border-t-0 border-gray-200 bg-white px-3 pt-4 pb-2">
+      <div className="flex flex-grow flex-col justify-between gap-2 rounded-br-md rounded-bl-md border-[1.5px] border-t-0 border-gray-200 bg-white px-1 pt-4 pb-2">
         <div className="flex flex-grow flex-col gap-2">
           <h3 className="font-title text-primary line-clamp-2 flex flex-grow items-center">
             {service.title}

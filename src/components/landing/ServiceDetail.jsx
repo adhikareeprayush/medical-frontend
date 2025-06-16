@@ -3,7 +3,7 @@ const ServiceDetail = ({ service }) => {
   if (!service) return <div>Select a service to see details</div>;
 
   return (
-    <div className="flex flex-1 flex-col gap-2">
+    <div className="flex flex-1 flex-col gap-2 px-1">
       <div className="max-h-[500px] w-full overflow-hidden">
         <img
           src={service.image}

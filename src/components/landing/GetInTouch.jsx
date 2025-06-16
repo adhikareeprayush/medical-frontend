@@ -110,7 +110,7 @@ const GetInTouch = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 grid-rows-1 gap-3 md:grid-cols-4 lg:w-1/2 lg:grid-cols-2 lg:grid-rows-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:w-1/2">
           {cards.map((card, index) => (
             <div
               key={index}
@@ -122,7 +122,11 @@ const GetInTouch = () => {
               </h2>
               <ul>
                 {card.details.map((detail, idx) => (
-                  <li key={idx} className="font-body1">
+                  <li
+                    key={idx}
+                    className="font-body1 overflow-hidden break-words whitespace-pre-wrap"
+                    style={{ wordBreak: 'break-word' }}
+                  >
                     {detail.type === 'phone' ? (
                       <Link to={`tel:${detail.value}`}>{detail.value}</Link>
                     ) : detail.type === 'email' ? (

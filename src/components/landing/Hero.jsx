@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="relative flex h-[780px] w-full items-center justify-center overflow-hidden bg-black">
+    <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black">
       {/* Background Video */}
       <video
         autoPlay
