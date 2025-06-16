@@ -20,7 +20,8 @@ const DepartmentsList = ({ departments, onEdit, onDelete, isEditing }) => {
               </h3>
               <div className="text-sm text-gray-600">
                 {department.description ? (
-                  <div
+                  <span
+                    className="inline-block"
                     dangerouslySetInnerHTML={{
                       __html: department.description,
                     }}

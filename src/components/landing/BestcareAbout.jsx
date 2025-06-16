@@ -4,7 +4,7 @@ import { GoDotFill } from 'react-icons/go';
 const BestcareAbout = () => {
   return (
     <section className="container mx-auto px-4 py-10 md:px-8 lg:py-16">
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-12">
         <div className="flex justify-center lg:justify-end">
           <div className="overflow-hidden rounded-sm">
             <img

@@ -23,18 +23,18 @@ const contacts = [
 
 const Header = () => {
   return (
-    <section className="flex w-full items-center justify-center py-2 lg:h-[80px] lg:justify-between">
+    <section className="lg:flex w-full items-center justify-center lg:h-[80px] lg:justify-between">
       <img
-        className="hidden size-7 object-contain lg:inline-block"
+        className="hidden size-[110px] object-contain lg:inline-block"
         src={logo}
         alt="Logo"
       />
-      <div className="flex flex-wrap items-center justify-around gap-2 lg:flex-nowrap lg:justify-between">
+      <div className="hidden lg:flex flex-wrap items-center justify-around gap-2 lg:flex-nowrap lg:justify-between">
         {contacts.map((contact, index) => {
           return (
-            <div key={index} className="flex items-center gap-1">
+            <div key={index} className="flex items-center gap-2">
               <img
-                className="size-3 lg:size-4"
+                className="lg:size-2 xl:size-3"
                 src={
                   contact.icon === 'call'
                     ? phone
@@ -45,10 +45,10 @@ const Header = () => {
                 alt={contact.label}
               />
               <div className="flex flex-col">
-                <span className="font-body1 text-primary font-medium uppercase">
+                <span className="lg:font-body2 xl:font-body1 text-primary font-medium uppercase">
                   {contact.label}
                 </span>
-                <span className="font-body1 text-secondary font-medium">
+                <span className="lg:font-body2 xl:font-body1 text-secondary font-medium">
                   {contact.text}
                 </span>
               </div>

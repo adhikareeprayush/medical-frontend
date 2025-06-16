@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import iconMap from '../common/iconMap';
+import LearnMoreBtn from '../common/LearnMoreBtn';
 
 const ServiceCard = ({ service }) => {
   console.log(service);
@@ -7,7 +8,7 @@ const ServiceCard = ({ service }) => {
   return (
     <a
       href={`/services/${service.slug}`}
-      className="group relative h-[552px] w-full cursor-pointer lg:w-[300px]"
+      className="group relative flex h-full w-full cursor-pointer flex-col"
     >
       <div className="relative h-[300px]">
         <div className="bg-primary/80 absolute h-full w-full rounded-tl-md rounded-tr-md opacity-0 duration-300 group-hover:opacity-100" />
@@ -27,17 +28,19 @@ const ServiceCard = ({ service }) => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 rounded-br-md rounded-bl-md border-[1.5px] border-t-0 border-gray-200 bg-white px-3 pt-5 pb-4">
-        <h3 className="font-title text-primary text-lg">{service.title}</h3>
-        <p className="font-body line-clamp-4 text-gray-600">
-          {service.description}
-        </p>
-        <a
-          href={`/services/${service.slug}`}
-          className="font-body inline-flex items-center text-blue-600 hover:underline"
-        >
-          Learn More <ArrowRight color="black" size={20} className="ml-[4px]" />
-        </a>
+      <div className="flex flex-grow flex-col justify-between gap-2 rounded-br-md rounded-bl-md border-[1.5px] border-t-0 border-gray-200 bg-white px-3 pt-4 pb-2">
+        <div className="flex flex-grow flex-col gap-2">
+          <h3 className="font-title text-primary line-clamp-2 flex flex-grow items-center">
+            {service.title}
+          </h3>
+
+          <p className="font-body line-clamp-4 text-gray-600">
+            {service.description}
+          </p>
+        </div>
+        <div>
+          <LearnMoreBtn text="Learn More" styles="mx-auto px-2" />
+        </div>
       </div>
     </a>
   );

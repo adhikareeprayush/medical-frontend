@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react';
 import { uploadToCloudinary } from '../../utils/cloudinary';
-import { createDoctor } from '../../utils/doctors';
+import { createDoctor, updateDoctorById } from '../../utils/doctors';
 import {
   getAllDepartments,
   getAllSpecialities,
   addSpeciality,
 } from '../../utils/api';
 
-const DoctorFormModal = ({ onSuccess, onClose }) => {
+const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
+  const isEdit = !!doctor;
+
   const [creatingSpeciality, setCreatingSpeciality] = useState(false);
   const [newSpeciality, setNewSpeciality] = useState('');
-
   const [specialities, setSpecialities] = useState([]);
   const [departments, setDepartments] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingSpeciality, setLoadingSpeciality] = useState(false);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     fullName: '',
@@ -21,6 +23,7 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
     qualification: '',
     department_id: '',
     speciality_id: '',
+    image_url: '', // Used in edit mode
   });
 
   useEffect(() => {
@@ -34,11 +37,26 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
         setSpecialities(specRes.data.data);
       } catch (error) {
         console.error('Error fetching form data:', error);
+        setErrors({ fetch: 'Failed to load departments or specialities' });
       }
     };
 
     fetchData();
   }, []);
+
+  // Pre-fill form if editing
+  useEffect(() => {
+    if (isEdit && doctor) {
+      setFormData({
+        fullName: doctor.fullName || '',
+        qualification: doctor.qualification || '',
+        department_id: doctor.department_id || '',
+        speciality_id: doctor.speciality_id || '',
+        imageFile: null,
+        image_url: doctor.image_url || '',
+      });
+    }
+  }, [doctor, isEdit]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -46,40 +64,123 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
       ...prev,
       [name]: files ? files[0] : value,
     }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
+    if (!formData.qualification.trim())
+      newErrors.qualification = 'Qualification is required';
+    if (!formData.department_id)
+      newErrors.department_id = 'Department is required';
+    if (!formData.speciality_id)
+      newErrors.speciality_id = 'Speciality is required';
+    if (!isEdit && !formData.imageFile)
+      newErrors.imageFile = 'Image is required';
+    return newErrors;
+  };
+
+  const handleSaveSpeciality = async () => {
+    setErrors((prev) => ({ ...prev, newSpeciality: '' }));
+
+    if (!newSpeciality.trim()) {
+      setErrors((prev) => ({
+        ...prev,
+        newSpeciality: 'Speciality name is required',
+      }));
+      return;
+    }
+
+    setLoadingSpeciality(true);
+    try {
+      const res = await addSpeciality({ name: newSpeciality.trim() });
+
+      // Re-fetch the full list of specialities from server
+      const specRes = await getAllSpecialities();
+      const updatedSpecialities = specRes.data.data;
+      setSpecialities(updatedSpecialities);
+
+      // Find the newly added speciality (by name or ID if returned in `res`)
+      const newSpec = updatedSpecialities.find(
+        (s) => s.id === res.data.id || s.name === newSpeciality.trim(),
+      );
+
+      setNewSpeciality('');
+      setCreatingSpeciality(false);
+      setFormData((prev) => ({
+        ...prev,
+        speciality_id: newSpec?.id || '',
+      }));
+    } catch (error) {
+      console.error('Failed to add speciality:', error);
+      setErrors((prev) => ({
+        ...prev,
+        newSpeciality: error.message || 'Failed to add speciality',
+      }));
+    } finally {
+      setLoadingSpeciality(false);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrors({});
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setLoading(false);
+      return;
+    }
 
     try {
-      let imageUrl = '';
+      let imageUrl = formData.image_url;
+
+      // Handle image upload
       if (formData.imageFile) {
         imageUrl = await uploadToCloudinary(formData.imageFile);
+      } else if (!isEdit) {
+        setErrors({ imageFile: 'Image is required for new doctors' });
+        setLoading(false);
+        return;
       }
 
-      let specialityId = formData.speciality_id;
+      const parsedDeptId = parseInt(formData.department_id);
+      const parsedSpecId = parseInt(formData.speciality_id);
 
-      // If adding a new speciality, create it first
-      if (creatingSpeciality && newSpeciality.trim()) {
-        const res = await addSpeciality({ name: newSpeciality.trim() });
-        specialityId = res.data.id;
+      if (
+        !formData.fullName.trim() ||
+        !formData.qualification.trim() ||
+        isNaN(parsedDeptId) ||
+        isNaN(parsedSpecId) ||
+        !imageUrl
+      ) {
+        setErrors({ submit: 'Please fill all required fields correctly.' });
+        setLoading(false);
+        return;
       }
 
-      const newDoctor = {
-        fullName: formData.fullName,
+      const doctorPayload = {
+        fullName: formData.fullName.trim(),
         image_url: imageUrl,
-        qualification: formData.qualification,
-        department_id: parseInt(formData.department_id),
-        speciality_id: parseInt(specialityId),
+        qualification: formData.qualification.trim(),
+        department_id: parsedDeptId,
+        speciality_id: parsedSpecId,
       };
 
-      await createDoctor(newDoctor);
+      if (isEdit) {
+        await updateDoctorById(doctor.id, doctorPayload);
+      } else {
+        await createDoctor(doctorPayload);
+      }
+
       onSuccess();
       onClose();
     } catch (error) {
-      console.error('Form submission failed', error);
-      setErrors({ submit: error.message || 'Failed to submit' });
+      console.error('Form submission failed:', error);
+      setErrors({ submit: error.message || 'Failed to submit the form' });
     } finally {
       setLoading(false);
     }
@@ -95,7 +196,9 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
           ✕
         </button>
 
-        <h2 className="mb-4 text-xl font-bold">Add New Doctor</h2>
+        <h2 className="mb-4 text-xl font-bold">
+          {isEdit ? 'Edit Doctor' : 'Add New Doctor'}
+        </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -108,6 +211,9 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
               onChange={handleChange}
               required
             />
+            {errors.fullName && (
+              <p className="text-sm text-red-500">{errors.fullName}</p>
+            )}
           </div>
 
           <div>
@@ -120,6 +226,9 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
               onChange={handleChange}
               required
             />
+            {errors.qualification && (
+              <p className="text-sm text-red-500">{errors.qualification}</p>
+            )}
           </div>
 
           <div>
@@ -138,11 +247,13 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
                 </option>
               ))}
             </select>
+            {errors.department_id && (
+              <p className="text-sm text-red-500">{errors.department_id}</p>
+            )}
           </div>
 
           <div>
             <label className="mb-1 block">Speciality</label>
-
             {!creatingSpeciality ? (
               <>
                 <select
@@ -159,7 +270,9 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
                     </option>
                   ))}
                 </select>
-
+                {errors.speciality_id && (
+                  <p className="text-sm text-red-500">{errors.speciality_id}</p>
+                )}
                 <button
                   type="button"
                   className="mt-2 text-sm text-blue-600 hover:underline"
@@ -169,27 +282,41 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
                 </button>
               </>
             ) : (
-              <>
+              <div className="space-y-2">
                 <input
                   type="text"
                   className="input w-full"
                   placeholder="Enter new speciality name"
                   value={newSpeciality}
                   onChange={(e) => setNewSpeciality(e.target.value)}
-                  required
+                  autoFocus
                 />
-
-                <button
-                  type="button"
-                  className="mt-2 text-sm text-blue-600 hover:underline"
-                  onClick={() => {
-                    setCreatingSpeciality(false);
-                    setNewSpeciality('');
-                  }}
-                >
-                  ← Select from existing
-                </button>
-              </>
+                {errors.newSpeciality && (
+                  <p className="text-sm text-red-500">{errors.newSpeciality}</p>
+                )}
+                <div className="flex space-x-2">
+                  <button
+                    type="button"
+                    className="btn btn-primary text-sm"
+                    onClick={handleSaveSpeciality}
+                    disabled={loadingSpeciality}
+                  >
+                    {loadingSpeciality ? 'Saving...' : 'Save Speciality'}
+                  </button>
+                  <button
+                    type="button"
+                    className="text-sm text-blue-600 hover:underline"
+                    onClick={() => {
+                      setCreatingSpeciality(false);
+                      setNewSpeciality('');
+                      setErrors((prev) => ({ ...prev, newSpeciality: '' }));
+                    }}
+                    disabled={loadingSpeciality}
+                  >
+                    ← Cancel
+                  </button>
+                </div>
+              </div>
             )}
           </div>
 
@@ -202,19 +329,32 @@ const DoctorFormModal = ({ onSuccess, onClose }) => {
               onChange={handleChange}
               accept="image/*"
             />
+            {errors.imageFile && (
+              <p className="text-sm text-red-500">{errors.imageFile}</p>
+            )}
+            {isEdit && formData.image_url && (
+              <img
+                src={formData.image_url}
+                alt="Current"
+                className="mt-2 h-24 w-24 rounded object-cover"
+              />
+            )}
           </div>
 
           {errors.submit && (
             <p className="text-sm text-red-500">{errors.submit}</p>
+          )}
+          {errors.fetch && (
+            <p className="text-sm text-red-500">{errors.fetch}</p>
           )}
 
           <div className="flex justify-end">
             <button
               type="submit"
               className="btn btn-primary"
-              disabled={loading}
+              disabled={loading || creatingSpeciality}
             >
-              {loading ? 'Saving...' : 'Add Doctor'}
+              {loading ? 'Saving...' : isEdit ? 'Update Doctor' : 'Add Doctor'}
             </button>
           </div>
         </form>
