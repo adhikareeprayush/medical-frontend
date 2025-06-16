@@ -7,7 +7,7 @@ import LearnMoreBtn from '../common/LearnMoreBtn';
 const NewsCard = ({ news }) => {
   console.log(news);
   return (
-    <div className="flex flex-col gap-1 overflow-hidden my-4">
+    <div className="flex flex-col gap-1 overflow-hidden">
       {/* News Image */}
       <div className="h-[400px] w-full overflow-hidden bg-gray-200">
         <img
