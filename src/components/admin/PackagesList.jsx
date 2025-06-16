@@ -3,6 +3,7 @@ import {
   fetchAllPackages,
   addPackage,
   removePackage,
+  editPackage,
 } from '../../utils/packages';
 
 const PackagesList = () => {
@@ -10,6 +11,7 @@ const PackagesList = () => {
   const [isEditingPackage, setIsEditingPackage] = useState(false);
   const [checksList, setChecksList] = useState([]);
   const [newCheck, setNewCheck] = useState('');
+  const [editingId, setEditingId] = useState(null); // 👈 Track ID of package being edited
   const [newPackage, setNewPackage] = useState({
     title: '',
     price: '',
@@ -47,26 +49,37 @@ const PackagesList = () => {
     setChecksList((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleAddPackage = async () => {
+  const resetForm = () => {
+    setNewPackage({
+      title: '',
+      price: '',
+      discounted_price: '',
+      status: 'active',
+      whatsappUrl: '',
+    });
+    setChecksList([]);
+    setNewCheck('');
+    setEditingId(null);
+    setIsEditingPackage(false);
+  };
+
+  const handleAddOrUpdatePackage = async () => {
     const payload = {
       ...newPackage,
       checks: checksList.join(', '),
     };
 
     try {
-      await addPackage(payload);
-      setNewPackage({
-        title: '',
-        price: '',
-        discounted_price: '',
-        status: 'active',
-        whatsappUrl: '',
-      });
-      setChecksList([]);
-      setNewCheck('');
+      if (editingId) {
+        await editPackage(editingId, payload); // 👈 Editing
+      } else {
+        await addPackage(payload); // 👈 Adding
+      }
+
+      resetForm();
       await fetchPackages();
     } catch (error) {
-      console.error('Error adding package:', error);
+      console.error('Error saving package:', error);
     }
   };
 
@@ -79,13 +92,29 @@ const PackagesList = () => {
     }
   };
 
+  const handleEdit = (pkg) => {
+    setIsEditingPackage(true);
+    setEditingId(pkg.id);
+    setNewPackage({
+      title: pkg.title,
+      price: pkg.price,
+      discounted_price: pkg.discounted_price,
+      status: pkg.status,
+      whatsappUrl: pkg.whatsappUrl,
+    });
+    setChecksList(pkg.checks?.split(',').map((c) => c.trim()) || []);
+  };
+
   return (
     <div className="mt-6 flex flex-col">
       <div className="flex w-full items-center justify-between">
         <h2 className="text-2xl font-semibold">Package Details</h2>
         <button
           className="btn btn-secondary"
-          onClick={() => setIsEditingPackage(!isEditingPackage)}
+          onClick={() => {
+            if (isEditingPackage) resetForm();
+            else setIsEditingPackage(true);
+          }}
         >
           {isEditingPackage ? 'Cancel' : 'Add Package'}
         </button>
@@ -101,7 +130,6 @@ const PackagesList = () => {
             className="input input-bordered w-full"
           />
 
-          {/* Checks Input as list */}
           <div className="flex gap-2">
             <input
               name="check"
@@ -115,7 +143,6 @@ const PackagesList = () => {
             </button>
           </div>
 
-          {/* Display added checks */}
           <div className="flex flex-wrap gap-2">
             {checksList.map((check, index) => (
               <span
@@ -154,8 +181,11 @@ const PackagesList = () => {
             onChange={handleChange}
             className="input input-bordered w-full"
           />
-          <button className="btn btn-primary mt-2" onClick={handleAddPackage}>
-            Submit
+          <button
+            className="btn btn-primary mt-2"
+            onClick={handleAddOrUpdatePackage}
+          >
+            {editingId ? 'Update Package' : 'Submit'}
           </button>
         </div>
       )}
@@ -173,12 +203,20 @@ const PackagesList = () => {
                 </p>
                 <p className="text-sm text-gray-500">Status: {pkg.status}</p>
               </div>
-              <button
-                className="btn btn-danger btn-sm"
-                onClick={() => handleDelete(pkg.id)}
-              >
-                Delete
-              </button>
+              <div className="flex gap-2">
+                <button
+                  className="btn btn-sm btn-warning"
+                  onClick={() => handleEdit(pkg)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => handleDelete(pkg.id)}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
             <a
               href={pkg.whatsappUrl}

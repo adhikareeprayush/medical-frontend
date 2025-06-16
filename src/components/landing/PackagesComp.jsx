@@ -12,7 +12,7 @@ const PackagesComp = ({ testData }) => {
 
       <div className="flex flex-1 flex-col justify-between border-b border-gray-300">
         <div className="flex flex-1 flex-col overflow-y-auto p-4">
-          <ul className="space-y-2">
+          <ul className="max-h-[300px] space-y-2 overflow-y-auto">
             {testData.checks.split(',').map((check, idx) => (
               <li className="flex items-start" key={idx}>
                 <GiCheckMark className="text-secondary mt-1 mr-2 flex-shrink-0 text-lg sm:text-xl" />

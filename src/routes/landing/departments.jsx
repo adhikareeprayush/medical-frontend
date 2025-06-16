@@ -1,32 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { getAllDepartments } from '../../utils/api';
 import PageBanner from '../../components/landing/PageBanner';
 import { FaSearch } from 'react-icons/fa';
 import serviceBanner from '../../assets/images/banner/serviceBanner.png';
 import DepartmentCard from '../../components/landing/DepartmentCard';
 
-const department = () => {
+const Department = () => {
   const [departments, setDepartments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const fetchedRef = useRef(false); // prevents double fetch
 
   const fetchDepartments = async () => {
     try {
       const response = await getAllDepartments();
-      setDepartments(response.data.data);
-      console.log('Fetched departments:', response.data.data);
+      const unique = removeDuplicates(response.data.data);
+      setDepartments(unique);
+      console.log('Fetched departments:', unique);
     } catch (error) {
       console.error('Error fetching departments:', error);
+      setError('Failed to load departments');
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchDepartments();
-    setLoading(false);
+    if (!fetchedRef.current) {
+      fetchedRef.current = true;
+      fetchDepartments();
+    }
   }, []);
 
-  // Optional: filter departments by search term
+  const removeDuplicates = (arr) => {
+    const map = new Map();
+    arr.forEach((dept) => {
+      if (!map.has(dept.id)) map.set(dept.id, dept);
+    });
+    return Array.from(map.values());
+  };
+
   const filteredDepartments = departments.filter((dept) =>
     dept.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
@@ -38,23 +52,21 @@ const department = () => {
         title="Our Departments"
         backgroundImage={serviceBanner}
       />
-      <div className="flex w-full flex-col items-center my-6">
+      <div className="my-6 flex w-full flex-col items-center">
         <div className="">
-          <h1 className="text-secondary text-center text-xl font-bold tracking-widest uppercase mb-2">
+          <h1 className="text-secondary mb-2 text-center text-xl font-bold tracking-widest uppercase">
             Comprehensive Care Across Specialties
           </h1>
           <p className="text-primary font-display1 text-center">Departments</p>
           <div className="mx-auto my-5 flex w-full max-w-[300px] items-center rounded-full border border-gray-300 bg-white px-4 py-2 shadow-sm transition-all focus-within:ring-2 focus-within:ring-blue-500">
             <input
               type="search"
-              name="search"
-              id="search"
               placeholder="Search"
-              className="border-none bg-transparent outline-none focus:border-none focus:outline-none"
+              className="border-none bg-transparent outline-none"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <FaSearch className="ml-2 cursor-pointer text-gray-500 transition-colors hover:text-gray-700" />
+            <FaSearch className="ml-2 cursor-pointer text-gray-500" />
           </div>
         </div>
 
@@ -81,4 +93,4 @@ const department = () => {
   );
 };
 
-export default department;
+export default Department;
