@@ -58,7 +58,7 @@ const Department = () => {
             Comprehensive Care Across Specialties
           </h1>
           <p className="text-primary font-display1 text-center">Departments</p>
-          <div className="mx-auto my-5 flex w-full max-w-[300px] items-center rounded-full border border-gray-300 bg-white px-4 py-2 shadow-sm transition-all focus-within:ring-2 focus-within:ring-blue-500">
+          <div className="mx-auto my-5 flex w-full max-w-[300px] items-center rounded-full border border-gray-300 bg-white px-2  shadow-sm transition-all focus-within:ring-2 focus-within:ring-blue-500">
             <input
               type="search"
               placeholder="Search"
