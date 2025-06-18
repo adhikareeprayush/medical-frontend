@@ -21,7 +21,7 @@ const NewsSection = () => {
     fetchNews();
   }, []);
   return (
-    <section className="my-24 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section className="my-15 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
       {/* Heading */}
       <div className="mb-10 text-center">
         <h1 className="text-secondary mb-3 text-sm font-bold tracking-widest uppercase sm:text-base md:text-lg">

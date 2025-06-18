@@ -52,13 +52,13 @@ const Department = () => {
         title="Our Departments"
         backgroundImage={serviceBanner}
       />
-      <div className="my-6 flex w-full flex-col items-center">
+      <div className="my-6 flex w-full flex-col items-center px-1">
         <div className="">
-          <h1 className="text-secondary mb-2 text-center text-xl font-bold tracking-widest uppercase">
+          <h1 className="text-secondary mb-2 text-center text-base sm:text-xl font-bold tracking-widest uppercase">
             Comprehensive Care Across Specialties
           </h1>
           <p className="text-primary font-display1 text-center">Departments</p>
-          <div className="mx-auto my-5 flex w-full max-w-[300px] items-center rounded-full border border-gray-300 bg-white px-4 py-2 shadow-sm transition-all focus-within:ring-2 focus-within:ring-blue-500">
+          <div className="mx-auto my-5 flex w-full max-w-[300px] items-center rounded-full border border-gray-300 bg-white px-2  shadow-sm transition-all focus-within:ring-2 focus-within:ring-blue-500">
             <input
               type="search"
               placeholder="Search"
@@ -74,7 +74,7 @@ const Department = () => {
         {error && <p className="py-10 text-center text-red-500">{error}</p>}
 
         {!loading && !error && (
-          <section className="relative flex h-full w-full flex-col items-center justify-center gap-12 py-5">
+          <section className="relative flex h-full w-full flex-col items-center justify-center gap-12 py-2 sm:py-5">
             <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3">
               {filteredDepartments.length > 0 ? (
                 filteredDepartments.map((dept) => (

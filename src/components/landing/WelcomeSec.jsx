@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const WelcomeSec = () => {
   return (
-    <section className="my-30 flex w-full items-center justify-center px-5 md:px-7 lg:px-0">
+    <section className="mt-20 flex w-full items-center justify-center px-5 md:px-7 lg:px-0">
       <div className="flex w-full max-w-3xl flex-col items-center justify-center gap-4 text-center">
         <h1 className="text-secondary text-base font-bold tracking-widest uppercase sm:text-lg md:text-xl">
           Welcome to Nisarga Hospital
@@ -22,7 +22,7 @@ const WelcomeSec = () => {
           every patient receives personalized treatment in a safe, comfortable,
           and healing environment.
         </p>
-        <Link to="/about" className="mt-2">
+        <Link to="/about" className="">
           <LearnMoreBtn text="Learn More" styles="hover:px-2" />
         </Link>
       </div>
