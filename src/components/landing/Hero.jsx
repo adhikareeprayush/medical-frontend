@@ -18,7 +18,7 @@ const Hero = () => {
       {/* Hero Text */}
       <div className="z-20 px-4 text-center text-white">
         <h1 className="text-5xl font-bold md:text-7xl">
-          Welcome to Our Hospital
+          Welcome to Nisasrga Hospital
         </h1>
         <p className="mt-4 text-xl md:text-2xl">
           Your health is our priority. Experience world-class care and
