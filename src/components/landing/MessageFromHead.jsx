@@ -34,7 +34,7 @@ const MessageFromHead = () => {
             </p>
             <p className="text-lg text-gray-600 sm:text-center lg:text-start">
               {' '}
-              Healthcare is more than just a service — it is a promise to stand
+              Healthcare is more than just a service, it is a promise to stand
               by people during their most vulnerable moments. At Nisarga
               Hospital, we treat every patient with dignity, empathy, and
               respect. As we continue to grow and evolve, our mission remains
