@@ -9,7 +9,10 @@ const Hero = () => {
         playsInline
         className="absolute min-h-full w-auto max-w-none min-w-full object-cover"
       >
-        <source src="/nisarga124.mp4" type="video/mp4" />
+        <source
+          src="https://github.com/adhikareeprayush/video/raw/refs/heads/main/nisarga124.mp4?download="
+          type="video/mp4"
+        />
       </video>
 
       {/* Black Overlay */}
