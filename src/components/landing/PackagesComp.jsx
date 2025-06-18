@@ -34,10 +34,19 @@ const PackagesComp = ({ testData }) => {
                 Rs. {testData.discounted_price}
               </span>
             </span>
-            <span className="text-sm text-gray-500">
-              Status: {testData.status}
-            </span>
           </div>
+          <span className="text-base text-gray-500">
+            Status:{' '}
+            <span
+              className={`font-semibold ${
+                testData.status.toLowerCase() === 'active'
+                  ? 'text-green-600'
+                  : 'text-red-600'
+              }`}
+            >
+              {testData.status}
+            </span>
+          </span>
         </div>
 
         <Link to={`/packages/${testData.id}`}>
