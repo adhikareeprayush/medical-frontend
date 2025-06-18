@@ -13,10 +13,14 @@ const WelcomeSec = () => {
           A Great Place to Receive Care
         </p>
         <p className="text-sm tracking-wide text-gray-700 sm:text-base md:text-lg">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima fuga
-          nemo quibusdam at iste dignissimos nostrum quam magnam? Asperiores,
-          non, unde velit eveniet sequi iste a pariatur rerum voluptatem numquam
-          magnam itaque?
+          Nisarga Hospital Nepal is a modern, multi-specialty healthcare
+          institution committed to providing high-quality, patient-centered
+          medical services. Located in the heart of Nepal, our hospital stands
+          as a beacon of hope and healing, combining advanced medical technology
+          with the warmth of compassionate care. Our dedicated team of doctors,
+          nurses, and healthcare professionals work tirelessly to ensure that
+          every patient receives personalized treatment in a safe, comfortable,
+          and healing environment.
         </p>
         <Link to="/about" className="mt-2">
           <LearnMoreBtn text="Learn More" styles="hover:px-2" />
