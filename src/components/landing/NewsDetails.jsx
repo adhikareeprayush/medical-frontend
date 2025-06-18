@@ -87,7 +87,7 @@ const NewsDetails = () => {
         backgroundImage={banner}
       />
       <section className="flex w-full gap-2 py-5">
-        <div className="flex w-full flex-col gap-2 lg:flex-3 xl:flex-2">
+        <div className="flex w-full flex-col gap-2 px-2 lg:flex-3 xl:flex-2">
           <div className="h-[300px] w-full overflow-hidden rounded-sm bg-gray-200 sm:h-[400px] md:h-[500px] lg:h-[560px]">
             <img
               src={news.image_url}

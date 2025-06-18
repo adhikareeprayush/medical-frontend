@@ -29,7 +29,7 @@ const Packages = () => {
         backgroundImage={PackageBanner}
       />
 
-      <section className="container mx-auto px-4 py-8 md:py-12 xl:px-8">
+      <section className="container mx-auto px-4 py-6 md:py-12 xl:px-8">
         <h1 className="text-primary mb-6 text-center text-4xl font-bold lg:text-5xl">
           Our Packages
         </h1>

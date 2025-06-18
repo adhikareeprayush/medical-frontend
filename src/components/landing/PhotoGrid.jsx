@@ -10,7 +10,7 @@ const PhotoGrid = ({ photos }) => {
     <div className="flex w-full flex-col items-center gap-6">
       {/* Main Photo */}
       <div className="flex w-full justify-center">
-        <div className="w-full max-w-[300px] overflow-hidden rounded-md shadow transition hover:scale-[1.02]">
+        <div className="w-full max-w-[350px] overflow-hidden rounded-md shadow transition hover:scale-[1.02]">
           <img
             src={mainPhoto.image_url}
             alt={mainPhoto.fullName}

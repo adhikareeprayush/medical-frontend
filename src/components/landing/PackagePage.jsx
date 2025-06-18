@@ -39,7 +39,7 @@ const PackagePage = () => {
         title={data.title}
         backgroundImage={PackageBanner}
       />
-      <section className="container mx-auto px-1 py-8 md:px-4 md:py-12 xl:px-[140px]">
+      <section className="container mx-auto px-2 py-6 md:px-4 md:py-12 xl:px-[140px]">
         <h2 className="text-primary mb-5 text-3xl font-semibold">
           Tests Included:
         </h2>
@@ -67,12 +67,12 @@ const PackagePage = () => {
           <span className="text-sm text-gray-500">Status: {data.status}</span>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-5 sm:mt-8 text-center">
           <a
             href={data.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary hover:bg-secondary inline-block rounded-lg px-8 py-3 font-semibold text-white transition-colors duration-200"
+            className="bg-primary hover:bg-secondary inline-block rounded-lg px-4 sm:px-8 py-3 font-semibold text-white transition-colors duration-200"
           >
             Book Now on WhatsApp
           </a>

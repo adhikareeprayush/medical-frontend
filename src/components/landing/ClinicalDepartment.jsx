@@ -16,8 +16,10 @@ const ClinicalDepartment = () => {
   }, [expanded]);
 
   return (
-    <section className=" mx-auto shadow mt-40 mb-20">
-        <h1 className='text-primary font-display1 text-center tracking-wide mb-14'>Clinical Department in Nisarga</h1>
+    <section className="mx-auto my-20 shadow">
+      <h1 className="text-primary font-display2 sm:font-display1 mb-10 px-3 text-center tracking-wide break-words whitespace-pre-wrap">
+        Clinical Department in Nisarga
+      </h1>
       <div
         ref={containerRef}
         className="overflow-hidden transition-all duration-700 ease-in-out"
@@ -25,7 +27,7 @@ const ClinicalDepartment = () => {
           maxHeight: maxHeight,
         }}
       >
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-1 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
           {clinicalDepartment.map((department) => (
             <div key={department.id}>
               <Link
@@ -39,7 +41,7 @@ const ClinicalDepartment = () => {
                     className="h-15 w-15 object-cover"
                   />
                 </div>
-                <h3 className="text-primary mb-1 text-lg font-semibold">
+                <h3 className="text-primary mb-1 text-lg font-semibold break-words whitespace-pre-wrap line-clamp-3">
                   {department.name}
                 </h3>
                 <h3 className="text-lg">{department.nepali_name}</h3>
@@ -53,7 +55,7 @@ const ClinicalDepartment = () => {
       <div className="text-center">
         <button
           onClick={() => setExpanded(!expanded)}
-          className="cursor-pointer border-[1px] border-b-0 px-2 py-1 text-primary font-semibold transition duration-300 tracking-wide hover:bg-primary hover:text-white"
+          className="text-primary hover:bg-primary cursor-pointer border-[1px] border-b-0 px-2 py-1 font-semibold tracking-wide transition duration-300 hover:text-white"
         >
           {expanded ? 'View Less' : 'View More'}
         </button>

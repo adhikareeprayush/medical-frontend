@@ -19,7 +19,7 @@ const MedicalTeam = () => {
   }, []);
 
   return (
-    <div className="mx-auto w-full max-w-5xl place-items-center px-6 py-6 md:px-4 lg:px-2">
+    <div className="mx-auto w-full max-w-5xl place-items-center px-3 sm:px-6 py-6 md:px-4 lg:px-2">
       <h2 className="text-primary mb-6 text-center text-3xl font-bold">
         Meet Our Medical Team
       </h2>

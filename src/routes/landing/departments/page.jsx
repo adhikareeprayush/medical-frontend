@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getDepartmentBySlug } from '../../../utils/api';
+import PageBanner from '../../../components/landing/PageBanner';
 const fallBackImage =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAOVBMVEXm6ezb3uGXoazq7e/Dyc/l6ey/xcyrs7vX3OCnr7jV2d6Zo63O09ibpa+5wMezusLv8fTP1NnIzdMlnmvOAAABdElEQVR4nO3Z0ZKaMBiAUUwQlsaIy/s/bAHdabXxdmn7n3PDCDeZb0JA0nUAAAAAAAAAAAAAAAAAAAAAAAAAAP+u3HT0qA6UT/3Q1J+iZslDemsIGmVJpY5NtaTl6NEdItcyt5eTnMdSY06UlD7eXMk/UvrWofwtzu+bdNGb5NPl4/VGCd4kz+tjZnq5FrxJn8pqfp4psZvkqVxvfUmabB5Naulvn78S3NsEbzKkMpYy3lvkft6PsZt03bSusfW8n8rXVPblNnqTfBkeL/JbkrJHid6k+1pe1yRp/txnSvgmD3uSnC9bFE129yTbrbRG0WTzleQepVZNfkuyR9HkOck9Svgmz0nW30uJ3uQ1iWdxI0n4Jo0k0Zu0kgRv0kwStsn23T63k4RtkmsZb+s/4euttb8zxdzfWbYvA7WO0x9qSZejR3eM3Ke0ZmnuF/cxp8m2s7MMfctyjpoEAAAAAAAAAAAAAAAAAAAAAAAAAPgPnHj1E96TDiAitj9wAAAAAElFTkSuQmCC';
 
@@ -39,24 +40,32 @@ const DepartmentPage = () => {
   if (!department) return null;
 
   return (
-    <div className="min-h-screen">
-      <div className="h-[300px] w-full md:h-[400px] lg:h-[500px]">
-        <img
-          className="h-full w-full object-cover object-center"
-          src={department.image_url || fallBackImage}
-          alt={department.name}
-        />
-      </div>
-
-      <section className="px-4 py-6 md:px-12">
-        <div className="flex flex-col gap-1 py-1">
-          <h1 className="font-display2 text-primary">{department.name}</h1>
-          <h2 className="font-body1 bg-secondary w-fit rounded-lg p-1 text-white">
-            {department.nepali}
-          </h2>
+    <div className="">
+      <PageBanner
+        subtitle="Department"
+        subSubtitle={department.name}
+        title={department.name}
+        backgroundImage={department.image_url || fallBackImage}
+      />
+      <div className='my-6 sm:my-8 px-3'>
+        <div className="h-[300px] w-full md:h-[400px] lg:h-[500px]">
+          <img
+            className="h-full w-full object-cover object-center"
+            src={department.image_url || fallBackImage}
+            alt={department.name}
+          />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: department.description }} />
-      </section>
+
+        <section className="my-4 sm:my-6 md:px-12">
+          <div className="flex flex-col gap-2 py-1">
+            <h1 className="font-display2 text-primary">{department.name}</h1>
+            <h2 className="font-body1 bg-secondary w-fit rounded-lg p-1 text-white">
+              {department.nepali}
+            </h2>
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: department.description }} />
+        </section>
+      </div>
     </div>
   );
 };
