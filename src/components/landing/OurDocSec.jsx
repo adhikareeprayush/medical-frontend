@@ -246,7 +246,7 @@ const OurDocSec = () => {
           ))}
         </Slider>
       </div>
-      <Link to={'/team'}>
+      <Link to={'/doctors'}>
         <LearnMoreBtn
           text="View All Doctors"
           styles="mt-6 mx-auto w-fit hover:px-2"
