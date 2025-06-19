@@ -52,11 +52,12 @@ const ServiceList = () => {
       icon: item.icon,
       points: item.points
         ? item.points
-            .replace(/^\[|\]$/g, '') // remove surrounding brackets
-            .split(',') // split by comma
-            .map((point) => point.trim()) // trim each item
-            .filter((point) => point) // remove empty strings (optional)
-        : [],
+            .replace(/^\[|\]$/g, '') // remove [ and ]
+            .split(',')
+            .map((point) => point.replace(/['"]/g, '').trim()) // remove quotes and trim
+            .filter((point) => point)
+            .join(', ') // convert array back to comma-separated string
+        : '',
     });
     setEditId(item.id);
     setImageFile(null);
@@ -176,10 +177,10 @@ const ServiceList = () => {
             {item.points && (
               <ul className="mb-3 list-disc pl-5 text-sm text-gray-700">
                 {item.points
-                  .replace(/^\[|\]$/g, '') // remove [ ]
+                  ?.replace(/^\[|\]$/g, '') // remove [ and ]
                   .split(',')
                   .map((point, idx) => (
-                    <li key={idx}>{point.replace(/'/g, '').trim()}</li>
+                    <li key={idx}>{point.replace(/['"]/g, '').trim()}</li> // remove quotes and trim
                   ))}
               </ul>
             )}
