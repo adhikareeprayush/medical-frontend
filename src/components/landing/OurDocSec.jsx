@@ -211,7 +211,7 @@ const OurDocSec = () => {
   }
 
   return (
-    <section className="w-full bg-white px-4 py-10 md:px-8 lg:px-12">
+    <section className="w-full bg-white px-[27px] py-10 sm:px-7 px-7 lg:px-12">
       {/* Header */}
       <div className="mb-7 flex flex-col gap-3 text-center">
         <h1 className="text-secondary text-base font-bold tracking-widest uppercase sm:text-lg md:text-xl">
@@ -234,10 +234,10 @@ const OurDocSec = () => {
                   className="h-[300px] w-full object-cover"
                 />
                 <div className="bg-secondary/20 flex w-full flex-col items-center p-4 text-center">
-                  <h3 className="text-primary truncate text-lg font-semibold md:text-xl">
+                  <h3 className="text-primary break-words whitespace-pre-wrap text-lg font-semibold md:text-xl">
                     {doc.fullName}
                   </h3>
-                  <p className="text-secondary truncate text-sm md:text-base">
+                  <p className="text-secondary break-words whitespace-pre-wrap text-sm md:text-base">
                     {doc.specialityName}
                   </p>
                 </div>
