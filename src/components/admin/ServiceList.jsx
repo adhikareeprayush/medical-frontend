@@ -50,7 +50,13 @@ const ServiceList = () => {
       description: item.description,
       image: item.image,
       icon: item.icon,
-      points: item.points ? item.points.replace(/^\[|\]$/g, '') : '', // remove [] if stringified
+      points: item.points
+        ? item.points
+            .replace(/^\[|\]$/g, '') // remove surrounding brackets
+            .split(',') // split by comma
+            .map((point) => point.trim()) // trim each item
+            .filter((point) => point) // remove empty strings (optional)
+        : [],
     });
     setEditId(item.id);
     setImageFile(null);
