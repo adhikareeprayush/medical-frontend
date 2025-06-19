@@ -3,10 +3,12 @@ import PageBanner from '../../components/landing/PageBanner';
 import PackageBanner from '../../assets/images/hospital_banner/hospital_banner.jpg';
 import { useParams } from 'react-router-dom';
 import { getPackageById } from '../../utils/api';
+import LoadingComp from '../common/LoadingComp';
 
 const PackagePage = () => {
   const { slug } = useParams();
   const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
 
   const fetchData = async () => {
     try {
@@ -17,12 +19,18 @@ const PackagePage = () => {
       console.log('Fetched package data:', response?.data.data);
     } catch (error) {
       console.error('Error fetching package data:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   React.useEffect(() => {
     fetchData();
   }, [slug]);
+
+  if (loading) {
+    return <LoadingComp />;
+  }
 
   if (!data) {
     return <div className="text-center text-red-500">Package not found</div>;
@@ -67,12 +75,12 @@ const PackagePage = () => {
           <span className="text-sm text-gray-500">Status: {data.status}</span>
         </div>
 
-        <div className="mt-5 sm:mt-8 text-center">
+        <div className="mt-5 text-center sm:mt-8">
           <a
             href={data.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary hover:bg-secondary inline-block rounded-lg px-4 sm:px-8 py-3 font-semibold text-white transition-colors duration-200"
+            className="bg-primary hover:bg-secondary inline-block rounded-lg px-4 py-3 font-semibold text-white transition-colors duration-200 sm:px-8"
           >
             Book Now on WhatsApp
           </a>

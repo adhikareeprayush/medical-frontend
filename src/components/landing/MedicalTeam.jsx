@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PhotoGrid from '../../components/landing/PhotoGrid';
 import { getAllDoctors } from '../../utils/api';
+import LoadingComp from '../common/LoadingComp';
 
 const MedicalTeam = () => {
   const [doctors, setDoctors] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchDoctors = async () => {
     try {
@@ -12,14 +14,19 @@ const MedicalTeam = () => {
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
     fetchDoctors();
   }, []);
 
+  if (loading) {
+    return <LoadingComp />;
+  }
+
   return (
-    <div className="mx-auto w-full max-w-5xl place-items-center px-3 sm:px-6 py-6 md:px-4 lg:px-2">
+    <div className="mx-auto w-full max-w-5xl place-items-center px-3 py-6 sm:px-6 md:px-4 lg:px-2">
       <h2 className="text-primary mb-6 text-center text-3xl font-bold">
         Meet Our Medical Team
       </h2>

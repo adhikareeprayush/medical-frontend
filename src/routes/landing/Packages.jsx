@@ -5,9 +5,11 @@ import PackageBanner from '../../assets/images/hospital_banner/hospital_banner.j
 import ContactSection from '../../components/landing/ContactSection';
 import { getAllPackages } from '../../utils/api';
 import { useState, useEffect } from 'react';
+import LoadingComp from '../../components/common/LoadingComp';
 
 const Packages = () => {
   const [packages, setPackages] = useState([]);
+  const [loading, setLoading] = useState(true);
   const fetchPackages = async () => {
     try {
       const response = await getAllPackages();
@@ -15,12 +17,19 @@ const Packages = () => {
       setPackages(response.data.data);
     } catch (error) {
       console.error('Error fetching packages:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchPackages();
   }, []);
+
+  if (loading) {
+    return <LoadingComp />;
+  }
+
   return (
     <>
       <PageBanner

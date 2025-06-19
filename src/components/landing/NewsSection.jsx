@@ -4,9 +4,11 @@ import EyeIcon from '../../assets/icons/eye.svg';
 import HeartIcon from '../../assets/icons/heart.svg';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { getAllNews } from '../../utils/api';
+import LoadingComp from '../common/LoadingComp';
 
 const NewsSection = () => {
   const [recentNews, setRecentNews] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -16,10 +18,16 @@ const NewsSection = () => {
       } catch (err) {
         console.error('Failed to fetch news:', err);
       }
+      setLoading(false);
     };
 
     fetchNews();
   }, []);
+
+  if (loading) {
+    return <LoadingComp />;
+  }
+
   return (
     <section className="my-15 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
       {/* Heading */}
@@ -87,7 +95,7 @@ const NewsSection = () => {
       {/* Button */}
       <div className="mt-10">
         <Link to="/news">
-          <LearnMoreBtn text="View All News" styles='hover:px-2' />
+          <LearnMoreBtn text="View All News" styles="hover:px-2" />
         </Link>
       </div>
     </section>

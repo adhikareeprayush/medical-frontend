@@ -32,17 +32,15 @@ const Footer = () => {
         // Get social links
         const socialRes = await getSocial();
         console.log('Social Links:', socialRes);
-        const formattedLinks = socialRes
-          .map((item) => {
-            const site = item.site.toLowerCase();
-            const link = item.link;
 
-            switch (site) {
+        const formattedLinks = Object.entries(socialRes)
+          .map(([site, link]) => {
+            switch (site.toLowerCase()) {
               case 'facebook':
                 return { icon: <FaFacebookF size={25} />, link };
               case 'instagram':
                 return { icon: <FaInstagram size={25} />, link };
-              case 'linkedIn':
+              case 'linkedin': // ensure case-insensitive match
                 return { icon: <FaLinkedin size={25} />, link };
               default:
                 return null;

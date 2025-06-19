@@ -8,6 +8,7 @@ import PageBanner from './PageBanner';
 import banner from '../../assets/images/banner/hospital_banner.jpg';
 import RecentPosts from './RecentPosts';
 import { getNewsById, updateNewsLikes, updateNewsViews } from '../../utils/api';
+import LoadingComp from '../common/LoadingComp';
 
 const NewsDetails = () => {
   const { newsId } = useParams();
@@ -67,11 +68,7 @@ const NewsDetails = () => {
   }, [newsId]);
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center py-10">
-        <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
-      </div>
-    );
+    return <LoadingComp />;
   }
 
   if (!news) {
@@ -140,7 +137,7 @@ const NewsDetails = () => {
             </p>
           </div>
 
-          <div className="flex my-3 w-full justify-between">
+          <div className="my-3 flex w-full justify-between">
             {news.previous ? (
               <Link
                 to={`/news/${news.previous.id}`}
