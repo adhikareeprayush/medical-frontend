@@ -31,7 +31,7 @@ const ClinicalDepartment = () => {
           {clinicalDepartment.map((department) => (
             <div key={department.id}>
               <Link
-                to={`/departments/${department.id}`}
+                to={`/departments`}
                 className="flex flex-col items-center p-4 text-center"
               >
                 <div className="bg-primary mb-3 rounded-2xl p-3">
