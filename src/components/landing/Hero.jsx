@@ -1,3 +1,4 @@
+import heroImage from '../../assets/images/banner/hospital_banner.jpg';
 const Hero = () => {
   return (
     <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black">
@@ -7,13 +8,18 @@ const Hero = () => {
         muted
         loop
         playsInline
-        className="absolute min-h-full w-auto max-w-none min-w-full object-cover"
+        className="absolute hidden min-h-full w-auto max-w-none min-w-full object-cover lg:block"
       >
         <source
           src="https://github.com/adhikareeprayush/video/raw/refs/heads/main/nisarga124.mp4?download="
           type="video/mp4"
         />
       </video>
+      <img
+        src={heroImage}
+        alt=""
+        className="absolute inset-0 z-0 block h-full w-full object-cover lg:hidden"
+      />
 
       {/* Black Overlay */}
       <div className="absolute inset-0 z-10 bg-black opacity-60" />

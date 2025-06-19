@@ -4,6 +4,7 @@ import serviceBanner from '../../assets/images/banner/serviceBanner.png';
 import ContactSection from '../../components/landing/ContactSection';
 import { getAllServices } from '../../utils/api';
 import { useEffect, useState } from 'react';
+import LoadingComp from '../../components/common/LoadingComp';
 
 const Services = () => {
   const [services, setServices] = useState();
@@ -21,6 +22,11 @@ const Services = () => {
     };
     fetchServices();
   }, []);
+
+  if (loading) {
+    return <LoadingComp />;
+  }
+
   return (
     <>
       <PageBanner
@@ -47,7 +53,7 @@ const Services = () => {
           </div>
         )}
       </section>
-        <ContactSection />
+      <ContactSection />
     </>
   );
 };

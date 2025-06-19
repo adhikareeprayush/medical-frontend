@@ -4,6 +4,7 @@ import newsBanner from '../../assets/images/banner/newsBanner.png';
 import RecentPosts from '../../components/landing/RecentPosts';
 import { useEffect, useState } from 'react';
 import { getAllNews } from '../../utils/api';
+import LoadingComp from '../../components/common/LoadingComp';
 const News = () => {
   const [newsList, setNewsList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,9 +29,7 @@ const News = () => {
       <section className="flex w-full justify-center gap-2 py-5">
         <div className="flex flex-col gap-2 px-2 lg:flex-3 xl:flex-2">
           {loading ? (
-            <div className="flex justify-center py-10">
-              <div className="border-primary h-10 w-10 animate-spin rounded-full border-4 border-t-transparent" />
-            </div>
+            <LoadingComp />
           ) : newsList.length > 0 ? (
             newsList.map((news) => <NewsCard key={news.id} news={news} />)
           ) : (

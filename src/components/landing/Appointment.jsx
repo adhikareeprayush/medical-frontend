@@ -4,7 +4,7 @@ import bgImage from '../../assets/images/hospital_banner/testimonialsbackground.
 const Appointment = () => {
   return (
     <section className="flex h-screen w-full items-center justify-center">
-      <span className="bg-gradient-to-r from-blue-700 via-purple-500 to-indigo-500 bg-clip-text text-5xl font-bold text-transparent">
+      <span className="bg-gradient-to-r from-blue-700 via-purple-500 to-indigo-500 bg-clip-text pb-3 text-5xl font-bold text-transparent">
         This Service is Comming Soon...
       </span>
     </section>

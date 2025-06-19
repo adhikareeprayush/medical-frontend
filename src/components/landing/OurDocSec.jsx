@@ -126,8 +126,6 @@
 
 // export default OurDocSec;
 
-
-
 import { useEffect, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -137,6 +135,7 @@ import PrevArrowBtn from '../common/PrevArrowBtn';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { Link } from 'react-router-dom';
 import { getAllDoctors } from '../../utils/api';
+import LoadingComp from '../common/LoadingComp';
 
 const OurDocSec = () => {
   const [doctors, setDoctors] = useState([]);
@@ -204,7 +203,7 @@ const OurDocSec = () => {
   };
 
   if (loading) {
-    return <p className="py-10 text-center">Loading doctors...</p>;
+    return <LoadingComp />;
   }
 
   if (error) {
@@ -248,11 +247,13 @@ const OurDocSec = () => {
         </Slider>
       </div>
       <Link to={'/team'}>
-        <LearnMoreBtn text="View All Doctors" styles="mt-6 mx-auto w-fit hover:px-2" />
+        <LearnMoreBtn
+          text="View All Doctors"
+          styles="mt-6 mx-auto w-fit hover:px-2"
+        />
       </Link>
     </section>
   );
 };
 
 export default OurDocSec;
-
