@@ -4,6 +4,7 @@ import PageBanner from '../../components/landing/PageBanner';
 import { getGalleryMediaByGallery } from '../../utils/api';
 import { getYoutubeEmbedUrl } from '../../utils/getYoutubeEmbedUrl';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const Gallery = () => {
   const [currentFilter, setCurrentFilter] = useState('all');
@@ -62,8 +63,9 @@ const Gallery = () => {
       onClick={onClick}
     >
       {media.media_type === 'image' ? (
-        <img
-          src={getTransformedImageUrl(media.media_url, 350, 300)}
+        <ProgressiveImage
+          lowQualitySrc={getTransformedImageUrl(media.media_url, 40, 40)}
+          highQualitySrc={getTransformedImageUrl(media.media_url, 1080, 720)}
           alt={'media'}
           width={350}
           height={300}

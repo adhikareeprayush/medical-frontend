@@ -13,7 +13,6 @@ const DepartmentCard = ({ dept }) => {
       <ProgressiveImage
         lowQualitySrc={getTransformedImageUrl(dept.image_url, 40, 40)}
         highQualitySrc={getTransformedImageUrl(dept.image_url, 1080, 720)}
-        src={getTransformedImageUrl(dept.image_url, 350, 300)}
         alt={dept.name}
         className="h-[350px] w-full object-cover"
       />
