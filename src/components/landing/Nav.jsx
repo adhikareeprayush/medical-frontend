@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import hamburger from '../../assets/icons/hamburger.svg';
 import close from '../../assets/icons/close.svg';
@@ -89,11 +89,15 @@ const Nav = () => {
   }, []);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   return (
     <div className="flex w-full flex-col items-center justify-between bg-transparent lg:flex-row">
       {/* Top Navigation Row */}
-      <div className="flex w-full justify-between bg-white lg:bg-transparent">
+      <div
+        className={`flex w-full justify-between ${isHome ? 'bg-white lg:bg-transparent' : 'lg:bg-primary bg-transparent py-0 lg:py-2'} `}
+      >
         {/* Desktop Menu */}
         <section className="hidden items-center lg:flex">
           {navMenus.map(({ name, path }, index) => {
