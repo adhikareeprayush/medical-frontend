@@ -9,7 +9,7 @@ const DoctorSec = () => {
       style={{ backgroundImage: `url(${DoctorImg})` }}
     >
       <div className="absolute top-0 left-0 h-[100%] w-[100%]">
-        <img className="h-full w-full object-cover" src={DoctorBg} alt="" />
+        <img className="h-full w-full object-cover" src={DoctorBg} alt="DoctorBg" />
       </div>
     </section>
   );

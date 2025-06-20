@@ -17,7 +17,7 @@ const Hero = () => {
       </video>
       <img
         src={heroImage}
-        alt=""
+        alt="hero-image"
         className="absolute inset-0 z-0 block h-full w-full object-cover lg:hidden"
       />
 

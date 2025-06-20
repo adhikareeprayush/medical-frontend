@@ -7,18 +7,24 @@ import Ophthalmology from '../assets/images/clinicalDepartment/opthalmology.png'
 import ENT from '../assets/images/clinicalDepartment/ENT.png';
 import Dermatology from '../assets/images/clinicalDepartment/Dermatology.png';
 import Psychiatry from '../assets/images/clinicalDepartment/pshyciatry.png';
-import Urology from '../assets/images/clinicalDepartment/urology.png';
-import Oncology from '../assets/images/clinicalDepartment/oncology.png';
+// import Urology from '../assets/images/clinicalDepartment/urology.png';
+// import Oncology from '../assets/images/clinicalDepartment/oncology.png';
 import Nephrology from '../assets/images/clinicalDepartment/Nephrology.png';
-import Rheumatology from '../assets/images/clinicalDepartment/Rheumatology.png';
+// import Rheumatology from '../assets/images/clinicalDepartment/Rheumatology.png';
 import Anesthesiology from '../assets/images/clinicalDepartment/anesthesiology.png';
 import Gyna from '../assets/images/clinicalDepartment/Gyna.png';
 import GeneralSurgery from '../assets/images/clinicalDepartment/General_Surgery.png';
-import Nutrition from '../assets/images/clinicalDepartment/Nutrition.png';
-import VascularSurgery from '../assets/images/clinicalDepartment/vascular_surgery.png';
-import TeethSurgery from '../assets/images/clinicalDepartment/teeth_surgery.png';
+// import Nutrition from '../assets/images/clinicalDepartment/Nutrition.png';
+// import VascularSurgery from '../assets/images/clinicalDepartment/vascular_surgery.png';
+// import TeethSurgery from '../assets/images/clinicalDepartment/teeth_surgery.png';
 
 const clinicalDepartments = [
+  {
+    slug: 'OPD',
+    name: 'Outpatient Department (OPD)',
+    nepali_name: 'बाह्य रोगी',
+    image: GeneralSurgery,
+  },
   {
     slug: 'general-medicine',
     name: 'General Medicine',
@@ -40,13 +46,13 @@ const clinicalDepartments = [
   {
     slug: 'pediatrics',
     name: 'Pediatrics',
-    nepali_name: 'बाल चिकित्सा',
+    nepali_name: 'नवजात शिशु तथा बालरोग',
     image: Pediatrics,
   },
   {
-    slug: 'orthopedic-surgery',
-    name: 'Orthopedic Surgery',
-    nepali_name: 'हाड जोर्नी विभाग',
+    slug: 'orthopedic',
+    name: 'Orthopedic',
+    nepali_name: 'हाड जोर्नी',
     image: Orthopedic,
   },
   {
@@ -68,9 +74,9 @@ const clinicalDepartments = [
     image: Dermatology,
   },
   {
-    slug: 'psychiatry',
-    name: 'Psychiatry',
-    nepali_name: 'मानसिक स्वास्थ्य',
+    slug: 'emergency-trauma',
+    name: 'Emergency and Trauma',
+    nepali_name: 'आकस्मिक तथा ट्रमा उपचार',
     image: Psychiatry,
   },
   {
