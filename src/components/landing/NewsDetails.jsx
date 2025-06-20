@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { CiCalendar } from 'react-icons/ci';
-import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
+import { FaArrowRight, FaRegHeart, FaHeart } from 'react-icons/fa';
 import { GoPerson } from 'react-icons/go';
 import { IoEyeOutline } from 'react-icons/io5';
 import PageBanner from './PageBanner';
@@ -15,6 +15,7 @@ const NewsDetails = () => {
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [likeLoading, setLikeLoading] = useState(false);
 
   useEffect(() => {
     const likedNews = JSON.parse(localStorage.getItem('likedNews') || '[]');
@@ -22,8 +23,9 @@ const NewsDetails = () => {
   }, [newsId]);
 
   const handleLike = async () => {
-    if (liked) return;
+    if (liked || likeLoading) return;
 
+    setLikeLoading(true);
     try {
       await updateNewsLikes(newsId);
 
@@ -34,6 +36,8 @@ const NewsDetails = () => {
       if (news) setNews((prev) => ({ ...prev, like: prev.like + 1 }));
     } catch (err) {
       console.error('Failed to like:', err);
+    } finally {
+      setLikeLoading(false);
     }
   };
 
@@ -119,13 +123,10 @@ const NewsDetails = () => {
                 <IoEyeOutline className="text-blue-600" />
                 <span>{news.views}</span>
               </div>
-              <button
-                onClick={handleLike}
-                className={`flex items-center gap-1 ${liked ? 'opacity-50' : ''}`}
-              >
+              <div className="flex items-center gap-1 text-gray-700">
                 <FaRegHeart className="text-[#E2315C]" />
                 <span>{news.like}</span>
-              </button>
+              </div>
             </div>
 
             <h3 className="text-xl leading-snug font-bold sm:text-2xl">
@@ -135,6 +136,41 @@ const NewsDetails = () => {
             <p className="text-sm leading-relaxed tracking-wide text-[#212124] sm:text-base">
               {news.content || news.description}
             </p>
+
+            {/* Separate Like Button */}
+            <div className="mt-4 flex justify-center gap-4">
+              <button
+                onClick={handleLike}
+                disabled={liked || likeLoading}
+                className={`flex items-center  gap-2 rounded-full px-4 py-2 font-medium transition-all duration-200 ${
+                  liked
+                    ? 'bg-[#E2315C] text-white shadow-lg'
+                    : 'bg-gray-100 text-[#E2315C] hover:bg-[#E2315C] hover:text-white hover:shadow-md cursor-pointer'
+                } ${likeLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              >
+                {likeLoading ? (
+                  <div className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent"></div>
+                ) : liked ? (
+                  <FaHeart className="text-lg" />
+                ) : (
+                  <FaRegHeart className="text-lg" />
+                )}
+                <span>{liked ? 'Liked' : 'Like this article'}</span>
+              </button>
+
+              {/* Source URL Button */}
+              {news.source && (
+                <a
+                  href={news.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 font-medium text-white transition-all duration-200 hover:bg-blue-700 hover:shadow-md"
+                >
+                  <GoPerson className="text-lg" />
+                  <span>View Source</span>
+                </a>
+              )}
+            </div>
           </div>
 
           <div className="my-3 flex w-full justify-between">
