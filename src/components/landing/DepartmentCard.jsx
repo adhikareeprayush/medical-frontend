@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const DepartmentCard = ({ dept }) => {
   console.log(dept);
@@ -9,18 +10,14 @@ const DepartmentCard = ({ dept }) => {
       to={`/departments/${dept.slug}`}
       className="group block overflow-hidden rounded-lg bg-white shadow-sm transition hover:shadow-md"
     >
-      <img
+      <ProgressiveImage
+        lowQualitySrc={getTransformedImageUrl(dept.image_url, 40, 40)}
+        highQualitySrc={getTransformedImageUrl(dept.image_url, 1080, 720)}
         src={getTransformedImageUrl(dept.image_url, 350, 300)}
         alt={dept.name}
         className="h-[350px] w-full object-cover"
       />
-      {/* <img
-        src={getTransformedImageUrl(dept.image_url, 350, 300)}
-        alt={dept.name}
-        width={350}
-        height={300}
-        className="h-[300px] w-[350px] object-cover"
-      /> */}
+
       <div className="flex flex-col items-center justify-center px-2 pb-2">
         <h3 className="mt-2 text-center text-lg font-semibold md:text-left">
           {dept.name}

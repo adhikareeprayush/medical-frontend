@@ -1,6 +1,8 @@
 import { ArrowRight } from 'lucide-react';
 import iconMap from '../common/iconMap';
 import LearnMoreBtn from '../common/LearnMoreBtn';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const ServiceCard = ({ service }) => {
   console.log(service);
@@ -12,10 +14,16 @@ const ServiceCard = ({ service }) => {
     >
       <div className="relative h-[300px]">
         <div className="bg-primary/80 absolute h-full w-full rounded-tl-md rounded-tr-md opacity-0 duration-300 group-hover:opacity-100" />
-        <img
+        {/* <img
           src={service.image}
           alt={service.title}
           className={`h-full w-full rounded-tl-md rounded-tr-md object-cover transition-all duration-300`}
+        /> */}
+        <ProgressiveImage
+          lowQualitySrc={getTransformedImageUrl(service.image, 10, 10)}
+          highQualitySrc={getTransformedImageUrl(service.image, 1080, 720)}
+          alt={service.title}
+          className="h-full w-full"
         />
         <div className="bg-primary absolute right-[24px] -bottom-[32px] flex h-[80px] w-[80px] flex-col items-center justify-center rounded-full duration-300 group-hover:right-[50%] group-hover:bottom-[50%] group-hover:translate-x-1/2 group-hover:translate-y-1/2">
           {/* <img src={bandageIcon} alt="icon" width={26} height={26} /> */}

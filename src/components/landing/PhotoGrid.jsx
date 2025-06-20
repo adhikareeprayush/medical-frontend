@@ -1,5 +1,6 @@
 import React from 'react';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const PhotoGrid = ({ photos }) => {
   if (!photos || photos.length === 0) return <p>No photos</p>;
@@ -13,13 +14,19 @@ const PhotoGrid = ({ photos }) => {
       {/* Main Photo */}
       <div className="flex w-full justify-center">
         <div className="flex h-full max-w-[350px] flex-col overflow-hidden rounded-md shadow transition hover:scale-[1.02]">
-          <img
-            src={getTransformedImageUrl(mainPhoto.image_url, 350, 300)}
+          <ProgressiveImage
+            lowQualitySrc={getTransformedImageUrl(mainPhoto.image_url, 40, 40)}
+            highQualitySrc={getTransformedImageUrl(
+              mainPhoto.image_url,
+              1080,
+              720,
+            )}
             alt={mainPhoto.fullName}
             width={350}
             height={300}
             className="h-[300px] w-[350px] object-cover"
           />
+
           <div className="bg-secondary/20 flex flex-grow flex-col items-center justify-center gap-1 p-4 text-center">
             <h3 className="text-primary w-full truncate text-lg font-semibold md:text-xl">
               {mainPhoto.fullName}

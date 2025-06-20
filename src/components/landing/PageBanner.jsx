@@ -1,4 +1,6 @@
 import Banner from '../../assets/images/hospital_banner/hospital_banner.jpg';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const PageBanner = ({
   title,
@@ -12,13 +14,22 @@ const PageBanner = ({
     <div className="w-full">
       {/* Banner Container */}
       <div className="relative flex h-[180px] w-full items-center overflow-hidden md:h-[220px] lg:h-[280px] xl:h-[320px]">
-        {/* Background Image */}
-        <img
-          src={backgroundImage || Banner}
-          alt="Banner Background"
-          className="absolute inset-0 h-full w-full object-cover"
-          loading="eager"
-        />
+        <div className="absolute h-full w-full">
+          <ProgressiveImage
+            lowQualitySrc={getTransformedImageUrl(
+              backgroundImage || Banner,
+              40,
+              40,
+            )}
+            highQualitySrc={getTransformedImageUrl(
+              backgroundImage || Banner,
+              1080,
+              720,
+            )}
+            alt={'banner'}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/55" />
@@ -35,13 +46,13 @@ const PageBanner = ({
               <span className="text-primary">Home</span>
               {subtitle && (
                 <>
-                  <span className="mx-1 text-primary">/</span>
+                  <span className="text-primary mx-1">/</span>
                   <span className="text-primary">{subtitle}</span>
                 </>
               )}
               {subSubtitle && (
                 <>
-                  <span className="mx-1 text-primary">/</span>
+                  <span className="text-primary mx-1">/</span>
                   <span className="text-primary">{subSubtitle}</span>
                 </>
               )}

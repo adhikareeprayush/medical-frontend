@@ -136,6 +136,8 @@ import LearnMoreBtn from '../common/LearnMoreBtn';
 import { Link } from 'react-router-dom';
 import { getAllDoctors } from '../../utils/api';
 import LoadingComp from '../common/LoadingComp';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const OurDocSec = () => {
   const [doctors, setDoctors] = useState([]);
@@ -231,12 +233,17 @@ const OurDocSec = () => {
           {doctors.map((doc) => (
             <div key={doc.id} className="h-full px-3">
               <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg">
-                <img
-                  src={doc.image_url}
+                <ProgressiveImage
+                  lowQualitySrc={getTransformedImageUrl(doc.image_url, 40, 40)}
+                  highQualitySrc={getTransformedImageUrl(
+                    doc.image_url,
+                    1080,
+                    720,
+                  )}
                   alt={doc.name}
                   className="h-[300px] w-full object-cover"
                 />
-                <div className="bg-secondary/20 h-[180px] flex flex-grow flex-col items-center gap-1 p-4 text-center">
+                <div className="bg-secondary/20 flex h-[180px] flex-grow flex-col items-center gap-1 p-4 text-center">
                   <h3 className="text-primary text-lg font-semibold break-words whitespace-pre-wrap md:text-xl">
                     {doc.fullName}
                   </h3>

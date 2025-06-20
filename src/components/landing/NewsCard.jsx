@@ -5,13 +5,15 @@ import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 const NewsCard = ({ news }) => {
   return (
     <div className="flex flex-col gap-1 overflow-hidden">
       {/* News Image */}
       <div className="h-[400px] w-full overflow-hidden bg-gray-200">
-        <img
-          src={getTransformedImageUrl(news.image_url, 1080, 720)}
+        <ProgressiveImage
+          lowQualitySrc={getTransformedImageUrl(news.image_url, 40, 40)}
+          highQualitySrc={getTransformedImageUrl(news.image_url, 1080, 720)}
           alt={news.title}
           className="h-full w-full object-cover"
         />
