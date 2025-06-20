@@ -1,14 +1,12 @@
 import React from 'react';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
 
 const PhotoGrid = ({ photos }) => {
   if (!photos || photos.length === 0) return <p>No photos</p>;
 
   const mainPhoto = photos[0];
   const otherPhotos = photos.slice(1);
-  const getTransformedImageUrl = (url, width, height) => {
-    const parts = url.split('/upload/');
-    return `${parts[0]}/upload/w_${width},h_${height},c_fill/${parts[1]}`;
-  };
+
   return (
     <div className="flex w-full flex-col items-center gap-6">
       {/* Main Photo */}
