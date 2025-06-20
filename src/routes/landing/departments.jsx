@@ -4,6 +4,8 @@ import PageBanner from '../../components/landing/PageBanner';
 import { FaSearch } from 'react-icons/fa';
 import serviceBanner from '../../assets/images/banner/serviceBanner.png';
 import DepartmentCard from '../../components/landing/DepartmentCard';
+import { Loader2 } from 'lucide-react';
+import Loader from '../../components/common/Loader';
 
 const Department = () => {
   const [departments, setDepartments] = useState([]);
@@ -54,11 +56,11 @@ const Department = () => {
       />
       <div className="my-6 flex w-full flex-col items-center px-1">
         <div className="">
-          <h1 className="text-secondary mb-2 text-center text-base sm:text-xl font-bold tracking-widest uppercase">
+          <h1 className="text-secondary mb-2 text-center text-base font-bold tracking-widest uppercase sm:text-xl">
             Comprehensive Care Across Specialties
           </h1>
           <p className="text-primary font-display1 text-center">Departments</p>
-          <div className="mx-auto my-5 flex w-full max-w-[300px] items-center rounded-full border border-gray-300 bg-white px-2  shadow-sm transition-all focus-within:ring-2 focus-within:ring-blue-500">
+          <div className="mx-auto my-5 flex w-full max-w-[300px] items-center rounded-full border border-gray-300 bg-white px-2 shadow-sm transition-all focus-within:ring-2 focus-within:ring-blue-500">
             <input
               type="search"
               placeholder="Search"
@@ -70,7 +72,7 @@ const Department = () => {
           </div>
         </div>
 
-        {loading && <p className="py-10 text-center">Loading departments...</p>}
+        {loading && <Loader />}
         {error && <p className="py-10 text-center text-red-500">{error}</p>}
 
         {!loading && !error && (

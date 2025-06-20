@@ -4,14 +4,16 @@ import { IoEyeOutline } from 'react-icons/io5';
 import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import LearnMoreBtn from '../common/LearnMoreBtn';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 const NewsCard = ({ news }) => {
-  console.log(news);
   return (
     <div className="flex flex-col gap-1 overflow-hidden">
       {/* News Image */}
       <div className="h-[400px] w-full overflow-hidden bg-gray-200">
-        <img
-          src={news.image_url}
+        <ProgressiveImage
+          lowQualitySrc={getTransformedImageUrl(news.image_url, 40, 40)}
+          highQualitySrc={getTransformedImageUrl(news.image_url, 1080, 720)}
           alt={news.title}
           className="h-full w-full object-cover"
         />
@@ -58,11 +60,8 @@ const NewsCard = ({ news }) => {
             {news.content}
           </p>
         </div>
-        <Link
-          to={`/news/${news.id}`}
-          className=""
-        >
-          <LearnMoreBtn text='Read More' styles='hover:px-2 hover:rounded-md'/>
+        <Link to={`/news/${news.id}`} className="">
+          <LearnMoreBtn text="Read More" styles="hover:px-2 hover:rounded-md" />
         </Link>
       </div>
     </div>

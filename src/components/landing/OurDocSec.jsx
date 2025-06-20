@@ -126,8 +126,6 @@
 
 // export default OurDocSec;
 
-
-
 import { useEffect, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -137,6 +135,9 @@ import PrevArrowBtn from '../common/PrevArrowBtn';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { Link } from 'react-router-dom';
 import { getAllDoctors } from '../../utils/api';
+import LoadingComp from '../common/LoadingComp';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const OurDocSec = () => {
   const [doctors, setDoctors] = useState([]);
@@ -204,7 +205,7 @@ const OurDocSec = () => {
   };
 
   if (loading) {
-    return <p className="py-10 text-center">Loading doctors...</p>;
+    return <LoadingComp />;
   }
 
   if (error) {
@@ -212,9 +213,9 @@ const OurDocSec = () => {
   }
 
   return (
-    <section className="w-full bg-white px-4 py-10 md:px-8 lg:px-12">
+    <section className="w-full bg-white px-[27px] py-10 sm:px-7 lg:px-12">
       {/* Header */}
-      <div className="mb-7 flex flex-col gap-3 text-center">
+      <div className="mb-6 flex flex-col gap-3 text-center sm:mb-7">
         <h1 className="text-secondary text-base font-bold tracking-widest uppercase sm:text-lg md:text-xl">
           Trusted Care
         </h1>
@@ -225,20 +226,31 @@ const OurDocSec = () => {
 
       {/* Slider */}
       <div className="mx-auto w-full max-w-6xl">
-        <Slider {...settings}>
+        <Slider
+          {...settings}
+          className="[&_.slick-slide]:flex [&_.slick-slide]:items-stretch [&_.slick-slide>div]:h-full"
+        >
           {doctors.map((doc) => (
-            <div key={doc.id} className="px-3">
-              <div className="flex flex-col items-center overflow-hidden rounded-xl bg-white shadow-lg">
-                <img
-                  src={doc.image_url} // assuming the API provides the full image URL or relative path
+            <div key={doc.id} className="h-full px-3">
+              <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg">
+                <ProgressiveImage
+                  lowQualitySrc={getTransformedImageUrl(doc.image_url, 40, 40)}
+                  highQualitySrc={getTransformedImageUrl(
+                    doc.image_url,
+                    1080,
+                    720,
+                  )}
                   alt={doc.name}
                   className="h-[300px] w-full object-cover"
                 />
-                <div className="bg-secondary/20 flex w-full flex-col items-center p-4 text-center">
-                  <h3 className="text-primary truncate text-lg font-semibold md:text-xl">
+                <div className="bg-secondary/20 flex h-[180px] flex-grow flex-col items-center gap-1 p-4 text-center">
+                  <h3 className="text-primary text-lg font-semibold break-words whitespace-pre-wrap md:text-xl">
                     {doc.fullName}
                   </h3>
-                  <p className="text-secondary truncate text-sm md:text-base">
+                  <p className="text-secondary w-full truncate text-sm md:text-base">
+                    {doc.qualification}
+                  </p>
+                  <p className="text-secondary text-sm break-words whitespace-pre-wrap md:text-base">
                     {doc.specialityName}
                   </p>
                 </div>
@@ -247,12 +259,15 @@ const OurDocSec = () => {
           ))}
         </Slider>
       </div>
-      <Link to={'/team'}>
-        <LearnMoreBtn text="View All Doctors" styles="mt-6 mx-auto w-fit hover:px-2" />
+
+      <Link to={'/doctors'}>
+        <LearnMoreBtn
+          text="View All Doctors"
+          styles="mt-4 sm:mt-5 mx-auto w-fit hover:px-2"
+        />
       </Link>
     </section>
   );
 };
 
 export default OurDocSec;
-

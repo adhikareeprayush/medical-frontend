@@ -4,6 +4,7 @@ import ServiceDetail from '../../../components/landing/ServiceDetail';
 import PageBanner from '../../../components/landing/PageBanner';
 import { getAllServices, getServiceBySlug } from '../../../utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
+import LoadingComp from '../../../components/common/LoadingComp';
 
 const ServicesPage = () => {
   const navigate = useNavigate();
@@ -59,6 +60,10 @@ const ServicesPage = () => {
     navigate(`/services/${newSlug}`);
     setSelectedSlug(newSlug);
   };
+
+  if (loading) {
+    return <LoadingComp />;
+  }
 
   return (
     <>
