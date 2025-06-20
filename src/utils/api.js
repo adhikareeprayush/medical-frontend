@@ -30,7 +30,10 @@ export const updatePackage = (id, data) => axios.put(`/package/${id}`, data);
 export const deletePackage = (id) => axios.delete(`/package/${id}`);
 
 // Department
-export const getAllDepartments = () => axios.get('/department');
+export const getAllDepartments = (limit) => {
+  if (limit !== undefined) return axios.get(`/department?limit=${limit}`);
+  else return axios.get('/department');
+};
 export const addDepartment = (data) => axios.post('/department', data);
 export const getDepartmentById = (id) => axios.get(`/department/${id}`);
 export const updateDepartmentById = (id, data) =>
