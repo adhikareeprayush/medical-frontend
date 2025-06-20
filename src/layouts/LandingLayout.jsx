@@ -8,6 +8,7 @@ import StickySidebar from '../components/common/StickySidebar';
 const LandingLayout = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
+
   return (
     <div className="relative flex">
       {/* Main content area */}

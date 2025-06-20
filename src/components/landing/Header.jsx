@@ -49,19 +49,7 @@ const Header = () => {
                   <LocationEdit />
                 )}
               </div>
-              {/* <img
-                className="text-white lg:size-2 xl:size-3"
-                src={
-                  contact.icon === 'call' ? (
-                    <PhoneCall />
-                  ) : contact.icon === 'clock' ? (
-                    clock
-                  ) : (
-                    location
-                  )
-                }
-                alt={contact.label}
-              /> */}
+
               <div className="flex flex-col">
                 <span
                   className={`lg:font-body2 xl:font-body1 font-medium ${isHome ? 'text-white' : 'text-primary'} uppercase`}
