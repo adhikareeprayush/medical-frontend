@@ -11,8 +11,10 @@ const LandingLayout = () => {
       {/* Main content area */}
       <div className="min-w-0 flex-1">
         <ScrollToTop />
-        <Header />
-        <Nav />
+        <div className="absolute z-50 flex w-full flex-col gap-2">
+          <Header />
+          <Nav />
+        </div>
         <Outlet />
         <Footer />
       </div>
