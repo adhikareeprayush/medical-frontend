@@ -42,18 +42,18 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
     >
       {/* Top label */}
       <Link to={path}>
-        <div className="flex cursor-pointer items-center text-white">
+        <div className="group hover:text-secondary flex cursor-pointer items-center text-white duration-300 hover:scale-[1.1]">
           <span className="leading-none">{label}</span>
           <RiArrowDropDownLine
             size={30}
-            className={`align-middle transition-transform ${isOpen ? 'rotate-180' : ''}`}
+            className={`align-middle transition-transform duration-300 group-hover:rotate-180`}
           />
         </div>
       </Link>
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 z-50 mt-2 min-w-[550px] xl:min-w-[650px] overflow-hidden rounded-sm border border-gray-100 bg-white shadow-xl">
+        <div className="absolute top-full left-0 z-50 mt-2 min-w-[550px] overflow-hidden rounded-sm border border-gray-100 bg-white shadow-xl xl:min-w-[650px]">
           <div className={`grid gap-3 px-1 py-3 ${className}`}>
             {items.map((item, index) => (
               <div key={index} className="relative">
