@@ -9,7 +9,7 @@ import ContactSection from '../../components/landing/ContactSection';
 import ClinicalDepartment from '../../components/landing/ClinicalDepartment';
 import LoadingComp from '../../components/common/LoadingComp';
 
-const index = () => {
+const Index = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     // Simulate a loading time or wait for an API call
@@ -39,4 +39,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
