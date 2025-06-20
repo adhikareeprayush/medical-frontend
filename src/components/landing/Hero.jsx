@@ -1,7 +1,8 @@
 import heroImage from '../../assets/images/banner/hospitalBanner.jpg';
+import bannerImg from '../../assets/banners.jpg'
 const Hero = () => {
   return (
-    <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black">
+    <div className="relative flex h-[90vh] w-full items-center justify-center overflow-hidden bg-black">
       {/* Background Video */}
       <video
         autoPlay
@@ -26,7 +27,7 @@ const Hero = () => {
 
       {/* Hero Text */}
       <div className="z-20 px-4 text-center text-[#fff] shadow">
-        <h1 className="text-5xl font-bold md:text-7xl">
+        <h1 className="text-4xl sm:text-5xl font-bold md:text-7xl">
           Welcome to Nisasrga Hospital
         </h1>
         <p className="mt-4 text-xl md:text-2xl">
