@@ -9,6 +9,7 @@ import banner from '../../assets/images/banner/hospital_banner.jpg';
 import RecentPosts from './RecentPosts';
 import { getNewsById, updateNewsLikes, updateNewsViews } from '../../utils/api';
 import LoadingComp from '../common/LoadingComp';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
 
 const NewsDetails = () => {
   const { newsId } = useParams();
@@ -91,7 +92,7 @@ const NewsDetails = () => {
         <div className="flex w-full flex-col gap-2 px-2 lg:flex-3 xl:flex-2">
           <div className="h-[300px] w-full overflow-hidden rounded-sm bg-gray-200 sm:h-[400px] md:h-[500px] lg:h-[560px]">
             <img
-              src={news.image_url}
+              src={getTransformedImageUrl(news.image_url, 1080, 720)}
               alt={news.title}
               className="h-full w-full object-cover"
             />
@@ -142,11 +143,11 @@ const NewsDetails = () => {
               <button
                 onClick={handleLike}
                 disabled={liked || likeLoading}
-                className={`flex items-center  gap-2 rounded-full px-4 py-2 font-medium transition-all duration-200 ${
+                className={`flex items-center gap-2 rounded-full px-4 py-2 font-medium transition-all duration-200 ${
                   liked
                     ? 'bg-[#E2315C] text-white shadow-lg'
-                    : 'bg-gray-100 text-[#E2315C] hover:bg-[#E2315C] hover:text-white hover:shadow-md cursor-pointer'
-                } ${likeLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    : 'cursor-pointer bg-gray-100 text-[#E2315C] hover:bg-[#E2315C] hover:text-white hover:shadow-md'
+                } ${likeLoading ? 'cursor-not-allowed opacity-50' : ''}`}
               >
                 {likeLoading ? (
                   <div className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent"></div>
