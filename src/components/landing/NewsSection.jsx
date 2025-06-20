@@ -5,6 +5,8 @@ import HeartIcon from '../../assets/icons/heart.svg';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { getAllNews } from '../../utils/api';
 import LoadingComp from '../common/LoadingComp';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const NewsSection = () => {
   const [recentNews, setRecentNews] = useState([]);
@@ -48,8 +50,13 @@ const NewsSection = () => {
             <Link to={`/news/${news.id}`} className="flex flex-col lg:flex-row">
               {/* Image */}
               <div className="h-52 w-full lg:h-auto lg:w-2/5">
-                <img
-                  src={news.image_url}
+                <ProgressiveImage
+                  lowQualitySrc={getTransformedImageUrl(news.image_url, 40, 40)}
+                  highQualitySrc={getTransformedImageUrl(
+                    news.image_url,
+                    1080,
+                    720,
+                  )}
                   alt={news.title}
                   className="h-full w-full object-cover"
                 />

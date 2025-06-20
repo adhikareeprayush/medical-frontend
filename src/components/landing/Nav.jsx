@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import hamburger from '../../assets/icons/hamburger.svg';
 import close from '../../assets/icons/close.svg';
 import DropdownNavItem from '../common/PageDropdown';
 import logo from '../../assets/logo.png';
 import { getAllDepartments, getAllServices } from '../../utils/api';
+import { MenuIcon, X } from 'lucide-react';
 
 const navMenus = [
   { name: 'Home', path: '/' },
@@ -88,13 +89,17 @@ const Nav = () => {
   }, []);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   return (
-    <section className="bg-primary relative flex w-full flex-col items-center justify-between lg:py-[18px] lg:flex-row">
+    <div className="flex w-full flex-col items-center justify-between bg-transparent lg:flex-row">
       {/* Top Navigation Row */}
-      <div className="flex w-full justify-between">
+      <div
+        className={`flex w-full justify-between ${isHome ? 'bg-white lg:bg-transparent' : 'lg:bg-primary bg-transparent py-0 lg:py-2'} `}
+      >
         {/* Desktop Menu */}
-        <div className="hidden items-center lg:flex">
+        <section className="hidden items-center lg:flex">
           {navMenus.map(({ name, path }, index) => {
             if (name === 'Departments') {
               return (
@@ -103,7 +108,7 @@ const Nav = () => {
                   label="Departments"
                   items={departments}
                   path="/departments"
-                  className="text-white grid-cols-3 xl:grid-cols-4"
+                  className="grid-cols-3 text-white xl:grid-cols-4"
                 />
               );
             } else if (name === 'Services') {
@@ -113,7 +118,7 @@ const Nav = () => {
                   label="Services"
                   items={services}
                   path="/services"
-                  className="text-white grid-cols-4"
+                  className="grid-cols-4 text-white"
                 />
               );
             }
@@ -124,7 +129,7 @@ const Nav = () => {
               </Link>
             );
           })}
-        </div>
+        </section>
 
         {/* Logo for Mobile */}
         <Link to={'/'}>
@@ -136,9 +141,10 @@ const Nav = () => {
         </Link>
 
         {/* Right-side Buttons */}
-        <div className="flex items-center gap-2 mr-2 lg:gap-4">
+        <div className="mr-2 flex items-center gap-2 lg:gap-4">
           <button className="cursor-pointer lg:hidden" onClick={toggleMenu}>
             <img src={isOpen ? close : hamburger} alt="Menu toggle" />
+            {!isOpen ? <MenuIcon /> : <X />}
           </button>
         </div>
       </div>
@@ -164,7 +170,7 @@ const Nav = () => {
           );
         })}
       </div>
-    </section>
+    </div>
   );
 };
 

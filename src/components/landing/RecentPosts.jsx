@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
 import { getAllNews } from '../../utils/api';
 import { Link } from 'react-router-dom';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
 
 const RecentPosts = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -42,11 +43,11 @@ const RecentPosts = () => {
           placeholder="Search"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="h-full w-full"
+          className="h-full w-full border-none"
         />
         <Search
           size={24}
-          className="cursor-pointer text-accent absolute top-1/2 right-2 -translate-y-1/2"
+          className="text-accent absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer"
         />
       </div>
 
@@ -58,17 +59,16 @@ const RecentPosts = () => {
             <Link
               to={`/news/${post.id}`}
               key={post.id}
-              className="flex min-h-16 cursor-pointer gap-1 rounded-lg"
+              className="flex items-center gap-2 rounded-lg"
             >
-              <div className="flex h-full items-center justify-center rounded-lg">
+              <div className="flex-shrink-0">
                 <img
-                  src={post.image_url}
+                  src={getTransformedImageUrl(post.image_url, 60, 60)}
                   alt={post.title}
-                  className="h-full w-16 rounded-lg object-cover"
+                  className="h-[60px] w-[60px] rounded-lg object-cover"
                 />
               </div>
-              <div className="">
-                <p className="text-secondary text-xs xl:text-sm">{post.date}</p>
+              <div className="flex flex-col justify-center">
                 <h3 className="line-clamp-2 text-sm leading-tight text-black xl:text-[16px]">
                   {post.title}
                 </h3>
@@ -79,7 +79,7 @@ const RecentPosts = () => {
       </div>
 
       {/* Categories Section */}
-      <div className="flex flex-col gap-3 border-2 border-gray-200 p-2">
+      {/* <div className="flex flex-col gap-3 border-2 border-gray-200 p-2">
         <h2 className="text-primary text-2xl font-bold">Categories</h2>
         <div className="flex flex-col gap-3">
           {categories.map((category, index) => (
@@ -94,7 +94,7 @@ const RecentPosts = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

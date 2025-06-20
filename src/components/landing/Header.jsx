@@ -1,8 +1,6 @@
-import phone from '../../assets/icons/call.svg';
-import clock from '../../assets/icons/clock.svg';
-import location from '../../assets/icons/location.svg';
+import { useLocation } from 'react-router-dom';
 import logo from '../../assets/logo.png';
-
+import { Clock, LocationEdit, PhoneCall } from 'lucide-react';
 const contacts = [
   {
     icon: 'call',
@@ -22,33 +20,45 @@ const contacts = [
 ];
 
 const Header = () => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
   return (
-    <section className="lg:flex w-full items-center justify-center lg:h-[80px] lg:justify-between">
-      <img
-        className="hidden size-[110px] object-contain lg:inline-block"
-        src={logo}
-        alt="Logo"
-      />
-      <div className="hidden lg:flex flex-wrap items-center justify-around gap-2 lg:flex-nowrap lg:justify-between">
+    <section
+      className={`z-50 hidden w-full items-center justify-center ${isHome ? 'bg-transparent' : 'bg-white'} lg:flex lg:min-h-[80px] lg:justify-between`}
+    >
+      <div className="h-fit w-fit rounded-xl p-1">
+        <img
+          className="hidden object-contain brightness-150 filter lg:inline-block"
+          src={logo}
+          width={160}
+          height={160}
+          alt="Logo"
+        />
+      </div>
+
+      <div className="hidden flex-wrap items-center justify-around gap-2 lg:flex lg:flex-nowrap lg:justify-between">
         {contacts.map((contact, index) => {
           return (
             <div key={index} className="flex items-center gap-2">
-              <img
-                className="lg:size-2 xl:size-3"
-                src={
-                  contact.icon === 'call'
-                    ? phone
-                    : contact.icon === 'clock'
-                      ? clock
-                      : location
-                }
-                alt={contact.label}
-              />
+              <div className="text-secondary">
+                {contact.icon === 'call' ? (
+                  <PhoneCall />
+                ) : contact.icon === 'clock' ? (
+                  <Clock />
+                ) : (
+                  <LocationEdit />
+                )}
+              </div>
+
               <div className="flex flex-col">
-                <span className="lg:font-body2 xl:font-body1 text-primary font-medium uppercase">
+                <span
+                  className={`lg:font-body2 xl:font-body1 font-medium ${isHome ? 'text-white' : 'text-primary'} uppercase`}
+                >
                   {contact.label}
                 </span>
-                <span className="lg:font-body2 xl:font-body1 text-secondary font-medium">
+                <span
+                  className={`lg:font-body2 xl:font-body1 font-medium ${isHome ? 'text-white/80' : 'text-primary'} `}
+                >
                   {contact.text}
                 </span>
               </div>

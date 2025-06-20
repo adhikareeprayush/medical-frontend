@@ -1,14 +1,18 @@
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
+
 const ServiceDetail = ({ service }) => {
   console.log(service);
   if (!service) return <div>Select a service to see details</div>;
 
   return (
     <div className="flex flex-1 flex-col gap-2 px-1">
-      <div className="max-h-[500px] w-full overflow-hidden">
-        <img
-          src={service.image}
+      <div className="h-[500px] w-full overflow-hidden">
+        <ProgressiveImage
+          lowQualitySrc={getTransformedImageUrl(service.image, 10, 10)}
+          highQualitySrc={getTransformedImageUrl(service.image, 1080, 720)}
           alt={service.title}
-          className="h-full w-full object-cover object-top"
+          className="h-full w-full"
         />
       </div>
       <h1 className="font-display2 text-primary font-normal">

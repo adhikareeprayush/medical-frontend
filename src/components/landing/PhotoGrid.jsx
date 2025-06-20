@@ -1,4 +1,6 @@
 import React from 'react';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const PhotoGrid = ({ photos }) => {
   if (!photos || photos.length === 0) return <p>No photos</p>;
@@ -12,11 +14,19 @@ const PhotoGrid = ({ photos }) => {
       {/* Main Photo */}
       <div className="flex w-full justify-center">
         <div className="flex h-full max-w-[350px] flex-col overflow-hidden rounded-md shadow transition hover:scale-[1.02]">
-          <img
-            src={mainPhoto.image_url}
+          <ProgressiveImage
+            lowQualitySrc={getTransformedImageUrl(mainPhoto.image_url, 40, 40)}
+            highQualitySrc={getTransformedImageUrl(
+              mainPhoto.image_url,
+              1080,
+              720,
+            )}
             alt={mainPhoto.fullName}
-            className="h-[300px] w-full object-cover"
+            width={350}
+            height={300}
+            className="h-[300px] w-[350px] object-cover"
           />
+
           <div className="bg-secondary/20 flex flex-grow flex-col items-center justify-center gap-1 p-4 text-center">
             <h3 className="text-primary w-full truncate text-lg font-semibold md:text-xl">
               {mainPhoto.fullName}
@@ -36,15 +46,17 @@ const PhotoGrid = ({ photos }) => {
         {otherPhotos.map((photo, index) => (
           <div
             key={index}
-            className="mx-auto flex h-full max-w-[350px] flex-col overflow-hidden rounded-md shadow transition hover:scale-[1.02]"
+            className="flex h-full flex-col overflow-hidden rounded-md shadow transition hover:scale-[1.02]"
           >
             <img
-              src={photo.image_url}
+              src={getTransformedImageUrl(photo.image_url, 350, 300)}
               alt={photo.fullName}
+              width={350}
+              height={300}
               className="h-[300px] w-full object-cover"
             />
             <div className="bg-secondary/20 flex flex-grow flex-col items-center justify-center gap-1 p-4 text-center">
-              <h3 className="text-primary w-full text-lg font-semibold md:text-xl">
+              <h3 className="text-primary w-full truncate text-lg font-semibold md:text-xl">
                 {photo.fullName}
               </h3>
               <p className="text-secondary w-full truncate text-sm md:text-base">

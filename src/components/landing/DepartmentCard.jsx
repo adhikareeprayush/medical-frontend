@@ -1,19 +1,22 @@
 import { Link } from 'react-router-dom';
-const fallBackImage =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAOVBMVEXm6ezb3uGXoazq7e/Dyc/l6ey/xcyrs7vX3OCnr7jV2d6Zo63O09ibpa+5wMezusLv8fTP1NnIzdMlnmvOAAABdElEQVR4nO3Z0ZKaMBiAUUwQlsaIy/s/bAHdabXxdmn7n3PDCDeZb0JA0nUAAAAAAAAAAAAAAAAAAAAAAAAAAP+u3HT0qA6UT/3Q1J+iZslDemsIGmVJpY5NtaTl6NEdItcyt5eTnMdSY06UlD7eXMk/UvrWofwtzu+bdNGb5NPl4/VGCd4kz+tjZnq5FrxJn8pqfp4psZvkqVxvfUmabB5Naulvn78S3NsEbzKkMpYy3lvkft6PsZt03bSusfW8n8rXVPblNnqTfBkeL/JbkrJHid6k+1pe1yRp/txnSvgmD3uSnC9bFE129yTbrbRG0WTzleQepVZNfkuyR9HkOck9Svgmz0nW30uJ3uQ1iWdxI0n4Jo0k0Zu0kgRv0kwStsn23T63k4RtkmsZb+s/4euttb8zxdzfWbYvA7WO0x9qSZejR3eM3Ke0ZmnuF/cxp8m2s7MMfctyjpoEAAAAAAAAAAAAAAAAAAAAAAAAAPgPnHj1E96TDiAitj9wAAAAAElFTkSuQmCC';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const DepartmentCard = ({ dept }) => {
+  console.log(dept);
   return (
     <Link
       key={dept.id}
       to={`/departments/${dept.slug}`}
       className="group block overflow-hidden rounded-lg bg-white shadow-sm transition hover:shadow-md"
     >
-      <img
-        src={dept.image_url || fallBackImage}
+      <ProgressiveImage
+        lowQualitySrc={getTransformedImageUrl(dept.image_url, 40, 40)}
+        highQualitySrc={getTransformedImageUrl(dept.image_url, 1080, 720)}
         alt={dept.name}
-        className="h-[320px] w-full object-cover"
+        className="h-[350px] w-full object-cover"
       />
+
       <div className="flex flex-col items-center justify-center px-2 pb-2">
         <h3 className="mt-2 text-center text-lg font-semibold md:text-left">
           {dept.name}
