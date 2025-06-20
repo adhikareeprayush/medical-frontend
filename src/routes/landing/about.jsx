@@ -16,7 +16,7 @@ const about = () => {
       />
       <BestcareAbout />
       <MessageFromHead />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <OurDocSec />
       <NewsSection />
     </div>
