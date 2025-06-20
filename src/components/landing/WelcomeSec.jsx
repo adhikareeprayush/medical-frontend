@@ -1,11 +1,12 @@
 import React from 'react';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { Link } from 'react-router-dom';
-
+import DoctorBg from '../../assets/images/docbg.png';
+import DoctorImg from '../../assets/images/hospital_banner.jpg';
 const WelcomeSec = () => {
   return (
-    <section className="mt-20 flex w-full items-center justify-center px-5 md:px-7 lg:px-0">
-      <div className="flex w-full max-w-3xl flex-col items-center justify-center gap-4 text-center">
+    <section className="relative flex w-full items-center justify-center px-5 py-4 md:px-7 lg:px-0">
+      <div className="z-10 flex w-full max-w-3xl flex-col items-center justify-center gap-4 text-center">
         <h1 className="text-secondary text-base font-bold tracking-widest uppercase sm:text-lg md:text-xl">
           Welcome to Nisarga Hospital
         </h1>
@@ -25,6 +26,9 @@ const WelcomeSec = () => {
         <Link to="/about" className="">
           <LearnMoreBtn text="Learn More" styles="hover:px-2" />
         </Link>
+      </div>
+      <div className="absolute top-0 left-0 z-10 h-[100%] w-[100%]">
+        <img className="h-full w-full object-cover" src={DoctorBg} alt="" />
       </div>
     </section>
   );
