@@ -173,3 +173,16 @@ input {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+
+/* Force slick-slide and children to stretch */
+.slick-slide {
+  display: flex !important;
+  align-items: stretch !important;
+  height: 100% !important;
+}
+
+.slick-slide > div {
+  display: flex !important;
+  height: 100% !important;
+}
