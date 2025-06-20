@@ -108,7 +108,7 @@ const Nav = () => {
                   label="Departments"
                   items={departments}
                   path="/departments"
-                  className="grid-cols-3 text-white xl:grid-cols-4"
+                  className="hover:text-secondary grid-cols-3 text-lg text-white xl:grid-cols-4"
                 />
               );
             } else if (name === 'Services') {
@@ -118,13 +118,17 @@ const Nav = () => {
                   label="Services"
                   items={services}
                   path="/services"
-                  className="grid-cols-4 text-white"
+                  className="hover:text-secondary grid-cols-4 text-lg text-white"
                 />
               );
             }
 
             return (
-              <Link key={index} to={path} className="mx-2 text-white">
+              <Link
+                key={index}
+                to={path}
+                className="hover:text-secondary mx-2 text-lg text-white duration-300 hover:scale-[1.1]"
+              >
                 {name}
               </Link>
             );
