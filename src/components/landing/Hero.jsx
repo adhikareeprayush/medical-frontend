@@ -1,4 +1,4 @@
-import heroImage from '../../assets/images/banner/hospitalBanner.jpg';
+import heroImage from '../../assets/images/banner/hospital_banner.jpg';
 const Hero = () => {
   return (
     <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black">
@@ -8,7 +8,7 @@ const Hero = () => {
         muted
         loop
         playsInline
-        className="absolute hidden min-h-full w-auto max-w-none min-w-full object-cover lg:block"
+        className="absolute hidden min-h-full w-auto max-w-none min-w-full object-contain lg:block"
       >
         <source
           src="https://github.com/adhikareeprayush/video/raw/refs/heads/main/nisarga124.mp4?download="
