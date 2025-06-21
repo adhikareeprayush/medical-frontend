@@ -108,7 +108,7 @@ const Nav = () => {
                   label="Departments"
                   items={departments}
                   path="/departments"
-                  className="hover:text-secondary grid-cols-3 text-lg text-white xl:grid-cols-4"
+                  className="hover:text-secondary grid-cols-3 text-xl font-semibold text-white xl:grid-cols-4"
                 />
               );
             } else if (name === 'Services') {
@@ -118,7 +118,7 @@ const Nav = () => {
                   label="Services"
                   items={services}
                   path="/services"
-                  className="hover:text-secondary grid-cols-4 text-lg text-white"
+                  className="hover:text-secondary grid-cols-4 text-xl font-semibold text-white"
                 />
               );
             }
@@ -127,7 +127,7 @@ const Nav = () => {
               <Link
                 key={index}
                 to={path}
-                className="hover:text-secondary mx-2 text-lg text-white duration-300 hover:scale-[1.1]"
+                className="hover:text-secondary mx-2 text-xl font-semibold text-white duration-300 hover:scale-[1.1]"
               >
                 {name}
               </Link>
