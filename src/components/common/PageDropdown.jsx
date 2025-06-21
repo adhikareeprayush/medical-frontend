@@ -53,13 +53,13 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 z-50 mt-2 min-w-[550px] overflow-hidden rounded-sm border border-gray-100 bg-white shadow-xl xl:min-w-[650px]">
+        <div className="absolute top-full left-0 z-50 mt-2 min-w-[550px] overflow-hidden rounded-sm bg-white/10 shadow-xl backdrop-blur-md xl:min-w-[650px]">
           <div className={`grid gap-3 px-1 py-3 ${className}`}>
             {items.map((item, index) => (
               <div key={index} className="relative">
                 <Link
                   to={`/${path.replace(/^\//, '')}/${item.slug}`}
-                  className="hover:bg-primary relative block cursor-pointer truncate rounded-sm p-1 text-base text-gray-700 hover:text-white"
+                  className="hover:bg-primary relative block cursor-pointer truncate rounded-sm p-1 text-base text-white hover:text-white"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title || item.name}
