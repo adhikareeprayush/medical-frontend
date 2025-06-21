@@ -7,7 +7,7 @@ import { IoEyeOutline } from 'react-icons/io5';
 import PageBanner from './PageBanner';
 import banner from '../../assets/images/banner/hospital_banner.jpg';
 import RecentPosts from './RecentPosts';
-import { getNewsById, updateNewsLikes, updateNewsViews } from '../../utils/api';
+import { getNewsById } from '../../utils/api';
 import LoadingComp from '../common/LoadingComp';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
 
@@ -15,32 +15,32 @@ const NewsDetails = () => {
   const { newsId } = useParams();
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [liked, setLiked] = useState(false);
-  const [likeLoading, setLikeLoading] = useState(false);
+  // const [liked, setLiked] = useState(false);
+  // const [likeLoading, setLikeLoading] = useState(false);
 
-  useEffect(() => {
-    const likedNews = JSON.parse(localStorage.getItem('likedNews') || '[]');
-    setLiked(likedNews.includes(Number(newsId)));
-  }, [newsId]);
+  // useEffect(() => {
+  //   const likedNews = JSON.parse(localStorage.getItem('likedNews') || '[]');
+  //   setLiked(likedNews.includes(Number(newsId)));
+  // }, [newsId]);
 
-  const handleLike = async () => {
-    if (liked || likeLoading) return;
+  // const handleLike = async () => {
+  //   if (liked || likeLoading) return;
 
-    setLikeLoading(true);
-    try {
-      await updateNewsLikes(newsId);
+  //   setLikeLoading(true);
+  //   try {
+  //     await updateNewsLikes(newsId);
 
-      const likedNews = JSON.parse(localStorage.getItem('likedNews') || '[]');
-      likedNews.push(Number(newsId));
-      localStorage.setItem('likedNews', JSON.stringify(likedNews));
-      setLiked(true);
-      if (news) setNews((prev) => ({ ...prev, like: prev.like + 1 }));
-    } catch (err) {
-      console.error('Failed to like:', err);
-    } finally {
-      setLikeLoading(false);
-    }
-  };
+  //     const likedNews = JSON.parse(localStorage.getItem('likedNews') || '[]');
+  //     likedNews.push(Number(newsId));
+  //     localStorage.setItem('likedNews', JSON.stringify(likedNews));
+  //     setLiked(true);
+  //     if (news) setNews((prev) => ({ ...prev, like: prev.like + 1 }));
+  //   } catch (err) {
+  //     console.error('Failed to like:', err);
+  //   } finally {
+  //     setLikeLoading(false);
+  //   }
+  // };
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -59,18 +59,18 @@ const NewsDetails = () => {
     fetchNews();
   }, [newsId]);
 
-  useEffect(() => {
-    const updateViews = async () => {
-      try {
-        await updateNewsViews(newsId);
-        if (news) setNews((prev) => ({ ...prev, views: prev.views + 1 }));
-      } catch (error) {
-        console.error('Failed to update views:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const updateViews = async () => {
+  //     try {
+  //       await updateNewsViews(newsId);
+  //       if (news) setNews((prev) => ({ ...prev, views: prev.views + 1 }));
+  //     } catch (error) {
+  //       console.error('Failed to update views:', error);
+  //     }
+  //   };
 
-    updateViews();
-  }, [newsId]);
+  //   updateViews();
+  // }, [newsId]);
 
   if (loading) {
     return <LoadingComp />;
@@ -100,7 +100,7 @@ const NewsDetails = () => {
 
           <div className="flex flex-col gap-1">
             <div className="flex flex-wrap gap-4 bg-gray-50 text-sm sm:text-base">
-              <div className="flex items-center gap-1 text-gray-700">
+              {/* <div className="flex items-center gap-1 text-gray-700">
                 <CiCalendar />
                 <p>
                   {new Date(news.createdAt).toLocaleDateString('en-US', {
@@ -109,8 +109,8 @@ const NewsDetails = () => {
                     year: 'numeric',
                   })}
                 </p>
-              </div>
-              <div className="flex items-center gap-1 text-gray-700">
+              </div> */}
+              {/* <div className="flex items-center gap-1 text-gray-700">
                 <GoPerson className="text-secondary" />
                 <Link to={news.source} className="font-body1">
                   <b>source</b>{' '}
@@ -119,15 +119,15 @@ const NewsDetails = () => {
                       'Unknown'}
                   </span>
                 </Link>
-              </div>
-              <div className="flex items-center gap-1 text-gray-700">
+              </div> */}
+              {/* <div className="flex items-center gap-1 text-gray-700">
                 <IoEyeOutline className="text-blue-600" />
                 <span>{news.views}</span>
-              </div>
-              <div className="flex items-center gap-1 text-gray-700">
+              </div> */}
+              {/* <div className="flex items-center gap-1 text-gray-700">
                 <FaRegHeart className="text-[#E2315C]" />
                 <span>{news.like}</span>
-              </div>
+              </div> */}
             </div>
 
             <h3 className="text-xl leading-snug font-bold sm:text-2xl">
@@ -140,7 +140,7 @@ const NewsDetails = () => {
 
             {/* Separate Like Button */}
             <div className="mt-4 flex justify-center gap-4">
-              <button
+              {/* <button
                 onClick={handleLike}
                 disabled={liked || likeLoading}
                 className={`flex items-center gap-2 rounded-full px-4 py-2 font-medium transition-all duration-200 ${
@@ -157,7 +157,7 @@ const NewsDetails = () => {
                   <FaRegHeart className="text-lg" />
                 )}
                 <span>{liked ? 'Liked' : 'Like this article'}</span>
-              </button>
+              </button> */}
 
               {/* Source URL Button */}
               {news.source && (

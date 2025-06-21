@@ -65,7 +65,7 @@ const NewsSection = () => {
               {/* Content */}
               <div className="flex w-full flex-col justify-between p-2 lg:w-3/5 lg:p-3">
                 <div>
-                  <p className="text-secondary mb-1 text-sm font-medium tracking-wider">
+                  {/* <p className="text-secondary mb-1 text-sm font-medium tracking-wider">
                     {new Date(news.createdAt).toLocaleDateString('en-US', {
                       day: '2-digit',
                       month: 'long',
@@ -74,12 +74,12 @@ const NewsSection = () => {
                     |{' '}
                     {news.source?.match(/https?:\/\/(?:www\.)?([^./]+)/)?.[1] ??
                       'Unknown'}
-                  </p>
+                  </p> */}
                   <h3 className="mb-3 text-lg leading-snug font-semibold text-black">
                     {news.title}
                   </h3>
                 </div>
-                <div className="flex items-center gap-4 text-sm text-gray-600">
+                {/* <div className="flex items-center gap-4 text-sm text-gray-600">
                   <div className="flex items-center gap-1">
                     <img src={EyeIcon} alt="Views" className="h-3 w-3" />
                     <span className="font-medium text-black">{news.views}</span>
@@ -92,7 +92,7 @@ const NewsSection = () => {
                     />
                     <span className="font-medium text-black">{news.likes}</span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </Link>
           </div>

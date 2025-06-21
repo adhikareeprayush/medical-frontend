@@ -21,7 +21,7 @@ const NewsCard = ({ news }) => {
       <div className="flex flex-col gap-1 py-2">
         <div className="flex flex-grow flex-col gap-2">
           <div className="flex items-center gap-3 bg-gray-50">
-            <div className="flex items-center gap-1 text-base">
+            {/* <div className="flex items-center gap-1 text-base">
               <CiCalendar strokeWidth={1} />
               <p className="font-body1">
                 {new Date(news.createdAt).toLocaleDateString('en-US', {
@@ -30,9 +30,9 @@ const NewsCard = ({ news }) => {
                   year: 'numeric',
                 })}
               </p>
-            </div>
+            </div> */}
 
-            <div className="flex items-center gap-1 text-base">
+            {/* <div className="flex items-center gap-1 text-base">
               <GoPerson strokeWidth={1} className="text-secondary" />
               <Link to={news.source} className="font-body1">
                 <b>source</b>{' '}
@@ -53,7 +53,7 @@ const NewsCard = ({ news }) => {
               <FaRegHeart size={16} className="text-[#E2315C]" />
 
               <div className="font-semibold">{news.like}</div>
-            </div>
+            </div> */}
           </div>
           <h3 className="text-lg font-bold">{news.title}</h3>
           <p className="font-body1 line-clamp-4 text-[#212124]">

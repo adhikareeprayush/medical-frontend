@@ -2,7 +2,7 @@ import React from 'react';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { Link } from 'react-router-dom';
 import DoctorBg from '../../assets/images/docbg.png';
-import DoctorImg from '../../assets/images/hospital_banner.jpg';
+// import DoctorImg from '../../assets/images/hospital_banner.jpg';
 const WelcomeSec = () => {
   return (
     <section className="relative flex w-full items-center justify-center px-5 py-4 md:px-7 lg:px-0">
