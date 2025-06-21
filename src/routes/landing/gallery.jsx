@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Play, X } from 'lucide-react';
+import { Loader2, Play, X } from 'lucide-react';
 import PageBanner from '../../components/landing/PageBanner';
 import { getGalleryMediaByGallery } from '../../utils/api';
 import { getYoutubeEmbedUrl } from '../../utils/getYoutubeEmbedUrl';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const Gallery = () => {
   const [currentFilter, setCurrentFilter] = useState('all');
@@ -12,8 +14,13 @@ const Gallery = () => {
   const [error, setError] = useState(null);
   const [mediaList, setMediaList] = useState();
   const galleryId = 2;
-  // Sample media data
-  console.log(mediaList);
+
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  function extractYoutubeId(url) {
+    const match = url.match(/(?:youtube\.com.*(?:\?|&)v=|youtu\.be\/)([^&]+)/);
+    return match ? match[1] : '';
+  }
 
   useEffect(() => {
     const fetchMedia = async () => {
@@ -56,19 +63,36 @@ const Gallery = () => {
       onClick={onClick}
     >
       {media.media_type === 'image' ? (
-        <img
-          src={media.media_url}
+        <ProgressiveImage
+          lowQualitySrc={getTransformedImageUrl(media.media_url, 40, 40)}
+          highQualitySrc={getTransformedImageUrl(media.media_url, 1080, 720)}
           alt={'media'}
-          className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          width={350}
+          height={300}
+          className="h-[300px] w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
       ) : (
-        <iframe
-          src={getYoutubeEmbedUrl(media.media_url)}
-          title={`Video ${media.id}`}
-          className="h-64 w-full"
-          frameBorder="0"
-          allowFullScreen
-        />
+        <div
+          className="relative h-[300px] w-full cursor-pointer"
+          onClick={() => setVideoLoaded(true)}
+        >
+          {!videoLoaded ? (
+            <img
+              src={`https://img.youtube.com/vi/${extractYoutubeId(media.media_url)}/hqdefault.jpg`}
+              alt="video thumbnail"
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <iframe
+              loading="lazy"
+              src={getYoutubeEmbedUrl(media.media_url)}
+              title={`Video ${media.id}`}
+              className="absolute top-0 left-0 h-full w-full"
+              frameBorder="0"
+              allowFullScreen
+            />
+          )}
+        </div>
       )}
 
       {/* Overlay */}
@@ -156,15 +180,22 @@ const Gallery = () => {
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filteredMedia?.map((media, index) => (
-              <MediaItem
-                key={index}
-                media={media}
-                onClick={() => openLightbox(media)}
-              />
-            ))}
-          </div>
+
+          {loading ? (
+            <div className="col-span-full flex h-[300px] min-h-[50vh] justify-center">
+              <Loader2 className="text-secondary h-6 w-6 animate-spin" />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {filteredMedia?.map((media, index) => (
+                <MediaItem
+                  key={index}
+                  media={media}
+                  onClick={() => openLightbox(media)}
+                />
+              ))}
+            </div>
+          )}
 
           {/* Empty state */}
           {filteredMedia?.length === 0 && (

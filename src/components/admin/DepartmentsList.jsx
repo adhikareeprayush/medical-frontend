@@ -18,9 +18,10 @@ const DepartmentsList = ({ departments, onEdit, onDelete, isEditing }) => {
               <h3 className="mb-2 text-xl font-semibold text-gray-800">
                 {department.name}
               </h3>
-              <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-600">
                 {department.description ? (
-                  <div
+                  <span
+                    className="inline-block"
                     dangerouslySetInnerHTML={{
                       __html: department.description,
                     }}

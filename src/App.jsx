@@ -1,13 +1,18 @@
+import { useEffect, useState } from 'react';
 import { Suspense } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import router from './router';
 import { ToastContainer } from 'react-toastify';
+import router from './router';
+import Loading from './components/common/LoadingComp'; // Update path if different
 
-export default function App() {
+const App = () => {
+
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <ToastContainer />
       <RouterProvider router={router} />
     </Suspense>
   );
-}
+};
+
+export default App;

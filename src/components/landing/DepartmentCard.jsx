@@ -1,15 +1,22 @@
 import { Link } from 'react-router-dom';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const DepartmentCard = ({ dept }) => {
+  console.log(dept);
   return (
-
-    <Link key={dept.id} className="text-primary bg-white shadow-sm">
-
-      <img
-        src={dept.image}
+    <Link
+      key={dept.id}
+      to={`/departments/${dept.slug}`}
+      className="group block overflow-hidden rounded-lg bg-white shadow-sm transition hover:shadow-md"
+    >
+      <ProgressiveImage
+        lowQualitySrc={getTransformedImageUrl(dept.image_url, 40, 40)}
+        highQualitySrc={getTransformedImageUrl(dept.image_url, 1080, 720)}
         alt={dept.name}
-        className="h-[320px] w-full object-cover"
+        className="h-[350px] w-full object-cover"
       />
+
       <div className="flex flex-col items-center justify-center px-2 pb-2">
         <h3 className="mt-2 text-center text-lg font-semibold md:text-left">
           {dept.name}
@@ -17,7 +24,11 @@ const DepartmentCard = ({ dept }) => {
         <h3 className="bg-primary my-1 px-1 py-0.5 text-center text-sm font-semibold text-white md:text-left">
           {dept.nepali}
         </h3>
-        <p className="text-center text-sm">{dept.description}</p>
+        {/* Render HTML description safely */}
+        <div
+          className="line-clamp-4 text-center text-sm"
+          dangerouslySetInnerHTML={{ __html: dept.description }}
+        />
       </div>
     </Link>
   );

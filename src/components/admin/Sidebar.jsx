@@ -4,7 +4,6 @@ import {
   Menu,
   X,
   LayoutDashboard,
-  Users,
   Stethoscope,
   CalendarCheck,
   Settings,
@@ -23,7 +22,6 @@ const menuItems = [
     path: '/admin/dashboard',
     icon: <LayoutDashboard size={18} />,
   },
-  { title: 'Users', path: '/admin/users', icon: <Users size={18} /> },
   { title: 'Doctors', path: '/admin/doctors', icon: <Stethoscope size={18} /> },
   {
     title: 'Packages',

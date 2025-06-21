@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { CiCalendar } from 'react-icons/ci';
-import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
+import { FaArrowRight, FaRegHeart, FaHeart } from 'react-icons/fa';
 import { GoPerson } from 'react-icons/go';
 import { IoEyeOutline } from 'react-icons/io5';
 import PageBanner from './PageBanner';
-import SingleNewsBanner from '../../assets/images/banner/singleNewsBanner.png';
+import banner from '../../assets/images/banner/hospital_banner.jpg';
 import RecentPosts from './RecentPosts';
 import { getNewsById, updateNewsLikes, updateNewsViews } from '../../utils/api';
+import LoadingComp from '../common/LoadingComp';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
 
 const NewsDetails = () => {
   const { newsId } = useParams();
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [likeLoading, setLikeLoading] = useState(false);
 
   useEffect(() => {
     const likedNews = JSON.parse(localStorage.getItem('likedNews') || '[]');
@@ -21,8 +24,9 @@ const NewsDetails = () => {
   }, [newsId]);
 
   const handleLike = async () => {
-    if (liked) return;
+    if (liked || likeLoading) return;
 
+    setLikeLoading(true);
     try {
       await updateNewsLikes(newsId);
 
@@ -33,6 +37,8 @@ const NewsDetails = () => {
       if (news) setNews((prev) => ({ ...prev, like: prev.like + 1 }));
     } catch (err) {
       console.error('Failed to like:', err);
+    } finally {
+      setLikeLoading(false);
     }
   };
 
@@ -67,11 +73,7 @@ const NewsDetails = () => {
   }, [newsId]);
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center py-10">
-        <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
-      </div>
-    );
+    return <LoadingComp />;
   }
 
   if (!news) {
@@ -84,13 +86,13 @@ const NewsDetails = () => {
         subtitle="News"
         subSubtitle={newsId}
         title={news.title}
-        backgroundImage={SingleNewsBanner}
+        backgroundImage={banner}
       />
       <section className="flex w-full gap-2 py-5">
-        <div className="flex w-full flex-col gap-2 lg:flex-3 xl:flex-2">
+        <div className="flex w-full flex-col gap-2 px-2 lg:flex-3 xl:flex-2">
           <div className="h-[300px] w-full overflow-hidden rounded-sm bg-gray-200 sm:h-[400px] md:h-[500px] lg:h-[560px]">
             <img
-              src={news.image_url}
+              src={getTransformedImageUrl(news.image_url, 1080, 720)}
               alt={news.title}
               className="h-full w-full object-cover"
             />
@@ -122,13 +124,10 @@ const NewsDetails = () => {
                 <IoEyeOutline className="text-blue-600" />
                 <span>{news.views}</span>
               </div>
-              <button
-                onClick={handleLike}
-                className={`flex items-center gap-1 ${liked ? 'opacity-50' : ''}`}
-              >
+              <div className="flex items-center gap-1 text-gray-700">
                 <FaRegHeart className="text-[#E2315C]" />
                 <span>{news.like}</span>
-              </button>
+              </div>
             </div>
 
             <h3 className="text-xl leading-snug font-bold sm:text-2xl">
@@ -138,13 +137,48 @@ const NewsDetails = () => {
             <p className="text-sm leading-relaxed tracking-wide text-[#212124] sm:text-base">
               {news.content || news.description}
             </p>
+
+            {/* Separate Like Button */}
+            <div className="mt-4 flex justify-center gap-4">
+              <button
+                onClick={handleLike}
+                disabled={liked || likeLoading}
+                className={`flex items-center gap-2 rounded-full px-4 py-2 font-medium transition-all duration-200 ${
+                  liked
+                    ? 'bg-[#E2315C] text-white shadow-lg'
+                    : 'cursor-pointer bg-gray-100 text-[#E2315C] hover:bg-[#E2315C] hover:text-white hover:shadow-md'
+                } ${likeLoading ? 'cursor-not-allowed opacity-50' : ''}`}
+              >
+                {likeLoading ? (
+                  <div className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent"></div>
+                ) : liked ? (
+                  <FaHeart className="text-lg" />
+                ) : (
+                  <FaRegHeart className="text-lg" />
+                )}
+                <span>{liked ? 'Liked' : 'Like this article'}</span>
+              </button>
+
+              {/* Source URL Button */}
+              {news.source && (
+                <a
+                  href={news.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 font-medium text-white transition-all duration-200 hover:bg-blue-700 hover:shadow-md"
+                >
+                  <GoPerson className="text-lg" />
+                  <span>View Source</span>
+                </a>
+              )}
+            </div>
           </div>
 
-          <div className="flex w-full justify-between">
+          <div className="my-3 flex w-full justify-between">
             {news.previous ? (
               <Link
                 to={`/news/${news.previous.id}`}
-                className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium"
+                className="group text-primary bg-accent hover:bg-primary tansition flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium duration-100 ease-in-out hover:text-white"
               >
                 <FaArrowRight className="rotate-180 duration-300 group-hover:-translate-x-[4px]" />
                 Previous Article
@@ -156,7 +190,7 @@ const NewsDetails = () => {
             {news.next ? (
               <Link
                 to={`/news/${news.next.id}`}
-                className="group text-primary bg-accent flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium"
+                className="group text-primary bg-accent hover:bg-primary flex w-fit cursor-pointer items-center gap-1 rounded-full px-3 py-2 text-sm font-medium transition duration-100 ease-in-out hover:text-white"
               >
                 Next Article
                 <FaArrowRight className="duration-300 group-hover:translate-x-[4px]" />

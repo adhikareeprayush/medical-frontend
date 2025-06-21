@@ -1,11 +1,14 @@
+import { useEffect, useState } from 'react';
 import NewsCard from '../../components/landing/NewsCard';
 import PageBanner from '../../components/landing/PageBanner';
 import newsBanner from '../../assets/images/banner/newsBanner.png';
 import RecentPosts from '../../components/landing/RecentPosts';
-import { useEffect, useState } from 'react';
+import LoadingComp from '../../components/common/LoadingComp';
 import { getAllNews } from '../../utils/api';
+
 const News = () => {
   const [newsList, setNewsList] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(4);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,17 +25,32 @@ const News = () => {
 
     fetchNews();
   }, []);
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + 4);
+  };
+
   return (
     <>
       <PageBanner subtitle="News" title="News" backgroundImage={newsBanner} />
       <section className="flex w-full justify-center gap-2 py-5">
-        <div className="flex flex-col gap-2 lg:flex-3 xl:flex-2">
+        <div className="flex flex-col gap-4 px-2 lg:flex-3 xl:flex-2">
           {loading ? (
-            <div className="flex justify-center py-10">
-              <div className="border-primary h-10 w-10 animate-spin rounded-full border-4 border-t-transparent" />
-            </div>
+            <LoadingComp />
           ) : newsList.length > 0 ? (
-            newsList.map((news) => <NewsCard key={news.id} news={news} />)
+            <>
+              {newsList.slice(0, visibleCount).map((news) => (
+                <NewsCard key={news.id} news={news} />
+              ))}
+              {visibleCount < newsList.length && (
+                <button
+                  onClick={handleShowMore}
+                  className="bg-primary hover:bg-primary-dark self-center rounded-md px-4 py-2 text-white"
+                >
+                  Show More
+                </button>
+              )}
+            </>
           ) : (
             <p className="text-center text-gray-500">No news available.</p>
           )}

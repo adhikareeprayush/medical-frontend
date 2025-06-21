@@ -1,63 +1,112 @@
-import React, { useState, useRef, useEffect } from 'react';
-import clinicalDepartment from '../../data/department.js';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getAllDepartments } from '../../utils/api.js';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl.js';
+import { ProgressiveImage } from '../../utils/ProgressiveImage.jsx';
+
+const INITIAL_VISIBLE = 8;
+const INCREMENT = 8;
+const MAX_LIMIT = 100; // set high to fetch everything once
 
 const ClinicalDepartment = () => {
+  const [departments, setDepartments] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [expanded, setExpanded] = useState(false);
-  const containerRef = useRef(null);
-  const [maxHeight, setMaxHeight] = useState('0px');
 
   useEffect(() => {
-    if (containerRef.current) {
-      setMaxHeight(
-        expanded ? `${containerRef.current.scrollHeight}px` : '600px',
-      ); // 600px = visible height for collapsed
+    const fetchDepartments = async () => {
+      try {
+        const response = await getAllDepartments(MAX_LIMIT);
+        setDepartments(removeDuplicates(response.data.data));
+      } catch (err) {
+        console.error(err);
+        setError('Failed to load departments');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDepartments();
+  }, []);
+
+  const removeDuplicates = (arr) => {
+    const map = new Map();
+    arr.forEach((dept) => {
+      if (!map.has(dept.id)) map.set(dept.id, dept);
+    });
+    return Array.from(map.values());
+  };
+
+  const handleToggleExpand = () => {
+    if (expanded) {
+      setVisibleCount(INITIAL_VISIBLE);
+    } else {
+      setVisibleCount(departments.length); // show all
     }
-  }, [expanded]);
+    setExpanded(!expanded);
+  };
+
+  const displayedDepartments = departments.slice(0, visibleCount);
 
   return (
-    <section className="mx-auto shadow mt-40 mb-20">
-        <h1 className='text-primary font-display1 text-center tracking-wide mb-14'>Clinical Department in Nisarga</h1>
-      <div
-        ref={containerRef}
-        className="overflow-hidden transition-all duration-700 ease-in-out"
-        style={{
-          maxHeight: maxHeight,
-        }}
-      >
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-          {clinicalDepartment.map((department) => (
-            <div key={department.id}>
+    <section className="mx-auto my-20 max-w-7xl px-4">
+      <h1 className="text-primary font-display2 sm:font-display1 mb-10 text-center tracking-wide">
+        Clinical Department in Nisarga
+      </h1>
+
+      {loading ? (
+        <p className="text-center text-gray-500">Loading departments...</p>
+      ) : error ? (
+        <p className="text-center text-red-500">{error}</p>
+      ) : (
+        <>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {displayedDepartments.map((department) => (
               <Link
-                to={`/departments/${department.id}`}
-                className="flex flex-col items-center p-4 text-center"
+                key={department.id}
+                to={`/departments/${department.slug}`}
+                className="group rounded-xl border border-gray-200 bg-white p-4 text-center shadow-sm transition hover:shadow-md"
               >
-                <div className="bg-primary mb-3 rounded-2xl p-3">
-                  <img
-                    src={department.image}
+                <div className="bg-primary/10 mx-auto mb-3 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full">
+                  <ProgressiveImage
+                    lowQualitySrc={getTransformedImageUrl(
+                      department.image_url,
+                      40,
+                      40,
+                    )}
+                    highQualitySrc={getTransformedImageUrl(
+                      department.image_url,
+                      1080,
+                      720,
+                    )}
                     alt={department.name}
-                    className="h-15 w-15 object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </div>
-                <h3 className="text-primary mb-1 text-lg font-semibold">
+                <h3 className="text-primary mb-1 line-clamp-2 text-lg font-semibold">
                   {department.name}
                 </h3>
-                <h3 className="text-lg">{department.nepali_name}</h3>
+                <p className="text-sm text-gray-600">
+                  {department.nepali_name}
+                </p>
               </Link>
-            </div>
-          ))}
-        </div>
-      </div>
+            ))}
+          </div>
 
-      {/* View More / View Less button */}
-      <div className="text-center">
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="cursor-pointer border-[1px] border-b-0 px-2 py-1 text-primary font-semibold transition duration-300 tracking-wide hover:bg-primary hover:text-white"
-        >
-          {expanded ? 'View Less' : 'View More'}
-        </button>
-      </div>
+          {departments.length > INITIAL_VISIBLE && (
+            <div className="mt-6 text-center">
+              <button
+                onClick={handleToggleExpand}
+                className="text-primary border-primary hover:bg-primary border px-4 py-2 font-semibold transition hover:text-white"
+              >
+                {expanded ? 'View Less' : 'View More'}
+              </button>
+            </div>
+          )}
+        </>
+      )}
     </section>
   );
 };

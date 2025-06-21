@@ -4,9 +4,13 @@ import EyeIcon from '../../assets/icons/eye.svg';
 import HeartIcon from '../../assets/icons/heart.svg';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { getAllNews } from '../../utils/api';
+import LoadingComp from '../common/LoadingComp';
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const NewsSection = () => {
   const [recentNews, setRecentNews] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -16,12 +20,18 @@ const NewsSection = () => {
       } catch (err) {
         console.error('Failed to fetch news:', err);
       }
+      setLoading(false);
     };
 
     fetchNews();
   }, []);
+
+  if (loading) {
+    return <LoadingComp />;
+  }
+
   return (
-    <section className="my-24 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section className="my-15 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
       {/* Heading */}
       <div className="mb-10 text-center">
         <h1 className="text-secondary mb-3 text-sm font-bold tracking-widest uppercase sm:text-base md:text-lg">
@@ -40,8 +50,13 @@ const NewsSection = () => {
             <Link to={`/news/${news.id}`} className="flex flex-col lg:flex-row">
               {/* Image */}
               <div className="h-52 w-full lg:h-auto lg:w-2/5">
-                <img
-                  src={news.image_url}
+                <ProgressiveImage
+                  lowQualitySrc={getTransformedImageUrl(news.image_url, 40, 40)}
+                  highQualitySrc={getTransformedImageUrl(
+                    news.image_url,
+                    1080,
+                    720,
+                  )}
                   alt={news.title}
                   className="h-full w-full object-cover"
                 />
@@ -87,7 +102,7 @@ const NewsSection = () => {
       {/* Button */}
       <div className="mt-10">
         <Link to="/news">
-          <LearnMoreBtn text="View All News" />
+          <LearnMoreBtn text="View All News" styles="hover:px-2" />
         </Link>
       </div>
     </section>
