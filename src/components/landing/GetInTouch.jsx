@@ -50,8 +50,6 @@ const GetInTouch = () => {
 
   return (
     <>
-      {loading && <LoadingComp />}
-
       <section className="my-3">
         <div className="flex w-full flex-col gap-4 lg:flex-row">
           <div className="flex w-full flex-col lg:w-1/2">

@@ -204,10 +204,6 @@ const OurDocSec = () => {
     ],
   };
 
-  if (loading) {
-    return <LoadingComp />;
-  }
-
   if (error) {
     return <p className="py-10 text-center text-red-500">{error}</p>;
   }

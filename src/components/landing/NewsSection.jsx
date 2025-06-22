@@ -26,10 +26,6 @@ const NewsSection = () => {
     fetchNews();
   }, []);
 
-  if (loading) {
-    return <LoadingComp />;
-  }
-
   return (
     <section className="my-15 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
       {/* Heading */}
