@@ -13,8 +13,6 @@ const navMenus = [
   { name: 'Services', path: '/services' },
   { name: 'Packages', path: '/packages' },
   { name: 'Departments', path: '/departments' },
-  { name: 'Doctors', path: '/doctors' },
-  { name: 'News', path: '/news' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -93,13 +91,22 @@ const Nav = () => {
   const isHome = location.pathname === '/';
 
   return (
-    <div className="flex w-full flex-col items-center justify-between bg-transparent lg:flex-row">
+    <div className="flex h-[100px] w-full flex-col items-center justify-between bg-transparent lg:flex-row">
       {/* Top Navigation Row */}
       <div
-        className={`flex w-full justify-between ${isHome ? 'bg-white lg:bg-transparent' : 'lg:bg-primary bg-transparent py-0 lg:py-2'} `}
+        className={`flex w-full justify-between ${isHome ? 'bg-white lg:bg-transparent' : 'bg-transparent py-0 lg:bg-white lg:py-2'} `}
       >
         {/* Desktop Menu */}
         <section className="hidden items-center lg:flex">
+          <div className="h-fit w-fit rounded-xl">
+            <img
+              className="hidden object-contain brightness-150 filter lg:inline-block"
+              src={logo}
+              width={100}
+              height={100}
+              alt="Logo"
+            />
+          </div>
           {navMenus.map(({ name, path }, index) => {
             if (name === 'Departments') {
               return (
@@ -127,7 +134,7 @@ const Nav = () => {
               <Link
                 key={index}
                 to={path}
-                className="hover:text-secondary mx-2 text-xl font-semibold text-white duration-300 hover:scale-[1.1]"
+                className={`mx-2 text-xl font-semibold duration-300 hover:scale-[1.1] ${isHome ? 'hover:text-secondary text-white' : 'hover:text-secondary text-black'} `}
               >
                 {name}
               </Link>

@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { RiArrowDropDownLine } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const DropdownNavItem = ({ label, items, path, className = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   let hoverTimeout;
-  console.log(items);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   const handleMouseEnter = () => {
     clearTimeout(hoverTimeout);
@@ -42,7 +43,9 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
     >
       {/* Top label */}
       <Link to={path}>
-        <div className="group hover:text-secondary flex cursor-pointer items-center text-white duration-300 hover:scale-[1.1]">
+        <div
+          className={`group flex cursor-pointer items-center text-xl font-semibold duration-300 hover:scale-[1.1] ${isHome ? 'hover:text-secondary text-white' : 'hover:text-secondary text-black'}`}
+        >
           <span className="leading-none">{label}</span>
           <RiArrowDropDownLine
             size={30}
@@ -53,7 +56,7 @@ const DropdownNavItem = ({ label, items, path, className = '' }) => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 z-50 mt-2 min-w-[550px] overflow-hidden rounded-sm bg-white/10 shadow-xl backdrop-blur-md xl:min-w-[650px]">
+        <div className="absolute top-full left-0 z-50 mt-2 min-w-[550px] overflow-hidden rounded-sm bg-black/80 shadow-xl xl:min-w-[650px]">
           <div className={`grid gap-3 px-1 py-3 ${className}`}>
             {items.map((item, index) => (
               <div key={index} className="relative">

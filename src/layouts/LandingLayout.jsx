@@ -19,7 +19,7 @@ const LandingLayout = () => {
             isHome ? 'absolute' : 'relative'
           }`}
         >
-          <Header />
+          {/* <Header /> */}
           <Nav />
         </div>
         <Outlet />
