@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { getContactCards } from '../../utils/contact';
 import { addInquiry } from '../../utils/api';
 import { toast } from 'react-toastify';
-import LoadingComp from '../common/LoadingComp';
 
 const GetInTouch = () => {
   const [cards, setCards] = useState([]);
