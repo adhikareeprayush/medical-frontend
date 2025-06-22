@@ -97,7 +97,7 @@ const Nav = () => {
         className={`flex w-full justify-between ${isHome ? 'bg-white lg:bg-transparent' : 'bg-transparent py-0 lg:bg-white lg:py-2'} `}
       >
         {/* Desktop Menu */}
-        <section className="hidden items-center lg:flex">
+        <section className="hidden items-center gap-5 lg:flex">
           <div className="h-fit w-fit rounded-xl">
             <img
               className="hidden object-contain brightness-150 filter lg:inline-block"
@@ -107,39 +107,41 @@ const Nav = () => {
               alt="Logo"
             />
           </div>
-          {navMenus.map(({ name, path }, index) => {
-            if (name === 'Departments') {
-              return (
-                <DropdownNavItem
-                  key={index}
-                  label="Departments"
-                  items={departments}
-                  path="/departments"
-                  className="hover:text-secondary grid-cols-3 text-xl font-semibold text-white xl:grid-cols-4"
-                />
-              );
-            } else if (name === 'Services') {
-              return (
-                <DropdownNavItem
-                  key={index}
-                  label="Services"
-                  items={services}
-                  path="/services"
-                  className="hover:text-secondary grid-cols-4 text-xl font-semibold text-white"
-                />
-              );
-            }
+          <div className="flex">
+            {navMenus.map(({ name, path }, index) => {
+              if (name === 'Departments') {
+                return (
+                  <DropdownNavItem
+                    key={index}
+                    label="Departments"
+                    items={departments}
+                    path="/departments"
+                    className="hover:text-secondary grid-cols-3 text-xl font-semibold text-white xl:grid-cols-4"
+                  />
+                );
+              } else if (name === 'Services') {
+                return (
+                  <DropdownNavItem
+                    key={index}
+                    label="Services"
+                    items={services}
+                    path="/services"
+                    className="hover:text-secondary grid-cols-4 text-xl font-semibold text-white"
+                  />
+                );
+              }
 
-            return (
-              <Link
-                key={index}
-                to={path}
-                className={`mx-2 text-xl font-semibold duration-300 hover:scale-[1.1] ${isHome ? 'hover:text-secondary text-white' : 'hover:text-secondary text-black'} `}
-              >
-                {name}
-              </Link>
-            );
-          })}
+              return (
+                <Link
+                  key={index}
+                  to={path}
+                  className={`mx-2 text-xl font-semibold duration-300 hover:scale-[1.1] ${isHome ? 'hover:text-secondary text-white' : 'hover:text-secondary text-black'} `}
+                >
+                  {name}
+                </Link>
+              );
+            })}
+          </div>
         </section>
 
         {/* Logo for Mobile */}
