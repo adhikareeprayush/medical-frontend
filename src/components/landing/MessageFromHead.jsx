@@ -18,7 +18,7 @@ const MessageFromHead = () => {
         {/* content section */}
         <div className="flex flex-col">
           <h4 className="text-secondary center text-lg font-bold sm:text-center md:text-center md:text-2xl lg:text-start">
-            Message From Chairman MR.Panta
+            Message From Chairman Tritha Raj Panta
           </h4>
 
           <div className="mt-2">
