@@ -3,7 +3,6 @@ import PageBanner from '../../components/landing/PageBanner';
 import PackageBanner from '../../assets/images/hospital_banner/hospital_banner.jpg';
 import { useParams } from 'react-router-dom';
 import { getPackageById } from '../../utils/api';
-import LoadingComp from '../common/LoadingComp';
 
 const PackagePage = () => {
   const { slug } = useParams();
@@ -27,10 +26,6 @@ const PackagePage = () => {
   React.useEffect(() => {
     fetchData();
   }, [slug]);
-
-  if (loading) {
-    return <LoadingComp />;
-  }
 
   if (!data) {
     return <div className="text-center text-red-500">Package not found</div>;

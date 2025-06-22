@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PhotoGrid from '../../components/landing/PhotoGrid';
 import { getAllDoctors } from '../../utils/api';
-import LoadingComp from '../common/LoadingComp';
 
 const MedicalTeam = () => {
   const [doctors, setDoctors] = useState([]);
@@ -20,10 +19,6 @@ const MedicalTeam = () => {
   useEffect(() => {
     fetchDoctors();
   }, []);
-
-  if (loading) {
-    return <LoadingComp />;
-  }
 
   return (
     <div className="mx-auto w-full max-w-5xl place-items-center px-3 py-6 sm:px-6 md:px-4 lg:px-2">

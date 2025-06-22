@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { getContactCards } from '../../utils/contact';
 import { addInquiry } from '../../utils/api';
 import { toast } from 'react-toastify';
-import LoadingComp from '../common/LoadingComp';
 
 const GetInTouch = () => {
   const [cards, setCards] = useState([]);
@@ -50,8 +49,6 @@ const GetInTouch = () => {
 
   return (
     <>
-      {loading && <LoadingComp />}
-
       <section className="my-3">
         <div className="flex w-full flex-col gap-4 lg:flex-row">
           <div className="flex w-full flex-col lg:w-1/2">

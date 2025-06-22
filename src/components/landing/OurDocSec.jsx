@@ -135,7 +135,6 @@ import PrevArrowBtn from '../common/PrevArrowBtn';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { Link } from 'react-router-dom';
 import { getAllDoctors } from '../../utils/api';
-import LoadingComp from '../common/LoadingComp';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
 import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
@@ -203,10 +202,6 @@ const OurDocSec = () => {
       },
     ],
   };
-
-  if (loading) {
-    return <LoadingComp />;
-  }
 
   if (error) {
     return <p className="py-10 text-center text-red-500">{error}</p>;

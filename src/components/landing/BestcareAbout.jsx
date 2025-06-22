@@ -1,4 +1,4 @@
-import Img from '../../assets/images/general photos/5.jpg';
+import Img from '../../assets/images/general photos/5.webp';
 import { GoDotFill } from 'react-icons/go';
 
 const BestcareAbout = () => {

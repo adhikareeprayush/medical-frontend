@@ -13,8 +13,6 @@ const navMenus = [
   { name: 'Services', path: '/services' },
   { name: 'Packages', path: '/packages' },
   { name: 'Departments', path: '/departments' },
-  { name: 'Doctors', path: '/doctors' },
-  { name: 'News', path: '/news' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -93,46 +91,57 @@ const Nav = () => {
   const isHome = location.pathname === '/';
 
   return (
-    <div className="flex w-full flex-col items-center justify-between bg-transparent lg:flex-row">
+    <div className="flex h-[100px] w-full flex-col items-center justify-between bg-transparent lg:flex-row">
       {/* Top Navigation Row */}
       <div
-        className={`flex w-full justify-between ${isHome ? 'bg-white lg:bg-transparent' : 'lg:bg-primary bg-transparent py-0 lg:py-2'} `}
+        className={`flex w-full justify-between ${isHome ? 'bg-white lg:bg-transparent' : 'bg-transparent py-0 lg:bg-white lg:py-2'} `}
       >
         {/* Desktop Menu */}
-        <section className="hidden items-center lg:flex">
-          {navMenus.map(({ name, path }, index) => {
-            if (name === 'Departments') {
-              return (
-                <DropdownNavItem
-                  key={index}
-                  label="Departments"
-                  items={departments}
-                  path="/departments"
-                  className="hover:text-secondary grid-cols-3 text-lg text-white xl:grid-cols-4"
-                />
-              );
-            } else if (name === 'Services') {
-              return (
-                <DropdownNavItem
-                  key={index}
-                  label="Services"
-                  items={services}
-                  path="/services"
-                  className="hover:text-secondary grid-cols-4 text-lg text-white"
-                />
-              );
-            }
+        <section className="hidden items-center gap-5 lg:flex">
+          <div className="h-fit w-fit rounded-xl">
+            <img
+              className="hidden object-contain brightness-150 filter lg:inline-block"
+              src={logo}
+              width={100}
+              height={100}
+              alt="Logo"
+            />
+          </div>
+          <div className="flex">
+            {navMenus.map(({ name, path }, index) => {
+              if (name === 'Departments') {
+                return (
+                  <DropdownNavItem
+                    key={index}
+                    label="Departments"
+                    items={departments}
+                    path="/departments"
+                    className="hover:text-secondary grid-cols-3 text-xl font-semibold text-white xl:grid-cols-4"
+                  />
+                );
+              } else if (name === 'Services') {
+                return (
+                  <DropdownNavItem
+                    key={index}
+                    label="Services"
+                    items={services}
+                    path="/services"
+                    className="hover:text-secondary grid-cols-4 text-xl font-semibold text-white"
+                  />
+                );
+              }
 
-            return (
-              <Link
-                key={index}
-                to={path}
-                className="hover:text-secondary mx-2 text-lg text-white duration-300 hover:scale-[1.1]"
-              >
-                {name}
-              </Link>
-            );
-          })}
+              return (
+                <Link
+                  key={index}
+                  to={path}
+                  className={`mx-2 text-xl font-semibold duration-300 hover:scale-[1.1] ${isHome ? 'hover:text-secondary text-white' : 'hover:text-secondary text-black'} `}
+                >
+                  {name}
+                </Link>
+              );
+            })}
+          </div>
         </section>
 
         {/* Logo for Mobile */}
