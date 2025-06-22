@@ -4,7 +4,6 @@ import serviceBanner from '../../assets/images/banner/serviceBanner.png';
 import ContactSection from '../../components/landing/ContactSection';
 import { getAllServices } from '../../utils/api';
 import { useEffect, useState } from 'react';
-import LoadingComp from '../../components/common/LoadingComp';
 
 const Services = () => {
   const [services, setServices] = useState();
@@ -23,10 +22,6 @@ const Services = () => {
     fetchServices();
   }, []);
 
-  if (loading) {
-    return <LoadingComp />;
-  }
-
   return (
     <>
       <PageBanner
@@ -36,7 +31,7 @@ const Services = () => {
       />
       <section className="relative flex w-full flex-col items-center justify-center gap-10 px-3 py-5 lg:px-8">
         {loading ? (
-          <div className="flex items-center justify-center py-20">
+          <div className="flex min-h-[50vh] justify-center py-20">
             <div className="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
           </div>
         ) : services?.length > 0 ? (

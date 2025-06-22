@@ -8,7 +8,6 @@ import PageBanner from './PageBanner';
 import banner from '../../assets/images/banner/hospital_banner.jpg';
 import RecentPosts from './RecentPosts';
 import { getNewsById } from '../../utils/api';
-import LoadingComp from '../common/LoadingComp';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
 
 const NewsDetails = () => {
@@ -71,10 +70,6 @@ const NewsDetails = () => {
 
   //   updateViews();
   // }, [newsId]);
-
-  if (loading) {
-    return <LoadingComp />;
-  }
 
   if (!news) {
     return <div className="text-center text-red-500">News not found</div>;

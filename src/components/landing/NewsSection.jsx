@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import EyeIcon from '../../assets/icons/eye.svg';
-import HeartIcon from '../../assets/icons/heart.svg';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { getAllNews } from '../../utils/api';
-import LoadingComp from '../common/LoadingComp';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
 import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
@@ -25,10 +22,6 @@ const NewsSection = () => {
 
     fetchNews();
   }, []);
-
-  if (loading) {
-    return <LoadingComp />;
-  }
 
   return (
     <section className="my-15 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">

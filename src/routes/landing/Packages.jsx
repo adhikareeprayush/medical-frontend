@@ -5,7 +5,6 @@ import PackageBanner from '../../assets/images/hospital_banner/hospital_banner.j
 import ContactSection from '../../components/landing/ContactSection';
 import { getAllPackages } from '../../utils/api';
 import { useState, useEffect } from 'react';
-import LoadingComp from '../../components/common/LoadingComp';
 
 const Packages = () => {
   const [packages, setPackages] = useState([]);
@@ -25,10 +24,6 @@ const Packages = () => {
   useEffect(() => {
     fetchPackages();
   }, []);
-
-  if (loading) {
-    return <LoadingComp />;
-  }
 
   return (
     <>

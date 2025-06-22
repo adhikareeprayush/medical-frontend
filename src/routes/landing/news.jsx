@@ -3,8 +3,8 @@ import NewsCard from '../../components/landing/NewsCard';
 import PageBanner from '../../components/landing/PageBanner';
 import newsBanner from '../../assets/images/banner/newsBanner.png';
 import RecentPosts from '../../components/landing/RecentPosts';
-import LoadingComp from '../../components/common/LoadingComp';
 import { getAllNews } from '../../utils/api';
+import Loader from '../../components/common/Loader';
 
 const News = () => {
   const [newsList, setNewsList] = useState([]);
@@ -36,7 +36,7 @@ const News = () => {
       <section className="flex w-full justify-center gap-2 py-5">
         <div className="flex flex-col gap-4 px-2 lg:flex-3 xl:flex-2">
           {loading ? (
-            <LoadingComp />
+            <Loader />
           ) : newsList.length > 0 ? (
             <>
               {newsList.slice(0, visibleCount).map((news) => (
