@@ -1,4 +1,4 @@
-import BestcareAbout from '../../components/landing/BestcareAbout';
+// import BestcareAbout from '../../components/landing/BestcareAbout';
 import PageBanner from '../../components/landing/PageBanner';
 import aboutBanner from '../../assets/images/banner/hospital_banner.jpg';
 // import Testimonials from '../../components/landing/Testimonials';
@@ -14,7 +14,7 @@ const about = () => {
         title={'About'}
         backgroundImage={aboutBanner}
       />
-      <BestcareAbout />
+      {/* <BestcareAbout /> */}
       <MessageFromHead />
       {/* <Testimonials /> */}
       <OurDocSec />
