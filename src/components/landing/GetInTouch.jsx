@@ -117,7 +117,7 @@ const GetInTouch = () => {
                 key={index}
                 className={`${card.title === 'Location' ? 'bg-primary text-accent' : 'bg-accent text-primary'} flex flex-col items-start justify-center rounded-[5px] px-3 py-2`}
               >
-                <img src={card.icon} className="mb-2 size-5" alt="" />
+                <img src={card.icon} className="mb-2 size-5" alt="card-icon" />
                 <h2 className="font-body text-[18px] font-bold uppercase">
                   {card.title}
                 </h2>
