@@ -25,13 +25,12 @@ const Hero = () => {
       <div className="absolute inset-0 z-10 bg-black opacity-70" />
 
       {/* Hero Text */}
-      <div className="z-20 px-4 text-center text-[#fff] shadow">
-        <h1 className="text-4xl font-bold sm:text-5xl md:text-7xl">
-          Welcome to Nisarga Hospital
+      <div className="absolute bottom-56 z-20 px-4 text-center text-[#fff] shadow">
+        <h1 className="text-3xl font-bold sm:text-5xl md:text-7xl">
+          Nisarga Hospital
         </h1>
         <p className="mt-4 text-xl md:text-3xl">
-          Your health is our priority. Experience world-class care and
-          compassion.
+          24/7 Emergency Medical Services
         </p>
       </div>
     </div>
