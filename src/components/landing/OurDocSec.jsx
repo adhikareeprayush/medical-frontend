@@ -238,14 +238,14 @@ const OurDocSec = () => {
                   alt={doc.name}
                   className="h-[300px] w-full object-cover"
                 />
-                <div className="bg-secondary/20 flex h-[180px] flex-grow flex-col items-center gap-1 p-4 text-center">
-                  <h3 className="text-primary text-lg font-semibold break-words whitespace-pre-wrap md:text-xl">
+                <div className="relative flex h-[180px] flex-grow flex-col items-center gap-1 p-4 text-center">
+                  <h3 className="text-lg font-semibold break-words whitespace-pre-wrap text-red-600 md:text-xl">
                     {doc.fullName}
                   </h3>
                   <p className="text-secondary w-full truncate text-sm md:text-base">
                     {doc.qualification}
                   </p>
-                  <p className="text-secondary text-sm break-words whitespace-pre-wrap md:text-base">
+                  <p className="flex items-center justify-center bg-primary absolute bottom-0 left-0 w-full h-[70px] px-2 py-1 text-center text-sm break-words whitespace-pre-wrap text-white md:text-base">
                     {doc.specialityName}
                   </p>
                 </div>
