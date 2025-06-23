@@ -13,7 +13,7 @@ const PhotoGrid = ({ photos }) => {
       {/* Main Photo */}
       {/* Main Photo */}
       <div className="flex w-full justify-center">
-        <div className="flex h-full max-w-[350px] flex-col overflow-hidden rounded-md shadow transition hover:scale-[1.02]">
+        <div className="flex h-full max-w-[360px] flex-col overflow-hidden rounded-md shadow transition hover:scale-[1.02]">
           <ProgressiveImage
             lowQualitySrc={getTransformedImageUrl(mainPhoto.image_url, 40, 40)}
             highQualitySrc={getTransformedImageUrl(
@@ -24,17 +24,17 @@ const PhotoGrid = ({ photos }) => {
             alt={mainPhoto.fullName}
             width={350}
             height={300}
-            className="h-[300px] w-[350px] object-cover"
+            className="h-[300px] w-[360px] object-cover"
           />
 
-          <div className="bg-secondary/20 flex flex-grow flex-col items-center justify-center gap-1 p-4 text-center">
-            <h3 className="text-primary w-full truncate text-lg font-semibold md:text-xl">
+          <div className="relative flex h-[190px] flex-grow flex-col items-center gap-1 p-3 text-center">
+            <h3 className="mb-[6px] text-lg font-semibold break-words whitespace-pre-wrap text-red-600 md:text-xl">
               {mainPhoto.fullName}
             </h3>
-            <p className="text-secondary w-full truncate text-sm md:text-base">
+            <p className="text-secondary mb-[4px] line-clamp-2 w-full text-sm break-words whitespace-pre-wrap md:text-base">
               {mainPhoto.qualification}
             </p>
-            <p className="text-secondary w-full truncate text-sm md:text-base">
+            <p className="bg-primary absolute bottom-0 left-0 flex h-[70px] tracking-wide w-full items-center justify-center px-2 py-1 text-center text-sm break-words whitespace-pre-wrap text-white md:text-base">
               {mainPhoto.specialityName}
             </p>
           </div>
@@ -42,7 +42,7 @@ const PhotoGrid = ({ photos }) => {
       </div>
 
       {/* Grid of Other Photos */}
-      <div className="grid w-full grid-cols-1 items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {otherPhotos.map((photo, index) => (
           <div
             key={index}
@@ -55,14 +55,14 @@ const PhotoGrid = ({ photos }) => {
               height={300}
               className="h-[300px] w-full object-cover"
             />
-            <div className="bg-secondary/20 flex flex-grow flex-col items-center justify-center gap-1 p-4 text-center">
-              <h3 className="text-primary w-full truncate text-lg font-semibold md:text-xl">
+            <div className="relative flex h-[190px] flex-grow flex-col items-center gap-1 p-3 text-center">
+              <h3 className="mb-[6px] text-lg font-semibold break-words whitespace-pre-wrap text-red-600 md:text-xl">
                 {photo.fullName}
               </h3>
-              <p className="text-secondary w-full truncate text-sm md:text-base">
+              <p className="text-secondary mb-[4px] line-clamp-2 w-full text-sm break-words whitespace-pre-wrap md:text-base">
                 {photo.qualification}
               </p>
-              <p className="text-secondary w-full text-sm md:text-base">
+              <p className="bg-primary absolute bottom-0 left-0 flex h-[70px] tracking-wide w-full items-center justify-center px-2 py-1 text-center text-sm break-words whitespace-pre-wrap text-white md:text-base">
                 {photo.specialityName}
               </p>
             </div>
