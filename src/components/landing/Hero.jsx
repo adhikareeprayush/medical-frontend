@@ -8,7 +8,7 @@ const Hero = () => {
         muted
         loop
         playsInline
-        className="absolute hidden min-h-full w-auto max-w-none min-w-full object-contain lg:block"
+        className="absolute hidden min-h-full w-auto max-w-none min-w-full scale-[0.9] object-contain lg:block"
       >
         <source
           src="https://github.com/adhikareeprayush/video/raw/refs/heads/main/nisarga124.mp4?download="
