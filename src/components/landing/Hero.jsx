@@ -25,12 +25,12 @@ const Hero = () => {
       {/* <div className="absolute inset-0 z-10 bg-black opacity-70" /> */}
 
       {/* Hero Text */}
-      <div className="absolute bottom-56 z-20 px-4 text-center text-[#fff] shadow">
+      <div className="absolute bottom-60 z-20 flex flex-col items-center justify-center px-4 text-center text-[#fff] shadow">
         <h1 className="text-3xl font-bold sm:text-5xl md:text-7xl">
-          Nisarga Hospital
+          NISARGA HOSPITAL
         </h1>
-        <p className="mt-4 text-xl md:text-3xl">
-          24/7 Emergency Medical Services
+        <p className="mt-4 w-fit animate-pulse rounded-lg bg-red-400 px-2 py-1 text-center text-xl md:text-3xl">
+          <b>24/7</b> Emergency Medical Services
         </p>
       </div>
     </div>

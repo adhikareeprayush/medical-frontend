@@ -8,17 +8,22 @@ const MessageFromHead = () => {
         {/* image section */}
         <div className="flex justify-center lg:justify-end">
           <div className="overflow-hidden rounded-sm">
-            <img
-              src={HeadImg}
-              alt="Headimage"
-              className="h-auto w-full max-w-[500px] object-cover md:max-w-full lg:h-[500px] lg:w-[580px]"
-            />
+            <div className="flex flex-col gap-1">
+              <img
+                src={HeadImg}
+                alt="Headimage"
+                className="h-auto w-full max-w-[500px] object-cover md:max-w-full lg:h-[500px] lg:w-[580px]"
+              />
+              <p className="text-primary text-center text-lg font-semibold">
+                Mr. Tritha Raj Panta - Chairman
+              </p>
+            </div>
           </div>
         </div>
         {/* content section */}
         <div className="flex flex-col">
           <h4 className="text-secondary center text-lg font-bold sm:text-center md:text-center md:text-2xl lg:text-start">
-            Message From Chairman Tritha Raj Panta
+            Message From Chairman
           </h4>
 
           <div className="mt-2">
