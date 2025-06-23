@@ -22,7 +22,7 @@ const Hero = () => {
       />
 
       {/* Black Overlay */}
-      <div className="absolute inset-0 z-10 bg-black opacity-70" />
+      {/* <div className="absolute inset-0 z-10 bg-black opacity-70" /> */}
 
       {/* Hero Text */}
       <div className="absolute bottom-56 z-20 px-4 text-center text-[#fff] shadow">
