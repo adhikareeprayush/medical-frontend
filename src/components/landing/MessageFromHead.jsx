@@ -22,9 +22,10 @@ const MessageFromHead = () => {
         <div className="flex flex-col justify-center gap-4 px-4 lg:px-0">
           <div className="mt-2">
             <p className="mb-3 text-center text-gray-500 sm:text-center md:mt-3 md:text-center md:text-3xl lg:text-start lg:text-4xl">
-              Welcome to Nisarga Hospital — providing compassionate, affordable,
-              and quality care with advanced technology and dedicated staff.
-              Thank you for trusting us.
+              Welcome to Nisarga Hospital- where compassion meets advanced
+              technology to provide affordable, high-quality healthcare. Thank
+              you for trusting us with your health — we are here for you,
+              always.
             </p>
             <p className="text-primary border-primary flex w-full flex-col items-center justify-center gap-0 px-3 text-lg leading-0 font-semibold lg:block lg:w-fit lg:border-l-4 lg:leading-2">
               <span className="text-lg lg:text-2xl">Mr. Tritha Raj Panta</span>
