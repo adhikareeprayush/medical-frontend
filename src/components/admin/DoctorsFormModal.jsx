@@ -54,6 +54,7 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
         speciality_id: doctor.speciality_id || '',
         imageFile: null,
         image_url: doctor.image_url || '',
+        display_order: doctor.display_order || 0, // Default to 0 if not provided
       });
     }
   }, [doctor, isEdit]);
@@ -168,6 +169,7 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
         qualification: formData.qualification.trim(),
         department_id: parsedDeptId,
         speciality_id: parsedSpecId,
+        display_order: formData.display_order || 0, // Default to 0 if not provided
       };
 
       if (isEdit) {
@@ -188,7 +190,7 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
 
   return (
     <div className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black">
-      <div className="relative w-full max-w-xl rounded-xl bg-white p-6 shadow-lg">
+      <div className="scrollbar-hide relative h-[90vh] w-full max-w-xl overflow-y-scroll rounded-xl bg-white p-6 shadow-lg">
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
@@ -229,6 +231,23 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
             {errors.qualification && (
               <p className="text-sm text-red-500">{errors.qualification}</p>
             )}
+          </div>
+
+          <div>
+            <label className="mb-1 block">Rank</label>
+            <input
+              type="number"
+              name="display_order"
+              className="input w-full"
+              value={formData?.display_order || ''}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  display_order: e.target.value,
+                }))
+              }
+              required
+            />
           </div>
 
           <div>

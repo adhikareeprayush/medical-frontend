@@ -13,6 +13,7 @@ const Doctors = () => {
   const fetchDoctors = async () => {
     try {
       const doctorsData = await getAllDoctors();
+      console.log('Fetched doctors:', doctorsData.data);
       setDoctors(doctorsData.data);
     } catch (err) {
       console.error(err);

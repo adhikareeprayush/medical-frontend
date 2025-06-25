@@ -174,7 +174,6 @@ input {
   overflow: hidden;
 }
 
-
 /* Force slick-slide and children to stretch */
 .slick-slide {
   display: flex !important;
@@ -185,4 +184,13 @@ input {
 .slick-slide > div {
   display: flex !important;
   height: 100% !important;
+}
+
+/* hide scrollbar but still enable scrolling */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

@@ -5,7 +5,7 @@ import ServiceList from '../../components/admin/ServiceList';
 const services = () => {
   return (
     <div className="h-full w-full flex-1">
-      <AdminHeader title="News" subtitle="Manage your news" />
+      <AdminHeader title="Services" subtitle="Manage your services" />
       <ServiceList />
     </div>
   );
