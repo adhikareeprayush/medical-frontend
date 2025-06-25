@@ -121,72 +121,99 @@ const PackagesList = () => {
       </div>
 
       {isEditingPackage && (
-        <div className="mt-4 space-y-2 rounded border p-4 shadow">
-          <input
-            name="title"
-            placeholder="Title"
-            value={newPackage.title}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-          />
-
-          <div className="flex gap-2">
-            <input
-              name="check"
-              placeholder="Add a check (e.g., Blood Test)"
-              value={newCheck}
-              onChange={(e) => setNewCheck(e.target.value)}
-              className="input input-bordered flex-1"
-            />
-            <button className="btn btn-sm btn-primary" onClick={handleAddCheck}>
-              Add
+        <div className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black">
+          <div className="scrollbar-hide relative h-fit w-full max-w-xl overflow-y-scroll rounded-xl bg-white p-6 pb-3 shadow-lg">
+            <button
+              onClick={() => {
+                setIsEditingPackage(false);
+                setEditingId(null);
+                resetForm();
+              }}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+            >
+              ✕
             </button>
-          </div>
 
-          <div className="flex flex-wrap gap-2">
-            {checksList.map((check, index) => (
-              <span
-                key={index}
-                className="badge badge-outline flex items-center gap-1"
-              >
-                {check}
+            <h2 className="mb-4 text-xl font-bold">
+              {editingId ? 'Edit Package' : 'Add New Package'}
+            </h2>
+            <div className="mt-4 space-y-2 rounded">
+              <input
+                name="title"
+                placeholder="Title"
+                value={newPackage.title}
+                onChange={handleChange}
+                className="input input-bordered w-full"
+              />
+
+              <div className="flex gap-2">
+                <input
+                  name="check"
+                  placeholder="Add a check (e.g., Blood Test)"
+                  value={newCheck}
+                  onChange={(e) => setNewCheck(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      handleAddCheck();
+                    }
+                  }}
+                  className="input input-bordered flex-1"
+                />
                 <button
-                  onClick={() => handleRemoveCheck(index)}
-                  className="ml-1 text-red-500"
+                  className="btn btn-sm btn-primary"
+                  onClick={handleAddCheck}
                 >
-                  &times;
+                  Add
                 </button>
-              </span>
-            ))}
-          </div>
+              </div>
 
-          <input
-            name="price"
-            placeholder="Price"
-            value={newPackage.price}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-          />
-          <input
-            name="discounted_price"
-            placeholder="Discounted Price"
-            value={newPackage.discounted_price}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-          />
-          <input
-            name="whatsappUrl"
-            placeholder="WhatsApp URL"
-            value={newPackage.whatsappUrl}
-            onChange={handleChange}
-            className="input input-bordered w-full"
-          />
-          <button
-            className="btn btn-primary mt-2"
-            onClick={handleAddOrUpdatePackage}
-          >
-            {editingId ? 'Update Package' : 'Submit'}
-          </button>
+              <div className="flex flex-wrap gap-2">
+                {checksList.map((check, index) => (
+                  <span
+                    key={index}
+                    className="badge badge-outline flex items-center gap-1"
+                  >
+                    {check}
+                    <button
+                      onClick={() => handleRemoveCheck(index)}
+                      className="ml-1 text-red-500"
+                    >
+                      &times;
+                    </button>
+                  </span>
+                ))}
+              </div>
+
+              <input
+                name="price"
+                placeholder="Price"
+                value={newPackage.price}
+                onChange={handleChange}
+                className="input input-bordered w-full"
+              />
+              <input
+                name="discounted_price"
+                placeholder="Discounted Price"
+                value={newPackage.discounted_price}
+                onChange={handleChange}
+                className="input input-bordered w-full"
+              />
+              <input
+                name="whatsappUrl"
+                placeholder="WhatsApp URL"
+                value={newPackage.whatsappUrl}
+                onChange={handleChange}
+                className="input input-bordered w-full"
+              />
+              <button
+                className="btn btn-primary mt-2"
+                onClick={handleAddOrUpdatePackage}
+              >
+                {editingId ? 'Update Package' : 'Submit'}
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
