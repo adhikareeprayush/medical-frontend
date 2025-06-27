@@ -1,4 +1,4 @@
-import heroImage from '../../assets/images/banner/hospital_banner.jpg';
+import heroImage from '../../assets/images/general photos/hospitalbanner1234.jpg';
 const Hero = () => {
   return (
     <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black">
