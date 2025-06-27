@@ -19,6 +19,7 @@ const Departments = lazy(() => import('./routes/landing/departments'));
 const DepartmentPage = lazy(() => import('./routes/landing/departments/page'));
 const Doctors = lazy(() => import('./routes/landing/doctors'));
 const Gallery = lazy(() => import('./routes/landing/gallery'));
+const SingleGallery = lazy(() => import('./routes/landing/gallery/page'));
 const AdminHome = lazy(() => import('./routes/admin/index'));
 const Dashboard = lazy(() => import('./routes/admin/dashboard'));
 const Login = lazy(() => import('./routes/admin/Login'));
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
       { path: 'ClinicalDepartment/:slug', element: <DepartmentPage /> },
       { path: 'doctors', element: <Doctors /> },
       { path: 'gallery', element: <Gallery /> },
+      { path: 'gallery/:id', element: <SingleGallery /> },
       { path: 'appointment', element: <Appointment /> },
     ],
   },
