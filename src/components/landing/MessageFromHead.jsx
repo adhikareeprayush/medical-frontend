@@ -28,7 +28,7 @@ const MessageFromHead = () => {
               always.
             </p>
             <p className="text-primary border-primary flex w-full flex-col items-center justify-center gap-0 px-3 text-lg leading-0 font-semibold lg:block lg:w-fit lg:border-l-4 lg:leading-2">
-              <span className="text-lg lg:text-2xl">Mr. Trith Raj Panta</span>
+              <span className="text-lg lg:text-2xl">Mr. Trith Raj Pant</span>
               <br />{' '}
               <span className="text-lg font-normal text-gray-600">
                 Chairman
