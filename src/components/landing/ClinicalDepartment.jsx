@@ -62,7 +62,7 @@ const ClinicalDepartment = () => {
         <p className="text-center text-red-500">{error}</p>
       ) : (
         <>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
             {displayedDepartments.map((department) => (
               <Link
                 key={department.id}
