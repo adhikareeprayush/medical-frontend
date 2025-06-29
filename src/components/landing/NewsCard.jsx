@@ -1,7 +1,7 @@
-import { CiCalendar } from 'react-icons/ci';
-import { GoPerson } from 'react-icons/go';
-import { IoEyeOutline } from 'react-icons/io5';
-import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
+// import { CiCalendar } from 'react-icons/ci';
+// import { GoPerson } from 'react-icons/go';
+// import { IoEyeOutline } from 'react-icons/io5';
+// import { FaArrowRight, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';

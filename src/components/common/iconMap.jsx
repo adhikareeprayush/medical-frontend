@@ -1,22 +1,25 @@
 import {
   FaStethoscope,
-  FaClinicMedical,
   FaBaby,
   FaTooth,
   FaHeartbeat,
-  FaXRay,
+  FaClipboardList,
+  FaUserMd,
+  FaXRay, // For Radiology
 } from 'react-icons/fa';
-import { TbPhysotherapist } from 'react-icons/tb';
-import { GiMedicines } from 'react-icons/gi';
-import { GrEmergency } from 'react-icons/gr';
 import {
-  dermatology,
-  Genereal_medicine,
-  General_Surgery,
-  Neuroscience,
-  urology,
-  vascular_surgery,
-} from '../../assets/images/clinicalDepartment/Dermatology.png';
+  GiMedicines,
+  GiMedicalDrip,
+  GiScalpel, // ✔ Corrected from GiSurgicalKnife
+  GiLifeSupport,
+  GiBrain,
+  GiMuscleUp,
+  GiLiver,
+  GiMedicinePills,
+  GiHeartOrgan,
+} from 'react-icons/gi';
+import { LiaFileMedicalAltSolid } from 'react-icons/lia';
+import { MdEmergency } from 'react-icons/md';
 
 const iconMap = {
   stethoscope: FaStethoscope,
@@ -24,16 +27,17 @@ const iconMap = {
   tooth: FaTooth,
   heartbeat: FaHeartbeat,
   medicines: GiMedicines,
-  emergency: GrEmergency,
-  skin: dermatology,
-  icu: FaClinicMedical,
-  pharmacy: Genereal_medicine,
-  ot: General_Surgery,
-  neurosurgery: Neuroscience,
-  ventilator: vascular_surgery,
-  radiology: FaXRay,
-  physiotherapy: TbPhysotherapist,
-  hepatology: urology,
+  ventilator: GiLifeSupport,
+  icu: GiHeartOrgan,
+  pharmacy: GiMedicinePills,
+  opd: FaClipboardList,
+  ot: GiScalpel, // ✔ Fixed
+  radiology: FaXRay, // ✔ Alternative
+  neurosurgery: GiBrain,
+  physiotherapy: GiMuscleUp,
+  hepatology: GiLiver,
+  skin: FaUserMd,
+  emergency: MdEmergency,
 };
 
 export default iconMap;
