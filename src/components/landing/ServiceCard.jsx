@@ -1,11 +1,10 @@
 import { ArrowRight } from 'lucide-react';
-import iconMap from '../common/iconMap';
+import iconMap from '../common/iconMap'; // Changed to named import
 import LearnMoreBtn from '../common/LearnMoreBtn';
 import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
 import { ProgressiveImage } from '../../utils/ProgressiveImage';
 
 const ServiceCard = ({ service }) => {
-  console.log(service);
   const IconComponent = iconMap[service.icon];
   return (
     <a
@@ -14,23 +13,16 @@ const ServiceCard = ({ service }) => {
     >
       <div className="relative h-[300px]">
         <div className="bg-primary/80 absolute h-full w-full rounded-tl-md rounded-tr-md opacity-0 duration-300 group-hover:opacity-100" />
-        {/* <img
-          src={service.image}
-          alt={service.title}
-          className={`h-full w-full rounded-tl-md rounded-tr-md object-cover transition-all duration-300`}
-        /> */}
         <ProgressiveImage
           lowQualitySrc={getTransformedImageUrl(service.image, 10, 10)}
           highQualitySrc={getTransformedImageUrl(service.image, 1080, 720)}
           alt={service.title}
-          className="h-full w-full"
+          className="h-full w-full rounded-tl-md rounded-tr-md object-cover"
         />
         <div className="bg-primary absolute right-[24px] -bottom-[32px] flex h-[80px] w-[80px] flex-col items-center justify-center rounded-full duration-300 group-hover:right-[50%] group-hover:bottom-[50%] group-hover:translate-x-1/2 group-hover:translate-y-1/2">
-          {/* <img src={bandageIcon} alt="icon" width={26} height={26} /> */}
           {IconComponent ? (
             <IconComponent size={26} color="white" />
           ) : (
-            // fallback icon or nothing
             <span className="text-xl text-white">?</span>
           )}
         </div>
@@ -41,7 +33,6 @@ const ServiceCard = ({ service }) => {
           <h3 className="font-title text-primary line-clamp-2 flex flex-grow items-center">
             {service.title}
           </h3>
-
           <p className="font-body line-clamp-4 text-gray-600">
             {service.description}
           </p>

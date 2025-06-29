@@ -3,8 +3,8 @@ import { Loader2 } from 'lucide-react';
 import PageBanner from '../../components/landing/PageBanner';
 import { getAllGalleries } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
-import NewsSection from '../../components/landing/NewsSection';
-import ClinicalDepartment from '../../components/landing/ClinicalDepartment';
+// import NewsSection from '../../components/landing/NewsSection';
+// import ClinicalDepartment from '../../components/landing/ClinicalDepartment';
 
 const GalleryLanding = () => {
   const [galleries, setGalleries] = useState([]);
@@ -71,6 +71,7 @@ const GalleryLanding = () => {
             </div>
           )}
         </div>
+
         {/* <ClinicalDepartment />
         <NewsSection /> */}
       </section>
