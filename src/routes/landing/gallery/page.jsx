@@ -6,6 +6,8 @@ import { getGalleryById, getGalleryMediaByGallery } from '../../../utils/api';
 import { getYoutubeEmbedUrl } from '../../../utils/getYoutubeEmbedUrl';
 import { getTransformedImageUrl } from '../../../utils/getTransformedImageUrl';
 import { ProgressiveImage } from '../../../utils/ProgressiveImage';
+import LearnMoreBtn from '../../../components/common/LearnMoreBtn';
+import { Link } from 'react-router-dom';
 
 const SingleGallery = () => {
   const { id } = useParams();
@@ -238,6 +240,7 @@ const SingleGallery = () => {
                   </button>
                 ))}
               </div>
+
               {/* Gallery Grid */}
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {filteredMedia?.map((media, index) => (
@@ -258,6 +261,15 @@ const SingleGallery = () => {
               )}
             </>
           )}
+          <span>
+            <Link to={`/gallery`}>
+              {' '}
+              <LearnMoreBtn
+                text="Back to gallery"
+                styles="hover:px-2 hover:rounded-md"
+              />
+            </Link>
+          </span>
         </div>
         {/* Lightbox */}
         <Lightbox />
