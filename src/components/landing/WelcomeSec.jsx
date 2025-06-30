@@ -14,14 +14,11 @@ const WelcomeSec = () => {
           A Great Place to Receive Care
         </p>
         <p className="text-sm tracking-wide text-gray-700 sm:text-base md:text-lg">
-          Nisarga Hospital is a modern, multi-specialty healthcare institution
-          committed to providing high-quality, patient-centered medical
-          services. Located in the heart of Nepal, our hospital stands as a
-          beacon of hope and healing, combining advanced medical technology with
-          the warmth of compassionate care. Our dedicated team of doctors,
-          nurses, and healthcare professionals work tirelessly to ensure that
-          every patient receives personalized treatment in a safe, comfortable,
-          and healing environment.
+          Nisarga Hospital is a modern multi-specialty healthcare center in the
+          heart of Dhangadhi Nepal, dedicated to delivering high-quality,
+          patient-centered care. Combining advanced medical technology with
+          compassionate service, our skilled team ensures each patient receives
+          personalized treatment in a safe and healing environment.
         </p>
         <Link to="/about" className="">
           <LearnMoreBtn text="Learn More" styles="hover:px-2" />
