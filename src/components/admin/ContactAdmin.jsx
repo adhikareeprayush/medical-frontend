@@ -39,8 +39,10 @@ const ContactAdmin = () => {
 
   const validateForm = () => {
     const errs = {};
-    if (!formValues.Emergency.match(/^\+?\d[\d\s,+-]*$/)) {
-      errs.Emergency = 'Invalid phone number format.';
+    if (
+      !formValues.Emergency.match(/^\s*\+?\d[\d\s+-]*(,\s*\+?\d[\d\s+-]*)*\s*$/)
+    ) {
+      errs.Emergency = 'Invalid phone number format. Use commas for multiple.';
     }
     if (
       !formValues.Email.match(
