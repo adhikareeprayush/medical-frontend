@@ -21,7 +21,7 @@ const Hero = () => {
           alt="hero-image"
           className="inset-0 z-0 block w-screen object-contain lg:hidden"
         />
-        <div className="absolute bottom-10 z-20 flex flex-col items-center justify-center px-4 text-center text-[#fff] shadow">
+        <div className="absolute bottom-10 z-20 flex flex-col items-center justify-center px-4 text-center text-[#fff] shadow lg:top-5">
           <h1 className="text-lg font-bold sm:text-3xl md:text-5xl">
             NISARGA HOSPITAL
           </h1>
