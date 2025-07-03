@@ -206,7 +206,7 @@ const ServiceList = () => {
       {/* Modal */}
       {isModalOpen && (
         <div className="bg-opacity-40 fixed inset-0 z-50 flex items-center justify-center bg-black p-4">
-          <div className="relative max-h-screen w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-6 shadow-lg">
+          <div className="scrollbar-hide relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-6 shadow-lg">
             <h3 className="mb-4 text-xl font-semibold">
               {editId ? 'Edit Service' : 'Add Service'}
             </h3>

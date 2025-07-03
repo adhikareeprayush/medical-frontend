@@ -1,8 +1,12 @@
+import { getTransformedImageUrl } from '../../utils/getTransformedImageUrl';
+import { ProgressiveImage } from '../../utils/ProgressiveImage';
+
 const DoctorsList = ({ doctors, onEdit, onDelete }) => {
   return (
     <table className="w-full table-auto border border-gray-200">
       <thead className="bg-gray-100">
         <tr>
+          <th className="px-4 py-2">Rank</th>
           <th className="px-4 py-2">Image</th>
           <th className="px-4 py-2">Name</th>
           <th className="px-4 py-2">Qualification</th>
@@ -12,11 +16,17 @@ const DoctorsList = ({ doctors, onEdit, onDelete }) => {
         </tr>
       </thead>
       <tbody>
-        {doctors.map((doctor) => (
+        {doctors?.map((doctor) => (
           <tr key={doctor.id} className="border-t border-gray-200 text-center">
+            <td className="px-4 py-2 font-medium">{doctor.display_order}</td>
             <td className="px-4 py-2">
-              <img
-                src={doctor.image_url}
+              <ProgressiveImage
+                lowQualitySrc={getTransformedImageUrl(doctor.image_url, 40, 40)}
+                highQualitySrc={getTransformedImageUrl(
+                  doctor.image_url,
+                  1080,
+                  720,
+                )}
                 alt={doctor.fullName}
                 className="mx-auto h-12 w-12 rounded-full object-cover"
               />
@@ -26,15 +36,20 @@ const DoctorsList = ({ doctors, onEdit, onDelete }) => {
             <td className="px-4 py-2">{doctor.specialityName}</td>
             <td className="px-4 py-2">{doctor.departmentName}</td>
             <td className="space-x-2 px-4 py-2">
-              <button
-                className="btn btn-sm btn-secondary"
-                onClick={() => onEdit(doctor)}
-              >
+              <button className="text-secondary" onClick={() => onEdit(doctor)}>
                 Edit
               </button>
               <button
-                className="btn btn-sm btn-danger"
-                onClick={() => onDelete(doctor.id)}
+                className="text-red-500"
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      'Are you sure you want to delete this doctor?',
+                    )
+                  ) {
+                    onDelete(doctor.id);
+                  }
+                }}
               >
                 Delete
               </button>

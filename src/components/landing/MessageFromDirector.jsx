@@ -1,10 +1,10 @@
 import React from 'react';
-import HeadImg from '../../assets/images/Hospital members/founder.jpg';
+import HeadImg from '../../assets/images/doctorsImages/Dr. Meraj Alam Ansari.JPG';
 
-const MessageFromHead = () => {
+const MessageFromDirector = () => {
   return (
     <section className="py-10 lg:py-16">
-      <div className="flex flex-col gap-4 md:gap-2 lg:flex-row lg:gap-6">
+      <div className="flex flex-col gap-4 md:gap-2 lg:flex-row-reverse lg:gap-6">
         {/* image section */}
         <div className="flex justify-center">
           <div className="rounded-sm">
@@ -18,20 +18,22 @@ const MessageFromHead = () => {
             </div>
           </div>
         </div>
+
         {/* content section */}
         <div className="flex flex-col justify-center gap-4 px-4 lg:px-0">
           <div className="mt-2">
             <p className="mb-3 text-center text-gray-500 sm:text-center md:mt-3 md:text-center md:text-3xl lg:text-start lg:text-4xl">
-              Welcome to Nisarga Hospital- where compassion meets advanced
-              technology to provide affordable, high-quality healthcare. Thank
-              you for trusting us with your health — we are here for you,
-              always.
+              We are committed to the highest standards of patient safety,
+              quality care, and medical excellence. As we grow, our focus
+              remains on enhancing patient experience, embracing advanced
+              healthcare solutions, and serving our community with heart. Thank
+              you for trusting us with your health.
             </p>
             <p className="text-primary border-primary flex w-full flex-col items-center justify-center gap-0 px-3 text-lg leading-0 font-semibold lg:block lg:w-fit lg:border-l-4 lg:leading-2">
-              <span className="text-lg lg:text-2xl">Mr. Tirth Raj Pant</span>
+              <span className="text-lg lg:text-2xl">DR. Meraj Alam Ansari</span>
               <br />{' '}
               <span className="text-lg font-normal text-gray-600">
-                Chairman
+                Medical Director
               </span>
             </p>
           </div>
@@ -41,4 +43,4 @@ const MessageFromHead = () => {
   );
 };
 
-export default MessageFromHead;
+export default MessageFromDirector;

@@ -96,35 +96,36 @@ const Footer = () => {
   };
 
   return (
-    <section className="bg-primary flex w-full flex-col items-center gap-3 py-4 text-white">
-      <div className="flex w-full flex-col gap-4 lg:flex-row lg:flex-wrap lg:justify-between">
+    <section className="bg-primary flex w-full flex-col gap-3 py-4 text-white">
+      <div className="flex w-full flex-col gap-2 lg:flex-row lg:flex-wrap lg:justify-between">
         {/* Logo and slogan */}
-        <div className="flex flex-col gap-2">
-          <h1 className="font-display2 text-4xl uppercase">
+        <div className="flex flex-col items-center gap-2 lg:items-start">
+          <h1 className="font-display2 text-center text-4xl uppercase lg:text-left">
             <span className="text-accent">Nisarga Hospital</span>
           </h1>
-          <p className="font-body1 max-w-[300px] text-white">
+          <p className="font-body1 max-w-[300px] text-center text-white lg:text-left">
             Leading the Way in Medical Excellence, Trusted Care.
           </p>
         </div>
 
         {/* Menus */}
         {footerMenus.map((menu, index) => (
-          <div key={index} className="w-full lg:w-auto">
+          <div
+            key={index}
+            className="flex w-full flex-col items-center lg:w-auto"
+          >
             <button
-              className="font-body2 flex w-full items-center justify-between py-2 font-medium lg:hidden"
+              className="font-body2 flex font-semibold text-secondary items-center justify-between py-1 font-medium lg:hidden"
               onClick={() => toggleMenu(index)}
             >
               {menu.title}
-              <span className="text-accent text-xl">
+              {/* <span className="text-accent text-xl">
                 {openIndexes[index] ? '−' : '+'}
-              </span>
+              </span> */}
             </button>
 
-            <div
-              className={`${openIndexes[index] ? 'block' : 'hidden'} lg:block`}
-            >
-              <div className="flex flex-col gap-1 pl-2">
+            <div className={`${openIndexes[index] ? 'block' : ''} lg:block`}>
+              <div className="flex flex-col gap-1 text-center lg:pl-2 lg:text-left">
                 {menu.subMenus.map((subMenu, subIndex) => (
                   <Link
                     key={subIndex}
@@ -140,7 +141,7 @@ const Footer = () => {
         ))}
 
         {/* Newsletter */}
-        <div className="flex w-full flex-col gap-2 lg:w-auto">
+        <div className="flex w-full flex-col items-center gap-2 lg:w-auto">
           <div className="font-body2 text-white">Newsletter</div>
           <div className="relative flex w-full max-w-[272px] gap-2">
             <input

@@ -19,6 +19,7 @@ const Departments = lazy(() => import('./routes/landing/departments'));
 const DepartmentPage = lazy(() => import('./routes/landing/departments/page'));
 const Doctors = lazy(() => import('./routes/landing/doctors'));
 const Gallery = lazy(() => import('./routes/landing/gallery'));
+const SingleGallery = lazy(() => import('./routes/landing/gallery/page'));
 const AdminHome = lazy(() => import('./routes/admin/index'));
 const Dashboard = lazy(() => import('./routes/admin/dashboard'));
 const Login = lazy(() => import('./routes/admin/Login'));
@@ -32,6 +33,8 @@ const InquiriesAdmin = lazy(() => import('./routes/admin/inquiriesAdmin'));
 const TestimonialAdmin = lazy(() => import('./routes/admin/testimonialAdmin'));
 const GalleryAdmin = lazy(() => import('./routes/admin/galleryAdmin'));
 const Appointment = lazy(() => import('./routes/landing/appointment'));
+const AppointmentAdmin = lazy(() => import('./routes/admin/appointmentAdmin'));
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -54,6 +57,7 @@ const router = createBrowserRouter([
       { path: 'ClinicalDepartment/:slug', element: <DepartmentPage /> },
       { path: 'doctors', element: <Doctors /> },
       { path: 'gallery', element: <Gallery /> },
+      { path: 'gallery/:id', element: <SingleGallery /> },
       { path: 'appointment', element: <Appointment /> },
     ],
   },
@@ -76,6 +80,7 @@ const router = createBrowserRouter([
           { path: 'testimonial', element: <TestimonialAdmin /> },
           { path: 'gallery', element: <GalleryAdmin /> },
           { path: 'departments', element: <DepartmentAdmin /> },
+          { path: 'appointments', element: <AppointmentAdmin /> },
         ],
       },
     ],
