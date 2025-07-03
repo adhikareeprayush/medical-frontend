@@ -4,6 +4,8 @@ import OurDocSec from '../../components/landing/OurDocSec';
 import NewsSection from '../../components/landing/NewsSection';
 import ContactSection from '../../components/landing/ContactSection';
 import ClinicalDepartment from '../../components/landing/ClinicalDepartment';
+import MessageFromHead from '../../components/landing/MessageFromHead';
+import MessageFromDirector from '../../components/landing/MessageFromDirector';
 
 const Index = () => {
   return (
@@ -11,6 +13,9 @@ const Index = () => {
       <div>
         <Hero />
         <WelcomeSec />
+        <MessageFromHead />
+        <MessageFromDirector />
+
         {/* <DoctorSec /> */}
         <ClinicalDepartment />
         <OurDocSec />
