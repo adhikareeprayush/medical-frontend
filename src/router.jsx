@@ -3,6 +3,7 @@ import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import LandingLayout from './layouts/LandingLayout';
 import AdminLayout from './layouts/AdminLayout';
+import IndividualDoc from './components/landing/IndividualDoc';
 
 // Lazy imports
 const Home = lazy(() => import('./routes/landing/index'));
@@ -18,6 +19,7 @@ const Contact = lazy(() => import('./routes/landing/contact'));
 const Departments = lazy(() => import('./routes/landing/departments'));
 const DepartmentPage = lazy(() => import('./routes/landing/departments/page'));
 const Doctors = lazy(() => import('./routes/landing/doctors'));
+const DoctorPage = lazy(() => import('./components/landing/IndividualDoc'));
 const Gallery = lazy(() => import('./routes/landing/gallery'));
 const SingleGallery = lazy(() => import('./routes/landing/gallery/page'));
 const AdminHome = lazy(() => import('./routes/admin/index'));
@@ -56,6 +58,7 @@ const router = createBrowserRouter([
       { path: 'departments/:slug', element: <DepartmentPage /> },
       { path: 'ClinicalDepartment/:slug', element: <DepartmentPage /> },
       { path: 'doctors', element: <Doctors /> },
+      { path: 'doctors/:slug', element: <DoctorPage /> },
       { path: 'gallery', element: <Gallery /> },
       { path: 'gallery/:id', element: <SingleGallery /> },
       { path: 'appointment', element: <Appointment /> },
