@@ -14,7 +14,7 @@ const PhotoGrid = ({ photos }) => {
     <div className="flex w-full flex-col items-center gap-6">
       {/* Main Photo */}
       {/* Main Photo */}
-      <Link to={`/doctors/${mainPhoto.slug}`} className="w-full">
+      <Link to={`/doctors/${mainPhoto?.id}`} className="w-full">
         <div className="flex w-full justify-center">
           <div className="flex h-full max-w-[360px] flex-col overflow-hidden rounded-md shadow transition hover:scale-[1.02]">
             <ProgressiveImage
@@ -56,7 +56,7 @@ const PhotoGrid = ({ photos }) => {
             key={index}
             className="flex h-full flex-col overflow-hidden rounded-md shadow transition hover:scale-[1.02]"
           >
-            <Link to={`/doctors/${photo.slug}`} className="w-full">
+            <Link to={`/doctors/${photo.id}`} className="w-full">
               <img
                 src={getTransformedImageUrl(photo.image_url, 350, 300)}
                 alt={photo.fullName}

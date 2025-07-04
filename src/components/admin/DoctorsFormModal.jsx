@@ -71,8 +71,11 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
   const validateForm = () => {
     const newErrors = {};
     if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
+    if (!formData.nmcNo.trim()) newErrors.nmcNo = 'NMC number is required';
     if (!formData.qualification.trim())
       newErrors.qualification = 'Qualification is required';
+    if (!formData.description.trim())
+      newErrors.description = 'Description is required';
     if (!formData.department_id)
       newErrors.department_id = 'Department is required';
     if (!formData.speciality_id)
@@ -165,11 +168,13 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
 
       const doctorPayload = {
         fullName: formData.fullName.trim(),
-        image_url: imageUrl,
+        nmcNo: formData.nmcNo.trim(),
         qualification: formData.qualification.trim(),
+        description: formData.description.trim(),
+        image_url: imageUrl,
         department_id: parsedDeptId,
         speciality_id: parsedSpecId,
-        display_order: formData.display_order || 0, // Default to 0 if not provided
+        display_order: formData.display_order || 0,
       };
 
       if (isEdit) {
@@ -219,6 +224,21 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
           </div>
 
           <div>
+            <label className="mb-1 block">NMC Number</label>
+            <input
+              type="text"
+              name="nmcNo"
+              className="input w-full"
+              value={formData.nmcNo}
+              onChange={handleChange}
+              required
+            />
+            {errors.nmcNo && (
+              <p className="text-sm text-red-500">{errors.nmcNo}</p>
+            )}
+          </div>
+
+          <div>
             <label className="mb-1 block">Qualification</label>
             <input
               type="text"
@@ -230,6 +250,20 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
             />
             {errors.qualification && (
               <p className="text-sm text-red-500">{errors.qualification}</p>
+            )}
+          </div>
+          <div>
+            <label className="mb-1 block">Description</label>
+            <textarea
+              name="description"
+              className="input w-full rounded-lg border-[1px] border-gray-300"
+              value={formData.description}
+              onChange={handleChange}
+              rows={3}
+              required
+            />
+            {errors.description && (
+              <p className="text-sm text-red-500">{errors.description}</p>
             )}
           </div>
 
