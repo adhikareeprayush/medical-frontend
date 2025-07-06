@@ -30,6 +30,12 @@ const DoctorDetail = () => {
     <div className="flex min-h-screen items-center justify-center p-4">
       <div className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-white">
         <div className="flex flex-col gap-4">
+          <a
+            href="/doctors"
+            className="pl-2 text-gray-600 underline hover:text-gray-800"
+          >
+            Back to Doctors
+          </a>
           {/* Header Section */}
           <div className="flex flex-col items-center gap-2">
             {/* Doctor Image */}
@@ -86,9 +92,9 @@ const DoctorDetail = () => {
           </div>
 
           {/* Biography Section */}
-          <div className="">
+          {/* <div className="">
             <p>{doctor.description}</p>
-          </div>
+          </div> */}
           <button className="bg-secondary transform rounded-full p-2 text-white">
             Book An Appointment with {doctor.fullName}
           </button>
