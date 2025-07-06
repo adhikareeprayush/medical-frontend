@@ -74,8 +74,8 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
     if (!formData.nmcNo.trim()) newErrors.nmcNo = 'NMC number is required';
     if (!formData.qualification.trim())
       newErrors.qualification = 'Qualification is required';
-    // if (!formData.description.trim())
-    //   newErrors.description = 'Description is required';
+    if (!formData.description.trim())
+      newErrors.description = 'Description is required';
     if (!formData.department_id)
       newErrors.department_id = 'Department is required';
     if (!formData.speciality_id)
@@ -170,7 +170,7 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
         fullName: formData.fullName.trim(),
         nmcNo: formData.nmcNo.trim(),
         qualification: formData.qualification.trim(),
-        // description: formData.description.trim(),
+        description: formData.description.trim(),
         image_url: imageUrl,
         department_id: parsedDeptId,
         speciality_id: parsedSpecId,
@@ -252,7 +252,7 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
               <p className="text-sm text-red-500">{errors.qualification}</p>
             )}
           </div>
-          {/* <div>
+          <div>
             <label className="mb-1 block">Description</label>
             <textarea
               name="description"
@@ -264,7 +264,7 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
             {errors.description && (
               <p className="text-sm text-red-500">{errors.description}</p>
             )}
-          </div> */}
+          </div>
 
           <div>
             <label className="mb-1 block">Rank</label>
