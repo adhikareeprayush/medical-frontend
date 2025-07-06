@@ -22,7 +22,7 @@ const MessageFromDirector = () => {
         {/* content section */}
         <div className="flex flex-col justify-center gap-4 px-4 lg:px-0">
           <div className="mt-2">
-            <p className="mb-3 text-center text-gray-500 sm:text-center md:mt-3 md:text-center md:text-3xl lg:text-start lg:text-4xl">
+            <p className="mb-3 text-center text-gray-500 sm:text-center md:mt-3 md:text-center md:text-3xl lg:text-start lg:text-3xl">
               We are committed to the highest standards of patient safety,
               quality care, and medical excellence. As we grow, our focus
               remains on enhancing patient experience, embracing advanced

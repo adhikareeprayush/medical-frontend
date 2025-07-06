@@ -20,9 +20,6 @@ const WelcomeSec = () => {
           compassionate service, our skilled team ensures each patient receives
           personalized treatment in a safe and healing environment.
         </p>
-        <Link to="/about" className="">
-          <LearnMoreBtn text="Learn More" styles="hover:px-2" />
-        </Link>
       </div>
       <div className="absolute top-0 left-0 z-10 h-[100%] w-[100%]">
         <img

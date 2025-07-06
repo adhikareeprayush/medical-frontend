@@ -170,7 +170,7 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
         fullName: formData.fullName.trim(),
         nmcNo: formData.nmcNo.trim(),
         qualification: formData.qualification.trim(),
-        description: formData.description.trim(),
+        // description: formData.description.trim(),
         image_url: imageUrl,
         department_id: parsedDeptId,
         speciality_id: parsedSpecId,
@@ -260,7 +260,6 @@ const DoctorFormModal = ({ onSuccess, onClose, doctor }) => {
               value={formData.description}
               onChange={handleChange}
               rows={3}
-              required
             />
             {errors.description && (
               <p className="text-sm text-red-500">{errors.description}</p>
