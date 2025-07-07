@@ -115,7 +115,7 @@ const Footer = () => {
             className="flex w-full flex-col items-center lg:w-auto"
           >
             <button
-              className="font-body2 flex font-semibold text-secondary items-center justify-between py-1 font-medium lg:hidden"
+              className="font-body2 text-secondary flex items-center justify-between py-1 font-medium font-semibold lg:hidden"
               onClick={() => toggleMenu(index)}
             >
               {menu.title}
@@ -161,7 +161,8 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="flex w-full flex-col items-center justify-between gap-3 lg:flex-row">
         <p className="font-body1 text-center lg:text-left">
-          © 2021 Nisarga hospital's. All Rights Reserved by PNTEC-LTD
+          © 2025 Nisarga hospital's. All Rights Reserved by PanchaChakshu
+          Engineering Solutions
         </p>
         <div className="flex items-center justify-center gap-3">
           {socialLinks.map((social, index) => (
