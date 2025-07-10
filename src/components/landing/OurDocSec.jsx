@@ -227,29 +227,38 @@ const OurDocSec = () => {
         >
           {doctors.map((doc) => (
             <div key={doc.id} className="h-full px-3">
-              <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg">
-                <ProgressiveImage
-                  lowQualitySrc={getTransformedImageUrl(doc.image_url, 40, 40)}
-                  highQualitySrc={getTransformedImageUrl(
-                    doc.image_url,
-                    1080,
-                    720,
-                  )}
-                  alt={doc.name}
-                  className="h-[300px] w-full object-cover"
-                />
-                <div className="relative flex h-[200px] flex-grow flex-col items-center gap-1 p-4 text-center">
-                  <h3 className="text-lg font-semibold break-words whitespace-pre-wrap mb-[6px] text-red-600 md:text-xl">
-                    {doc.fullName}
-                  </h3>
-                  <p className="text-secondary w-full text-sm break-words whitespace-pre-wrap mb-[4px] line-clamp-2 md:text-base">
-                    {doc.qualification}
-                  </p>
-                  <p className="bg-primary absolute bottom-0 left-0 flex h-[70px] w-full items-center justify-center px-2 py-1 text-center text-sm break-words whitespace-pre-wrap text-white md:text-base">
-                    {doc.specialityName}
-                  </p>
+              <Link
+                to={`/doctors/${doc.id}`}
+                className="flex flex-col lg:flex-row"
+              >
+                <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg">
+                  <ProgressiveImage
+                    lowQualitySrc={getTransformedImageUrl(
+                      doc.image_url,
+                      40,
+                      40,
+                    )}
+                    highQualitySrc={getTransformedImageUrl(
+                      doc.image_url,
+                      1080,
+                      720,
+                    )}
+                    alt={doc.name}
+                    className="h-[300px] w-full object-cover"
+                  />
+                  <div className="relative flex h-[200px] flex-grow flex-col items-center gap-1 p-4 text-center">
+                    <h3 className="mb-[6px] text-lg font-semibold break-words whitespace-pre-wrap text-red-600 md:text-xl">
+                      {doc.fullName}
+                    </h3>
+                    <p className="text-secondary mb-[4px] line-clamp-2 w-full text-sm break-words whitespace-pre-wrap md:text-base">
+                      {doc.qualification}
+                    </p>
+                    <p className="bg-primary absolute bottom-0 left-0 flex h-[70px] w-full items-center justify-center px-2 py-1 text-center text-sm break-words whitespace-pre-wrap text-white md:text-base">
+                      {doc.specialityName}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </Slider>
