@@ -1,0 +1,196 @@
+/* Tailwind CSS v4 Configuration */
+/* Import Tailwind CSS */
+@import 'tailwindcss';
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yeseva+One&display=swap');
+
+/* Define Custom Theme */
+@theme {
+  /* Colors */
+  --color-primary: #1f2b6c;
+  --color-secondary: #159eec;
+  --color-accent: #bfd2f8;
+  --color-black: #212124;
+  --color-white: #fcfefe;
+
+  /* Spacing */
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-5: 48px;
+  --spacing-6: 64px;
+  --spacing-7: 92px;
+  --spacing-8: 124px;
+
+  /* Fonts */
+  --font-display: 'Yeseva One', Georgia, serif;
+  --font-body: 'Work Sans', sans-serif;
+}
+
+@layer utilities {
+  /* Typography */
+  .font-display1 {
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: normal;
+    font-style: normal;
+  }
+
+  .font-display2 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    line-height: normal;
+    font-style: normal;
+  }
+
+  .font-display3 {
+    font-family: var(--font-display);
+    font-size: 25px;
+    line-height: normal;
+    font-style: normal;
+  }
+
+  .font-title {
+    font-family: var(--font-body);
+    font-size: 26px;
+    line-height: normal;
+    font-style: normal;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  .font-caption {
+    font-family: var(--font-display);
+    font-size: 18px;
+    line-height: normal;
+    font-style: normal;
+    @apply tracking-[2.88px] uppercase;
+  }
+
+  .font-body1 {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 22.4px;
+    font-style: normal;
+    @apply lg:text-[16px];
+  }
+
+  .font-body2 {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 25.2px;
+    font-style: normal;
+  }
+
+  .font-body3 {
+    font-family: var(--font-body);
+    font-size: 24px;
+    line-height: 28px;
+    font-style: normal;
+  }
+
+  .font-button {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: normal;
+    font-style: normal;
+  }
+
+  .font-small {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: normal;
+    font-style: normal;
+  }
+}
+
+@layer components {
+  body {
+    @apply bg-[#FCFEFE];
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+
+  p {
+    font-family: var(--font-body);
+  }
+
+  section {
+    @apply gap-[1px] px-[10px] sm:gap-[2px] sm:px-[20px] md:gap-[3px] md:px-[40px] lg:gap-[5px] lg:px-[80px] xl:gap-[10px] xl:px-[187px];
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input::placeholder {
+    @apply font-body text-[16px] outline-none focus:ring-0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.slick-slide:focus {
+  outline: none !important;
+}
+
+@layer base {
+  .btn-primary {
+    @apply bg-primary hover:bg-secondary rounded px-4 py-1 font-semibold text-white transition-colors duration-300;
+  }
+  .btn-secondary {
+    @apply bg-secondary hover:bg-primary rounded px-4 py-1 font-semibold text-white transition-colors duration-300;
+  }
+  .btn-danger {
+    @apply rounded bg-red-500 px-4 py-1 font-semibold text-white transition-colors duration-300 hover:bg-red-600;
+  }
+}
+
+input {
+  @apply rounded border border-gray-300 p-2;
+}
+
+.clamp-4-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Force slick-slide and children to stretch */
+.slick-slide {
+  display: flex !important;
+  align-items: stretch !important;
+  height: 100% !important;
+}
+
+.slick-slide > div {
+  display: flex !important;
+  height: 100% !important;
+}
+
+/* hide scrollbar but still enable scrolling */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "id": "1",
+    "title": "Basic Health Package - Man & Woman",
+    "slug": "basic-health-package-man-woman",
+    "tests": [
+      { "name": "ABO Grouping", "actualPrice": 200, "discountedPrice": 150 },
+      { "name": "CBC + ESR", "actualPrice": 250, "discountedPrice": 200 },
+      {
+        "name": "Random Blood Sugar",
+        "actualPrice": 150,
+        "discountedPrice": 120
+      },
+      { "name": "Urea", "actualPrice": 130, "discountedPrice": 100 },
+      { "name": "Liver (SGPT)", "actualPrice": 180, "discountedPrice": 130 },
+      { "name": "Lipid Profile", "actualPrice": 300, "discountedPrice": 250 },
+      {
+        "name": "Urine Routine and Microscopy",
+        "actualPrice": 200,
+        "discountedPrice": 150
+      },
+      {
+        "name": "Chest X-Ray (Digital)",
+        "actualPrice": 400,
+        "discountedPrice": 350
+      },
+      { "name": "ECG", "actualPrice": 220, "discountedPrice": 180 },
+      { "name": "HbA1C", "actualPrice": 270, "discountedPrice": 220 },
+      {
+        "name": "USG (Whole Abdomen)",
+        "actualPrice": 450,
+        "discountedPrice": 400
+      },
+      {
+        "name": "Consultation (Internal Medicine)",
+        "actualPrice": 600,
+        "discountedPrice": 500
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Basic Women’s Health Package with Offer",
+    "slug": "basic-womens-health-package-with-offer",
+    "tests": [
+      { "name": "CBC", "actualPrice": 220, "discountedPrice": 180 },
+      { "name": "WBC", "actualPrice": 200, "discountedPrice": 160 },
+      { "name": "LFT", "actualPrice": 250, "discountedPrice": 200 },
+      { "name": "RFT", "actualPrice": 230, "discountedPrice": 190 },
+      { "name": "B12", "actualPrice": 280, "discountedPrice": 230 },
+      { "name": "URINE ROUTINE", "actualPrice": 180, "discountedPrice": 140 },
+      { "name": "CHEST X-RAY", "actualPrice": 400, "discountedPrice": 350 }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Basic Men’s Health Package with Offer",
+    "slug": "basic-mens-health-package-with-offer",
+    "tests": [
+      { "name": "CBC", "actualPrice": 220, "discountedPrice": 180 },
+      { "name": "WBC", "actualPrice": 200, "discountedPrice": 160 },
+      { "name": "LFT", "actualPrice": 250, "discountedPrice": 200 },
+      { "name": "RFT", "actualPrice": 230, "discountedPrice": 190 },
+      { "name": "B12", "actualPrice": 280, "discountedPrice": 230 },
+      { "name": "URINE ROUTINE", "actualPrice": 180, "discountedPrice": 140 },
+      { "name": "CHEST X-RAY", "actualPrice": 400, "discountedPrice": 350 }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Basic Health Package for Senior Citizens",
+    "slug": "basic-health-package-for-senior-citizens",
+    "tests": [
+      { "name": "CBC", "actualPrice": 220, "discountedPrice": 180 },
+      { "name": "WBC", "actualPrice": 200, "discountedPrice": 160 },
+      { "name": "LFT", "actualPrice": 250, "discountedPrice": 200 },
+      { "name": "RFT", "actualPrice": 230, "discountedPrice": 190 },
+      { "name": "B12", "actualPrice": 280, "discountedPrice": 230 },
+      { "name": "URINE ROUTINE", "actualPrice": 180, "discountedPrice": 140 },
+      { "name": "CHEST X-RAY", "actualPrice": 400, "discountedPrice": 350 }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Basic Health Package for Children",
+    "slug": "basic-health-package-for-children",
+    "tests": [
+      { "name": "CBC", "actualPrice": 220, "discountedPrice": 180 },
+      { "name": "WBC", "actualPrice": 200, "discountedPrice": 160 },
+      { "name": "LFT", "actualPrice": 250, "discountedPrice": 200 },
+      { "name": "RFT", "actualPrice": 230, "discountedPrice": 190 },
+      { "name": "B12", "actualPrice": 280, "discountedPrice": 230 },
+      { "name": "URINE ROUTINE", "actualPrice": 180, "discountedPrice": 140 },
+      { "name": "CHEST X-RAY", "actualPrice": 400, "discountedPrice": 350 }
+    ]
+  },
+
+  {
+    "id": "6",
+    "title": "Basic Health Package for Children",
+    "slug": "basic-health-package-for-children",
+    "tests": [
+      { "name": "CBC", "actualPrice": 220, "discountedPrice": 180 },
+      { "name": "WBC", "actualPrice": 200, "discountedPrice": 160 },
+      { "name": "LFT", "actualPrice": 250, "discountedPrice": 200 },
+      { "name": "RFT", "actualPrice": 230, "discountedPrice": 190 },
+      { "name": "B12", "actualPrice": 280, "discountedPrice": 230 },
+      { "name": "URINE ROUTINE", "actualPrice": 180, "discountedPrice": 140 },
+      { "name": "CHEST X-RAY", "actualPrice": 400, "discountedPrice": 350 }
+    ]
+  },
+
+  {
+    "id": "7",
+    "title": "Basic Health Package for Children",
+    "slug": "basic-health-package-for-children",
+    "tests": [
+      { "name": "CBC", "actualPrice": 220, "discountedPrice": 180 },
+      { "name": "WBC", "actualPrice": 200, "discountedPrice": 160 },
+      { "name": "LFT", "actualPrice": 250, "discountedPrice": 200 },
+      { "name": "RFT", "actualPrice": 230, "discountedPrice": 190 },
+      { "name": "B12", "actualPrice": 280, "discountedPrice": 230 },
+      { "name": "URINE ROUTINE", "actualPrice": 180, "discountedPrice": 140 },
+      { "name": "CHEST X-RAY", "actualPrice": 400, "discountedPrice": 350 }
+    ]
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "title": "Energency and trauma care",
+    "slug": "emergency-trauma",
+    "summary": "Routine medical examinations for overall health evaluation.",
+    "description": "Energency and trauma care service provides a complete medical examination to assess your overall health. It includes blood pressure monitoring, cholesterol screening, BMI calculation, and basic blood work.",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/free_checkup.png?updatedAt=1748351881854",
+    "icon": "stethoscope",
+    "points": [
+      "A Passion for Healing",
+      "5-Star Care",
+      "A Legacy of Excellence",
+      "Always Caring"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Pediatrics",
+    "slug": "pediatrics",
+    "summary": "Comprehensive healthcare for infants, children, and adolescents.",
+    "description": "Our pediatricians are dedicated to the health and well-being of your children. From newborn checkups to developmental screenings, we ensure your child receives the best care.",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/pediatrics.webp?updatedAt=1748502576642",
+    "icon": "baby",
+    "points": [
+      "Child-focused Approach",
+      "Gentle & Safe Care",
+      "Parental Guidance Support"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Dental Care",
+    "slug": "dental-care",
+    "summary": "Oral health services including cleaning, fillings, and preventive care.",
+    "description": "We offer professional dental services including oral exams, cleanings, x-rays, fillings, and fluoride treatments. Our team is committed to helping you maintain a healthy smile.",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/free_checkup.png?updatedAt=1748351881854",
+    "icon": "tooth",
+    "points": [
+      "A Passion for Healing",
+      "5-Star Care",
+      "A Legacy of Excellence",
+      "Always Caring"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Cardiology",
+    "slug": "cardiology",
+    "summary": "Diagnosis and treatment of heart-related conditions.",
+    "description": "Our cardiology department provides advanced diagnostics, treatment, and monitoring for a wide range of cardiovascular conditions. Services include EKG, echocardiograms, and stress tests.",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/free_checkup.png?updatedAt=1748351881854",
+    "icon": "heartbeat",
+    "points": [
+      "A Passion for Healing",
+      "5-Star Care",
+      "A Legacy of Excellence",
+      "Always Caring"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Dental Care",
+    "slug": "dental-care",
+    "summary": "Oral health services including cleaning, fillings, and preventive care.",
+    "description": "We offer professional dental services including oral exams, cleanings, x-rays, fillings, and fluoride treatments. Our team is committed to helping you maintain a healthy smile.",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/free_checkup.png?updatedAt=1748351881854",
+    "icon": "tooth",
+    "points": [
+      "A Passion for Healing",
+      "5-Star Care",
+      "A Legacy of Excellence",
+      "Always Caring"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Dental Care",
+    "slug": "dental-care",
+    "summary": "Oral health services including cleaning, fillings, and preventive care.",
+    "description": "We offer professional dental services including oral exams, cleanings, x-rays, fillings, and fluoride treatments. Our team is committed to helping you maintain a healthy smile.",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/free_checkup.png?updatedAt=1748351881854",
+    "icon": "tooth",
+    "points": [
+      "A Passion for Healing",
+      "5-Star Care",
+      "A Legacy of Excellence",
+      "Always Caring"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Dental Care",
+    "slug": "dental-care",
+    "summary": "Oral health services including cleaning, fillings, and preventive care.",
+    "description": "We offer professional dental services including oral exams, cleanings, x-rays, fillings, and fluoride treatments. Our team is committed to helping you maintain a healthy smile.",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/free_checkup.png?updatedAt=1748351881854",
+    "icon": "tooth",
+    "points": [
+      "A Passion for Healing",
+      "5-Star Care",
+      "A Legacy of Excellence",
+      "Always Caring"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Dental Care",
+    "slug": "dental-care",
+    "summary": "Oral health services including cleaning, fillings, and preventive care.",
+    "description": "We offer professional dental services including oral exams, cleanings, x-rays, fillings, and fluoride treatments. Our team is committed to helping you maintain a healthy smile.",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/free_checkup.png?updatedAt=1748351881854",
+    "icon": "tooth",
+    "points": [
+      "A Passion for Healing",
+      "5-Star Care",
+      "A Legacy of Excellence",
+      "Always Caring"
+    ]
+  }
+]

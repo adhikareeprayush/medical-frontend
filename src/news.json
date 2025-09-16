@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "date": "Monday, October 23, 2023",
+    "author": "John Doe",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/news-1.jpg?updatedAt=1748709357810",
+    "title": "Breakthrough Gene Therapy Offers Hope for Rare Neurological Disorder",
+    "content": "In a landmark clinical trial, scientists from Harvard Medical School have developed a pioneering gene therapy that could revolutionize treatment for Pelizaeus-Merzbacher Disease (PMD), a rare and often debilitating genetic disorder. The therapy, which directly targets the PLP1 gene responsible for myelin production, was tested on ten pediatric patients over a six-month period. Results showed remarkable improvements in motor coordination, reduced neurological symptoms, and visible increases in white matter on MRI scans. PMD, which currently has no cure, affects approximately 1 in 500,000 people and leads to progressive loss of motor and cognitive abilities. With this therapy receiving Breakthrough Therapy designation from the FDA, it could move rapidly into broader clinical testing. Experts believe this could pave the way for new genetic treatments targeting other demyelinating diseases, offering renewed hope to thousands of families worldwide.",
+    "likes": 150,
+    "views": 120
+  },
+  {
+    "id": 2,
+    "date": "Monday, October 23, 2023",
+    "author": "John Doe",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/news-2.jpg?updatedAt=1748709357880",
+    "title": "AI-Powered Imaging Tool Detects Early-Stage Lung Cancer with 94% Accuracy",
+    "content": "MIT scientists have introduced LUNA (Lung Nodule Analyzer), a cutting-edge artificial intelligence system capable of detecting early-stage lung cancer with a remarkable 94% accuracy rate. The technology leverages deep learning models trained on over a million CT scan images to identify subtle patterns of malignancy that often escape human radiologists. The tool has been piloted in multiple hospitals across the U.S., where it successfully flagged over 200 cases of previously undetected early-stage lung cancer. According to Dr. Anika Bose, lead researcher on the project, LUNA has the potential to reduce mortality rates by enabling timely intervention. The system is currently under review for FDA approval, and researchers are also exploring its application in detecting other forms of cancer, such as pancreatic and liver tumors. This development marks another step toward the integration of AI in everyday medical diagnostics.",
+    "likes": 150,
+    "views": 120
+  },
+  {
+    "id": 3,
+    "date": "Monday, October 23, 2023",
+    "author": "John Doe",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/news-3.jpg?updatedAt=1748709357815",
+    "title": "WHO Issues Global Alert on Rising Antibiotic Resistance in Hospitals",
+    "content": "The World Health Organization has released a sobering report indicating a sharp global increase in antibiotic-resistant infections, particularly within hospital intensive care units. The report, based on surveillance data from 71 countries, highlights that resistant strains of Klebsiella pneumoniae, Acinetobacter baumannii, and Pseudomonas aeruginosa have surged by 23% over the past five years. In ICUs, where immunocompromised patients are most vulnerable, this trend is particularly dangerous. WHO Director-General Dr. Tedros Adhanom Ghebreyesus emphasized the urgent need for global action, calling for improved antibiotic stewardship, expanded diagnostic testing, and increased investment in the development of novel antimicrobial agents. Experts warn that if left unaddressed, the crisis could lead to a post-antibiotic era where minor infections become fatal. The WHO is also urging countries to adopt stricter controls on over-the-counter antibiotic sales and to enforce hospital hygiene standards to prevent cross-contamination.",
+    "likes": 150,
+    "views": 120
+  },
+  {
+    "id": 4,
+    "date": "Monday, October 23, 2023",
+    "author": "John Doe",
+    "image": "https://ik.imagekit.io/zotyjbh5j/New%20Folder/news-4.jpg?updatedAt=1748709358019",
+    "title": "New mRNA Vaccine Shows Promise Against Seasonal Influenza",
+    "content": "Pfizer and BioNTech have announced positive Phase III trial results for their mRNA-based seasonal influenza vaccine. The trial involved more than 10,000 adult participants across multiple countries and compared the new vaccine against traditional egg-based flu vaccines. Results showed that the mRNA version produced a stronger immune response, particularly in older adults, and had a safety profile similar to existing flu shots. The vaccine uses mRNA technology similar to that used in COVID-19 vaccines, allowing for faster manufacturing and easier updating to match circulating flu strains. Researchers believe this flexibility could lead to more effective annual vaccines and significantly reduce the global burden of influenza, which affects up to 1 billion people each year. The companies plan to seek regulatory approval later this year, and public health officials are optimistic that mRNA flu vaccines could become the new gold standard in influenza prevention.",
+    "likes": 150,
+    "views": 120
+  }
+]
