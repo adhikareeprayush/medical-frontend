@@ -129,9 +129,12 @@ const NewsDetails = () => {
               {news.title}
             </h3>
 
-            <p className="text-sm leading-relaxed tracking-wide text-[#212124] sm:text-base">
-              {news.content || news.description}
-            </p>
+            <div
+              className="text-sm leading-relaxed tracking-wide text-[#212124] sm:text-base"
+              dangerouslySetInnerHTML={{
+                __html: news.content || news.description,
+              }}
+            />
 
             {/* Separate Like Button */}
             <div className="mt-4 flex justify-center gap-4">

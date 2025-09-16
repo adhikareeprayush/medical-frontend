@@ -6,10 +6,14 @@ import {
   deleteNews,
 } from '../../utils/api';
 import { uploadToCloudinary } from '../../utils/cloudinary';
+import JoditEditor from 'jodit-react';
+import { useRef } from 'react';
 
 const initialForm = { title: '', description: '', source: '', image_url: '' };
 
 const NewsList = () => {
+  const editor = useRef(null);
+
   const [news, setNews] = useState([]);
   const [form, setForm] = useState(initialForm);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -161,7 +165,7 @@ const NewsList = () => {
       {/* Modal */}
       {isModalOpen && (
         <div className="bg-opacity-40 fixed inset-0 z-50 flex items-center justify-center bg-black">
-          <div className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-lg">
+          <div className="relative h-[95%] w-full max-w-[100vw] rounded-xl bg-white px-3 py-4 shadow-lg">
             <h3 className="mb-4 text-xl font-semibold">
               {editId ? 'Edit News' : 'Add News'}
             </h3>
@@ -173,14 +177,22 @@ const NewsList = () => {
               onChange={handleInputChange}
               className="mb-3 w-full rounded border p-2"
             />
-            <textarea
-              name="description"
+
+            <JoditEditor
+              ref={editor}
               value={form.description}
-              placeholder="Description"
-              rows={4}
-              onChange={handleInputChange}
-              className="mb-3 w-full rounded border p-2"
+              tabIndex={1}
+              config={{
+                height: 300,
+                minHeight: 150,
+                maxHeight: 400,
+              }}
+              onBlur={(newContent) =>
+                setForm({ ...form, description: newContent })
+              }
+              onChange={() => {}}
             />
+
             <div>
               <label className="mb-1 block font-medium">Image</label>
               <input

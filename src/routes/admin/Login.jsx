@@ -6,6 +6,9 @@ import { toast } from 'react-toastify';
 const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    window.location.href = '/admin/dashboard';
+
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
